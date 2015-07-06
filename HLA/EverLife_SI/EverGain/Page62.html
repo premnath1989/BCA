@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/hla.js"></script>
+  <script>
+  function onBodyLoad(){
+  }
+  
+    function replaceChar(char){
+        var temp, returnVal;
+        if (char == "0")
+            returnVal = "-"
+        else if (char == "")
+            returnVal = "-"
+        else
+            returnVal = char;
+        return returnVal;
+    }
+    
+    function isIncomeRider(amt,rider){
+		//rider.replace(/^\s+|\s$/g,"")
+		//$.trim(rider)
+		var temp;
+		temp = $.trim(rider)
+		//alert(temp + "x")
+        if (temp == "HLA Income Builder" || temp == "Income 20 Rider" || temp == "Income 30 Rider" || temp == "Income 40 Rider" || temp == "Income D-20 Rider" || temp == "Income D-30 Rider" || temp == "Income D-40 Rider" || temp == "Income E-20 Rider" || temp == "Income E-30 Rider"){
+        	return amt + " *";
+        }
+        else
+        	return amt + "&nbsp;&nbsp;";
+    }
+    
+  </script>
+  <head>
+  <body onload="onBodyLoad()">
+  
+<div id="header">
+	<div class="agentInfo">
+  		Prepared By : <span id="agentName" class="agentName">{agentName}</span>
+  		<br/>Code : <span id="agentCode" class="agentCode">{agentCode}</span>
+  	</div>
+  	<div class="ContentInfo">Printed On : <span id="dateModified" class="dateModified">{DateModified}</span></div>
+  	<div class="hruleInfo"></div>
+</div>
+<div class="main-content">
+<!--520px-->
+
+
+
+<div style="width:100%;height:793px;background-color: #fff;margin-top:-38px;">
+
+
+
+<table border=0 width="100%">
+<tr>
+<td width="30%" valign="top">Basic Plan <i>Pelan Asas</i>: <span id="planName" class="planName">{PlanName}</span></td>
+<td width="40%" valign="top"><span id="paymentDesc" class="paymentDesc">{PaymentDescription}</span></td>
+<td width="30%" valign="top">&nbsp;&nbsp;Life Assured <i>Hayat&nbsp;&nbsp;Diinsuranskan:</i> <span id="LAName1" class="LAName1">{LAName}</span></td>
+</tr>
+</table>
+
+
+
+<br/>
+    <i>
+<b>Notis Penting kepada Bakal Pemilik Polisi</b><br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sebelum membeli sebarang produk Insurans Perubatan dan Kesihatan (IPK), anda dinasihatkan untuk mendapatkan penerangan berikut daripada pihak syarikat atau perantaranya:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ciri-ciri asas dan penting IPK secara umumnya; dan<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ciri-ciri asas dan penting produk IPK yang anda ingin beli.<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Objektif latihan ini adalah untuk memastikan bahawa anda memahami ciri-ciri asas dan penting produk IPK supaya anda dapat membuat keputusan yang berpengetahuan sebelum membeli produk ini.<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Anda harus memastikan bahawa maklumat penting berkenaan polisi didedahkan kepada anda dan anda memahami maklumat yang didedahkan. Sekiranya terdapat keraguan, sila dapatkan penerangan/penjelasan<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;daripada pihak syarikat atau perantaranya.<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sebelum membuat sebarang keputusan untuk membeli sebarang polisi IPK, anda harus memastikan polisi polisi ini akan memenuhi keperluan anda dan anda mampu membayar premium di bawah polisi ini.<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Anda dinasihatkan untuk merujuk kepada contoh kontrak polisi untuk butir-butir penting pelan yang anda ingin beli.<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Untuk mengetahui lebih lanjut mengenai asas-asas IPK, sila rujuk kepada risalah pendidikan pengguna "Pengenalan kepada Produk Insurans Perubatan dan Kesihatan" yang dikeluarkan oleh Bank Negara Malaysia<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yang boleh didapati di kebanyakan cawangan syarikat insurans. Anda juga boleh layari www.insuranceinfo.com.my untuk maklumat lanjut.<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sekiranya polisi ini telah dikeluarkan dan atas sebarang alasan dalam apa cara sekalipun anda memutuskan untuk tidak mengambil polisi ini, anda boleh memulangkan polisi kepada kami bagi pembatalan dengan syarat<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;permohonan bagi pembatalan sedemikian diserahkan oleh anda kepada kami dalam masa 15 hari dari tarikh penghantaran polisi. Anda berhak untuk mendapat pengembalian premium penuh setelah menolak apa-apa<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perbelanjaan perubatan yang mungkin ditanggung oleh kami semasa pengeluaran polisi.<br/>
+<br/><b>Senarai Semakan</b><br/>
+Senarai semakan ini adalah panduan kepada anda untuk mendapatkan penerangan mengenai ciri-ciri penting sesuatu pelan IPK supaya anda boleh membuat keputusan berpengetahuan sebelum membeli sesuatu polisi.<br/>
+Apabila terdapat keraguan atau di mana terdapat kekaburan, anda adalah dinasihatkan supaya mendapatkan penjelasan/penerangan lanjut dari syarikant insurans atau ejen anda.<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Buku risalah "Pengenalan kepada Produk Insurans Perubatan dan Kesihatan" yang dikeluarkan oleh Bank Negara Malaysia mengenai asas-asas IPK.<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dokumen polisi untuk maklumat penting yang terperinci berkenaan dengan polisi yang dibeli.<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tempat di mana butiran ciri-ciri penting boleh didapati.<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Faedah yang dibayar di bawah polisi ini.<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pengecualian perubatan atau teknikal yang penting atau sekatan.<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Had-had keatas faedah (contoh % kos yang dilindungi di bawah polisi, bayaran bersama, maksimum jumlah kos tuntutan dan pendeduksian)<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jumlah premium yang akan dibayar dan tempoh pembayaran.<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sifat dan setakat mana hak syarikat untuk menilai dan menyemak premium yang perlu dibayar dan notis yang akan diberikan oleh syarikat sekiranya terdapat sebarang penyemakan.<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kondisi pra-kewujudan, penyakit yang khusus dan tempoh kelayakan dan jangkamasa yang relevan, yang berkaitan.<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Untuk polisi pembaharuan tahunan, sama ada pembaharuan polisi adalah terjamin.<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Keadaan-keadaan berkemungkinan yang akan menyebabkan senario-senario berikut semasa pembaharuan polisi:<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sesuatu polisi yang diperbaharui dengan premium setara;<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sesuatu polisi yang diperbaharui dengan kadar premium yang dinaikkan; atau<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sesuatu polisi yang tidak diperbaharui.<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Implikasi kemungkinan akibat penukaran polisi dari satu syarikat insurans kepada yang lain atau pemindahan dari satu jenis pelan IPK kepada yang lain.<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Tempoh Pertimbangan Percuma" selama 15 hari diberi untuk mempertimbangkan kesesuaian pelan IPK yang anda baru beli. Jika anda memulangkan produk ini kepada syarikat insurans dalam tempoh ini, premium<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;penuh akan dikembalikan kepada pemunya polisi selepas menolak bayaran pemeriksaan perubatan.<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hak syarikat insurans untuk menolak liabiliti sekiranya anda gagal mendedahkan maklumat relevan yang akan menjejaskan keputusan syarikat insurans untuk menerima atau menolak risiko, dan ke atas premium serta<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;syarat yang akan dikenakan kepada anda.<br/><br/>
+</i>
+
+
+
+
+
+
+</div>
+
+
+<table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+<tr>
+<td width="75%" style="font-family:Arial;font-size:8px;font-weight:normal;padding: 5px 5px 5px 0px;">
+This sales illustration consists of <span class="totalPages">{totalPages}</span> pages and each page forms an integral part of the sales illustration. A prospective policy owner is advised to read and understand the<br/>
+information printed on each and every page. <i>Illustrasi Jualan ini mengandungi <span class="totalPages">{totalPages}</span> muka surat and setiap muka surat membentuk sebahagian daripada illustrasi jualan. Bakal<br/>
+pemunya polisi adalah dinasihatkan untuk membaca dan memahami maklumat yang tercetak pada setiap muka surat.</i><br/>
+<b><span id="rptVersion" class="rptVersion">{rptVersion}</span></b> <br/>
+Level 3, Tower B, PJ City Development, No. 15A Jalan 219, Seksyen 51A, 46100 Petaling Jaya, Selangor. Tel: 03-7650 1818 Fax: 03-7650 1991 Website: www.hla.com.my<br/>
+</td>
+<td width="10%" align="left" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:10px;font-weight:normal;">Page <span class="currentPage">22</span> of <span class="totalPages">56</span></td>
+<td width="15%" align="right" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:12px;font-weight:normal;">Ref: <span id=SICode class="SICode">{SINo}</span></td>
+</tr>
+</table>
+</div>
+</body>
+</html>

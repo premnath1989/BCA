@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="pds2HTML/css/css_PDS.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" charset="utf-8" src="pds2HTML/js/jquery-1.8.2.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="pds2HTML/js/js-HLA.js"></script>
+        <script>
+        </script>
+        <title>
+            PDS report
+        </title>
+    </head>
+    <body>
+            <div id="header" class="leftRightMargin">
+                <img src="pds2HTML/img/HLA.png"/>
+                </br>
+            </div>
+            <table id="table-LA">
+                <tr>
+                    <td class="table_LA_headerColA"><b>PRODUCT DISCLOSURE SHEET</b></td>
+                    <td class="table_LA_headerColB"><b>Hong Leong Assurance Berhad</b></td>
+                </tr>
+                <tr>
+                    <td valign="top" rowspan="2" class="table_LA_headerColARowA"><b>Read this Product Disclosure Sheet before you decide to take up the <font color='#FF0000'><i>HLA EverGain Plus</i></font>. Be sure to also read the general terms and conditions.</b></td>
+                    <td class="table_LA_headerColARowA"><b>HLA EverGain Plus</b></td>
+                    
+                </tr>
+                <tr>
+                    <td class="table_LA_headerColARowA"><b><span id="PrintDate2" class="PrintDate2">{PrintDate}</span></b>
+                    </td>
+                </tr>
+            </table>
+            <!--end of table-LA-->
+            <div>
+                <table class="leftRightMargin" cellspacing="3" border="0" style="width: 100%" id="tableOne">
+                </table>
+                <table class="leftRightMargin" cellspacing="3" border="0" style="width: 100%" id="tableTwo">
+                    <!--item 2-->
+                </table>
+                <!--end of item 2-->
+            </div>
+      <!--  <div id ="footer" class="footerClass" class="pageFooter">
+        </div>-->
+
+
+        
+    </body>
+    <script>
+        //alert("oh hi " + gdata.SI[0].UL_Temp_Pages.data.length);
+        loadProductIntro();
+        loadSectionTwo(document.getElementById('tableTwo'));
+        loadDeathBenefit(document.getElementById('tableTwo'));
+        loadTPD(document.getElementById('tableTwo'));
+        
+        loadPage1Data();
+        
+       // document.getElementById('footer').innerHTML = loadFooter();
+        // var asd = $('PDSTwoPage2.html').html(data);
+        //var aaa = $("tableTwo");
+        //    var asd =  $("#tableTwo").load("PDSTwoPage2.html");
+        
+      //  appendChildExt('PDSTwoPage2.html',document.getElementById('externalPages'));
+        
+        // $('#externalPages').load('PDSTwoPage2.html');
+        //loadJson();
+        //loadOAD();
+        //loadRPUO();
+        //loadGBU();
+        //loadMB();
+        //loadSectionTwoB(document.getElementById('tableTwo'));
+        </script>
+</html>

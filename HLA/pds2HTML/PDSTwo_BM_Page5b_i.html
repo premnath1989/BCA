@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <link href="pds2HTML/css/css_PDS.css" rel="stylesheet" type="text/css" />
+        <title>
+            C) FUND CHOOSEN
+        </title>
+        
+    </head>
+    <body>
+        <div id = "premiumPaid">
+            <table class="leftRightMargin" border="0">
+                <tr>
+                    <td class="numbering">
+                        3.
+                    </td>
+                    <td class= "bold">
+                        Berapakah premium yang perlu saya bayar?
+                    </td>
+                </tr>
+                <tr id="premiumPayTR">
+                    <td></td>
+                    <td id="premiumPay">
+                        <p>Jumlah  premium yang perlu anda bayar dan tempoh polisi mungkin berbeza mengikut keperluan penanggungjaminan syarikat insurans. Anggaran jumlah premium yang perlu anda bayar:
+                        </p>
+                        <script>
+                            document.getElementById("premiumPay").appendChild(loadPremiumPay());
+                            </script>
+                    </td>
+                </tr>
+                
+                <tr id="premiumPayEcarTR">
+                    <td></td>
+                    <td id="premiumPayEcar">
+                        <b>EverCash 60 Rider's Annual Premium Breakdown</b>
+                        <table style='width:50%;' class="normalTable">
+                            <tr>
+                                <td style='width: 40%;text-align:center;vertical-align: top;border: 1px solid;'>&nbsp;</td>
+                                <td style='width: 30%;text-align:center;vertical-align: top;border: 1px solid;'><b>Peratusan (%)</b></td>
+                                <td style='width: 30%;text-align:center;vertical-align: top;border: 1px solid;'><b>Amaun (RM)</b></td>
+                            </tr>
+                            <tr>
+                                <td style='width: 40%;text-align:center;vertical-align: top;border: 1px solid;'>Premium Anuiti*</td>
+                                <td style='width: 30%;text-align:center;vertical-align: top;border: 1px solid;'><span id='AnnuityPremPct' class='AnnuityPremPct'>{AnnuityPremPct}</span>%</td>
+                                <td style='width: 30%;text-align:center;vertical-align: top;border: 1px solid;'><span id='AnnuityAmount' class='AnnuityAmount'>{AnnuityAmount}</span></td>
+                            </tr> 
+                            <tr>
+                                <td style='width: 40%;text-align:center;vertical-align: top;border: 1px solid;'>Premium Bukan Anuiti</td>
+                                <td style='width: 30%;text-align:center;vertical-align: top;border: 1px solid;'><span id='NonAnnuityPremPct' class='NonAnnuityPremPct'>{NonAnnuityPremPct}</span>%</td>
+                                <td style='width: 30%;text-align:center;vertical-align: top;border: 1px solid;'><span id='NonAnnuityAmount' class='NonAnnuityAmount'>{NonAnnuityAmount}</span></td>
+                            </tr> 
+                        </table>
+                        * Hanya Premium Anuiti akan layak untuk mendapat pelepasan cukai sebanyak RM3,000 setiap tahun dan menurut peraturan cukai semasa, pelepasan cukai atas Premium Anuiti hanya akan berkesan sehingga tahun 2021.
+                    </td>
+                </tr>
+                
+               
+               <!-- 
+                <tr id="noteAfterPremDuration">
+                    <td></td>
+                    <td>
+                        <span>Nota:</br>Sekiranya  anda telah memilih untuk menukar pelan asas kepada Polisi Berbayar Terkurang, sila rujuk kepada bahagian depan Risalah Pendedahan Produk ini tentang Berbayar Terkurang untuk tempoh pembayaran premium pelan asas.
+                        </span>
+                        <p>Syarikat  insurans memperuntukkan suatu bahagian premium untuk membeli unit dalam dana berkaitan pelaburan yang anda pilih. Sebarang amaun yang tidak diperuntukkan  daripada premium anda akan digunakan untuk membayar kos pengagihan langsung dan perbelanjaan syarikat insurans. Anda dinasihatkan supaya merujuk kepada kadar peruntukan yang diberikan dalam Ilustrasi Jualan.
+                        </p>
+                    </td>
+                </tr>
+                -->
+            </table>
+        </div>
+        
+        <!-- end of How much premium do I have to pay?-->
+        
+    </body>
+    <!--
+    <script>
+        document.getElementById('fundChosenInner').appendChild(loadTableFundChosen());
+        </script>
+    -->
+    </body>
+
+</html>

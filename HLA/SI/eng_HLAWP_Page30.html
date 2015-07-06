@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <script>
+  function onBodyLoad(){
+  }
+  
+    function replaceChar(char){
+        var temp, returnVal;
+        if (char == "0")
+            returnVal = "-"
+        else if (char == "")
+            returnVal = "-"
+        else
+            returnVal = char;
+        return returnVal;
+    }
+    
+    function isIncomeRider(amt,rider){
+		//rider.replace(/^\s+|\s$/g,"")
+		//$.trim(rider)
+		var temp;
+		temp = $.trim(rider)
+		//alert(temp + "x")
+        if (temp == "HLA Income Builder" || temp == "Income 20 Rider" || temp == "Income 30 Rider" || temp == "Income 40 Rider" || temp == "Income D-20 Rider" || temp == "Income D-30 Rider" || temp == "Income D-40 Rider" || temp == "Income E-20 Rider" || temp == "Income E-30 Rider"){
+        	return amt + " *";
+        }
+        else
+        	return amt + "&nbsp;&nbsp;";
+    }
+    
+  </script>
+  <head>
+  <body onload="onBodyLoad()">
+  
+<div id="header">
+	<div class="agentInfo">
+  		Code : <span id="agentCode" class="agentCode">{agentCode}</span>&nbsp;&nbsp;Prepared By : <span id="agentName" class="agentName">{agentName}</span>
+  		
+  	</div>
+  	<div class="ContentInfo">Printed On : <span id="dateModified" class="dateModified">{DateModified}</span></div>
+  	<div class="hruleInfo"></div>
+</div>
+<div class="main-content">
+<!--520px-->
+
+<div style="width:100%;height:620px;background-color: #fff;margin-top:-38px">
+<table border=0 width="100%">
+<tr>
+<td width="20%" valign="top">Basic Plan : <span id="planName" class="planName">{PlanName}</span></td>
+<td width="50%" valign="top"><span id="paymentDesc" class="paymentDesc">{PaymentDescription}</span></td>
+<td width="30%" valign="top">&nbsp;&nbsp;Life Assured : <span id="LAName1" class="LAName1">{LAName}</span></td>
+</tr>
+</table>
+
+<table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+<tr>
+	<td colspan="3"><b>Description of Basic Plan Benefits</b></td>
+</tr>
+<tr>
+	<td colspan="3">
+	This is a participating endowment plan with a policy term of <span class="HLAWPBasicTerm"></span> years. The premium payment term for this plan is limited to <span class="PremiumPaymentOption"></span> years only.
+	</td>
+</tr>
+<tr><td colspan="3"></td></tr>
+<tr>
+	<td colspan="3"><u><b>Death/ Total and Permanent Disability (TPD) Benefit</b></u></td>
+</tr>
+<tr>
+	<td width="10" valign="top">(a)</td><td colspan="2">In the event of Death/TPD (prior to attaining age 65) of the Life Assured, the Death/TPD benefit equivalent to the sum of the following shall be payable:</td>
+</tr>
+<tr>
+	<td></td><td width="5" valign="top">(i)</td><td><span class="HLAWP_Page30"></span> of premium paid for Basic Policy (exclude any loading premium) calculated based on an annual mode of payment, </td>
+</tr>
+<tr>
+	<td></td><td valign="top">(ii)</td><td>Accumulated Cash Dividend (if any), and</td>
+</tr>
+<tr>
+	<td></td><td valign="top">(iii)</td><td>Special Terminal Dividend (if any).</td>
+</tr>
+<tr><td colspan="3"><br/></td></tr>
+<tr>
+	<td valign="top">(b)</td><td colspan="2">For basic policy issued on the life of an unborn child,</td>
+</tr>
+<tr>
+	<td></td><td valign="top">(i)</td><td>In the event of Death of the Life Assured from the commencement date up to thirty (30) days after birth, the amount payable shall be 100% of premium paid for this Basic Policy (exclude any loading premium) calculated based on an annual mode of payment.</td>
+</tr>
+<tr>
+	<td></td><td valign="top">(ii)</td><td>In the event of TPD of the Life Assured from birth until thirty (30) days after birth, the amount payable shall be 100% of premium paid for this Basic Policy (exclude any loading premium) calculated based on an annual mode of payment.</td>
+</tr>
+<tr>
+	<td></td><td valign="top">(iii)</td><td>The coverage of the Life Assured will follow the Death/ TPD benefits as shown in part (a) above from thirty one (31) days after birth onwards.</td>
+</tr>   
+<tr>
+	<td colspan="3">
+    	<br/>
+    	TPD Benefit will be paid in accordance to TPD provision as below:<br/>
+	    <table width="50%" style="border-collapse:collapse; margin-left: 20px" border="1" cellpadding="3" cellspacing="3">
+		<tr>
+		    <td width="50%" align="center"><b>Attained Age upon TPD</b></td>
+		    <td width="50%"><b>TPD Benefit Limit Per Life</b></td>
+		</tr>
+		<tr>
+		    <td>Less than 7</td>
+		    <td>RM 100,000</td>
+		</tr>
+		<tr>
+		    <td>7 to less than 15</td>
+		    <td>RM 500,000</td>
+		</tr>
+		<tr>
+		    <td>15 to less than 65</td>
+		    <td>RM 3,500,000</td>
+		</tr>
+	    </table>   
+		Total TPD Benefits per Life payable under all policies insuring the Life Assured shall not exceed the TPD Benefit Limit per Life stated above.<br/>
+		The Total TPD Benefit per Life refers to TPD coverage of all in force policies for each Life Assured at the point of claim event.<br/>
+	</td>
+</tr>
+<tr><td colspan="3"><br/></td></tr>
+<tr>
+	<td colspan="3"><u><b>Maturity Benefit</b></u></td>
+</tr>
+<tr>
+	<td colspan="3">The Basic Policy will mature upon survival of the Life Assured at the end of the policy term. A Guaranteed Maturity Benefit equivalent to <span class="HLAWP_Page30"></span> of premium paid for Basic Policy (exclude any loading premium) calculated based on an annual mode of payment shall be payable in addition to the following:</td>
+</tr>
+<tr>
+	<td valign="top">(i)</td><td colspan="2">Accumulated Cash Dividend (if any), and</td>
+</tr>
+<tr>
+	<td valign="top">(ii)</td><td colspan="2">Terminal Dividend (if any).</td>
+</tr>
+</table>
+</div>
+
+<table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+<tr>
+<td width="77%" style="padding: 5px 5px 5px 0px;">
+This sales illustration consists of <span class="totalPages">{totalPages}</span> pages and each page forms an integral part of the sales illustration. A prospective policy owner is advised to read and understand the
+information printed on each and every page. <br/>
+<b><span id="rptVersion" class="rptVersion">{rptVersion}</span></b> <br/>
+Level 3, Tower B, PJ City Development, No. 15A Jalan 219, Seksyen 51A, 46100 Petaling Jaya, Selangor. Tel: 03-7650 1818 Fax: 03-7650 1991 Website: www.hla.com.my<br/>
+</td>
+<td width="8%" align="left" valign="bottom" style="padding: 0px 0px 0px 0px;">Page <span class="currentPage">22</span> of <span class="totalPages">56</span></td>
+</tr>
+</table>
+</div>
+</body>
+</html>

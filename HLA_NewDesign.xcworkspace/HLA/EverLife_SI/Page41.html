@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/hla.js"></script>
+  <script>
+  function onBodyLoad(){
+  }
+  
+    function replaceChar(char){
+        var temp, returnVal;
+        if (char == "0")
+            returnVal = "-"
+        else if (char == "")
+            returnVal = "-"
+        else
+            returnVal = char;
+        return returnVal;
+    }
+    
+    function isIncomeRider(amt,rider){
+		//rider.replace(/^\s+|\s$/g,"")
+		//$.trim(rider)
+		var temp;
+		temp = $.trim(rider)
+		//alert(temp + "x")
+        if (temp == "HLA Income Builder" || temp == "Income 20 Rider" || temp == "Income 30 Rider" || temp == "Income 40 Rider" || temp == "Income D-20 Rider" || temp == "Income D-30 Rider" || temp == "Income D-40 Rider" || temp == "Income E-20 Rider" || temp == "Income E-30 Rider"){
+        	return amt + " *";
+        }
+        else
+        	return amt + "&nbsp;&nbsp;";
+    }
+    
+  </script>
+  <head>
+  <body onload="onBodyLoad()">
+  
+<div id="header">
+	<div class="agentInfo">
+  		Prepared By : <span id="agentName" class="agentName">{agentName}</span>
+  		<br/>Code : <span id="agentCode" class="agentCode">{agentCode}</span>
+  	</div>
+  	<div class="ContentInfo">Printed On : <span id="dateModified" class="dateModified">{DateModified}</span></div>
+  	<div class="hruleInfo"></div>
+</div>
+<div class="main-content">
+<!--520px-->
+
+
+
+<div style="width:100%;height:780px;background-color: #fff;margin-top:-38px;">
+  <br/>
+NOTE:<br/><br/>
+- The information set out below forms part of your Sales Illustration.<br/>
+- HLA believes it is important that you fully appreciate all the benefits under your policy, and that you also understand how the insurance charge, cost of distribution, administration, investment and other costs affect these benefits.<br/>
+- You should satisfy yourself that the plan serves your needs and that you can afford the premium. If you need clarification, please contact your agent or our Customer Service at 03-7650 1288.<br/>
+- Buying a regular premium life policy is a long-term commitment. It is not advisable to hold this policy for a short period of time in view of the high initial costs.<br/>
+- The information set out below explains the individual items in the sales/marketing illustration table.<br/><br/>
+
+<b>Total Premium Paid Per Policy Year</b><br/>
+This is the amount that you (the Policy Owner) pay for this policy. However, not all of the amount paid will be invested into the investment fund(s) you selected. Please read the explanation on Unallocated and Allocated Premium below.<br/><br/>
+
+<b>Cumulative Premium</b><br/>
+This is the cumulative amount that you (the Policy Owner) pay annually for this policy.<br/><br/>
+
+<b>Unallocated Premium</b><br/>
+The unallocated premium is an upfront charge on the premium paid and is used to meet insurer’s expenses and direct distribution cost, including the commission payable to the agency/broker/financial adviser.<br/>
+The agent/broker/financial adviser may also be entitled to production and persistency bonus during the first three years of the policy provided that the agent/broker/financial adviser meets the qualifying criteria set by the insurer.<br/><br/>
+
+<b>Allocated Premium</b><br/>
+This is the amount that will be used to purchase units in the investment fund(s) which you have selected.<br/>
+The allocation rates for this investment-linked policy are as follows (as a % of premiums).<br/>
+
+<table id="table-design1" style="width: 70%">
+  <tr>
+    <td colspan="3">Policy Year</td>
+    <td style="text-align: center">1</td>
+    <td style="text-align: center">2</td>
+    <td style="text-align: center">3</td>
+    <td style="text-align: center">4</td>
+    <td style="text-align: center">5</td>
+    <td style="text-align: center">6</td>
+    <td style="text-align: center">7 Onwards</td>
+  </tr>
+  <tr>
+    <td colspan="3">Basic Unit Account Premiums Paid (RM)</td>
+    <td style="text-align: center">1,000</td>
+    <td style="text-align: center">1,000</td>
+    <td style="text-align: center">1,000</td>
+    <td style="text-align: center">1,000</td>
+    <td style="text-align: center">1,000</td>
+    <td style="text-align: center">1,000</td>
+    <td style="text-align: center">1,000</td>
+  </tr>
+  <tr>
+    <td >Basic Unit Account</td>
+    <td>Coverage Term</td>
+    <td colspan="8">Allocated Premium</td>
+  </tr>
+  <tr>
+    <td rowspan="2">HLA EverLife Plus</td>
+    <td rowspan="2"><span id="Page41Term" class="Page41Term">{Page41Term}</span><br/><br/></td>
+    <td style="text-align: center">%</td>
+    <td style="text-align: center">45.00</td>
+    <td style="text-align: center">50.00</td>
+    <td style="text-align: center">76.00</td>
+    <td style="text-align: center">76.00</td>
+    <td style="text-align: center">90.00</td>
+    <td style="text-align: center">90.00</td>
+    <td style="text-align: center">100.00</td>
+  </tr>
+  <tr>
+    <td style="text-align: center">RM</td>
+    <td style="text-align: center">450</td>
+    <td style="text-align: center">500</td>
+    <td style="text-align: center">760</td>
+    <td style="text-align: center">760</td>
+    <td style="text-align: center">900</td>
+    <td style="text-align: center">900</td>
+    <td style="text-align: center">1000</td>
+  </tr>
+</table>
+<div id='hidePage41'>
+<br/>
+<b>Guaranteed Additional Allocation</b><br/>
+Additional premium allocation will be given to policy during the first 2 years with Basic Annualised Premium of RM12,000 and above. The scale is as follows:<br/><br/>
+<table id="table-design1" style="width: 50%">
+  <tr>
+    <td style="text-align: center">Basic Annualised Premium (RM)</td>
+    <td style="text-align: center">Guaranteed Additional Allocation (% of Premium)</td>
+  </tr>
+  <tr>
+    <td style="text-align: center">780 -11,999</td>
+    <td style="text-align: center">0%</td>
+  </tr>
+  <tr>
+    <td style="text-align: center">12,000 -23,999</td>
+    <td style="text-align: center">2%</td>
+  </tr>
+  <tr>
+    <td style="text-align: center">>=24,000</td>
+    <td style="text-align: center">4%</td>
+  </tr>
+</table>
+</div>
+
+</div>
+
+
+<table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+<tr>
+<td width="75%" style="font-family:Arial;font-size:8px;font-weight:normal;padding: 5px 5px 5px 0px;">
+This sales illustration consists of <span class="totalPages">{totalPages}</span> pages and each page forms an integral part of the sales illustration. A prospective policy owner is advised to read and understand the<br/>
+information printed on each and every page. <i>Illustrasi Jualan ini mengandungi <span class="totalPages">{totalPages}</span> muka surat and setiap muka surat membentuk sebahagian daripada illustrasi jualan. Bakal<br/>
+pemunya polisi adalah dinasihatkan untuk membaca dan memahami maklumat yang tercetak pada setiap muka surat.</i><br/>
+<b><span id="rptVersion" class="rptVersion">{rptVersion}</span></b> <br/>
+Level 3, Tower B, PJ City Development, No. 15A Jalan 219, Seksyen 51A, 46100 Petaling Jaya, Selangor. Tel: 03-7650 1818 Fax: 03-7650 1991 Website: www.hla.com.my<br/>
+</td>
+<td width="10%" align="left" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:10px;font-weight:normal;">Page <span class="currentPage">22</span> of <span class="totalPages">56</span></td>
+<td width="15%" align="right" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:12px;font-weight:normal;">Ref: <span id=SICode class="SICode">{SINo}</span></td>
+</tr>
+</table>
+</div>
+</body>
+</html>

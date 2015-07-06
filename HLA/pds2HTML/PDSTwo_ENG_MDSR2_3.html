@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/hla.js"></script>
+  <script>
+  var gData;
+  function onBodyLoad(){
+  		//writeSummary1();
+  }
+  
+    function replaceChar(char){
+        var temp, returnVal;
+        if (char == "0")
+            returnVal = "-"
+        else if (char == "")
+            returnVal = "-"
+        else
+            returnVal = char;
+        return returnVal;
+    }
+    
+    function isIncomeRider(amt,rider){
+		//rider.replace(/^\s+|\s$/g,"")
+		//$.trim(rider)
+		var temp;
+		temp = $.trim(rider)
+		//alert(temp + "x")
+        if (temp == "HLA Income Builder" || temp == "Income 20 Rider" || temp == "Income 30 Rider" || temp == "Income 40 Rider" || temp == "Income D-20 Rider" || temp == "Income D-30 Rider" || temp == "Income D-40 Rider" || temp == "Income E-20 Rider" || temp == "Income E-30 Rider"){
+        	return amt + " *";
+        }
+        else
+        	return amt + "&nbsp;&nbsp;";
+    }
+    
+  </script>
+  <head>
+  <body onload="onBodyLoad()">
+  
+
+<div class="main-content">
+<!--520px-->
+
+
+
+<div class="contentArea">
+
+
+
+<table cellspacing="5">
+	
+	  <tr>
+	      <td></td>
+	      <td valign="top">
+		<div id="MDSR2_OT" style="display: none">
+		   - <u><b>Overseas Treatment for selected surgery</u></b><br/>
+		  With this benefit, Life Assured will have the option to receive Overseas Treatment for selected surgeries in Singapore, Hong Kong or China.<br/>
+		  The surgeries covered are as follows:<br/>
+		  - Surgery related to Cancer<br/>
+		  - Neurosurgery<br/>
+		  - Coronary Artery By-pass surgery<br/>
+		  - Heart Valve surgery<br/>
+		  - Organ transplant (Kidney, lung, liver, heart, pancreas and bone marrow)<br/><br/>
+		  
+		  Coverage includes both Hospital & Surgical Benefits and Outpatient Treatment Benefit as shown in the Schedule of Benefit but restricted to Annual Limit of RM 250,000 and Aggregate Term limit of RM2.5 mil. If 
+		  Life Assured opt to receive treatment in Malaysia for a covered surgery,  an allowance of RM8,000 per Any One Disability would be payable to the Life Assured.
+		 
+		</div>
+		 
+		  
+	      </td>
+	  </tr>
+	
+	<tr>
+	    <td valign="top"><b>3.</b></td>
+	    <td>
+		<b>How much premium do I have to pay?</b><br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The total premium you have to pay and the policy term may vary depending on the underwriting requirements of the insurance company.<br/>
+	         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The estimated total premium that you have to pay:
+	    </td>
+	</tr>
+	<tr>
+	    <td></td>
+	    <td>
+		<table id="tableMDSR2-2" style="border-collapse: collapse" border="1" width="70%">
+		  <!--
+		    <tr>
+			<td rowspan="2" style="padding:2px 2px 2px 2px;">Rider</td>
+			<td style="padding:2px 2px 2px 2px;" align="center">Insured Lives</td>
+			<td style="padding:2px 2px 2px 2px;" align="center" colspan="3"> Premium - Annually (RM)</td>
+		    </tr>
+		    <tr>
+			
+		    </tr>
+		    <tr>
+			<td valign="top" height="10px" style="padding:2px 2px 2px 2px;">MediShield Rider (1st Rider)</td>
+			<td align="center">Life Assured</td>
+			<td align="center"><span id="HMMTotalPrem" class="HMMTotalPrem">{HMMTotalPrem}</span></td>
+			<td align="center"><span id="HMMTotalPrem" class="HMMTotalPrem">{HMMTotalPrem}</span></td>
+			<td align="center"><span id="HMMTotalPrem" class="HMMTotalPrem">{HMMTotalPrem}</span></td>
+		    </tr>
+		  -->
+		    <thead>
+		      <tr>
+			<td rowspan="2" style="padding:2px 2px 2px 2px;width: 20%">Rider</td>
+			<td rowspan="2" style="padding:2px 2px 2px 2px;width: 10%" align="center">Insured Lives</td>
+			<td style="padding:2px 2px 2px 2px;width: 70%" align="center" colspan="3"> Premium - Annually (RM)</td>
+		      </tr>
+		      
+		    </thead>
+		    <tbody></tbody>
+		    <tfoot></tfoot>
+		</table>    
+	    </td>
+	    
+	</tr>
+	
+	<tr>
+	    <td></td>
+	    <td>-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Premium duration:</td>
+	</tr>
+	<tr>
+	    <td></td>
+	    <td>
+		<table id="tableMDSR2-3" style="border-collapse: collapse" border="1" width="60%">
+		    <tr>
+			<td style="padding:2px 2px 2px 2px;">Rider</td>
+			<td style="padding:2px 2px 2px 2px;" align="center">Insured Lives</td>
+			<td style="padding:2px 2px 2px 2px;" align="center">Premium payable until age</td>
+		    </tr>
+		    <tr>
+			<td height="10px" style="padding:2px 2px 2px 2px;"><span class="tableMDSR2-3-List">{tableMDSR2-3-List}</span></td>
+			<td style="padding:2px 2px 2px 2px; text-align: center">Life Assured</td>
+			<td align="center" style="padding:2px 2px 2px 2px;"><span id="MDSR2PayableAge" class="MDSR2PayableAge">{MDSR2PayableAge}</span></td>
+		    </tr>
+		</table>    
+	    </td>
+	</tr>
+    
+	<tr>
+	    <td width="10" valign="top"><b>4.</b></td>
+	    <td valign="top"><b>What are the fees and charges I have to pay?</b></td>
+	</tr>
+	
+	
+	<tr>
+	    <td width="10" valign="top"></td>
+	    <td valign="top">
+			  The insurance coverage charges are deducted monthly from the value of your units. Generally, the insurance charges will increase as you grow older. Details of insurance charges and other charges for 
+			    the unit linked policy are given in the sales illustration. Commission payable is as follow:
+		<table id="table-1" border="1" style="border-collapse: collapse" width="80%">
+		    <tr>
+			<td width="30%" style="padding:3px 3px 3px 3px;">Type</td>
+			<td style="padding:3px 3px 3px 3px;">Amount</td>
+		    </tr>
+		    <tr>
+			<td style="padding:3px 3px 3px 3px;">Direct Distribution Cost paid to insurance agents<br/>(for HLA MediShield Rider and Optional Benefits only)</td>
+			<td></td>
+		    </tr>
+		    <tr>
+			<td style="padding:3px 3px 3px 3px;">Year 1</td>
+			<td style="padding:3px 3px 3px 3px;"><span id="MDSR2Year1" class="MDSR2Year1">{MDSR2Year1}</span></td>
+		    </tr>
+		    <tr>
+			<td style="padding:3px 3px 3px 3px;">Year 2</td>
+			<td style="padding:3px 3px 3px 3px;"><span id="MDSR2Year2" class="MDSR2Year2">{MDSR2Year2}</span></td>
+		    </tr>
+		    <tr>
+			<td style="padding:3px 3px 3px 3px;">Year 3</td>
+			<td style="padding:3px 3px 3px 3px;"><span id="MDSR2Year3" class="MDSR2Year3">{MDSR2Year3}</span></td>
+		    </tr>
+		    <tr>
+			<td style="padding:3px 3px 3px 3px;">Year 4</td>
+			<td style="padding:3px 3px 3px 3px;"><span id="MDSR2Year4" class="MDSR2Year4">{MDSR2Year4}</span></td>
+		    </tr>
+		    <tr>
+			<td style="padding:3px 3px 3px 3px;">Year 5</td>
+			<td style="padding:3px 3px 3px 3px;"><span id="MDSR2Year5" class="MDSR2Year5">{MDSR2Year5}</span></td>
+		    </tr>
+		    <tr>
+			<td style="padding:3px 3px 3px 3px;">Year 6</td>
+			<td style="padding:3px 3px 3px 3px;"><span id="MDSR2Year6" class="MDSR2Year6">{MDSR2Year6}</span></td>
+		    </tr>
+		    <tr>
+			<td style="padding:3px 3px 3px 3px;">Thereafter</td>
+			<td style="padding:3px 3px 3px 3px;"><span id="MDSR2Year7" class="MDSR2Year7">{MDSR2Year7}</span></td>
+		    </tr>
+		    
+		</table>
+	    </td>
+	</tr>
+	<tr>
+	    <td width="10" valign="top"><b>5.</b></td>
+	    <td valign="top"><b>What are some of the key terms and conditions that I should be aware of?</b></td>
+	</tr>
+	<tr>
+	    <td width="10" valign="top"></td>
+	    <td valign="top">
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Importance of disclosure - you must disclose all material facts such as medical condition, and state your age correctly.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Free-look period - you may cancel your policy by returning the policy within 15 days after you have received the policy. The premiums that you have paid (less any medical fee incurred) will be refunded to you.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Qualifying / waiting period - the eligibility for benefits under the policy will only start 90 days after the effective date of the policy.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unless renewed, the coverage will cease on expiry date and the insurance company shall strictly not be liable for any expenses that take place after the expiry date.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deductible - you will have to pay the deductible amount of the total costs incurred<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>All applications are subject to underwriting approval.</b><br/><br/>
+		
+		<i>Note: This list is non-exhaustive. Please refer to the policy contract for the terms and conditions under this policy.</i>
+	    </td>
+	</tr>
+	
+
+<!--	
+	<tr>
+	    <td width="10" valign="top"><b>7.</b></td>
+	    <td valign="top"><b>Can I cancel my policy?</b><br/>
+		You may cancel the rider by giving a written notice to Hong Leong Assurance Berhad. After the free look period the cash surrender value
+		(if any) of your rider will be paid to you when you cancel the rider provided<br/>that no claim has been admitted prior to cancellation,
+		however the amount payable may be less than the total premiums you had paid.
+	    </td>
+	</tr>
+	<tr>
+	    <td valign="top"><b>8.</b></td>
+	    <td valign="top">
+		<b>What do I need to do if there are changes to my contact details?</b><br/>
+		It is important that you inform us of any change in your contact details (including that of the nominee and/or trustee) to ensure that
+		all correspondences reach you and/or nominee/trustee in a timely manner.
+	    </td>
+	</tr>
+	<tr>
+	    <td valign="top"><b>9.</b></td>
+	    <td valign="top">
+		<b>Where can I get further information?</b><br/>
+		Should you require additional information about medical & health insurance, please refer to the insurance info booklet on 'Medical & Health Insurance',
+		available at all our branches or you can obtain a copy from the insurance agent or visit www.insuranceinfo.com.my.
+	    </td>
+	</tr>
+	-->
+	
+    </table>
+
+
+
+
+</div>
+
+</div>
+</body>
+</html>

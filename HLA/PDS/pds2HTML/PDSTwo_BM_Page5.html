@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <link href="PDS/pds2HTML/css/css_PDS.css" rel="stylesheet" type="text/css" />
+        <title>
+            C) FUND CHOOSEN
+        </title>
+    </head>
+    <body>
+        <div class="pageContent"></br>
+            <div id = "2C" class="leftRightMargin">
+                <!--fund chosen section-->
+                <span class="boldUnderline">C) Dana yang Dipilih</span>
+                <div id = "fundChosenInner" style="width:100%"></div>
+                
+                <span><b>Peringatan: </b> Sila baca ilustrasi jualan, yang mengandungi  faedah-faedah  produk dan objektif-objektif  dana berkaitan pelaburan. Anda mestilah memilih pelan atau gabungan dana yang sesuai dengan matlamat kewangan dan profil risiko anda. </span>
+            </div>
+            <!--end of fund chosen section-->
+            <div id="2D"class="leftRightMargin">
+                <!--D) Minimum Guaranteed Unit Price at Fund Maturity (only applicable to HLA EverGreen Funds)-->
+                <p class="boldUnderline">D) Harga Unit Terjamin Minimum pada Kematangan Dana (hanya berkenaan kepada HLA EverGreen Fund)</p>
+                <p>Pada  setiap titik masa pelaburan, harga unit akan didarabkan dengan satu Faktor Gandaan. Harga unit berganda ini adalah harga unit yang dijamin pada kematangan dana. Harga unit pada kematangan dana ini merupakan amaun minimum terjamin yang akan diterima oleh Pemunya Polisi.
+
+                </br>Setiap kali harga unit berganda mencapai nilai lebih tinggi yang terbaru, Harga Unit Terjamin Minimum pada Kematangan Dana akan dibaharui kepada harga unit yang lebih tinggi ini.
+
+                </p>
+                <p>Harga  Unit Terjamin Minimum pada Kematangan Dana sebelum cukai akan dikenakan sejumlah cukai yang masih belum dibayarkan. Pelarasan cukai lanjutan tersebut merupakan perbezaan antara cukai yang perlu dibayar ke atas perolehan modal bagi dana-dana yang ditentukan pada kematangan dana-dana dengan cukai yang telah dibayar bagi dana-dana melalui penentuan harga unit mingguan. Harga unit yang diterbitkan setiap minggu adalah berasaskan dasar selepas penolakan cukai.
+                </p>
+            </div>
+            <!--end of 2D-->
+            <div id = "premiumPaid">
+                <table class="leftRightMargin" border="0">
+                    <tr>
+                        <td class="numbering">
+                            3.
+                        </td>
+                        <td class= "bold">
+                            Berapakah premium yang perlu saya bayar?
+                        </td>
+                    </tr>
+                    <tr id="premiumPayTR">
+                        <td></td>
+                        <td id="premiumPay">
+                            <p>Jumlah  premium yang perlu anda bayar dan tempoh polisi mungkin berbeza mengikut keperluan penanggungjaminan syarikat insurans. Anggaran jumlah premium yang perlu anda bayar:
+                            </p>
+                            <script>
+                                document.getElementById("premiumPay").appendChild(loadPremiumPay());
+                                </script>
+                        </td>
+                    </tr>
+                    <tr id="premiumDurationTR">
+                        <td></td>
+                        <td id="premiumDuration">
+                            <span>Tempoh  premium:</span>
+                            <script>
+                                document.getElementById("premiumDuration").appendChild(loadPremiumDuration());
+                                </script>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!-- end of How much premium do I have to pay?-->
+        </div>
+    </body>
+    <script>
+        document.getElementById('fundChosenInner').appendChild(loadTableFundChosen());
+        </script>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link href="SI/css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="SI/js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="SI/js/hla.js"></script>
+  <script type="text/javascript" charset="utf-8" src="SI/js/s100.js"></script>
+  <script>
+  	
+	function loadJson()	{
+		setPage();
+		writeGST();		
+		addPlanDesc();
+		setRiderText();
+		loadBenefitPage();
+		writeSummary();
+		writeRiderPage1_HLCP();
+		writeRiderPage2_HLCP();
+		writeRiderPage3_HLCP();
+		writeRiderPage4_HLCP();
+		writeRiderPage5_HLCP();
+		writeRiderPage6_HLCP();
+		writeRiderPage7_HLCP();
+		writeRiderPage8_HLCP();	
+		writeRiderDescription_EN();
+		writeRiderDescription2_EN();
+		writeFootnote_S100();
+		writePremPayment();
+		initializePage();
+		loadDataToTable();	
+	}
+  </script>
+  </head>
+<body onload="onBodyLoad()">
+<div id="gstPage"></div>
+	<div id="header">
+    	<img src="SI/img/HLA.png"/>
+		<div class="welcome">
+			Code : <span id="agentCode" class="agentCode">{agentCode}</span>&nbsp;&nbsp;Prepared By : <span id="agentName" class="agentName">{agentName}</span>		  
+  		</div>
+		<div class="Content">Printed On : <span id="dateModified" class="dateModified">{DateModified}</span></div>
+		<div class="hrule"></div>
+	</div>
+  	<div class="main-content">
+    	<b><div align="center" style="padding: 0px 0px 0px 0px" class="planName">{planName}</div></b>
+      	<div align="center" style="padding: 0px 0px 3px 0px;" class="planDesc">{planDesc}</div>
+      	<div align="center" style="padding: 0px 0px 3px 0px;" >Non-Participating Whole Life Plan with <span class="planDetailText">{planDetailText}</span></div>
+      	<br/>
+      	<table id="table-LA" style="border: 1px solid black;"> 
+			<tr>
+				<td style="text-align:left;padding: 0px 2px 0px 2px;border: 1px solid black; width: 21%;"><b>Insured Live</b></td>
+				<td style="text-align:left;padding: 0px 2px 0px 2px;border: 1px solid black; width: 53%;"><b>Name</b></td>
+				<td style="text-align:right;padding: 0px 2px 0px 2px;border: 1px solid black; width: 10%;"><b>Age (Last Birthday)</b></td>
+				<td style="text-align:right;padding: 0px 2px 0px 2px;border: 1px solid black; width: 8%;"><b>Gender</b></td>
+				<td style="text-align:right;padding: 0px 2px 0px 2px;border: 1px solid black; width: 8%;"><b>Smoker</b></td>
+	  		</tr>
+			<tr>
+				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black;" id="LADesc" class="LADesc">{LADesc}</td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black;" id="LAName" class="LAName">{LANAME}</td>
+				<td style="text-align:right;padding: 0px 0px 0px 0px;border: 1px solid black;" id="LAAge" class="LAAge">{LAAge}</td>
+				<td style="text-align:right;padding: 0px 0px 0px 0px;border: 1px solid black;" id="LASex" class="LASex">{LASex}</td>
+				<td style="text-align:right;padding: 0px 0px 0px 0px;border: 1px solid black;" id="LASmoker" class="LASmoker">{LASmoker}</td>
+			</tr>
+		</table>
+      	<!--520,430px-->    
+      	<div style="width:100%;height:380px;background-color: #fff;vertical-align: top;">
+			<table id="table-data" class="table-main" style="width:100%">
+	  			<thead>
+	  				<tr>	    
+						<th colspan="6">&nbsp;</th>
+						<th colspan="4" id="dynamic" class="dynamic" style="text-align:left;padding-left:60px;"><b><u>Initial Premium(RM)</u></b></th>
+						<th colspan="2">&nbsp;</th>
+					</tr> 
+				  	<tr>
+						<th class="contentLeft">Basic Plan/Rider</th>
+						<th class="contentSmallLeft" style="width:90px" >Plan Choice</th>
+						<th class="contentSmallLeft" style="width:90px" >Units</th>
+						<th class="contentSmallLeft" style="width:90px" >Initial Sum Assured/<br/>Benefit Amount</th>
+					  	<th class="contentSmallRight" style="width:90px" >Coverage Period<br/>(Yrs)</th>
+					  	<th class="contentSmallRight" style="width:90px" >Payment Period<br/>(Yrs)</th>
+					  	<th class="contentSmallRight" style="width:90px" >Annually</th>
+					  	<th class="contentSmallRight" style="width:70px" >Semi-Annually</th>
+					  	<th class="contentSmallRight" style="width:70px" >Quarterly</th>
+					  	<th class="contentSmallRight" style="width:70px" >Monthly</th>
+					  	<th class="contentSmallRight" style="width:90px" id="hLoading" class="hLoading">HLoading<br/>(per 1k SA)</th>
+					  	<th class="contentSmallRight" style="width:90px" id="occLoading" class="occLoading">OccLoading<br/>(per 1k SA)</th>
+					</tr> 
+				</thead>
+				<tbody></tbody>
+				<tfoot></tfoot>
+			</table>
+			<div id="Page1withRiders" style="padding: 0px 0px 0px 0px;">
+				All riders listed above are optional and not compulsory to be sold with the basic plan.<br/>
+			</div>
+			<div id="Page1SubjectTo" style="padding: 0px 0px 0px 0px;">
+				The projected insurance coverage detailed above is merely for illustrative purposes and not meant to confirm actual insurance coverage. Actual insurance coverage is subject to Hong Leong Assurance's prior approval, policies, terms and conditions. <b>All applications are subject to underwriting approval</b>.<br/><br/>
+			</div>
+			<div id="Page1Figures" style="width:40%;background-color:#ddd; border: 1px solid black;padding: 2px 2px 2px 2px">Figures shown in the Sales Illustration have not taken GST into account. </div>
+		</div>
+		<table style="border-collapse:separate;border:1px solid black;width:100%;">
+			<tr>
+				<td width="95%" align="left">
+					<span style="text-align:center;width:500px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  <b>HONG LEONG ASSURANCE BERHAD</b></span><br/>
+	  Hong Leong Assurance Berhad is a member of Perbadanan Insurans Deposit Malaysia (PIDM). As a member of PIDM, some of the benefits insured under the takaful certificates or insurance policies offered by Hong Leong Assurance Berhad are protected against loss of part or all of takaful or insurance benefits by PIDM, in the unlikely event of an insurer member failure. For further details of the protection limits and the scope of coverage, please obtain a PIDM information brochure from Hong Leong Assurance Berhad or visit PIDM website (www.pidm.gov.my) or call PIDM toll free line (1-800-88-1266).<br/>
+	  			</td>
+	  			<td width="5%" style="text-align:center"><img src="SI/img/PIDM.png"/></td>
+	  		</tr>
+	  	</table>
+	  	<table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+	  		<tr>
+	  			<td width="75%" style="padding: 0px 0px 0px 0px;">
+	  				This sales illustration consists of <span class="totalPages">{totalPages}</span> pages and each page forms an integral part of the sales illustration. A prospective policy owner is advised to read and understand the information printed on each and every page.<br/>
+	  				<b><span id="rptVersion" class="rptVersion">{rptVersion}</span></b> <br/>
+	  				Level 3, Tower B, PJ City Development, No. 15A Jalan 219, Seksyen 51A, 46100 Petaling Jaya, Selangor. Tel: 03-7650 1818 Fax: 03-7650 1991 Website: www.hla.com.my<br/>
+	  			</td>
+	  			<td width="9%" align="left" valign="bottom" style="padding: 0px 0px 0px 0px;">Page <span class="currentPage">1</span> of <span class="totalPages">56</span></td>
+	  			<td width="16%" align="right" valign="bottom" style="padding: 0px 0px 0px 0px;"></br>
+	  				<img src="SI/img/barcode.png" style="vertical-align:text-top;padding: 0px 0px 0px 0px;" height="70%" width="100%"/></br>Ref: <span id=SICode class="SICode">{SINo}</span>
+	  			</td>
+	  		</tr>
+	  	</table>
+	  	<div id="externalPages"></div>
+	</div>
+</body>
+</html>

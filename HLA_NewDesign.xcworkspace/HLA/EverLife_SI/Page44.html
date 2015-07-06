@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/hla.js"></script>
+  <script>
+  function onBodyLoad(){
+  }
+  
+    function replaceChar(char){
+        var temp, returnVal;
+        if (char == "0")
+            returnVal = "-"
+        else if (char == "")
+            returnVal = "-"
+        else
+            returnVal = char;
+        return returnVal;
+    }
+    
+    function isIncomeRider(amt,rider){
+		//rider.replace(/^\s+|\s$/g,"")
+		//$.trim(rider)
+		var temp;
+		temp = $.trim(rider)
+		//alert(temp + "x")
+        if (temp == "HLA Income Builder" || temp == "Income 20 Rider" || temp == "Income 30 Rider" || temp == "Income 40 Rider" || temp == "Income D-20 Rider" || temp == "Income D-30 Rider" || temp == "Income D-40 Rider" || temp == "Income E-20 Rider" || temp == "Income E-30 Rider"){
+        	return amt + " *";
+        }
+        else
+        	return amt + "&nbsp;&nbsp;";
+    }
+    
+  </script>
+  <head>
+  <body onload="onBodyLoad()">
+  
+<div id="header">
+	<div class="agentInfo">
+  		Prepared By : <span id="agentName" class="agentName">{agentName}</span>
+  		<br/>Code : <span id="agentCode" class="agentCode">{agentCode}</span>
+  	</div>
+  	<div class="ContentInfo">Printed On : <span id="dateModified" class="dateModified">{DateModified}</span></div>
+  	<div class="hruleInfo"></div>
+</div>
+<div class="main-content">
+<!--520px-->
+
+
+
+<div style="width:100%;height:793px;background-color: #fff;margin-top:-38px;">
+
+<br/>
+
+<b>Charges</b><br/>
+These monthly charges (policy fee and insurance charge) will be deducted on monthly anniversary by way of unit cancellation of Basic Unit Account and/ or Rider Unit Account accordingly.<br/>
+The illustrated insurance and other charges are based on current levels. These are not guaranteed and may be varied from time to time by giving 3 months notice to Policy Owners.<br/>
+- Insurance charges are deducted monthly from the value of your units. The insurance charge for insurance coverage varies by the attained age, sex, occupation, medical rating and smoking status. The insurance charges will increase as you grow older.<br/>
+- Other charges include monthly policy fees.<br/><br/>
+
+<b>Surrender Value (Applicable to Basic Plan & Riders with unitization only)</b><br/>
+This is the projected value of units at any particular point in time that you may receive if you surrender the policy and is net of tax and all applicable charges.<br/>
+If the policy is terminated early, you may get less than the amount of premiums paid.<br/><br/>
+
+<b>Surrender Value (Applicable to Riders without unitization only)</b><br/>
+This is the guaranteed amount that you will receive upon surrender of the rider.<br/><br/>
+
+<b>Maturity of Fund</b><br/>
+Upon maturity of the HLA EverGreen Fund(s), Policy Owner may elect to withdraw the fund value or reinvest in other HLA EverGreen Fund(s). Alternatively, Policy Owner may also reinvest the matured fund value into HLA Secure Fund and/ or HLA Cash Fund.<br/>
+Policy Owner also has the option to withdraw partial of the proceeds of matured fund and invest the balance.<br/><br/>
+
+<b>Fund Management Charge</b><br/>
+This refers to the annual management fee (% of investment fund) deducted to cover the cost of managing the investment fund.<br/><br/>
+
+<b>Unit Pricing</b><br/>
+Unit Price of the Funds is on weekly basis. This means all transactions (buying and liquidating) in the fund can only be carried out on weekly basis. Unit Pricing day is every Tuesday (If Tuesday falls on a non- business day, Unit Pricing will be carried out on the<br/>
+following business day) but unit price will be published on every Friday.<br/><br/>
+
+<b>Deduction of Fund Management Fee</b><br/>
+- The Fund Management Fee, all expenses and charges incurred in the purchase, sale, valuation and maintenance of the investment of the fund, and any taxes incurred on the income or capital gains on the assets of the fund, shall be deducted from each fund on a weekly basis.<br/><br/>
+
+<b>Exceptional Circumstances</b><br/>
+- The Company reserves the right to defer the payment of benefits (other than death benefit) under this policy for a period not exceeding six (6) months from the date the payment would have been normally effected if not for intervening events such<br/>
+  as temporary closure of any Stock Exchange in which the Fund is invested which the Company, in its discretion, may consider exceptional.<br/><br/>
+  
+<b>Premium Holiday (applicable to Basic Plan & Riders with unitization only)</b><br/>
+- Once your fund value have accumulated a substantial number of units, you could opt for what is called a "premium holiday", where you do not need to pay the premiums as long as there are sufficient units in the fund to pay the insurance charges and service charge.<br/>
+- However please note that there is a possibility of your policy lapsing when the required charges, exceed the total value of units.<br/>
+- Premium Holiday is not applicable for the Basic Plan during the Reduced Paid Up period.<br/><br/>
+
+<b>Free Look Period</b><br/>
+- If the policy has been issued and for any reason whatsoever you shall decide not to take up the policy, you may return the policy to us for cancellation provided such as request for cancellation is delivered by you to us within 15 days from the date of<br/>
+&nbsp;&nbsp;delivery of the policy. Upon cancellation of the policy,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- For Basic Plan and Riders with unitization, the Company shall refund to the Policy Owner the sum of:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a) The fund value at next valuation date<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b) The premiums that have not been allocated, and<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c) Any insurance charges and monthly policy fee that have been deducted less any medical expenses which may have been incurred.<br/>
+
+&nbsp;&nbsp;- For Rider without unitization, if any, the Company shall refund to the Policy Owner the premium paid for the said Rider less any medical expenses which may have been incurred.<br/><br/>
+
+<span class="Page44-ECAR55">{Page44-ECAR55}</span>
+
+</div>
+
+
+<table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+<tr>
+<td width="75%" style="font-family:Arial;font-size:8px;font-weight:normal;padding: 5px 5px 5px 0px;">
+This sales illustration consists of <span class="totalPages">{totalPages}</span> pages and each page forms an integral part of the sales illustration. A prospective policy owner is advised to read and understand the<br/>
+information printed on each and every page. <i>Illustrasi Jualan ini mengandungi <span class="totalPages">{totalPages}</span> muka surat and setiap muka surat membentuk sebahagian daripada illustrasi jualan. Bakal<br/>
+pemunya polisi adalah dinasihatkan untuk membaca dan memahami maklumat yang tercetak pada setiap muka surat.</i><br/>
+<b><span id="rptVersion" class="rptVersion">{rptVersion}</span></b> <br/>
+Level 3, Tower B, PJ City Development, No. 15A Jalan 219, Seksyen 51A, 46100 Petaling Jaya, Selangor. Tel: 03-7650 1818 Fax: 03-7650 1991 Website: www.hla.com.my<br/>
+</td>
+<td width="10%" align="left" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:10px;font-weight:normal;">Page <span class="currentPage">22</span> of <span class="totalPages">56</span></td>
+<td width="15%" align="right" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:12px;font-weight:normal;">Ref: <span id=SICode class="SICode">{SINo}</span></td>
+</tr>
+</table>
+</div>
+</body>
+</html>

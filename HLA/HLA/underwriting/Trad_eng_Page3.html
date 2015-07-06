@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="underwriting/css/style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" charset="utf-8" src="underwriting/js/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="underwriting/js/hla.js"></script>
+</head>
+<body onload="onBodyLoad()">
+  <div id="header">
+    <img src="SI/img/HLA.png"/>
+	  <div class="welcome">
+		  Code : <span id="agentCode" class="agentCode">{agentCode}</span>&nbsp;&nbsp;Prepared By : <span id="agentName" class="agentName">{agentName}</span>
+	  </div>
+	  <div class="Content">Printed On : <span id="dateModified" class="dateModified">{DateModified}</span></div>
+	  <div class="hrule"></div>
+  </div>
+  <div class="main-content" style="width:100%;height:550px">
+      <div align="center" style="padding: 0px 0px 0px 0px" >Summary of Underwriting Sum Assured</div>
+    <br/><br/>      
+      <div style="width:100%;background-color: #fff;display:none;" id="page2SecondLA">
+          <span >2nd Life Assured</span>
+          <table  id="table-data" class="table-2ndLifeAssured">
+              <thead>
+                  <tr id="table-underwritingTable">
+                      <th class="contentLeft">Basic Plan/ Rider</th>
+                      <th class="contentRight">Plan Choice</th>
+                      <th class="contentRight">Units</th>
+                      <th class="contentRight">Initial Sum Assured/Benefit Amount(RM)</th>
+                      <th class="contentRight">Coverage Period (Years)</th>
+                      <th class="contentRight">Underwriting Sum Assured (RM)</th>
+                  </tr> 
+              </thead>
+              <tbody>
+              </tbody>
+              <tfoot>
+              </tfoot>
+          </table> 
+          </br>
+          <div style="padding: 0px 5px 0px 0px;text-align:right;" ><b>Total Underwriting Sum Assured &nbsp;&nbsp;&nbsp;</b>   <span id="secondTotalUnderwritingSA" class="secondTotalUnderwritingSA">{secondTotalUnderwritingSA}</span></div>
+      </div>
+      
+      <div style="width:100%;background-color: #fff;display:none;" id="page2Payor">
+          <span >Policy Owner</span>
+          <table  id="table-data" class="table-payor">
+              <thead>
+                  <tr id="table-underwritingTable">
+                      <th class="contentLeft">Basic Plan/ Rider</th>
+                      <th class="contentRight">Plan Choice</th>
+                      <th class="contentRight">Units</th>
+                      <th class="contentRight">Initial Sum Assured/Benefit Amount(RM)</th>
+                      <th class="contentRight">Coverage Period (Years)</th>
+                      <th class="contentRight">Underwriting Sum Assured (RM)</th>
+                  </tr> 
+              </thead>
+              <tbody>
+              </tbody>
+              <tfoot>
+              </tfoot>
+          </table> 
+          </br>
+          <div style="padding: 0px 5px 0px 0px;text-align:right;" ><b>Total Underwriting Sum Assured &nbsp;&nbsp;&nbsp;</b>   <span id="payorTotalUnderwritingSA" class="payorTotalUnderwritingSA">{payorTotalUnderwritingSA}</span></div>
+      </div>              
+      </br></br>
+      <div align="left" style="padding: 0px 0px 0px 0px" >The Underwriting Sum Assured illustrated above refers to Sum Assured which will be used in the determination of medical requirement for THIS PROPOSAL ONLY. It has not taken into account the existing coverage and/or insurance coverage applied for in other applications (if any).</div>
+    </div>
+    </br></br>
+
+    
+    <table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+      <tr>
+	<td width="75%" style="font-family:Times New Roman;font-size:9.5px;font-weight:normal;padding: 5px 5px 5px 0px;">
+	  <b><span id="rptVersion" class="rptVersion">{rptVersion}</span></b> <br/>
+	  Level 3, Tower B, PJ City Development, No. 15A Jalan 219, Seksyen 51A, 46100 Petaling Jaya, Selangor. Tel: 03-7650 1818 Fax: 03-7650 1991 Website: www.hla.com.my<br/>
+	  
+	</td>
+	<td width="9%" align="left" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:9.5px;">Page <span class="currentPage">3</span> of <span class="totalPages">56</span></td>
+	<td width="16%" align="right" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:9.5px;"></br>
+        <img src="SI/img/barcode.png" style="vertical-align:text-top;padding: 0px 0px 0px 0px;" height="70%" height="70%"/></br>Ref: <span id=SICode class="SICode">{SINo}</span></td>
+      </tr>
+    </table>
+    <div id="externalPages">
+    </div>
+  </div>
+</body>
+
+</html>

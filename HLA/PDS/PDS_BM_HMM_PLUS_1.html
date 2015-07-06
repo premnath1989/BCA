@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/hla.js"></script>
+  <script>
+  var gData;
+  function onBodyLoad(){
+  		//writeSummary1();
+  }
+  
+    function replaceChar(char){
+        var temp, returnVal;
+        if (char == "0")
+            returnVal = "-"
+        else if (char == "")
+            returnVal = "-"
+        else
+            returnVal = char;
+        return returnVal;
+    }
+    
+    function isIncomeRider(amt,rider){
+		//rider.replace(/^\s+|\s$/g,"")
+		//$.trim(rider)
+		var temp;
+		temp = $.trim(rider)
+		//alert(temp + "x")
+        if (temp == "HLA Income Builder" || temp == "Income 20 Rider" || temp == "Income 30 Rider" || temp == "Income 40 Rider" || temp == "Income D-20 Rider" || temp == "Income D-30 Rider" || temp == "Income D-40 Rider" || temp == "Income E-20 Rider" || temp == "Income E-30 Rider"){
+        	return amt + " *";
+        }
+        else
+        	return amt + "&nbsp;&nbsp;";
+    }
+    
+  </script>
+  <head>
+  <body onload="onBodyLoad()">
+  
+<div id="header">
+	<div class="agentInfo">
+  		Code : <span id="agentCode" class="agentCode">{agentCode}</span>&nbsp;&nbsp;Prepared By : <span id="agentName" class="agentName">{agentName}</span>
+  	</div>
+  	<div class="ContentInfo">Printed On : <span id="dateModified" class="dateModified">{DateModified}</span></div>
+  	<div class="hruleInfo"></div>
+</div>
+<div class="main-content">
+
+<div class="contentArea" style="height:650px;">
+
+<table id="table-LA"> 
+<tr>
+	<td width="70%" bgcolor="#c0c0c0" style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black;"><b>RISALAH PENDEDAHAN PRODUK</b></td>
+	<td width="30%" style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black;"><b>Hong Leong Assurance Berhad</b></td>
+</tr>
+<tr>
+	<td valign="top" rowspan="2" style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black;"><b>Baca Risalah Pendedahan Produk ini sebelum anda membuat keputusan untuk mengambil HLA Major Medi Plus. Pastikan anda juga membaca terma dan syarat am.</b></td>
+	<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black;"><b>HLA Major Medi Plus</b></td>
+</tr>
+<tr>
+	<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black;"><b><span id="PrintDate2" class="PrintDate2">{PrintDate}</span></b></td>
+</tr>
+</table>
+
+
+
+
+
+
+
+<table>
+	<tr>
+	    <td width="10"><b>1.</b></td>
+	    <td><b>Apakah produk ini?</b></td>
+	</tr>
+	<tr>
+	    <td width="10"></td>
+	    <td>-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Polisi ini memperuntukkan perbelanjaan penghospitalan & pembedahan, dan faedah rawatan pesakit luar disebabkan oleh penyakit yang di bawah perlindungan polisi ini.</td>
+	</tr>
+	
+	<tr>
+	    <td width="10" valign="top"><b>2.</b></td>
+	    <td><b>Apakah perlindungan / faedah yang disediakan?</b></td>
+	</tr>
+	<tr>
+	    <td width="10" valign="top"></td>
+	    <td>
+		<div id="hideQ2">Pelan yang dipilih adalah pelan <span id="HMMPlanOption" class="HMMPlanOption">{HMMPlanOption}</span>.</div>
+		Tempoh diinsuranskan rider ini ialah <span id="HMMRiderTerm" class="HMMRiderTerm">{HMMRiderTerm}</span> tahun atau apabila rider ditamatkan, yang mana berlaku dahulu.
+	    </td>
+	</tr>
+	
+	<tr>
+	    <td></td>
+	    <td>
+		<table border="1" style="border-collapse: collapse" width="100%">
+		    <tr>
+			<td width="60%" style="padding: 0px 0px 0px 0px;" align="center">Pelan</td>
+			<td width="40%" align="center" style="padding: 0px 0px 0px 0px;">MM 1000<br/>(RM)</td>
+		    </tr>
+		    <tr>
+			<td colspan="2" style="padding: 0px 0px 0px 0px;"><b>Hospital & Pembedahan</b></td>
+		    </tr>
+		    <tr>
+			<td style="padding: 0px 0px 0px 0px;">Bilik Hospital dan Makan<br/>(hingga 150 hari untuk Mana-mana Satu Hilang Upaya)</td>
+			<td align="center">1000</td>
+			
+		    </tr>
+		    <tr>
+			<td style="padding: 0px 0px 0px 0px;"><sup><span class="fnHighway" style="font-size: 5px"></span></sup>Tunai Harian Penghospitalan disebabkan oleh Kemalangan Jalan Raya di Lebuhraya Malaysia <br/>(hingga 150 hari untuk Mana-mana Satu Hilang Upaya)</td>
+			<td align="center">1000</td>
+			
+		    </tr>
+		    <tr>
+			<td style="padding: 0px 0px 0px 0px;">Elaun Tunai Harian di Hospital Kerajaan<br/>(hingga 60 hari untuk Mana-mana Satu Hilang Upaya)</td>
+			<td align="center">500</td>
+			
+		    </tr>
+		    <tr>
+			<td style="padding: 0px 0px 0px 0px;" > Unit Rawatan Rapi<br/>(hingga 75 hari untuk Mana-mana Satu Hilang Upaya)</td>
+			<td  align="center"colspan="1" rowspan="14"><sup><span class="fnCharges" style="font-size: 5px"></span></sup>Bayaran Munasabah dan Biasa Diamalkan </td>
+			
+		    </tr>
+		    <tr>
+			<td style="padding: 0px 0px 0px 0px;">Perbelanjaan Penginap<br/>(hingga 150 hari untuk Mana-mana Satu Hilang Upaya)</td>
+			
+		    </tr>
+		    <tr>
+			<td style="padding: 0px 0px 0px 0px;">Bekalan dan Khidmat Hospital</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 0px 0px 0px 0px;">Bayaran Pembedahan(termasuk pemeriksaan pra-pembedahan, lawatan Doktor Pakar<br/>dan penjagaan selepas Pembedahan sehingga 60 hari daripada tarikh Pembedahan)</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 0px 0px 0px 0px;">Bayaran Pakar Bius</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 0px 0px 0px 0px;">Bilik Bedah</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 0px 0px 0px 0px;">Lawatan Pakar Perubatan dalam Hospital(hingga 150 hari untuk Mana-mana Satu Hilang Upaya)</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 0px 0px 0px 0px;">Yuran Rawatan Fisioterapi dalam Hospital</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 0px 0px 0px 0px;">Ujian Diagnostik Prahospital<br/>(dalam tempoh 60 hari sebelum penghospitalan)</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 0px 0px 0px 0px;">Rundingan Pakar Prahospital<br/>(dalam tempoh 60 hari sebelum penghospitalan)</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 0px 0px 0px 0px;" >Rawatan Selepas Penghospitalan<br/>(dalam tempoh 60 hari selepas keluar dari hospital)</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 0px 0px 0px 0px;">Transplan Organ</td>
+		    </tr>
+		    
+		    
+		    
+		    <!--
+		    <tr>
+			<td style="padding: 0px 0px 0px 0px;">Emergency Accidental Outpatient Treatment(within 30 days following such emergency treatment)</td>
+			<td rowspan="5" colspan="4" align="center"></td>
+		    </tr>
+		    <tr>
+		    -->
+		</table>
+		<sup><span class="fnCharges" style="font-size: 5px"></span></sup>Bayaran bagi penjagaan perubatan yang Perlu dari segi Perubatan hendaklah dianggap sebagai munasabah dan biasa selagi ia tidak melebihi paras bayaran am yang dibuat oleh institusi lain yang sama di<br/>
+		  kawasan di mana bayaran itu dikenakan, apabila memberikan rawatan, perkhidmatan atau bekalan yang sama atau setara kepada individu dengan jantina dan umur yang sama bagi Sakit, Penyakit atau<br/>
+		Kecederaan yang sama dan menurut piawaian dan amalan perubatan yang diterima tidak boleh diabaikan tanpa menjejaskan dengan teruk keadaan perubatan Hayat Diinsuranskan.<br/>
+		<sup><span class="fnHighway" style="font-size: 5px"></span></sup>Leburaya Malaysia bermaksud lebuhraya atau lebuhraya ekspres yang disenaraikan oleh Lembaga Lebuhraya Malaysia.
+	    </td>
+	</tr>
+    </table>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+<table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+<tr>
+<td width="75%" style="font-family:Times New Roman;font-size:9.5px;font-weight:normal;padding: 5px 5px 5px 0px;">
+Risalah Pendedahan Produk ini mengandungi <span class="totalPages">{totalPages}</span> muka surat and setiap muka surat membentuk sebahagian daripada Risalah Pendedahan Produk. Bakal pemunya polisi adalah<br/>
+dinasihatkan untuk membaca dan memahami maklumat yang tercetak pada setiap muka surat.<br/>
+<b><span id="rptVersion" class="rptVersion">{rptVersion}</span></b> <br/>
+Level 3, Tower B, PJ City Development, No. 15A Jalan 219, Seksyen 51A, 46100 Petaling Jaya, Selangor. Tel: 03-7650 1818 Fax: 03-7650 1991 Website: www.hla.com.my<br/>
+</td>
+<td width="10%" align="left" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Times New Roman;font-size:9.5px;font-weight:normal;">Page <span class="currentPage">22</span> of <span class="totalPages">56</span></td>
+<td width="15%" align="right" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Times New Roman;font-size:9.5px;font-weight:normal;">Ref: <span id=SICode class="SICode">{SINo}</span></td>
+</tr>
+</table>
+
+</div>
+</body>
+</html>

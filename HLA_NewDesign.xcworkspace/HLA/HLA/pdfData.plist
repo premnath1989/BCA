@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>pdfFiles</key>
+	<array>
+		<array>
+			<array>
+				<string>HLA Cash Promise (English + BM)</string>
+				<string>Brochure_Cashpromise_ENGBM</string>
+			</array>
+			<array>
+				<string>HLA Cash Promise (English + Mandarin)</string>
+				<string>Brochure_Cashpromise_ENGMAND</string>
+			</array>
+			<array>
+				<string>Premier Life</string>
+				<string>Brochure_PremierLife</string>
+			</array>
+		</array>
+		<array>
+			<array>
+				<string>C+ Secure</string>
+				<string>Brochure_CSecure(Standalone)</string>
+			</array>
+			<array>
+				<string>HLA Major Medi</string>
+				<string>Brochure_MajorMedi</string>
+			</array>
+			<array>
+				<string>HLA Major Medi Plus</string>
+				<string>Brochure_MajorMediPlus</string>
+			</array>
+			<array>
+				<string>HLA MedGLOBAL II (English + BM)</string>
+				<string>Brochure_MedGlobalII</string>
+			</array>
+			<array>
+				<string>HLA MedGLOBAL II (Mandarin)</string>
+				<string>Brochure_MedGlobalII_Chi</string>
+			</array>
+			<array>
+				<string>HLA MedGLOBAL IV Plus</string>
+				<string>Brochure_MedGlobalIVP</string>
+			</array>
+		</array>
+		<array>
+			<array>
+				<string>C+ Secure</string>
+				<string>Brochure_CSecure(Standalone)</string>
+			</array>
+			<array>
+				<string>HLA Major Medi</string>
+				<string>Brochure_MajorMedi</string>
+			</array>
+			<array>
+				<string>HLA MedGlobal IV Plus</string>
+				<string>Brochure_MedGlobalIVP</string>
+			</array>
+			<array>
+				<string>PA Care</string>
+				<string>Brochure_PACare</string>
+			</array>
+		</array>
+	</array>
+</dict>
+</plist>

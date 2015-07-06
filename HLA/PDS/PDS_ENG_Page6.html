@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/hla.js"></script>
+  <script>
+  var gData;
+  function onBodyLoad(){
+  		//writeSummary1();
+  }
+  
+    function replaceChar(char){
+        var temp, returnVal;
+        if (char == "0")
+            returnVal = "-"
+        else if (char == "")
+            returnVal = "-"
+        else
+            returnVal = char;
+        return returnVal;
+    }
+    
+    function isIncomeRider(amt,rider){
+		//rider.replace(/^\s+|\s$/g,"")
+		//$.trim(rider)
+		var temp;
+		temp = $.trim(rider)
+		//alert(temp + "x")
+        if (temp == "HLA Income Builder" || temp == "Income 20 Rider" || temp == "Income 30 Rider" || temp == "Income 40 Rider" || temp == "Income D-20 Rider" || temp == "Income D-30 Rider" || temp == "Income D-40 Rider" || temp == "Income E-20 Rider" || temp == "Income E-30 Rider"){
+        	return amt + " *";
+        }
+        else
+        	return amt + "&nbsp;&nbsp;";
+    }
+    
+  </script>
+  <head>
+  <body onload="onBodyLoad()">
+  
+<div id="header">
+	<div class="agentInfo">
+  		Code : <span id="agentCode" class="agentCode">{agentCode}</span>&nbsp;&nbsp;Prepared By : <span id="agentName" class="agentName">{agentName}</span>
+  		
+  	</div>
+  	<div class="ContentInfo">Printed On : <span id="dateModified" class="dateModified">{DateModified}</span></div>
+  	<div class="hruleInfo"></div>
+</div>
+<div class="main-content">
+<!--520px-->
+
+
+
+<div class="contentArea" style="height:650px;">
+    <table cellspacing="3" id="item6B" class="item6B" style="width: 100%">
+	<tr style="display:table-row;">
+	    <td>&nbsp;</td>
+	    <td>
+		<table width="100%" border="0" cellspacing="0">
+		    <tr class="6B" id="6B">
+			<td width="20"style="padding: 0px 0px 10px 0px;" class="6B" id="6B"><b></b></td>
+			<td colspan="2" style="padding: 0px 0px 10px 0px;" class="6B" id="6B"><u><b>Attaching Rider(s)</b></u></td>
+		    </tr>
+		    <tr>
+			<td></td>
+			<td></td>
+			<td>
+			
+			
+			
+<table id="table-attachingRider2" style="width: 100%">
+<tr class="tblHeader" id="tblHeader" style="display:table-row;">
+    <th class="contentSmall" style="width: 10%"><b>Rider(s)</b></th>
+    <th class="content" style="width: 90%"><b>Exclusions</b></th>
+</tr>
+    
+<!--ACIR_MPP-Critical Illness Rider start--> 
+<tr class="ACIR_MPP" id="ACIR_MPP" style="display:table-row;">
+    <td class="contentSmall">Accelerated Critical</br>Illness Rider</td>
+    <td class="content">
+        
+        This Rider does not cover the following occurrences:<br/>
+        i.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An episode of coronary artery or ischaemic heart disease that occurred before the issue date or any reinstatement date, whichever is later<br/>
+        ii.&nbsp;&nbsp;&nbsp;&nbsp;Diagnosis of the critical illness other than those specified under item (iii) below within 30 days from the issue date or any reinstatement date, whichever is later<br/>
+        iii.&nbsp;&nbsp;&nbsp;&nbsp;Diagnosis of the critical illness specified below within 60 days from the issue date or any reinstatement date, whichever is later:<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Angioplasty and other invasive treatment for coronary artery disease<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cancer<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Coronary artery disease requiring surgery<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Heart attack<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(e)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Other serious coronary artery disease<br/>
+        iv.&nbsp;&nbsp;&nbsp;&nbsp;Other than the first incidence of the critical illness, except for angioplasty and other invasive treatments for major coronary artery disease.<br/>
+    </td>
+</tr>
+<!--ACIR_MPP-Critical Illness Rider end-->
+
+   
+<!--CCTR-Convertible Comprehensive Term Rider start--> 
+<tr class="CCTR" id="CCTR" style="display:table-row;">
+    <td class="contentSmall">Convertible<br/>Comprehensive Term<br/>Rider</td>
+    <td class="content">
+    This Rider does not cover the following occurrences:<br/>
+    i.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Death of the life assured due to suicide during the first 12 months from the issue date or reinstatement date, whichever is later.<br/>
+    ii.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total and Permanent Disability resulted directly or indirectly:<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any self-inflicted bodily injury while sane or insane;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any nervous disorder or mental illness;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from flying in an aircraft (except as an aircrew member of, or as an ordinary fare paying passenger, on a regularly scheduled flight of a commercial airline); or<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from anything whatsoever while serving as a member of the armed forces, police and paramilitary forces as a result of declared or undeclared war, riots or civil commotion.<br/>
+    </td>
+</tr>
+<!--CCTR-Convertible Comprehensive Term Rider end-->
+    
+
+<!--CIR-Critical Illness Rider start--> 
+<tr class="CIR" id="CIR" style="display:table-row;">
+<td class="contentSmall">Critical<br/>Illness<br>Rider</td>
+<td class="content">
+
+This Rider does not cover the following occurrences:<br/>
+i.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An episode of coronary artery or ischaemic heart disease that occurred before the issue date or any reinstatement date, whichever is later<br/>
+ii.&nbsp;&nbsp;&nbsp;&nbsp;Diagnosis of the critical illness other than those specified under item (iii) below within 30 days from the issue date or any reinstatement date, whichever is later<br/>
+iii.&nbsp;&nbsp;&nbsp;&nbsp;Diagnosis of the critical illness specified below within 60 days from the issue date or any reinstatement date, whichever is later:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Angioplasty and other invasive treatment for coronary artery disease<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cancer<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Coronary artery disease requiring surgery<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Heart attack<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(e)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Other serious coronary artery disease<br/>
+iv.&nbsp;&nbsp;&nbsp;&nbsp;Other than the first incidence of the critical illness, except for angioplasty and other invasive treatments for major coronary artery disease.<br/>
+v.&nbsp;&nbsp;&nbsp;&nbsp;Death of the life assured within 28 days following the date of diagnosis of any of the critical illness.<br/>
+</td>
+</tr>
+<!--CIR-Critical Illness Rider end-->
+
+<!--CIWP-Critical Illness WP Rider start--> 
+<tr class="CIWP" id="CIWP" style="display:table-row;">
+<td class="contentSmall">Critical<br/>Illness Waiver of Premium<br/>Rider <span id="CIWPSA" class="CIWPSA">{CIWPSA}</span></td>
+<td class="content">
+	This Rider does not cover the following occurrences:<br/>
+	i.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An episode of coronary artery or ischaemic heart disease that occurred before the issue date or any reinstatement date, whichever is later<br/>
+	ii.&nbsp;&nbsp;&nbsp;&nbsp;Diagnosis of the critical illness other than those specified under item (iii) below within 30 days from the issue date or any reinstatement date, whichever is later<br/>
+	iii.&nbsp;&nbsp;&nbsp;&nbsp;Diagnosis of the critical illness specified below within 60 days from the issue date or any reinstatement date, whichever is later:<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Angioplasty and other invasive treatment for coronary artery disease<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cancer<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Coronary artery disease requiring surgery<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Heart attack<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(e)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Other serious coronary artery disease<br/>
+	iv.&nbsp;&nbsp;&nbsp;&nbsp;Other than the first incidence of the critical illness, except for angioplasty and other invasive treatments for major coronary artery disease<br/>
+	v.&nbsp;&nbsp;&nbsp;&nbsp;Death of the life assured within 28 days following the date of diagnosis of any of the critical illness.
+</td>
+</tr>
+<!--CIWP-Critical Illness WP Rider end-->
+
+<!--CPA-Compprehensive Personal Accident Rider start-->
+<tr class="CPA" id="CPA" style="display:table-row;">
+<td class="contentSmall">Comprehensive<br/>Personal Accident<br/>Rider <span id="OCCPClass" class="OCCPClass">{OCCPClass}</span></td>
+<td class="content">
+
+1.&nbsp;Accidental Death Benefit, Accidental Total & Permanent Disability Benefit, Temporary Total Disability Benefit, Temporary Partial Disability Benefit and Double Indemnity Benefit<br/>
+&nbsp;&nbsp;&nbsp;The following occurrences are excluded:<br/>
+
+&nbsp;&nbsp;&nbsp;(a) &nbsp;&nbsp;&nbsp;Flying or taking part in any aerial activities except where traveling in an aircraft as a fare-paying passenger and not as aircrew nor for the purpose of any trade or technical operation in or on the aircraft;<br/>
+&nbsp;&nbsp;&nbsp;(b) &nbsp;&nbsp;&nbsp;Self-inflicted Injury, suicide or attempted suicide, provoked murder or assault or being under the influence of drugs / narcotics / alcohol of any kind;<br/>
+&nbsp;&nbsp;&nbsp;(c) &nbsp;&nbsp;&nbsp;Engaging in or taking part in professional or semi-professional sports;<br/>
+&nbsp;&nbsp;&nbsp;(d) &nbsp;&nbsp;&nbsp;Engaging in racing of any kind (other than on foot), mountain or rock climbing necessitating the use of ropes or guides, winter sports, underwater<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pastimes, water skiing, football, polo, hunting, show jumping, caving, pot-holing, boxing or wrestling;<br/>
+&nbsp;&nbsp;&nbsp;(e) &nbsp;&nbsp;&nbsp;War, invasion, act of foreign enemy, hostilities or warlike operations (whether war be declared or not), civil war, military or usurped power;<br/>
+&nbsp;&nbsp;&nbsp;(f) &nbsp;&nbsp;&nbsp;&nbsp;Direct participation in strikes, riots, rebellion, revolution, civil commotion or insurrection;<br/>
+
+&nbsp;&nbsp;&nbsp;(g) &nbsp;&nbsp;&nbsp;Active duty in the armed forces (whether voluntary or otherwise);<br/>
+&nbsp;&nbsp;&nbsp;(h) &nbsp;&nbsp;&nbsp;Sickness or disease of any kind caused by or infected by or in any way attributed to virus, parasite, bacteria or any micro-organism including where the<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virus, parasite, bacteria or micro-organism is introduced and/or caused by bites of insects or is sexually transmitted;<br/>
+&nbsp;&nbsp;&nbsp;(i) &nbsp;&nbsp;&nbsp;&nbsp;Committing or attempting to commit any unlawful act;<br/>
+&nbsp;&nbsp;&nbsp;(j) &nbsp;&nbsp;&nbsp;&nbsp;Any injuries as a result of the mental disorder;<br/>
+&nbsp;&nbsp;&nbsp;(k) &nbsp;&nbsp;&nbsp;Miscarriage or any complications related to the same;
+<br/>
+&nbsp;&nbsp;&nbsp;(l) &nbsp;&nbsp;&nbsp;&nbsp;Any dental treatment unless necessitated by Injury covered under this Rider.<br/><br/>
+
+2.&nbsp;Medical Fees & Expenses Reimbursement<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;The following occurrences are excluded:<br/>
+&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;Flying or taking part in any aerial activities except where traveling in an aircraft as a fare-paying passenger and not as aircrew nor for the purpose of any trade or technical operation in or on the aircraft;<br/>
+&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;Self-inflicted Injury, suicide or attempted suicide, provoked murder or assault or being under the influence of drugs / narcotics / alcohol of any kind;<br/>
+&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;Engaging in or taking part in professional or semi-professional sports;<br/>
+&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;Engaging in racing of any kind (other than on foot), mountain or rock climbing necessitating the use of ropes or guides, winter sports, underwater<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pastimes, water skiing, football, polo, hunting, show jumping, caving, pot-holing, boxing or wrestling;<br/>
+&nbsp;&nbsp;&nbsp;(e)&nbsp;&nbsp;&nbsp;&nbsp;War, invasion, act of foreign enemy, hostilities or warlike operations (whether war be declared or not), civil war, military or usurped power;<br/>
+&nbsp;&nbsp;&nbsp;(f)&nbsp;&nbsp;&nbsp;&nbsp;Direct participation in strikes, riots, rebellion, revolution, civil commotion or insurrection;<br/>
+&nbsp;&nbsp;&nbsp;(g)&nbsp;&nbsp;&nbsp;Active duty in the armed forces (whether voluntary or otherwise);<br/>
+&nbsp;&nbsp;&nbsp;(h)&nbsp;Sickness or disease of any kind caused by or infected by or in any way attributed to virus, parasite, bacteria or any micro-organism including where the<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virus, parasite, bacteria or micro-organism is introduced and/or caused by bites of insects or is sexually transmitted;<br/>
+&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;Any medical or surgical treatment (except those necessitated by injuries covered by this Rider);<br/>
+&nbsp;&nbsp;&nbsp;(j)&nbsp;&nbsp;&nbsp;Committing or attempting to commit any unlawful act;<br/>
+&nbsp;&nbsp;&nbsp;(k)&nbsp;&nbsp;Any disease, sickness or Congenital Conditions;<br/>
+&nbsp;&nbsp;&nbsp;(l)&nbsp;&nbsp;&nbsp;Any injuries as a result of the mental disorder<br/>
+&nbsp;&nbsp;&nbsp;(m)&nbsp;&nbsp;Human Immune-deficiency Virus (HIV) and/or any HIV related illness including AIDS and/or any mutant derivations or variations thereof;<br/>
+&nbsp;&nbsp;&nbsp;(n)&nbsp;&nbsp;&nbsp;Pregnancy, childbirth, miscarriage or any complications related to the same;<br/>
+&nbsp;&nbsp;&nbsp;(o)&nbsp;&nbsp;Any dental treatment unless necessitated by Injury covered under this Rider.<br/><br/>
+
+
+<!--CPA-Compprehensive Personal Accident Rider end-->
+
+<!--EBD-Enchanced Death Benefit Rider start--> 
+<tr class="EDB" id="EDB" style="display:table-row;">
+    <td class="contentSmall">Enhanced Death<br/>Benefit Rider</td>
+    <td class="content">
+    This Rider does not cover the death of the life assured due to suicide during the first 12 months from the issue date or reinstatement date, whichever later. 
+	</td>
+</tr>
+<!--EBD-Enchanced Death Benefit Rider end-->
+ 
+<!--EDUWR-EduWealth Rider start-->
+<tr class="EDUWR" id="EDUWR" style="display:table-row;">
+    <td class="contentSmall">EduWealth Rider</td>
+    <td class="content">
+        This Rider does not cover the following occurrences:<br/>
+	i.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Death of the life assured due to suicide during the first 12 months from the issue date or reinstatement date, whichever is later.<br/>
+        ii.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total and Permanent disability resulted directly or indirectly:<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any self-inflicted bodily injury while sane or insane;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any nervous disorder or mental illness;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from flying in an aircraft (except as an aircrew member of, or as an ordinary fare paying passenger, on a regularly scheduled flight of a commercial airline); or<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from anything whatsoever while serving as a member of the armed forces, police and paramilitary forces as a result of declared or undeclared war, riots or civil commotion.<br/>
+    </td>
+</tr>
+<!--EDUWR-EduWealth Rider end-->
+
+<!--ETPDB-Enhanced TPD Benefit Rider start-->
+<tr class="ETPDB" id="ETPDB" style="display:table-row;">
+    <td class="contentSmall">Enhanced TPD<br/>Benefit Rider</td>
+    <td class="content">
+    
+    This Rider does not cover the Total and Permanent Disability and Old Age Disablement resulted directly or indirectly:<br/>
+    
+
+    (a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any self-inflicted bodily injury while sane or insane;<br/>
+    (b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any nervous disorder or mental illness;<br/>
+    (c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from flying in an aircraft (except as an aircrew member of, or as an ordinary fare paying passenger, on a regularly scheduled flight of a commercial airline); or<br/>
+    (d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from anything whatsoever while serving as a member of the armed forces, police and paramilitary forces as a result of declared or undeclared war, riots or civil commotion.<br/>
+    </td>
+</tr>
+<!--ETPDB-Enhanced TPD Benefit Rider end-->
+
+<!--HB-Hospitalisation Benefit start-->
+<tr class="HB" id="HB" style="display:table-row;">
+<td class="contentSmall">Hospitalisation Benefit Rider</td>
+<td class="content">
+The said hospitalisation benefit shall not payable:<br/>
+i.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for more than the first 52 weeks or any longer period during which the Life Assured is continuously confined to hospital<br/>
+ii.&nbsp;&nbsp;&nbsp;&nbsp;in respect of the whole of any period of continuous confinement to hospital if any part of such period is within the first 30 days of the issue date or date of reinstatement of the Rider at any time<br/>
+iii.&nbsp;&nbsp;&nbsp;confinement to hospital for any illness or injury occurring before payment of the first premium for Rider<br/>
+iv.&nbsp;&nbsp;&nbsp;confinement to hospital which occurs after the anniversary of the issue date next following the attainment by the Life Assured of the age of 60 years<br/>
+v.&nbsp;&nbsp;&nbsp;&nbsp;in respect of any period of confinement to hospital which occurs after the Expiry Date<br/>
+vi.&nbsp;&nbsp;&nbsp;confinement to hospital for an illness or injury directly or indirectly caused or accelerated by:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strike, riot, civil commotion, war (whether declared or not)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;engaging in aviation (except as an ordinary fare paying passenger on a regularly scheduled flight of a commercial airline)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;being under the influence of intoxicating liquor or any narcotic or drug<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;attempted suicide, intentional self-injury, dueling, resisting lawful arrest by a lawful authority, or the due process of law<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(e)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;insanity<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(f)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;venereal disease<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(g)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;childbirth, pregnancy, miscarriage and their sequelae<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(h)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the existence of HIV or AIDS Related Complex<br/>
+</td>
+</tr>
+<!--HB-Hospitalisation Benefit end-->
+
+<!--ICR-Income Care Rider start-->
+<tr class="ICR" id="ICR" style="display:table-row;">
+    <td class="contentSmall">IncomeCare Rider</td>
+    <td class="content">
+    This Rider does not cover the following occurrences:<br/>
+    i.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total and Permanent Disability resulted directly or indirectly:<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any self-inflicted bodily injury while sane or insane;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any nervous disorder or mental illness;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from flying in an aircraft (except as an aircrew member of, or as an ordinary fare paying passenger, on a regularly scheduled flight of a commercial airline); or<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from anything whatsoever while serving as a member of the armed forces, police and paramilitary forces as a result of declared or undeclared war, riots or civil commotion<br/>
+    ii.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An episode of coronary artery or ischaemic heart disease that occurred before the issue date or any reinstatement date, whichever is later<br/>
+    iii.&nbsp;&nbsp;&nbsp;&nbsp;Diagnosis of the critical illness other than those specified under item (iv) below within 30 days from the issue date or any reinstatement date, whichever is later.<br/>
+    iv.&nbsp;&nbsp;&nbsp;&nbsp;Diagnosis of the critical illness specified below within 60 days from the issue date or any reinstatement date, whichever is later:<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Angioplasty and other invasive treatment for coronary artery disease<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cancer<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Coronary artery disease requiring surgery<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Heart attack<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(e)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Other serious coronary artery disease<br/>
+    v.&nbsp;&nbsp;&nbsp;&nbsp;Other than the first incidence of the critical illness, except for angioplasty and other invasive treatments for major coronary artery disease.<br/>
+    </td>
+</tr>
+<!--ICR-Income Care Rider end-->
+
+
+<!--LCPR-Living Care Plus Rider start--> 
+<tr class="LCPR" id="LCPR" style="display:table-row;">
+<td class="contentSmall">Living Care Plus Rider</td>
+<td class="content">
+
+This Rider does not cover the following occurrences:<br/>
+i.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Death of the life assured due to suicide during the first 12 months from the issue date or reinstatement date, whichever is later.<br/>
+ii.&nbsp;&nbsp;&nbsp;&nbsp;Total and Permanent Disability resulted directly or indirectly:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any self-inflicted bodily injury while sane or insane;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any nervous disorder or mental illness;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from flying in an aircraft (except as an aircrew member of, or as an ordinary fare paying passenger, on a regularly scheduled flight of a commercial airline); or<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from anything whatsoever while serving as a member of the armed forces, police and paramilitary forces as a result of declared or undeclared war, riots or civil commotion<br/>
+iii.&nbsp;&nbsp;&nbsp;&nbsp;An episode of coronary artery or ischaemic heart disease that occurred before the issue date or any reinstatement date, whichever is later<br/>
+iv.&nbsp;&nbsp;&nbsp;&nbsp;Diagnosis of the critical illness other than those specified under item (v) below within 30 days from the issue date or any reinstatement date, whichever is later<br/>
+v.&nbsp;&nbsp;&nbsp;&nbsp;Diagnosis of the critical illness specified below within 60 days from the issue date or any reinstatement date, whichever is later:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Angioplasty and other invasive treatment for coronary artery disease<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cancer<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Coronary artery disease requiring surgery<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Heart attack<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(e)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Other serious coronary artery disease<br/>
+vi.&nbsp;&nbsp;&nbsp;&nbsp;Other than the first incidence of the critical illness, except for angioplasty and other invasive treatments for major coronary artery disease.<br/>
+</td>
+</tr>
+<!--LCPR-Living Care Plus Rider end-->
+
+<!--PA-Personal Accident Rider start-->
+<tr class="PA" id="PA" style="display:table-row;">
+<td class="contentSmall">Personal Accident<br/>Rider <span id="OCCPClass" class="OCCPClass">{OCCPClass}</span></td>
+<td class="content">
+  
+1.&nbsp;Accidental Death Benefit, Accidental Total & Permanent Disability Benefit and Double Indemnity Benefit<br/>
+&nbsp;&nbsp;&nbsp;The following occurrences are excluded:<br/>
+&nbsp;&nbsp;&nbsp;(a) &nbsp;&nbsp;&nbsp;Flying or taking part in any aerial activities except where traveling in an aircraft as a fare-paying passenger and not as aircrew nor for the purpose of any trade or technical operation in or on the aircraft;<br/>
+&nbsp;&nbsp;&nbsp;(b) &nbsp;&nbsp;&nbsp;Self-inflicted Injury, suicide or attempted suicide, provoked murder or assault or being under the influence of drugs / narcotics / alcohol of any kind;<br/>
+&nbsp;&nbsp;&nbsp;(c) &nbsp;&nbsp;&nbsp;Engaging in or taking part in professional or semi-professional sports;<br/>
+&nbsp;&nbsp;&nbsp;(d) &nbsp;&nbsp;&nbsp;Engaging in racing of any kind (other than on foot), mountain or rock climbing necessitating the use of ropes or guides, winter sports, underwater<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pastimes, water skiing, football, polo, hunting, show jumping, caving, pot-holing, boxing or wrestling;<br/>
+&nbsp;&nbsp;&nbsp;(e) &nbsp;&nbsp;&nbsp;War, invasion, act of foreign enemy, hostilities or warlike operations (whether war be declared or not), civil war, military or usurped power;<br/>
+&nbsp;&nbsp;&nbsp;(f) &nbsp;&nbsp;&nbsp;&nbsp;Direct participation in strikes, riots, rebellion, revolution, civil commotion or insurrection;<br/>
+
+&nbsp;&nbsp;&nbsp;(g) &nbsp;&nbsp;&nbsp;Active duty in the armed forces (whether voluntary or otherwise);<br/>
+&nbsp;&nbsp;&nbsp;(h) &nbsp;&nbsp;&nbsp;Sickness or disease of any kind caused by or infected by or in any way attributed to virus, parasite, bacteria or any micro-organism including where the<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virus, parasite, bacteria or micro-organism is introduced and/or caused by bites of insects or is sexually transmitted;<br/>
+&nbsp;&nbsp;&nbsp;(i) &nbsp;&nbsp;&nbsp;&nbsp;Committing or attempting to commit any unlawful act;<br/>
+&nbsp;&nbsp;&nbsp;(j) &nbsp;&nbsp;&nbsp;Any injuries as a result of the mental disorder;<br/>
+&nbsp;&nbsp;&nbsp;(k)&nbsp;&nbsp;&nbsp;Miscarriage or any complications related to the same;<br/>
+&nbsp;&nbsp;&nbsp;(l)&nbsp;&nbsp;&nbsp;Any dental treatment unless necessitated by Injury covered under this Rider.<br/><br/>
+
+</td>
+</tr>
+<!--PA-Personal Accident Rider end-->
+     
+<!--TPDYLA-TPD Yearly Living Allowance Rider-->
+<tr class="TPDYLA" id="TPDYLA" style="display:table-row;line-height: 12px">
+    <td class="contentSmall">TPD Yearly Living<br/>Allowance Rider</td>
+    <td class="content">
+    This Rider does not cover the following occurrences:<br/>
+    i.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total and Permanent Disability resulted directly or indirectly:<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any self-inflicted bodily injury while sane or insane;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any nervous disorder or mental illness;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from flying in an aircraft (except as an aircrew member of, or as an ordinary fare paying passenger, on a regularly scheduled flight of a commercial airline); or<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from anything whatsoever while serving as a member of the armed forces, police and paramilitary forces as a result of declared or undeclared war, riots or civil commotion.<br/>
+    </td>
+</tr>
+<!--TPDYLA-TPD Yearly Living Allowance Rider-->
+
+<!--WA50R-Wealth Advantage Rider start-->
+<tr class="WA50R" id="WA50R" style="display:table-row;">
+    <td class="contentSmall">Wealth Advantage Rider</td>
+    <td class="content">
+        This Rider does not cover the following occurrences:<br/>
+        i.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total and Permanent disability resulted directly or indirectly:<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any self-inflicted bodily injury while sane or insane;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any nervous disorder or mental illness;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from flying in an aircraft (except as an aircrew member of, or as an ordinary fare paying passenger, on a regularly scheduled flight of a commercial airline); or<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from anything whatsoever while serving as a member of the armed forces, police and paramilitary forces as a result of declared or undeclared war, riots or civil commotion.<br/>
+    </td>
+</tr>
+<!--WA50R-Wealth Advantage Rider end-->
+
+
+<!--WB30R-Wealth Booster Rider start-->
+<tr class="WB30R" id="WB30R" style="display:table-row;line-height: 12px">
+    <td class="contentSmall">Wealth Booster Rider (30 year term)</td>
+    <td class="content">
+        This Rider does not cover the following occurrences:<br/>
+	i.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Death of the life assured due to suicide during the first 12 months from the issue date or reinstatement date, whichever is later.<br/>
+        ii.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total and Permanent disability resulted directly or indirectly:<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any self-inflicted bodily injury while sane or insane;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any nervous disorder or mental illness;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from flying in an aircraft (except as an aircrew member of, or as an ordinary fare paying passenger, on a regularly scheduled flight of a commercial airline); or<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from anything whatsoever while serving as a member of the armed forces, police and paramilitary forces as a result of declared or undeclared war, riots or civil commotion.<br/>
+    </td>
+</tr>
+<!--WB30R-Wealth Booster Rider end-->
+
+<!--WB50R-Wealth Booster Rider start-->
+<tr class="WB50R" id="WB50R" style="display:table-row;">
+    <td class="contentSmall">Wealth Booster Rider (50 year term)</td>
+    <td class="content">
+        This Rider does not cover the following occurrences:<br/>
+	i.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Death of the life assured due to suicide during the first 12 months from the issue date or reinstatement date, whichever is later.<br/>
+        ii.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total and Permanent disability resulted directly or indirectly:<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any self-inflicted bodily injury while sane or insane;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any nervous disorder or mental illness;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from flying in an aircraft (except as an aircrew member of, or as an ordinary fare paying passenger, on a regularly scheduled flight of a commercial airline); or<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from anything whatsoever while serving as a member of the armed forces, police and paramilitary forces as a result of declared or undeclared war, riots or civil commotion.<br/>
+    </td>
+</tr>
+<!--WB50R-Wealth Booster Rider end-->
+
+<!--WBD10R30-Wealth Booster-d10 Rider start-->
+<tr class="WBD10R30" id="WBD10R30" style="display:table-row;">
+    <td class="contentSmall">Wealth Booster-<i>d10</i> Rider (30 year term)</td>
+    <td class="content">
+        This Rider does not cover the following occurrences:<br/>
+	i.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Death of the life assured due to suicide during the first 12 months from the issue date or reinstatement date, whichever is later.<br/>
+        ii.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total and Permanent disability resulted directly or indirectly:<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any self-inflicted bodily injury while sane or insane;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any nervous disorder or mental illness;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from flying in an aircraft (except as an aircrew member of, or as an ordinary fare paying passenger, on a regularly scheduled flight of a commercial airline); or<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from anything whatsoever while serving as a member of the armed forces, police and paramilitary forces as a result of declared or undeclared war, riots or civil commotion.<br/>
+    </td>
+</tr>
+<!--WBD10R30-Wealth Booster-d10 end-->
+
+<!--WBI6R30-Wealth Advantage Rider start-->
+<tr class="WBI6R30" id="WBI6R30" style="display:table-row;">
+    <td class="contentSmall">Wealth Booster-<i>i6</i> Rider (30 year term)</td>
+    <td class="content">
+        This Rider does not cover the following occurrences:<br/>
+	i.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Death of the life assured due to suicide during the first 12 months from the issue date or reinstatement date, whichever is later.<br/>
+        ii.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total and Permanent disability resulted directly or indirectly:<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any self-inflicted bodily injury while sane or insane;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any nervous disorder or mental illness;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from flying in an aircraft (except as an aircrew member of, or as an ordinary fare paying passenger, on a regularly scheduled flight of a commercial airline); or<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from anything whatsoever while serving as a member of the armed forces, police and paramilitary forces as a result of declared or undeclared war, riots or civil commotion.<br/>
+    </td>
+</tr>
+<!--WBI6R30-Wealth Advantage Rider end-->
+
+<!--WE50R-Wealth Enricher Rider start-->
+<tr class="WE50R" id="WE50R" style="display:table-row;">
+    <td class="contentSmall">Wealth Enricher Rider</td>
+    <td class="content">
+        This Rider does not cover the following occurrences:<br/>
+        i.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total and Permanent disability resulted directly or indirectly:<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any self-inflicted bodily injury while sane or insane;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any nervous disorder or mental illness;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from flying in an aircraft (except as an aircrew member of, or as an ordinary fare paying passenger, on a regularly scheduled flight of a commercial airline); or<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from anything whatsoever while serving as a member of the armed forces, police and paramilitary forces as a result of declared or undeclared war, riots or civil commotion.<br/>
+    </td>
+</tr>
+<!--WE50R-Wealth Enricher Rider end-->
+
+<!--WP30R-Wealth Protector Rider start-->
+<tr class="WP30R" id="WP30R" style="display:table-row;">
+    <td class="contentSmall">Wealth Protector Rider (30 year term)</td>
+    <td class="content">
+        This Rider does not cover the death of the life assured due to suicide during the first 12 months from the issue date or reinstatement date, whichever is later.
+    </td>
+</tr>
+<!--WP30R-Wealth Protector Rider end-->
+
+<!--WP50R-Wealth Protector Rider start-->
+<tr class="WP50R" id="WP50R" style="display:table-row;">
+    <td class="contentSmall">Wealth Protector Rider (50 year term)</td>
+    <td class="content">
+        This Rider does not cover the death of the life assured due to suicide during the first 12 months from the issue date or reinstatement date, whichever is later.
+    </td>
+</tr>
+<!--WP50R-Wealth Protector Rider end-->
+
+<!--WPTPD30R-Wealth Protector (TPD) Rider start-->
+<tr class="WPTPD30R" id="WPTPD30R" style="display:table-row;">
+    <td class="contentSmall">Wealth TPD Protector Rider (30 year term)</td>
+    <td class="content">
+        This Rider does not cover the Total and Permanent Disability and Old Age Disablement resulted directly or indirectly:<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any self-inflicted bodily injury while sane or insane;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from flying in an aircraft (except as an aircrew member of, or as an ordinary fare paying passenger, on a regularly scheduled flight of a commercial airline); or<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from anything whatsoever while serving as a member of the armed forces, police and paramilitary forces as a result of declared or undeclared war, riots or civil commotion.<br/>
+    </td>
+</tr>
+<!--WPTPD30R-Wealth Protector (TPD) Rider end-->
+
+<!--WPTPD50R-Wealth Protector (TPD) Rider start-->
+<tr class="WPTPD50R" id="WPTPD50R" style="display:table-row;">
+    <td class="contentSmall">Wealth TPD Protector Rider (50 year term)</td>
+    <td class="content">
+        This Rider does not cover the Total and Permanent Disability and Old Age Disablement resulted directly or indirectly:<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any self-inflicted bodily injury while sane or insane;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from flying in an aircraft (except as an aircrew member of, or as an ordinary fare paying passenger, on a regularly scheduled flight of a commercial airline); or<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from anything whatsoever while serving as a member of the armed forces, police and paramilitary forces as a result of declared or undeclared war, riots or civil commotion.<br/>
+    </td>
+</tr>
+<!--WPTPD50R-Wealth Protector (TPD) Rider end-->
+
+<!--SP_PRE-WOP Spouse Rider (Premier) start--> 
+<tr class="SP_PRE" id="SP_PRE" style="display:table-row;">
+	<td class="contentSmall">Waiver of Premium Spouse Rider<br/>(Premier) <span id="SP_PRESA" class="SP_PRESA">{SP_PRESA}</span></td>
+	<td class="content">
+    This Rider does not cover the following occurrences:<br/>
+    i.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Death of the life assured due to suicide during the first 12 months from the issue date or reinstatement date, whichever is later.<br/>    
+    ii.&nbsp;&nbsp;&nbsp;&nbsp;Total and Permanent Disability resulted directly or indirectly:<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any self-inflicted bodily injury while sane or insane;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any nervous disorder or mental illness;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from flying in an aircraft (except as an aircrew member of, or as an ordinary fare paying passenger, on a regularly scheduled flight of a commercial airline); or<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from anything whatsoever while serving as a member of the armed forces, police and paramilitary forces as a result of declared or undeclared war, riots or civil commotion<br/>
+    iii.&nbsp;&nbsp;&nbsp;&nbsp;An episode of coronary artery or ischaemic heart disease that occurred before the issue date or any reinstatement date, whichever is later<br/>
+    iv.&nbsp;&nbsp;&nbsp;&nbsp;Diagnosis of the critical illness other than those specified under item (v) below within 30 days from the issue date or any reinstatement date,<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;whichever is later<br/>
+    v.&nbsp;&nbsp;&nbsp;&nbsp;Diagnosis of the critical illness specified below within 60 days from the issue date or any reinstatement date, whichever is later:<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Angioplasty and other invasive treatment for coronary artery disease<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cancer<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Coronary artery disease requiring surgery<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Heart attack<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(e)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Other serious coronary artery disease<br/>
+    vi.&nbsp;&nbsp;&nbsp;&nbsp;Other than the first incidence of the critical illness, except for angioplasty and other invasive treatments for major coronary artery disease.<br/>
+    </td>
+</tr>
+<!--SP_PRE-WOP Spouse Rider (Premier) end-->
+
+<!--SP_STD-WOP Spouse Rider (Standard) start--> 
+<tr class="SP_STD" id="SP_STD" style="display:table-row;">
+<td class="contentSmall">Waiver of Premium Spouse Rider<br/>(Standard) <span id="SP_STDSA" class="SP_STDSA">{SP_STDSA}</span></td>
+
+<td class="content">
+
+This Rider does not cover the following occurrences:<br/>
+i.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Death of the life assured due to suicide during the first 12 months from the issue date or reinstatement date, whichever is later.<br/>
+ii.&nbsp;&nbsp;&nbsp;&nbsp;Total and Permanent Disability resulted directly or indirectly:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any self-inflicted bodily injury while sane or insane;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any nervous disorder or mental illness;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from flying in an aircraft (except as an aircrew member of, or as an ordinary fare paying passenger, on a regularly scheduled flight of a commercial airline); or<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from anything whatsoever while serving as a member of the armed forces, police and paramilitary forces as a result of declared or undeclared war, riots or civil commotion<br/>
+</td>
+</tr>
+<!--SP_STD-WOP Spouse Rider (Standard) end-->
+
+<!--LCWP-Living Care Waiver of Premium Payor Rider start--> 
+<tr class="LCWP" id="LCWP" style="display:table-row;">
+<td class="contentSmall">Living Care Waiver of<br/>Premium Payor Rider <span id="LCWPSA" class="LCWPSA">{LCWPSA}</span></td>
+<td class="content">
+
+This Rider does not cover the following occurrences:<br/>
+
+i.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Death of the life assured due to suicide during the first 12 months from the issue date or reinstatement date, whichever is later.<br/>
+
+ii.&nbsp;&nbsp;&nbsp;&nbsp;Total and Permanent Disability resulted directly or indirectly:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any self-inflicted bodily injury while sane or insane;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any nervous disorder or mental illness;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from flying in an aircraft (except as an aircrew member of, or as an ordinary fare paying passenger, on a regularly scheduled flight of a commercial airline); or<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from anything whatsoever while serving as a member of the armed forces, police and paramilitary forces as a result of declared or undeclared war, riots or civil commotion<br/>
+iii.&nbsp;&nbsp;&nbsp;&nbsp;An episode of coronary artery or ischaemic heart disease that occurred before the issue date or any reinstatement date, whichever is later<br/>
+iv.&nbsp;&nbsp;&nbsp;&nbsp;Diagnosis of the critical illness other than those specified under item (v) below within 30 days from the issue date or any reinstatement date, whichever is later<br/>
+v.&nbsp;&nbsp;&nbsp;&nbsp;Diagnosis of the critical illness specified below within 60 days from the issue date or any reinstatement date, whichever is later:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Angioplasty and other invasive treatment for coronary artery disease<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cancer<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Coronary artery disease requiring surgery<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Heart attack<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(e)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Other serious coronary artery disease<br/>
+vi.&nbsp;&nbsp;&nbsp;&nbsp;Other than the first incidence of the critical illness, except for angioplasty and other invasive treatments for major coronary artery disease.<br/>
+</td>
+</tr>
+<!--LCWP-Living Care Waiver of Premium Payor Rider end-->
+
+<!--PLCP-Payor Living Care PLus Rider start--> 
+<tr class="PLCP" id="PLCP" style="display:table-row;">
+<td class="contentSmall">Payor Living Care Plus<br/>Rider</td>
+<td class="content">
+This Rider does not cover the following occurrences:<br/>
+
+i.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Death of the life assured due to suicide during the first 12 months from the issue date or reinstatement date, whichever is later.<br/>
+
+ii.&nbsp;&nbsp;&nbsp;&nbsp;Total and Permanent Disability resulted directly or indirectly:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any self-inflicted bodily injury while sane or insane;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any nervous disorder or mental illness;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from flying in an aircraft (except as an aircrew member of, or as an ordinary fare paying passenger, on a regularly scheduled flight of a commercial airline); or<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from anything whatsoever while serving as a member of the armed forces, police and paramilitary forces as a result of declared or undeclared war, riots or civil commotion<br/>
+iii.&nbsp;&nbsp;&nbsp;&nbsp;An episode of coronary artery or ischaemic heart disease that occurred before the issue date or any reinstatement date, whichever is later<br/>
+iv.&nbsp;&nbsp;&nbsp;&nbsp;Diagnosis of the critical illness other than those specified under item (v) below within 30 days from the issue date or any reinstatement date,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;whichever is later<br/>
+v.&nbsp;&nbsp;&nbsp;&nbsp;Diagnosis of the critical illness specified below within 60 days from the issue date or any reinstatement date, whichever is later:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Angioplasty and other invasive treatment for coronary artery disease<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cancer<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Coronary artery disease requiring surgery<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Heart attack<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(e)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Other serious coronary artery disease<br/>
+vi.&nbsp;&nbsp;&nbsp;&nbsp;Other than the first incidence of the critical illness, except for angioplasty and other invasive treatments for major coronary artery disease.<br/>
+</td>
+</tr>
+<!--PLCP-Payor Living Care PLus Rider end-->
+
+<!--PR-Waiver of Premium Payor Rider start--> 
+<tr class="PR" id="PR" style="display:table-row;">
+    <td class="contentSmall">Waiver of Premium<br/>Payor Rider <span id="PRSA" class="PRSA">{PRSA}</span></td>
+    <td class="content">
+    This Rider does not cover the following occurrences:<br/>
+    i.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Death of the life assured due to suicide during the first 12 months from the issue date or reinstatement date, whichever is later.<br/>
+    ii.&nbsp;&nbsp;&nbsp;&nbsp;Total and Permanent Disability resulted directly or indirectly:<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any self-inflicted bodily injury while sane or insane;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any nervous disorder or mental illness;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from flying in an aircraft (except as an aircrew member of, or as an ordinary fare paying passenger, on a regularly scheduled flight of a commercial airline); or<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from anything whatsoever while serving as a member of the armed forces, police and paramilitary forces as a result of declared or undeclared war, riots or civil commotion<br/>
+    </td>
+</tr>
+<!--PR-Waiver of Premium Payor Rider end-->
+
+
+<!--PTR-Payor Term Rider start--> 
+<tr class="PTR" id="PTR" style="display:table-row;">
+<td class="contentSmall">Payor Term Rider</td>
+<td class="content">
+This Rider does not cover the following occurrences:<br/>
+i.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Death of the life assured due to suicide during the first 12 months from the issue date or reinstatement date, whichever is later.<br/>
+ii.&nbsp;&nbsp;&nbsp;&nbsp;Total and Permanent Disability resulted directly or indirectly:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any self-inflicted bodily injury while sane or insane;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from any nervous disorder or mental illness;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from flying in an aircraft (except as an aircrew member of, or as an ordinary fare paying passenger, on a regularly scheduled flight of a commercial airline); or<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from anything whatsoever while serving as a member of the armed forces, police and paramilitary forces as a result of declared or undeclared war, riots or civil commotion<br/>
+</td>
+</tr>
+<!--PTR-Payor Term Rider end-->
+
+
+
+</table>
+
+<div id="rujuk" class="rujuk" style="display:none">
+    <br/><i>Note: This list is non-exhaustive. Please refer to the policy contract for the full list of exclusions under this policy.</i>    
+</div>
+			
+
+			
+			
+			
+			</td>
+		</table>
+	    </td>
+	    <br/>
+	</tr>
+    </table>
+</div>
+
+
+
+
+
+<table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+<tr>
+<td width="75%" style="font-family:Times New Roman;font-size:9.5px;font-weight:normal;padding: 0px 0px 0px 0px;">
+This Product Disclosure Sheet consists of <span class="totalPages">{totalPages}</span> pages and each page forms an integral part of the Product Disclosure Sheet. A prospective policy owner is advised to read and<br/>
+understand the information printed on each and every page.<br/>
+<b><span id="rptVersion" class="rptVersion">{rptVersion}</span></b> <br/>
+Level 3, Tower B, PJ City Development, No. 15A Jalan 219, Seksyen 51A, 46100 Petaling Jaya, Selangor. Tel: 03-7650 1818 Fax: 03-7650 1991 Website: www.hla.com.my<br/>
+</td>
+<td width="10%" align="left" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Times New Roman;font-size:9.5px;font-weight:normal;">Page <span class="currentPage">22</span> of <span class="totalPages">56</span></td>
+<td width="15%" align="right" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Times New Roman;font-size:9.5px;font-weight:normal;">Ref: <span id=SICode class="SICode">{SINo}</span></td>
+</tr>
+</table>
+<script>
+$('#table-attachingRider2 tr').css('display','none');
+</script>
+</div>
+</body>
+</html>

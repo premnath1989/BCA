@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/hla.js"></script>
+  <script>
+  var gData;
+  function onBodyLoad(){
+  		//writeSummary1();
+  }
+  
+    function replaceChar(char){
+        var temp, returnVal;
+        if (char == "0")
+            returnVal = "-"
+        else if (char == "")
+            returnVal = "-"
+        else
+            returnVal = char;
+        return returnVal;
+    }
+    
+    function isIncomeRider(amt,rider){
+		//rider.replace(/^\s+|\s$/g,"")
+		//$.trim(rider)
+		var temp;
+		temp = $.trim(rider)
+		//alert(temp + "x")
+        if (temp == "HLA Income Builder" || temp == "Income 20 Rider" || temp == "Income 30 Rider" || temp == "Income 40 Rider" || temp == "Income D-20 Rider" || temp == "Income D-30 Rider" || temp == "Income D-40 Rider" || temp == "Income E-20 Rider" || temp == "Income E-30 Rider"){
+        	return amt + " *";
+        }
+        else
+        	return amt + "&nbsp;&nbsp;";
+    }
+    
+  </script>
+  <head>
+  <body onload="onBodyLoad()">
+  
+
+<div class="main-content">
+
+<div class="contentArea">
+
+<table id="table-LA"> 
+<tr>
+	<td width="70%" bgcolor="#c0c0c0" style="text-align:left;padding: 3px 3px 3px 3px;border: 1px solid black;"><b>PRODUCT DISCLOSURE SHEET</b></td>
+	<td width="30%" style="text-align:left;padding: 3px 3px 3px 3px;border: 1px solid black;"><b>Hong Leong Assurance Berhad</b></td>
+</tr>
+<tr>
+	<td valign="top" rowspan="2" style="text-align:left;padding: 3px 3px 3px 3px;border: 1px solid black;"><b>Read this Product Disclosure Sheet before you decide to take up the <i>HLA MedGLOBAL IV Plus Rider</i>. Be sure to also read the general terms and conditions.</b></td>
+	<td style="text-align:left;padding: 3px 3px 3px 3px;border: 1px solid black;"><b>HLA MedGLOBAL IV Plus Rider</b></td>
+</tr>
+<tr>
+	<td style="text-align:left;padding: 3px 3px 3px 3px;border: 1px solid black;"><b><span id="PrintDate2" class="PrintDate2">{PrintDate}</span></b></td>
+</tr>
+</table>
+
+
+
+
+
+
+
+<table cellspacing="5">
+	<tr>
+	    <td width="10"><b>1.</b></td>
+	    <td><b>What is this product about?</b></td>
+	</tr>
+	<tr>
+	    <td width="10"></td>
+	    <td>-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This policy provides for hospitalisation & surgical expenses, and outpatient treatment benefits incurred due to illness covered under the policy.</td>
+	</tr>
+	
+	<tr>
+	    <td width="10" valign="top"><b>2.</b></td>
+	    <td><b>What are the covers / benefits provided?</b></td>
+	</tr>
+	<tr>
+	    <td width="10" valign="top"></td>
+	    <td>
+		<div id="hideQ2">HLA MedGLOBAL IV Plus Rider is available in 4 plans which are MGIVP 150, MGIVP 200, MGIVP 300 and MGIVP 400. The plan selected is
+		<span id="MG4PlanOption" class="MG4PlanOption">{MG4PlanOption}</span> plan.</div>
+		The duration of coverage of this rider is <span id="MG4RiderTerm" class="MG4RiderTerm">{MG4RiderTerm}</span> years or upon termination, whichever occurs first.<br/><br/>
+	    </td>
+	</tr>
+	
+	<tr>
+	    <td></td>
+	    <td>
+		<table border="1" style="border-collapse: collapse" width="100%">
+		    <tr>
+			<td width="60%" style="padding: 5px 5px 5px 5px;" align="center">Plan</td>
+			<td width="10%" align="center" style="padding: 5px 5px 5px 5px;">MGIVP 150<br/>(RM)</td>
+			<td width="10%" align="center" style="padding: 5px 5px 5px 5px;">MGIVP 200<br/>(RM)</td>
+			<td width="10%" align="center" style="padding: 5px 5px 5px 5px;">MGIVP 300<br/>(RM)</td>
+			<td width="10%" align="center" style="padding: 5px 5px 5px 5px;">MGIVP 400<br/>(RM)</td>
+		    </tr>
+		    <tr>
+			<td colspan="5" style="padding: 5px 5px 5px 5px;"><b>Hospital & Surgical</b></td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Hospital Room & Board<br/>(up to 150 days per Any One Disability)</td>
+			<td align="center">150</td>
+			<td align="center">200</td>
+			<td align="center">300</td>
+			<td align="center">400</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Daily Cash as a result of hospitalisation due to road accidents on a Malaysian Highway *<br/>(up to 150 days per Any One Disability)</td>
+			<td align="center">150</td>
+			<td align="center">200</td>
+			<td align="center">300</td>
+			<td align="center">400</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Daily Cash Allowance at Government Hospital<br/>(up to 60 days per Any One Disability)</td>
+			<td align="center">50</td>
+			<td align="center">100</td>
+			<td align="center">150</td>
+			<td align="center">200</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;" > Intensive Care Unit<br/>(up to 75 days per Any One Disability)</td>
+			<td  align="center"colspan="4" rowspan="14">Reasonable & Customary Charges **</td>
+			
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Lodger Expenses<br/>(up to 150 days per Any One Disability)</td>
+			
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Hospital Supplies & Services</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Surgical Fees(including pre-surgical assessment, Specialist's visits and post-Surgery care up to the 60 days from the date of Surgery)</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Anaesthetist Fee</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Operating Theatres</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">In-Hospital Physician Visit(up to 150 days per Any One Disability)</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">In-Hospital Physiotherapy Treatment Fees</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Pre-Hospital Diagnostic Tests<br/>(within 60 days prior to hospitalisation)</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Pre-Hospital Specialist Consultation<br/>(within 60 days prior to hospitalisation)</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;" >Post-Hospitalisation Treatment<br/>(within 60 days following discharge from hospital)</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Organ Transplant</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Day Surgery Benefit</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Ambulance Fees</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Government Service Tax</td>
+			<td colspan="4" align="center">(Applicable Percentage) x Room & Board Benefit</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;" colspan="5"><b>Outpatient Treatment Benefits</b></td>
+		    </tr>
+		    <!--
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Emergency Accidental Outpatient Treatment(within 30 days following such emergency treatment)</td>
+			<td rowspan="5" colspan="4" align="center"></td>
+		    </tr>
+		    <tr>
+		    -->
+		</table>
+	    </td>
+	</tr>
+    </table>
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+</body>
+</html>

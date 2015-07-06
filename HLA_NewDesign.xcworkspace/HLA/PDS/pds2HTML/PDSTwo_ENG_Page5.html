@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <link href="PDS/pds2HTML/css/css_PDS.css" rel="stylesheet" type="text/css" />
+        <title>
+            C) FUND CHOOSEN
+        </title>
+    </head>
+    <body>
+        <div class="pageContent"></br>
+            <div id = "2C" class="leftRightMargin">
+                <!--fund chosen section-->
+                <span class="boldUnderline">C) Funds Chosen</span>
+                <div id = "fundChosenInner" style="width:100%"></div>
+                </br>
+                <span><b>Reminder: </b> Please read the Sales Illustration, which includes product benefits and objectives of the investment-linked fund. It is important to select a plan or a combination of funds that suit your financial goals and risk profile. </span>
+            </div>
+            <!--end of fund chosen section-->
+            <div id="2D"class="leftRightMargin">
+                <!--D) Minimum Guaranteed Unit Price at Fund Maturity (only applicable to HLA EverGreen Funds)-->
+                <p class="boldUnderline">D) Minimum Guaranteed Unit Price at Fund Maturity (only applicable to HLA EverGreen Funds)</p>
+                <p>At  each point of investment, the unit price is multiplied with a Boost Factor. This boosted unit price will be the unit price guaranteed at fund maturity. This maturity unit price is the minimum guaranteed the Policy Owner  will receive.
+                </br>Whenever  the boosted unit price reaches a new high, the Minimum Guaranteed Unit Price at Fund Maturity will be revised to this higher unit price.
+                </p>
+                <p>The  Minimum Guaranteed Unit Price at Fund Maturity before tax will attract a portion of tax which has yet to be provided for.  The further tax adjustment is the difference of tax payable on the capital gains of the funds determined at funds maturity and tax which has been provided for the funds through weekly unit pricing. The unit prices published weekly are on after tax basis.</p>
+            </div>
+            <!--end of 2D-->
+            <div id = "premiumPaid">
+                <table class="leftRightMargin" border="0">
+                    <tr>
+                        <td class="numbering">
+                            3.
+                        </td>
+                        <td class= "bold">
+                            How much premium do I have to pay?
+                        </td>
+                    </tr>
+                    <tr id="premiumPayTR">
+                        <td></td>
+                        <td id="premiumPay">
+                            <p>The  total premium you have to pay may vary depending on our underwriting decisions. The estimated total premium that you have to pay:</p>
+                            <script>
+                                document.getElementById("premiumPay").appendChild(loadPremiumPay());
+                                </script>
+                        </td>
+                    </tr>
+                    <tr id="premiumDurationTR">
+                        <td></td>
+                        <td id="premiumDuration">
+                            <span>Premium duration:</span>
+                            <script>
+                                document.getElementById("premiumDuration").appendChild(loadPremiumDuration());
+                                </script>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!-- end of How much premium do I have to pay?-->
+        </div>
+    </body>
+    <script>
+        document.getElementById('fundChosenInner').appendChild(loadTableFundChosen());
+        </script>
+</html>

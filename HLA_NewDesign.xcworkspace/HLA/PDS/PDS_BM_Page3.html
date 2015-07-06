@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/hla.js"></script>
+  <script>
+  var gData;
+  function onBodyLoad(){
+  		//writeSummary1();
+  }
+  
+    function replaceChar(char){
+        var temp, returnVal;
+        if (char == "0")
+            returnVal = "-"
+        else if (char == "")
+            returnVal = "-"
+        else
+            returnVal = char;
+        return returnVal;
+    }
+    
+    function isIncomeRider(amt,rider){
+		//rider.replace(/^\s+|\s$/g,"")
+		//$.trim(rider)
+		var temp;
+		temp = $.trim(rider)
+		//alert(temp + "x")
+        if (temp == "HLA Income Builder" || temp == "Income 20 Rider" || temp == "Income 30 Rider" || temp == "Income 40 Rider" || temp == "Income D-20 Rider" || temp == "Income D-30 Rider" || temp == "Income D-40 Rider" || temp == "Income E-20 Rider" || temp == "Income E-30 Rider"){
+        	return amt + " *";
+        }
+        else
+        	return amt + "&nbsp;&nbsp;";
+    }
+    
+  </script>
+  <head>
+  <body onload="onBodyLoad()">
+  
+<div id="header">
+	<div class="agentInfo">
+  		Prepared By : <span id="agentName" class="agentName">{agentName}</span>
+  		<br/>Code : <span id="agentCode" class="agentCode">{agentCode}</span>
+  	</div>
+  	<div class="ContentInfo">Printed On : <span id="dateModified" class="dateModified">{DateModified}</span></div>
+  	<div class="hruleInfo"></div>
+</div>
+<div class="main-content">
+<!--520px-->
+
+
+
+<div class="contentArea">
+    <table cellspacing="3" id="item3456" class="item3456">
+	<tr class="item3" style="display:table-row;">
+	    <td width="10"><b>3.</b></td>
+	    <td><b>Berapakah premium yang perlu saya bayar?</b></td>
+	</tr>
+	<tr class="item3" style="display:table-row;">
+	    <td>&nbsp;</td>
+	    <td>Jumlah premium yang perlu anda bayar dan tempoh polisi mungkin berbeza mengikut keperluan penanggungjaminan syarikat insurans.<br/>
+	    Anggaran jumlah premium yang perlu anda bayar:
+	    
+		<table border="1" id="table-Rider1" class="table-estimate">
+		    <thead>
+			<tr>
+			    <td rowspan="2" align="left"><b>Pelan/Rider</b></td>
+			    <td rowspan="2" style="text-align:center"><b>Jenis</b></td>
+			    <td colspan="4" align="left"><b>Premium Awal</b></td>
+			</tr>
+			<tr>
+			    <td style="text-align:center"><b>Tahunan (RM)</b></td>
+			    <td style="text-align:center"><b>Setengah Tahunan (RM)</b></td>
+			    <td style="text-align:center"><b>Suku Tahunan (RM)</b></td>
+			    <td style="text-align:center"><b>Bulanan (RM)</b></td>
+			</tr>
+		    </thead>
+		    <tbody>
+		    </tbody>
+		    <tfoot>
+		    </tfoot>
+		</table>
+		<br/>
+	    Tempoh Premium:
+		<table border="1" id="table-Rider1" class="table-duration">
+			<thead>
+			<tr>
+			    <td style="text-align:left"><b>Pelan/Rider</b></td>
+			    <td style="text-align:left"><b>Jenis</b></td>
+			    <td style="text-align:left"><b>Hayat-hayat yang Diinsuranskan</b></td>
+			    <td style="text-align:center"><b>Premium dibayar sehingga hayat yang diinsuranskan berumur</b></td>
+			</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	    <br/>
+	    </td>
+	</tr>
+
+	<tr class="item4-page3" style="display:table-row;">
+	    <td><b>4.</b></td>
+	    <td><b>Apakah yuran dan bayaran yang perlu saya bayar?</b></td>
+	</tr>
+	<tr class="item4-page3" style="display:table-row;">
+	    <td>&nbsp;</td>
+	    <td>
+		6% cukai perkhidmatan akan dikenakan sekiranya polisi ini dimiliki oleh sebuah syarikat. Jika tidak, tiada cukai perkhidmatan akan dikenakan sekiranya polisi ini dimiliki oleh seseorang individu.<br/>
+		Cukai perkhidmatan adalah seperti di bawah:
+		
+		<table border="1" id="table-Rider1" class="table-tax">
+			<thead>
+			<tr>
+			    <td style="text-align:left"><b>Frekuensi Pembayaran Premium</b></td>
+			    <td style="text-align:center"><b>Tahunan (RM)</b></td>
+			    <td style="text-align:center"><b>Setengah Tahunan (RM)</b></td>
+			    <td style="text-align:center"><b>Suku Tahunan (RM)</b></td>
+			    <td style="text-align:center"><b>Bulanan (RM)</b></td>
+			</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	
+		<br/>
+	</td>
+	</tr>
+	
+	<tr class="item5-page3" style="display:table-row;">
+	    <td width="10"><b>5.</b></td>
+	    <td><b>Apakah antara terma dan syarat utama yang perlu saya ketahui?</b></td>
+	</tr>
+	<tr class="item5-page3" style="display:table-row;">
+	    <td>&nbsp;</td>
+	    <td>
+	    
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kepentingan pendedahan - anda mestilah mendedahkan semua fakta penting seperti keadaan perubatan, dan nyatakan umur anda dengan betul.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tempoh bertenang - anda boleh membatalkan polisi anda dengan mengembalikan polisi dalam tempoh 15 hari setelah anda menerima polisi tersebut. Premium yang telah anda bayar (selepas tolak<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perbelanjaan perubatan yang telah dibuat) akan dipulangkan kepada anda.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Kesemua permohonan adalah tertakluk kepada kelulusan pengunderaitan.</b><br/>
+		<br/>
+		<i>Nota: Senarai ini tidak lengkap. Sila rujuk kontrak polisi untuk mendapatkan terma dan syarat di bawah polisi ini.</i> 
+	    <br/><br/>
+	    </td>
+	</tr>
+	
+	<tr class="item6-page3" style="display:table-row;">
+	    <td><b>6.</b></td>
+	    <td><b>Apakah pengecualian utama di bawah polisi ini?</b></td>
+	</tr>
+	<tr class="item6-page3" style="display:table-row;">
+	    <td>&nbsp;</td>
+	    <td>
+		<table width="100%" border="0" cellspacing="0" id="table2-page1">
+		    <tr>
+			<td width="20"style="padding: 0px 0px 10px 0px;"><b>A)</b></td>
+			<td colspan="2" style="padding: 0px 0px 10px 0px;"><u><b>Pelan Asas</b></u></td>
+		    </tr>
+		    <tr>
+			<td></td>
+			<td width="10" style="padding: 0px 0px 0px 0px;"><b>I)</b></td>
+			<td style="padding: 0px 0px 0px 0px;"><u><b>Faedah Kematian</b></u></td>
+		    </tr>
+		    <tr>
+			<td></td>
+			<td></td>
+			<td style="padding: 0px 0px 10px 0px;">
+		Jika Hayat Diinsuranskan sama ada siuman atau tidak siuman, membunuh diri dalam tempoh dua belas (12) bulan dari Tarikh Penyertaan atau Tarikh Pengembalian Semula, mengikut mana-mana yang<br/>
+		terkemudian, Polisi ini akan menjadi tidak sah dan kami akan memulangkan premium yang telah dibayar tanpa faedah selepas menolak sebarang jumlah yang terhutang kepada kami di bawah Polisi ini.
+			</td>
+		    </tr>
+		    <tr>
+			<td></td>
+			<td width="10"><b>II)</b></td>
+			<td><u><b>Total &amp; Permanent Disability</b></u></td>
+		    </tr>
+		    <tr>
+			<td></td>
+			<td></td>
+			<td style="padding: 0px 0px 10px 0px;">
+		Polisi ini tidak akan melindungi Hilang Upaya Menyeluruh & Kekal yang berpunca secara langsung atau tidak langsung;<br/>
+			-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;daripada sebarang kecederaan anggota badan yang disengajakan ketika siuman atau tidak siuman;<br/>
+			-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;daripada sebarang gangguan saraf atau penyakit mental;<br/>
+			-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;daripada penerbangan di dalam pesawat udara (kecuali sebagai anak kapal, atau sebagai penumpang biasa yang membayar tambang, dalam mana-mana penerbangan komersil berjadual tetap); atau<br/>
+			-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;daripada apa jua perkara ketika berkhidmat dalam angkatan bersenjata, polis dan angkatan separa tentera disebabkan oleh perang yang diisytiharkan atau tidak diisytiharkan, rusuhan atau kekecohan awam.
+			</td>
+		    </tr>
+		</table>
+	    </td>
+	    <br/>
+	</tr>
+    </table>
+</div>
+
+
+<script>
+/*
+if row count <= 14
+show 4
+show 5
+show 6
+else if row count >14 && row count <=26
+show 4
+show 5
+else if row rount >=27
+show4
+*/
+
+//$(".item4").hide();
+$(".item5").hide();
+$(".item6").hide();
+</script>
+
+
+<table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+<tr>
+<td width="75%" style="font-family:Arial;font-size:8px;font-weight:normal;padding: 5px 5px 5px 0px;">
+Risalah Pendedahan Produk ini mengandungi <span class="totalPages">{totalPages}</span> muka surat and setiap muka surat membentuk sebahagian daripada Risalah Pendedahan Produk. Bakal pemunya polisi adalah<br/>
+dinasihatkan untuk membaca dan memahami maklumat yang tercetak pada setiap muka surat.<br/>
+<b><span id="rptVersion" class="rptVersion">{rptVersion}</span></b> <br/>
+Level 3, Tower B, PJ City Development, No. 15A Jalan 219, Seksyen 51A, 46100 Petaling Jaya, Selangor. Tel: 03-7650 1818 Fax: 03-7650 1991 Website: www.hla.com.my<br/>
+</td>
+<td width="10%" align="left" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:10px;font-weight:normal;">Page <span class="currentPage">22</span> of <span class="totalPages">56</span></td>
+<td width="15%" align="right" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:12px;font-weight:normal;">Ref: <span id=SICode class="SICode">{SINo}</span></td>
+</tr>
+</table>
+
+</div>
+</body>
+</html>

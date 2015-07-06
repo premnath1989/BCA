@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/hla.js"></script>
+  <script>
+  var gData;
+  function onBodyLoad(){
+  		//writeSummary1();
+  }
+  
+    function replaceChar(char){
+        var temp, returnVal;
+        if (char == "0")
+            returnVal = "-"
+        else if (char == "")
+            returnVal = "-"
+        else
+            returnVal = char;
+        return returnVal;
+    }
+    
+    function isIncomeRider(amt,rider){
+		//rider.replace(/^\s+|\s$/g,"")
+		//$.trim(rider)
+		var temp;
+		temp = $.trim(rider)
+		//alert(temp + "x")
+        if (temp == "HLA Income Builder" || temp == "Income 20 Rider" || temp == "Income 30 Rider" || temp == "Income 40 Rider" || temp == "Income D-20 Rider" || temp == "Income D-30 Rider" || temp == "Income D-40 Rider" || temp == "Income E-20 Rider" || temp == "Income E-30 Rider"){
+        	return amt + " *";
+        }
+        else
+        	return amt + "&nbsp;&nbsp;";
+    }
+    
+  </script>
+  <head>
+  <body onload="onBodyLoad()">
+  
+<div id="header">
+	<div class="agentInfo">
+  		Code : <span id="agentCode" class="agentCode">{agentCode}</span>&nbsp;&nbsp;Prepared By : <span id="agentName" class="agentName">{agentName}</span>
+  		
+  	</div>
+  	<div class="ContentInfo">Printed On : <span id="dateModified" class="dateModified">{DateModified}</span></div>
+  	<div class="hruleInfo"></div>
+</div>
+<div class="main-content">
+<!--520px-->
+
+
+
+<div class="contentArea" style="height:650px;">
+
+
+
+<table width="100%">
+
+	<tr>
+	    <td></td>
+	    <td>
+		<table border="1" style="border-collapse: collapse;line-height: 12px;" width="100%">
+		    <tr>
+			<td width="64%" style="padding: 1px 1px 1px 1px;" align="center">Plan</td>
+			<td width="9%" align="center" style="padding: 1px 1px 1px 1px;">MM 150<br/>(RM)</td>
+			<td width="9%" align="center" style="padding: 1px 1px 1px 1px;">MM 200<br/>(RM)</td>
+			<td width="9%" align="center" style="padding: 1px 1px 1px 1px;">MM 300<br/>(RM)</td>
+			<td width="9%" align="center" style="padding: 1px 1px 1px 1px;">MM 400<br/>(RM)</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 1px 1px 1px 1px;">In-Hospital Physiotherapy Treatment Fees</td>
+			<td rowspan="7" colspan="4" align="center"><sup><span class="fnCharges" style="font-size: 5px"></span></sup>Reasonable & Customary Charges </td>
+		    </tr>
+		    <tr>
+			<td style="padding: 1px 1px 1px 1px;">Pre-Hospital Diagnostic Tests<br/>(within 60 days prior to hospitalisation)</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 1px 1px 1px 1px;">Pre-Hospital Specialist Consultation<br/>(within 60 days prior to hospitalisation)</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 1px 1px 1px 1px;" >Post-Hospitalisation Treatment<br/>(within 60 days following discharge from hospital)</td>
+			
+		    </tr>
+		    <tr>
+			<td style="padding: 1px 1px 1px 1px;">Organ Transplant</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 1px 1px 1px 1px;">Day Surgery Benefit</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 1px 1px 1px 1px;">Ambulance Fees</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 0px 0px 0px 0px;" colspan="5"><b>Outpatient Treatment Benefits </b></td>
+		    </tr>
+		    <tr>
+			<td style="padding: 1px 1px 1px 1px;">Emergency Accidental Outpatient Treatment<br/>(within 30 days following such emergency treatment)</td>
+			<td rowspan="5" colspan="4" align="center"><sup><span class="fnCharges" style="font-size: 5px"></span></sup>Reasonable & Customary Charges </td>
+		    </tr>
+		    <tr>
+			<td style="padding: 1px 1px 1px 1px;">Emergency Accidental Dental Treatment</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 1px 1px 1px 1px;" >Outpatient Physiotherapy Treatment(within 90 days from the date of Hospital discharge or Surgery)</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 1px 1px 1px 1px;"  >Outpatient Cancer Treatment</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 1px 1px 1px 1px;" >Outpatient Kidney Dialysis Treatment</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 1px 1px 1px 1px;" >Home Nursing Care (up to 180 days per lifetime)</td>
+			<td align="center" style="padding: 1px 1px 1px 1px;">40</td>
+			<td align="center" style="padding: 1px 1px 1px 1px;">60</td>
+			<td align="center" style="padding: 1px 1px 1px 1px;">80</td>
+			<td align="center" style="padding: 1px 1px 1px 1px;">100</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 1px 1px 1px 1px;" >Overall Annual (per Rider Year) limit</td>
+			<td align="center" style="padding: 1px 1px 1px 1px;">75,000</td>
+			<td align="center" style="padding: 1px 1px 1px 1px;">120,000</td>
+			<td align="center" style="padding: 1px 1px 1px 1px;">180,000</td>
+			<td align="center" style="padding: 1px 1px 1px 1px;">240,000</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 1px 1px 1px 1px;" >Aggregate Term Limit</td>
+			<td align="center" style="padding: 1px 1px 1px 1px;">300,000</td>
+			<td align="center" style="padding: 1px 1px 1px 1px;">600,000</td>
+			<td align="center" style="padding: 1px 1px 1px 1px;">900,000</td>
+			<td align="center" style="padding: 1px 1px 1px 1px;">1,200,000</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 1px 1px 1px 1px;" >Emergency Evacuation & Repatriation (limit per event)</td>
+			<td align="center" style="padding: 1px 1px 1px 1px;">150,000</td>
+			<td align="center" style="padding: 1px 1px 1px 1px;">150,000</td>
+			<td align="center" style="padding: 1px 1px 1px 1px;">150,000</td>
+			<td align="center" style="padding: 1px 1px 1px 1px;">150,000</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 1px 1px 1px 1px;" >Deductible (RM) per disability</td>
+			<td colspan="4" align="center">5,000<br/>10,000<br/>15,000</td>
+		    </tr>   
+		    
+		</table>
+	    </td>
+	</tr>
+	<tr>
+	    <td></td>
+	    <td>
+		
+		<span class="fnCharges"></span> Charges for medical care which is Medically Necessary shall be considered reasonable and customary to the extent that it does not exceed the general level of charges being made by other similar standing in<br/>
+		the locality where the charge is incurred, when furnishing like or comparable treatment, services or supplies to individual of the same sex and of comparable age for a similar Sickness, Disease or Injury and in<br/>
+		accordance with accepted medical standards and practice could not have been omitted without adversely affecting the Life Assured's medical condition.
+	    </td>
+	</tr>
+	<tr>
+	    
+	    <td width="10"></td>
+	    <td>
+		<u><b>Non-Deductible Benefit</b></u><br/>
+		The following benefits shall not be subject to deductible:<br/>
+		(a).&nbsp;&nbsp;&nbsp;Daily Cash amount for hospitalisation due to road accidents on a Malaysian Highway<br/>
+		(b).&nbsp;&nbsp;&nbsp;Daily Cash allowance for each day confined in a Government Hospital<br/>
+		(c).&nbsp;&nbsp;&nbsp;Outpatient Cancer Treatment<br/>
+		(d).&nbsp;&nbsp;&nbsp;Outpatient Kidney Dialysis Treatment<br/>
+		(e).&nbsp;&nbsp;&nbsp;Emergency Evacuation & Repatriation<br/><br/>
+		
+		<u><b>Renewal</b></u><br/>
+		This rider is renewable at the option of the Policy Owner until the occurrence of any of the following:<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;non payment of premium or premium not made on time<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fraud or misrepresentation of material fact during application<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the Rider is cancelled at the request of the Policy Owner<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total claims of the Rider have reached the lifetime limit specified (i.e. the Aggregate Term Limit) ,and/or on the death of the Life Assured.<br/>
+	    </td>
+	</tr>
+	
+	
+
+    </table>
+
+
+
+
+<!--
+<table cellspacing="5">
+	<tr>
+	    <td width="10" valign="top"><b>4.</b></td>
+	    <td valign="top"><b>What are the fees and charges I have to pay?</b></td>
+	</tr>
+	<tr>
+	    <td width="10" valign="top"></td>
+	    <td valign="top">
+		<table id="table-1" border="1" style="border-collapse: collapse" width="80%">
+		    <tr>
+			<td width="30%" style="padding:1px 1px 1px 1px;">Type</td>
+			<td style="padding:1px 1px 1px 1px;">Amount</td>
+		    </tr>
+		    <tr>
+			<td style="padding:1px 1px 1px 1px;">Direct Distribution Cost paid to insurance agents</td>
+			<td></td>
+		    </tr>
+		    <tr>
+			<td style="padding:1px 1px 1px 1px;">Year 1</td>
+			<td style="padding:1px 1px 1px 1px;"><span id="CYear1" class="CYear1">{CYear1}</span></td>
+		    </tr>
+		    <tr>
+			<td style="padding:1px 1px 1px 1px;">Year 2</td>
+			<td style="padding:1px 1px 1px 1px;"><span id="CYear2" class="CYear2">{CYear2}</span></td>
+		    </tr>
+		    <tr>
+			<td style="padding:1px 1px 1px 1px;">Year 3</td>
+			<td style="padding:1px 1px 1px 1px;"><span id="CYear3" class="CYear3">{CYear3}</span></td>
+		    </tr>
+		    <tr>
+			<td style="padding:1px 1px 1px 1px;">Year 4</td>
+			<td style="padding:1px 1px 1px 1px;"><span id="CYear4" class="CYear4">{CYear4}</span></td>
+		    </tr>
+		    <tr>
+			<td style="padding:1px 1px 1px 1px;">Year 5</td>
+			<td style="padding:1px 1px 1px 1px;"><span id="CYear5" class="CYear5">{CYear5}</span></td>
+		    </tr>
+		    <tr>
+			<td style="padding:1px 1px 1px 1px;">Year 6</td>
+			<td style="padding:1px 1px 1px 1px;"><span id="CYear6" class="CYear6">{CYear6}</span></td>
+		    </tr>
+		    <tr>
+			<td style="padding:1px 1px 1px 1px;">Thereafter</td>
+			<td style="padding:1px 1px 1px 1px;"><span id="CYear7" class="CYear7">{CYear7}</span></td>
+		    </tr>
+		    
+		</table>
+	    </td>
+	</tr>
+	<tr>
+	    <td width="10" valign="top"><b>5.</b></td>
+	    <td valign="top"><b>What are some of the key terms and conditions that I should be aware of?</b></td>
+	</tr>
+	<tr>
+	    <td width="10" valign="top"></td>
+	    <td valign="top">
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Importance of disclosure - you must disclose all material facts such as medical condition, and state your age correctly.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Free-look period - you may cancel your policy by returning the policy within 15 days after you have received the policy.
+			The premiums that you have paid (less any medical fee incurred) will be refunded to you.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Qualifying / waiting period - the eligibility for benefits under the policy will only start 90 days after the effective date of the policy.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>All applications are subject to underwriting approval.</b><br/><br/>
+		
+		<i>Note: This list is non-exhaustive. Please refer to the policy contract for the terms and conditions under this policy.</i>
+	    </td>
+	</tr>
+	<tr>
+	    <td width="10" valign="top"><b>6.</b></td>
+	    <td valign="top"><b>What are the major exclusions under this policy?</b><br/>
+		This rider does not cover the following occurrence:<br/><br/>
+		
+		<u><b>Cancer Benefit:</b></u><br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pre-Existing Condition.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All Cancers presenting or diagnosed within the Waiting Period of 90 days.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All Cancers which are histologically classified as being:<br/>
+		    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Premalignant (for example cervical intraepithelial / CIN I, II, or III, essential thrombocythemia, polycythemia rubra vera) or having either borderline malignancy / low malignant potential and/or;<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Carcinoma in situ (except Ductal carcinoma in situ breast, Carcinoma in situ cervix and Carcinoma in situ colon).<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All skin Cancers except malignant melanoma with thickness in excess of 1.5 mm thickness or metastatic skin Cancers.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All Cancers associated with HIV infection.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unreasonable failure to follow medical treatment.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All Cancers if Death of the Life Assured occurs within thirty (30) days following the date of diagnosis of Cancer.<br/><br/>
+
+		<i>Note: This list is non-exhaustive. Please refer to the policy contract for the full list of exclusions under this policy.</i>
+	    </td>
+	</tr>
+	
+	<tr>
+	    <td width="10" valign="top"><b>7.</b></td>
+	    <td valign="top"><b>Can I cancel my policy?</b><br/>
+		You may cancel the rider by giving a written notice to Hong Leong Assurance Berhad. After the free look period the cash surrender value
+		(if any) of your rider will be paid to you when you cancel the rider provided<br/>that no claim has been admitted prior to cancellation,
+		however the amount payable may be less than the total premiums you had paid.
+	    </td>
+	</tr>
+	<tr>
+	    <td valign="top"><b>8.</b></td>
+	    <td valign="top">
+		<b>What do I need to do if there are changes to my contact details?</b><br/>
+		It is important that you inform us of any change in your contact details (including that of the nominee and/or trustee) to ensure that
+		all correspondences reach you and/or nominee/trustee in a timely manner.
+	    </td>
+	</tr>
+	<tr>
+	    <td valign="top"><b>9.</b></td>
+	    <td valign="top">
+		<b>Where can I get further information?</b><br/>
+		Should you require additional information about medical & health insurance, please refer to the insurance info booklet on 'Medical & Health Insurance',
+		available at all our branches or you can obtain a copy from the insurance agent or visit www.insuranceinfo.com.my.
+	    </td>
+	</tr>
+	
+    </table>
+-->
+
+
+
+</div>
+
+
+
+
+
+<table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+<tr>
+<td width="75%" style="font-family:Times New Roman;font-size:9.5px;font-weight:normal;padding: 5px 5px 5px 0px;">
+This Product Disclosure Sheet consists of <span class="totalPages">{totalPages}</span> pages and each page forms an integral part of the Product Disclosure Sheet. A prospective policy owner is advised to read and<br/>
+understand the information printed on each and every page.<br/>
+<b><span id="rptVersion" class="rptVersion">{rptVersion}</span></b> <br/>
+Level 3, Tower B, PJ City Development, No. 15A Jalan 219, Seksyen 51A, 46100 Petaling Jaya, Selangor. Tel: 03-7650 1818 Fax: 03-7650 1991 Website: www.hla.com.my<br/>
+</td>
+<td width="10%" align="left" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Times New Roman;font-size:9.5px;font-weight:normal;">Page <span class="currentPage">22</span> of <span class="totalPages">56</span></td>
+<td width="15%" align="right" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Times New Roman;font-size:9.5px;font-weight:normal;">Ref: <span id=SICode class="SICode">{SINo}</span></td>
+</tr>
+</table>
+
+</div>
+</body>
+</html>

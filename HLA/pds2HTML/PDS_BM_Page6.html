@@ -1,0 +1,2052 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/hla.js"></script>
+  <script>
+  function onBodyLoad(){
+  }
+  
+    function replaceChar(char){
+        var temp, returnVal;
+        if (char == "0")
+            returnVal = "-"
+        else if (char == "")
+            returnVal = "-"
+        else
+            returnVal = char;
+        return returnVal;
+    }
+    
+    function isIncomeRider(amt,rider){
+		//rider.replace(/^\s+|\s$/g,"")
+		//$.trim(rider)
+		var temp;
+		temp = $.trim(rider)
+		//alert(temp + "x")
+        if (temp == "HLA Income Builder" || temp == "Income 20 Rider" || temp == "Income 30 Rider" || temp == "Income 40 Rider" || temp == "Income D-20 Rider" || temp == "Income D-30 Rider" || temp == "Income D-40 Rider" || temp == "Income E-20 Rider" || temp == "Income E-30 Rider"){
+        	return amt + " *";
+        }
+        else
+        	return amt + "&nbsp;&nbsp;";
+    }
+    
+  </script>
+  <head>
+  <body onload="onBodyLoad()">
+  
+
+<div class="main-content">
+<!--520px-->
+
+
+
+<div class="contentArea">
+
+<span id="riderInPage" class="riderInPage">Rider yang Dilampirkan</span> 
+
+
+<table id="table-attachingRider2" class="table-attachingRider2"> 
+<tr class="tblHeader" id="tblHeader" style="display:table-row;">
+<th class="ContentSmall" style="width: 10%"><b>Rider</b></th>
+<th class="content"><b>Pengecualian</b></th>
+</tr>
+
+<!--ACIR start-->
+  <tr class="ACIR" id="ACIR" style="display:table-row;">
+    <td class="contentSmall" style="width: 5%">Accelerated Critical Illness Rider</td>
+    <td class="content">
+    
+    
+   Peruntukan penyakit kritikal tidak meliputi peristiwa-peristiwa berikut:<br/>
+    (i)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Satu episod arteri koronari atau penyakit jantung ischaemic yang berlaku sebelum Tarikh Penerbitan, Tarikh Pindaan Efektif atau pada sebarang Tarikh Pengembalian Semula, yang mana terkemudian;<br/>
+    (ii)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Diagnosis penyakit kritikal selain daripada yang dispesifikasikan bawah item (iii) di bawah dalam masa 30 hari dari Tarikh Penerbitan, Tarikh Pindaan Efektif atau pada sebarang Tarikh Pengembalian Semula, yang mana terkemudian;<br/>
+    (iii)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Diagnosis penyakit kritikal seperti yang dispesifikasikan di bawah dalam masa 60 hari dari Tarikh Penerbitan, Tarikh Pindaan Efektif atau pada sebarang Tarikh Pengembalian Semula, yang mana terkemudian:<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Angioplasti dan rawatan untuk penyakit arteri koronori<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kanser<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Penyakit arteri koronori yang memerlukan pembedahan<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serangan jantung<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(e)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lain-lain penyakit arteri koronori yang tenat<br/>
+    
+    Sila rujuk kepada kontrak polisi untuk definisi tepat setiap penyakit kritikal.
+    </td>
+</tr>
+<!--ACIR end-->
+
+
+
+
+
+<!--CCR start--> 
+<tr class="CCR" id="CCR" style="display:table-row;">
+<td class="extraContentSmall" style="width: 5%">CI Care Rider</td>
+<td class="content">
+
+The following situations, conditions or illnesses are excluded from this Rider :<br/>
+
+<table id="TableNoBorder" class="TableNoBorder" style="border-collapse:collapse;border: 0px solid black;width: 100%;">
+				<tr>
+					<td style="width:10px">(a)</td>
+					<td colspan="3">The signs or symptoms of the Critical Illness is manifested prior to or:</td>
+				</tr>
+				<tr>
+					<td/><td style="width:10px">A.</td>
+					<td colspan="2">within sixty (60) days from the Issue Date, Alteration Effective Date or any Reinstatement Date of this Rider, whichever is the latest in respect of:</td>
+				</tr>
+				<tr>
+					<td/><td/><td style="width:10px">(i)</td><td>Angioplasty and Other Invasive Treatments for Major Coronary Artery Disease;</td>
+				</tr>
+				<tr>
+					<td/><td/><td>(ii)</td><td>Cancer</td>
+				</tr>
+				<tr>
+					<td/><td/><td>(iii)</td><td>Coronary Artery By-Pass Surgery;</td>
+				</tr>
+				<tr>
+					<td/><td/><td>(iv)</td><td>Heart Attack; or</td>
+				</tr>
+				<tr>
+					<td/><td/><td>(v)</td><td>Other Serious Coronary Artery Disease; or</td>
+				</tr>
+				<tr>
+					<td/><td style="vertical-align: text-top;">B.</td>
+					<td colspan="2">within thirty (30) days from the Issue Date, Alteration Effective Date or any Reinstatement Date of this Rider, whichever is the latest in respect of all other Critical Illness not set out in Item A above;</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: text-top;">(b)</td>
+					<td colspan="4">The condition arises directly or indirectly from a Pre-existing Illness, which existed prior to the Issue Date, Alteration Effective Date or any Reinstatement Date of this Rider, whichever is the latest;</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: text-top;">(c)</td>
+					<td colspan="4">The Critical Illness, where in the Company's sole and absolute opinion, was caused directly or indirectly by the existence of Acquired Immune Deficiency Syndrome (AIDS) or by the presence of any Human Immuno-deficiency Virus (HIV) infection. We reserve the right to require the Life Assured to undergo a blood test to detect the presence of any HIV infection as a condition precedent before accepting any claim. For the purpose of this Rider,</td>
+				</tr>
+				<tr>
+					<td/><td style="vertical-align: text-top;">(i)</td>
+					<td colspan="3">the definition of AIDS shall be that used by the World Health Organization in 1987, or any subsequent revision by the World Health Organization of that definition; and</td>
+				</tr>
+				<tr>
+					<td/><td style="vertical-align: text-top;">(ii)</td>
+					<td colspan="3">infection shall be deemed to have occurred where blood or other relevant test(s) indicate, in the Company's sole and absolute opinion, either the presence of any Human Immuno-deficiency Virus or antibodies to such virus.</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: text-top;">(d)</td>
+					<td colspan="3">Any Critical Illness was diagnosed, directly or indirectly, due to a congenital defect or disease, which was manifested or was diagnosed before the Life Assured attained twelve (12) months of age;</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: text-top;">(e)</td>
+					<td colspan="3">Any Critical Illness caused by a self-inflicted injury, while sane or insane;</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: text-top;">(f)</td>
+					<td colspan="3">Any Critical Illness resulting directly from alcohol or drug abuse; or</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: text-top;">(g)</td>
+					<td colspan="3">Death of the Life Assured within fourteen (14) days following the date of diagnosis of any of the Critical Illness except for Death as a result of Hand, Foot & Mouth Disease.</td>
+				</tr>
+			</table>
+
+</td></tr>
+<!--CCR- end-->
+
+<!--CIRD---> 
+<tr class="CIRD" id="CIRD" style="display:table-row;">
+<td class="extraContentSmall" style="width: 5%">Diabetes<br/>Wellness Care<br/>Rider</td>
+<td class="content">
+  
+  Rider ini tidak melindungi kejadian berikut:
+  <table id="TableNoBorder" class="TableNoBorder" style="border-collapse:collapse;border: 0px solid black;width: 100%;">
+				<tr>
+					<td style="width:10px">(a)</td>
+					<td colspan="3">	Penyakit Kritikal/ Keadaan yang disebabkan oleh Sindrom Kurang Daya Tahan Melawan Penyakit (AIDS), kompleks berkaitan AIDS atau jangkitan oleh Virus Imunodifisiensi Manusia (HIV) melainkan jika keadaan atau penyakit atau jangkitan timbul sebagai akibat daripada pemindahan darah dalam selaras dengan definisi Penyakit Kritikal/ Keadaan bagi Rider ini; atau</td>
+				</tr>
+				<tr>
+					<td >(b)</td>
+					<td colspan="3">	Penyakit Pra-wujud (tidak didedahkan ketika permohonan Rider) yang wujud sebelum Tarikh Penerbitan, Tarikh Pindaan Efektif atau sebarang Tarikh Pengembalian Semula, mengikut mana-mana yang terkemudian, di mana Penyakit Pra-wujud bermaksud hilang upaya yang Hayat Diinsuranskan mempunyai pengetahuan yang munasabah. Hayat Diinsuranskan dianggap mengetahui sewajarnya keadaan pra-wujud di mana keadaan tersebut adalah salah satu (1) yang mana:</td>
+				</tr>
+				<tr>
+					<td/><td style="width:10px">A.</td>
+					<td colspan="2">Hayat Diinsuranskan telah atau sedang menerima rawatan;</td>
+				</tr>
+				<tr>
+					<td/><td>B.</td>
+					<td colspan="2">	nasihat perubatan, diagnosis, jagaan atau rawatan telah disyorkan;</td>
+				</tr>
+				<tr>
+					<td/><td>C.</td>
+					<td colspan="2">	gejala yang jelas dan nyata sedang atau telah kelihatan;</td>
+				</tr>
+				<tr>
+					<td/><td>D.</td>
+					<td colspan="2">	kewujudannya dapat diperhatikan dengan jelas kepada orang yang munasabah dalam keadaan tersebut.</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: text-top;">(c)</td>
+					<td colspan="4">Penyakit Kritikal/ Keadaan yang berlaku dalam tempoh enam puluh (60) hari selepas Tarikh Penerbitan, Tarikh Pindaan Efektif atau sebarang Tarikh Pengembalian Semula, mengikut mana-mana yang terkemudian; atau</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: text-top;">(d)</td>
+					<td colspan="3">Penyakit Kritikal/ Keadaan yang disebabkan oleh sebarang kecederaan diri-sendiri yang disengajakan ketika siuman atau tidak siuman; sama ada Penyakit Kritikal/ Keadaan disebabkan secara langsung atau tidak langsung akibat daripadanya; atau</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: text-top;">(e)</td>
+					<td colspan="3">	Penyakit Kritikal/ Keadaan yang disebabkan oleh penyalahgunaan dadah yang disengajakan.</td>
+				</tr>
+				
+			</table>
+</td>
+</tr> 
+<!--CIRD-Convertible Comprehensive Term Rider end--> 
+
+<!--CIWP-Critical Illness WP Rider start--> 
+<tr class="CIWP" id="CIWP" style="display:table-row;">
+<td class="extraContentSmall" style="width: 5%">Critical Illness Waiver of Premium<br/>Rider</td>
+<td class="content">
+Rider ini tidak melindungi kejadian berikut:<br/>
+i.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kejadian arteri koronari atau penyakit jantung iskemia yang berlaku sebelum Tarikh Penyertaan atau mana-mana tarikh pengembalian semula, mengikut<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mana-mana yang terkemudian<br/>
+ii.&nbsp;&nbsp;&nbsp;&nbsp;Diagnosis penyakit kritikal yang pertama kali dapat dilihat dengan jelas dalam tempoh 30 hari dari Tarikh Penyertaan atau mana-mana tarikh<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pengembalian semula, mengikut mana-mana yang terkemudian<br/>
+iii.&nbsp;&nbsp;&nbsp;Diagnosis penyakit kritikal seperti yang ditetapkan di bawah dalam tempoh 60 hari dari Tarikh Penyertaan atau mana-mana tarikh pengembalian semula,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mengikut mana-mana yang terkemudian:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Angioplasti dan rawatan invasif lain bagi penyakit arteri koronari<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kanser<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Penyakit arteri koronari yang memerlukan pembedahan<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serangan sakit jantung<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(e)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Penyakit arteri koronari serius yang lain<br/>
+iv.&nbsp;&nbsp;&nbsp;Selain kejadian pertama kali penyakit kritikal. Pengecualian kepada fasal ini ialah penyakit arteri koronari dan AIDS.<br/>
+v.&nbsp;&nbsp;&nbsp;&nbsp;Hayat diinsuranskan meninggal dunia dalam tempoh 28 hari selepas tarikh didiagnosis dengan mana-mana penyakit kritikal.<br/>
+</td></tr>
+<!--CIWP-Critical Illness WP Rider end-->
+
+
+
+
+<!--DCA- Acc. Death & Compassionate Allowance Rider start-->
+<tr class="DCA" id="DCA" style="display:table-row;">
+<td class="extraContentSmall" style="width: 5%">Acc. Death &<br/>Compassionate<br/>Allowance<br/>Rider</td>
+<td class="content">
+  
+	<table id="TableNoBorder" class="TableNoBorder" style="border-collapse:collapse;border: 0px solid black;width: 100%;">
+				<tr>
+					<td style="width:10px">1.</td>
+					<td colspan="2">	Faedah Kematian akibat Kemalangan </td>
+				</tr>
+				<tr>
+					<td ></td>
+					<td colspan="2">Kejadian-kejadian berikut dikecualikan:</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td style="width:10px">(a)</td>
+					<td >Penerbangan atau mengambil bahagian dalam sebarang aktiviti penerbangan melainkan ketika menerbang dalam pesawat sebagai penumpang yang membayar tambang dan bukan sebagai anak kapal terbang dan bukan untuk tujuan untuk melakukan sebarang perdagangan atau operasi teknikal dalam atau atas pesawat;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(b)</td>
+					<td >	Kecederaan diri yang disengajakan, membunuh diri atau cuba untuk membunuh diri, pembunuhan atau serangan yang diprovokasi atau bawah pengaruh sebarang dadah/narkotik/alkohol;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(c)</td>
+					<td >	Terlibat dalam atau mengambil bahagian dalam sukan profesional atau semi-profesional;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(d)</td>
+					<td >	Terlibat dalam sebarang perlumbaan (selain daripada perlumbaan yang menggunakan kaki), pendakian gunung atau batuan yang menggunakan tali atau pemandu jalan, sukan musim sejuk, kegiatan bawah air, ski air, bola sepak, polo, pemburuan, pertandingan lompat kuda, penerokaan gua, penerokaan gua bawah tanah, peninjuan atau bergusti;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(e)</td>
+					<td >	Peperangan, pencerobohan, tindakan musuh asing, permusuhan atau operasi semacam peperangan (sama ada perang diisytiharkan atau tidak), perang saudara, kegiatan ketenteraan atau rampasan kuasa;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(f)</td>
+					<td >	Terlibat langsung dalam mogokan, rusuhan, pemberontakan, revolusi, kegemparan awam atau penderhakaan;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(g)</td>
+					<td >	Bertugas dalam Pasukan Bersenjata (sama ada secara sukarela atau sebaliknya);</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(h)</td>
+					<td >	Sebarang kesakitan atau penyakit yang disebabkan atau dijangkiti oleh atau menerusi sebarang kaedah yang berpunca daripada virus, parasit, bakteria atau sebarang mikro-organisma termasuk virus, parasit, bakteria atau mikro-organisma yang dikenali dan/atau berpunca daripada gigitan serangga atau transmisi melalui seks;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(i)</td>
+					<td >	Melakukan atau cuba melakukan sebarang kegiatan yang menyalahi undang-undang;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(j)</td>
+					<td >	Sebarang kecederaan akibat gangguan mental;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(k)</td>
+					<td >Keguguran atau sebarang komplikasi yang berkaitan dengan yang sama;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(l)</td>
+					<td >	Sebarang rawatan gigi yang tidak diperlukan untuk merawati kecederaan yang dilindungi bawah Rider ini.</td>
+				</tr>
+				
+			</table>
+	
+	<table id="TableNoBorder" class="TableNoBorder" style="border-collapse:collapse;border: 0px solid black;width: 100%;">
+				<tr>
+					<td style="width:10px">2.</td>
+					<td colspan="3">	Faedah Elaun Ihsan</td>
+				</tr>
+				<tr>
+					<td style="width:10px"></td>
+					<td style="width:10px">I. </td>
+					<td colspan="2" >	Bagi kematian akibat semula jadi, membunuh diri atau cuba untuk membunuh diri dikecualikan.</td>
+				</tr>
+				<tr>
+					<td style="width:10px"></td>
+					<td style="width:10px">II. </td>
+					<td colspan="2" >	Bagi kematian akibat kemalangan, kejadian-kejadian berikut dikecualikan: </td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td style="width:10px">(a)</td>
+					<td >Penerbangan atau mengambil bahagian dalam sebarang aktiviti penerbangan melainkan ketika menerbang dalam pesawat sebagai penumpang yang membayar tambang dan bukan sebagai anak kapal terbang dan bukan untuk tujuan untuk melakukan sebarang perdagangan atau operasi teknikal dalam atau atas pesawat;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(b)</td>
+					<td >	Kecederaan diri yang disengajakan, membunuh diri atau cuba untuk membunuh diri, pembunuhan atau serangan yang diprovokasi atau bawah pengaruh sebarang dadah/narkotik/alkohol;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(c)</td>
+					<td >	Terlibat dalam atau mengambil bahagian dalam sukan profesional atau semi-profesional;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(d)</td>
+					<td >	Terlibat dalam sebarang perlumbaan (selain daripada perlumbaan yang menggunakan kaki), pendakian gunung atau batuan yang menggunakan tali atau pemandu jalan, sukan musim sejuk, kegiatan bawah air, ski air, bola sepak, polo, pemburuan, pertandingan lompat kuda, penerokaan gua, penerokaan gua bawah tanah, peninjuan atau bergusti;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(e)</td>
+					<td >	Peperangan, pencerobohan, tindakan musuh asing, permusuhan atau operasi semacam peperangan (sama ada perang diisytiharkan atau tidak), perang saudara, kegiatan ketenteraan atau rampasan kuasa;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(f)</td>
+					<td >	Terlibat langsung dalam mogokan, rusuhan, pemberontakan, revolusi, kegemparan awam atau penderhakaan;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(g)</td>
+					<td >	Bertugas dalam Pasukan Bersenjata (sama ada secara sukarela atau sebaliknya);</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(h)</td>
+					<td >	Sebarang kesakitan atau penyakit yang disebabkan atau dijangkiti oleh atau menerusi sebarang kaedah yang berpunca daripada virus, parasit, bakteria atau sebarang mikro-organisma termasuk virus, parasit, bakteria atau mikro-organisma yang dikenali dan/atau berpunca daripada gigitan serangga atau transmisi melalui seks;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(i)</td>
+					<td >	Melakukan atau cuba melakukan sebarang kegiatan yang menyalahi undang-undang;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(j)</td>
+					<td >	Sebarang kecederaan akibat gangguan mental;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(k)</td>
+					<td >Keguguran atau sebarang komplikasi yang berkaitan dengan yang sama;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(l)</td>
+					<td >	Sebarang rawatan gigi yang tidak diperlukan untuk merawati kecederaan yang dilindungi bawah Rider ini.</td>
+				</tr>
+				
+			</table>
+</td>
+</tr>
+<!--DCA- Acc. Death & Compassionate Allowance Rider end-->
+
+<!--DHI-Enhanced Death Benefit Rider start-->
+<tr class="DHI" id="DHI" style="display:table-row;">
+<td class="extraContentSmall" style="width: 5%">Acc. Daily<br/>Hospitalisation<br/>Income Rider</td>
+<td class="content">
+  
+    Rider ini tidak melindungi kejadian berikut:
+  <table id="TableNoBorder" class="TableNoBorder" style="border-collapse:collapse;border: 0px solid black;width: 100%;">
+				<tr>
+					<td style="width:10px">(a)</td>
+					<td >	Penerbangan atau mengambil bahagian dalam sebarang aktiviti penerbangan melainkan ketika menerbang dalam pesawat sebagai penumpang yang membayar tambang dan bukan sebagai anak kapal terbang dan bukan untuk tujuan untuk melakukan sebarang perdagangan atau operasi teknikal dalam atau atas pesawat;</td>
+				</tr>
+				<tr>
+					<td >(b)</td>
+					<td >	Kecederaan diri yang disengajakan, membunuh diri atau cuba untuk membunuh diri, pembunuhan atau serangan yang diprovokasi atau bawah pengaruh sebarang dadah/narkotik/alkohol;</td>
+				</tr>
+				<tr>
+					<td >(c)</td>
+					<td >	Terlibat dalam atau mengambil bahagian dalam sukan profesional atau semi-profesional;</td>
+				</tr>
+				<tr>
+					<td >(d)</td>
+					<td >	Terlibat dalam sebarang perlumbaan (selain daripada perlumbaan yang menggunakan kaki), pendakian gunung atau batuan yang menggunakan tali atau pemandu jalan, sukan musim sejuk, kegiatan bawah air, ski air, bola sepak, polo, pemburuan, pertandingan lompat kuda, penerokaan gua, penerokaan gua bawah tanah, peninjuan atau bergusti;</td>
+				</tr>
+				<tr>
+					<td >(e)</td>
+					<td >Peperangan, pencerobohan, tindakan musuh asing, permusuhan atau operasi semacam peperangan (sama ada perang diisytiharkan atau tidak), perang saudara, kegiatan ketenteraan atau rampasan kuasa;</td>
+				</tr>
+				<tr>
+					<td >(f)</td>
+					<td >	Terlibat langsung dalam mogokan, rusuhan, pemberontakan, revolusi, kegemparan awam atau penderhakaan;</td>
+				</tr>
+				<tr>
+					<td >(g)</td>
+					<td >	Bertugas dalam Pasukan Bersenjata (sama ada secara sukarela atau sebaliknya);</td>
+				</tr>
+				<tr>
+					<td >(h)</td>
+					<td >	Sebarang kesakitan atau penyakit yang disebabkan atau dijangkiti oleh atau menerusi sebarang kaedah yang berpunca daripada virus, parasit, bakteria atau sebarang mikro-organisma termasuk virus, parasit, bakteria atau mikro-organisma yang dikenali dan/atau berpunca daripada gigitan serangga atau transmisi melalui seks;</td>
+				</tr>
+				<tr>
+					<td >(i)</td>
+					<td >	Sebarang rawatan atau pembedahan (kecuali rawatan yang diperlukan untuk merawati kecederaan yang dilindungi bawah Polisi ini).</td>
+				</tr>
+				<tr>
+					<td >(j)</td>
+					<td >	Melakukan atau cuba melakukan sebarang kegiatan yang menyalahi undang-undang;</td>
+				</tr>
+				<tr>
+					<td >(k)</td>
+					<td >	Sebarang penyakit, kesakitan atau kecacatan congenital.</td>
+				</tr>
+				<tr>
+					<td >(l)</td>
+					<td >	Sebarang kecederaan akibat kemalangan yang disebabkan kecacatan mental.</td>
+				</tr>
+				<tr>
+					<td >(m)</td>
+					<td >	Human Immune-deficiency Virus (HIV) dan/atau sebarang penyakit yang berkaitan dengan HIV, termasuk AIDS dan/atau sebarang perkembangan mutan atau variasi-variasi darinya.;</td>
+				</tr>
+				<tr>
+					<td >(n)</td>
+					<td >	Kehamilan, kelahiran anak, keguguran atau sebarang komplikasi yang berkaitan dengan yang sama.</td>
+				</tr>
+				<tr>
+					<td >(o)</td>
+					<td >	Sebarang rawatan gigi yang tidak diperlukan untuk merawati kecederaan yang dilindungi bawah Rider ini.</td>
+				</tr>
+				
+			</table>
+</td>
+</tr>
+<!--DHI-Enhanced Death Benefit Rider end-->
+
+<!--EverCash 1- start-->
+<tr class="ECAR" id="ECAR" style="display:table-row;">
+<td class="extraContentSmall" style="width: 5%">EverCash 1</td>
+<td class="content">
+Rider ini tidak melindungi kejadian berikut:<br/>
+(a).	Kematian hayat diinsuranskan kerana membunuh diri dalam tempoh 12 bulan pertama dari Tarikh Penerbitan, Tarikh Pindaan Efektif atau pada sebarang Tarikh Pengembalian Semula, mengikut mana-mana yang terkemudian.<br/>
+(b). Hilang Upaya Menyeluruh dan Kekal yang berpunca secara langsung atau tidak langsung:<br/>
+&nbsp;&nbsp;&nbsp;- daripada sebarang kecederaan anggota badan yang disengajakan ketika siuman atau tidak siuman;<br/>
+&nbsp;&nbsp;&nbsp;- daripada sebarang gangguan saraf atau penyakit mental;<br/>
+&nbsp;&nbsp;&nbsp;- daripada penerbangan di dalam pesawat udara (kecuali sebagai anak kapal, atau sebagai penumpang biasa yang membayar tambang, dalam mana-mana penerbangan komersil berjadual tetap); atau<br/>
+&nbsp;&nbsp;&nbsp;- daripada apa jua perkara ketika berkhidmat dalam angkatan bersenjata, polis dan angkatan separa te
+</td>
+</tr>
+<!--EverCash 1 end-->
+
+<!--EverCash 6- start-->
+<tr class="ECAR6" id="ECAR6" style="display:table-row;">
+<td class="extraContentSmall" style="width: 5%">EverCash Rider</td>
+
+<td class="content">
+Rider ini tidak melindungi kejadian berikut:<br/>
+(a).	Kematian hayat diinsuranskan kerana membunuh diri dalam tempoh 12 bulan pertama dari Tarikh Penerbitan, Tarikh Pindaan Efektif atau pada sebarang Tarikh Pengembalian Semula, mengikut mana-mana yang terkemudian.<br/>
+(b). Hilang Upaya Menyeluruh dan Kekal yang berpunca secara langsung atau tidak langsung:<br/>
+&nbsp;&nbsp;&nbsp;- daripada sebarang kecederaan anggota badan yang disengajakan ketika siuman atau tidak siuman;<br/>
+&nbsp;&nbsp;&nbsp;- daripada sebarang gangguan saraf atau penyakit mental;<br/>
+&nbsp;&nbsp;&nbsp;- daripada penerbangan di dalam pesawat udara (kecuali sebagai anak kapal, atau sebagai penumpang biasa yang membayar tambang, dalam mana-mana penerbangan komersil berjadual tetap); atau<br/>
+&nbsp;&nbsp;&nbsp;- daripada apa jua perkara ketika berkhidmat dalam angkatan bersenjata, polis dan angkatan separa te
+</td>
+</tr>
+<!--EverCash 6 end-->
+
+<!--ECAR60-->
+<tr class="ECAR60" id="ECAR60" style="display:table-row;">
+<td class="extraContentSmall" style="width: 5%">EverCash 60<br/>Rider</td>
+
+<td class="content">
+Rider ini tidak melindungi kejadian berikut:<br/>
+(a).	Kematian hayat diinsuranskan kerana membunuh diri dalam tempoh 12 bulan pertama dari Tarikh Penerbitan, Tarikh Pindaan Efektif atau pada sebarang Tarikh Pengembalian Semula, mengikut mana-mana yang terkemudian.<br/>
+(b). Hilang Upaya Menyeluruh dan Kekal yang berpunca secara langsung atau tidak langsung:<br/>
+&nbsp;&nbsp;&nbsp;- daripada sebarang kecederaan anggota badan yang disengajakan ketika siuman atau tidak siuman;<br/>
+&nbsp;&nbsp;&nbsp;- daripada sebarang gangguan saraf atau penyakit mental;<br/>
+&nbsp;&nbsp;&nbsp;- daripada penerbangan di dalam pesawat udara (kecuali sebagai anak kapal, atau sebagai penumpang biasa yang membayar tambang, dalam mana-mana penerbangan komersil berjadual tetap); atau<br/>
+&nbsp;&nbsp;&nbsp;- daripada apa jua perkara ketika berkhidmat dalam angkatan bersenjata, polis dan angkatan separa tentera disebabkan oleh perang yang diisytiharkan atau tidak diisytiharkan, rusuhan atau kekecohan awam.
+
+</td>
+
+</tr>
+<!--ECAR60-end-->
+
+
+<!--HCIR-start-->
+<tr class="HCIR" id="HCIR" style="display:table-row;">
+<td class="extraContentSmall" style="width: 5%">Hospital<br/>Cash Income<br/>Rider</td>
+
+<td class="content">
+The said hospitalisation benefit shall not payable if hospitalization is caused by any one of the following occurrences:
+<table id="TableNoBorder" class="TableNoBorder" style="border-collapse:collapse;border: 0px solid black;width: 100%;">
+  <tr>
+		<td style="width:10px">(a).</td>
+		<td colspan="2">Hospitalisation for more than fifty-two (52) weeks of any Period of Confinement;</td>
+	</tr>
+	<tr>
+		<td>(b).</td>
+		<td colspan="2">The whole Period of Confinement to Hospital or any part of such period occurs during the first thirty (30) days after the Issue Date, Alteration Effective Date or Reinstatement Date of this Rider, whichever is the latest;</td>
+	</tr>
+	<tr>
+		<td>(c).</td>
+		<td colspan="2">Any Period of Confinement to Hospital which occurs after the end of the Rider Year immediately following Life Assured attaining the age of seventy (70) years, or after the Expiry Date of this Rider, whichever is earlier;</td>
+	</tr>
+	<tr>
+		<td>(d).</td>
+		<td colspan="2">Pre-existing Illness;</td>
+	</tr>
+	<tr>
+		<td>(e).</td>
+		<td colspan="2">Specified Illnesses;</td>
+	</tr>
+	<tr>
+		<td>(f).</td>
+		<td colspan="2">Any medical or physical conditions arising within the first thirty (30) days from Issue Date, Alteration Effective Date or any Reinstatement Date, whichever is the latest except for Injuries;</td>
+	</tr>
+	<tr>
+		<td>(g).</td>
+		<td colspan="2">Plastic/Cosmetic surgery, circumcision, eye examination, glasses and refraction or surgical correction of nearsightedness (Radial Keratotomy or Lasik) and the use or acquisition of external prosthetic appliances or devices such as artificial limbs, hearing aids, implanted pacemakers, and prescriptions thereof;</td>
+	</tr>
+	<tr>
+		<td>(h).</td>
+		<td colspan="2">Dental conditions including dental treatment or oral surgery except as necessitated by accidental injuries to sound natural teeth occurring wholly during the period of insurance;</td>
+	</tr>
+	<tr>
+		<td>(i).</td>
+		<td colspan="2">	Any treatment or surgical operation for Congenital Conditions or deformities including hereditary conditions;</td>
+	</tr>
+	<tr>
+		<td>(j).</td>
+		<td colspan="2">Pregnancy, childbirth (including surgical delivery), miscarriage or any complications related to the same, abortion and prenatal or postnatal care and surgical, mechanical or chemical contraceptive methods of birth control or treatment pertaining to infertility. Erectile dysfunction and tests or treatment related to impotence or sterilization;</td>
+	</tr>
+	<tr>
+		<td >(k).</td>
+		<td colspan="2">Hospitalisation primarily for investigative purposes, diagnosis, X-ray examination, general physical or medical examinations, not incidental to treatment or diagnosis of a Disability or any treatment which is not Medically Necessary and any preventive treatment, preventive medicines or examinations carried out by a Physician, and treatment specifically for weight reduction or gain;</td>
+	</tr>
+	<tr>
+		<td>(l).</td>
+		<td colspan="2">War or any act of war, declared or undeclared, criminal or terrorist activities, active duty in any armed forces (whether voluntary or involuntary), direct participation in strikes, riots, rebellion, revolution and civil commotion or insurrection;</td>
+	</tr>
+	<tr>
+		<td>(m).</td>
+		<td colspan="2">Ionising radiation or contamination by radioactivity from any nuclear fuel or nuclear waste from process of nuclear fission or from any nuclear weapons material;</td>
+	</tr>
+	<tr>
+		<td >(n).</td>
+		<td colspan="2">Hospitalisation for the purpose of donation of any body organ by a Life Assured or any complication therefrom;</td>
+	</tr>
+	<tr>
+		<td>(o).</td>
+		<td colspan="2">Investigation and treatment of sleep and snoring disorders, hormone replacement therapy and alternative therapy such as treatment, medical service or supplies including but not limited to chiropractic services, acupuncture, acupressure, reflexology, bone setting, herbalist treatment, massage or aroma therapy or other form of alternative treatment;</td>
+	</tr>
+	<tr>
+		<td style="width:10px">(p).</td>
+		<td colspan="2">Psychotic, mental or nervous disorders (including any neuroses and their physiological or psychosomatic manifestations);</td>
+	</tr>
+	<tr>
+		<td>(q).</td>
+		<td colspan="2">Sickness or Injury arising from hazardous sports such as but not limited to skydiving, water skiing, underwater activities requiring breathing apparatus, winter sports, professional or semi-professional sports and illegal activities;</td>
+	</tr>
+	<tr>
+		<td>(r).</td>
+		<td colspan="2">Hospitalisation due to sex change surgery or any complication therefrom;</td>
+	</tr>
+	<tr>
+		<td>(s).</td>
+		<td colspan="2">Flying or taking part in any aerial activities except where traveling in an aircraft as a fare-paying passenger in any commercial scheduled airlines licensed to carry passengers over established routes and not as aircrew nor for the purpose of any trade or technical operation in or on the aircraft;</td>
+	</tr>
+	<tr>
+		<td>(t).</td>
+		<td colspan="2">Self-inflicted Injury, suicide or attempted suicide, provoked murder or assault or being under the influence of drugs/narcotics/alcohol of any kind;</td>
+	</tr>
+	<tr>
+		<td>(u).</td>
+		<td colspan="2">Engaging in racing of any kind (other than on foot), mountain or rock climbing necessitating the use of ropes or guides, underwater pastimes, football, polo, hunting, show jumping, caving, pot-holing, boxing or wrestling;</td>
+	</tr>
+	<tr>
+		<td>(v).</td>
+		<td colspan="2">Melakukan atau cuba melakukan sebarang kegiatan yang menyalahi undang-undang; and</td>
+	</tr>
+	<tr>
+		<td>(w).</td>
+		<td colspan="2">Any physical defect or infirmity.</td>
+	</tr>
+	
+</table>
+
+  
+</td></tr>
+<!--HCIR-end-->
+
+
+
+
+
+<!--JCCR start--> 
+<tr class="JCCR" id="JCCR" style="display:table-row;">
+<td class="extraContentSmall" style="width: 5%">Junior CI Care Rider</td>
+
+<td class="content">
+	A.	Critical Illness Benefit<br/>
+
+      For Life Assured from age 0 up to the end of rider year after Life Assured attains age of 16 years old , the following situations, conditions or illnesses are excluded: 
+  
+			<table id="TableNoBorder" class="TableNoBorder" style="border-collapse:collapse;border: 0px solid black;width: 100%;">
+				<tr>
+					<td style="width:10px">(a)</td>
+					<td colspan="3">The signs or symptoms of the Critical Illness is manifested prior to or:</td>
+				</tr>
+				<tr>
+					<td/><td style="width:10px"><b>A.</b></td>
+					<td colspan="2">within sixty (60) days from the Issue Date, Alteration Effective Date or any Reinstatement Date of this Rider, whichever is the latest in respect of:</td>
+				</tr>
+				<tr>
+					<td/><td/><td style="width:10px">(i)</td><td>Leukaemia; or</td>
+				</tr>
+				<tr>
+					<td/><td/><td>(ii)</td><td>Neuroblastoma; or</td>
+				</tr>
+				<tr>
+					<td/><td style="vertical-align: text-top;"><b>B.</b></td>
+					<td colspan="2">within thirty (30) days from the Issue Date, Alteration Effective Date or any Reinstatement Date of this Rider, whichever is the latest in respect of all other Critical Illness not set out in Item A above;</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: text-top;">(b)</td>
+					<td colspan="4">The Critical Illness arises directly or indirectly from a Pre-existing Illness as defined, which existed prior to the Issue Date, Alteration Effective Date or any Reinstatement Date of this Rider, whichever is the latest;</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: text-top;">(c)</td>
+					<td colspan="4">The Critical Illness, where in the Company's sole and absolute opinion, was caused directly or indirectly by the existence of Acquired Immune Deficiency Syndrome (AIDS) or by the presence of any Human Immuno-deficiency Virus (HIV) infection. We reserve the right to require the Life Assured to undergo a blood test to detect the presence of any HIV infection as a condition precedent before accepting any claim. For the purpose of this Rider,</td>
+				</tr>
+				<tr>
+					<td/><td style="vertical-align: text-top;">(i)</td>
+					<td colspan="3">the definition of AIDS shall be that used by the World Health Organization in 1987, or any subsequent revision by the World Health Organization of that definition; and</td>
+				</tr>
+				<tr>
+					<td/><td style="vertical-align: text-top;">(ii)</td>
+					<td colspan="3">infection shall be deemed to have occurred where blood or other relevant test(s) indicate, in the Company's sole and absolute opinion, either the presence of any Human Immuno-deficiency Virus or antibodies to such virus.</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: text-top;">(d)</td>
+					<td colspan="3">Any Critical Illness was diagnosed, directly or indirectly, due to a congenital defect or disease, which was manifested or was diagnosed before the Life Assured attained twelve (12) months of age;</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: text-top;">(e)</td>
+					<td colspan="3">Any Critical Illness caused by a self-inflicted injury, while sane or insane;</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: text-top;">(f)</td>
+					<td colspan="3">Any Critical Illness resulting directly from alcohol or drug abuse; or</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: text-top;">(g)</td>
+					<td colspan="3">Death of the Life Assured within fourteen (14) days following the date of diagnosis of any of the Critical Illness except for Death as a result of Hand, Foot & Mouth Disease.</td>
+				</tr>
+			</table>
+			
+			For Life Assured from beginning of following rider year after Life Assured attains the age of 16 years old and onwards, the following situations, conditions or illnesses are excluded:<br/>
+			
+			<table id="TableNoBorder" class="TableNoBorder" style="border-collapse:collapse;border: 0px solid black;width: 100%;">
+				<tr>
+					<td style="width:10px">(a)</td>
+					<td colspan="3">The signs or symptoms of the Critical Illness is manifested prior to or:</td>
+				</tr>
+				<tr>
+					<td/><td style="width:10px;vertical-align: text-top;">A.</td>
+					<td colspan="2">within sixty (60) days from any Reinstatement Date of this Rider in respect of:</td>
+				</tr>
+				<tr>
+					<td/><td/><td>(i)</td><td>Angioplasty and Other Invasive Treatments for Major Coronary Artery Disease;</td>
+				</tr>
+				<tr>
+					<td/><td/><td>(ii)</td><td>Cancer;</td>
+				</tr>
+				<tr>
+					<td/><td/><td>(iii)</td><td>Coronary Artery By-Pass Surgery;</td>
+				</tr>
+				<tr>
+					<td/><td/><td>(iv)</td><td>Heart Attack;</td>
+				</tr>
+				<tr>
+					<td/><td/><td>(v)</td><td>Other Serious Coronary Artery Disease; or</td>
+				</tr>
+				<tr>
+					<td/><td style="vertical-align:text-top;">B.</td>
+					<td colspan="2">within thirty (30) days from any Reinstatement Date of this Rider in respect of all other Critical Illness not set out in Item A above;</td>
+				</tr>
+				<tr>
+					<td>(b)</td>
+					<td colspan="3">The Critical Illness arises directly or indirectly from a Pre-existing Illness as defined, which existed prior to the Issue Date, Alteration Effective Date or any Reinstatement Date of this Rider, whichever is the latest;</td>
+				</tr>
+				<tr>
+					<td>(c)</td>
+					<td colspan="3">The Critical Illness, where in the CompanyÕs sole and absolute opinion, was caused directly or indirectly by the existence of Acquired Immune Deficiency Syndrome (AIDS) or by the presence of any Human Immuno-deficiency Virus (HIV) infection. We reserve the right to require the Life Assured to undergo a blood test to detect the presence of any HIV infection as a condition precedent before accepting any claim. The exception is when HIV infection is due to blood transfusion, as defined in this rider. For the purpose of this Rider,</td>
+				</tr>
+				<tr>
+					<td/><td style="vertical-align: text-top;">(i)</td>
+					<td colspan="2">the definition of AIDS shall be that used by the World Health Organization in 1987, or any subsequent revision by the World Health Organization of that definition; and</td>
+				</tr>
+				<tr>
+					<td/><td style="vertical-align: text-top;">(ii)</td>
+					<td colspan="2">infection shall be deemed to have occurred where blood or other relevant test(s) indicate in the company's sole and absolute opinion either the presence of any Human Immunodeficiency Virus or antibodies to such virus.</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: text-top;">(d)</td>
+					<td colspan="3">Any Critical Illness was diagnosed, whether directly or indirectly, due to a congenital defect or disease, which was manifested or was diagnosed before the Life Assured attained seventeen (17) years of age;</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: text-top;">(e)</td>
+					<td colspan="3">Any Critical Illness caused by a self-inflicted injury, while sane or insane;</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: text-top;">(f)</td>
+					<td colspan="3">Any Critical Illness resulting directly from alcohol or drug abuse; or</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: text-top;">(g)</td>
+					<td colspan="3">Death of the Life Assured within twenty-eight (28) days following the date of diagnosis of any of the Critical Illness.</td>
+				</tr>
+			</table>
+			
+			<table id="TableNoBorder" class="TableNoBorder" style="border-collapse:collapse;border: 0px solid black;width: 100%;">
+    
+				<tr>
+					<td style="width:10px"><b>B.</b></td>
+					<td colspan="3"><b>Hospitalisation Benefit</b></td>
+				</tr>
+				<tr>
+				      <td></td>
+				      <td colspan="3">			
+					The following situations, conditions or illnesses are excluded:
+				      </td>
+				</tr>
+				<tr>
+					<td style="width:10px">(a)</td>
+					<td colspan="3">The signs or symptoms of the Critical Illness is manifested prior to or:</td>
+				</tr>
+				<tr>
+					<td/><td style="width:10px;vertical-align: text-top;">A.</td>
+					<td colspan="2">within sixty (60) days from the Issue Date, Alteration Effective Date or any Reinstatement Date of this Rider, whichever is the latest in respect of:</td>
+				</tr>
+				<tr>
+					<td/><td/><td style="width:10px">(i)</td><td>Leukaemia; or</td>
+				</tr>
+				<tr>
+					<td/><td/><td>(ii)</td><td>Neuroblastoma; or</td>
+				</tr>
+				<tr>
+					<td/><td style="vertical-align: text-top;">B.</td>
+					<td colspan="2">within thirty (30) days from the Issue Date, Alteration Effective Date or any Reinstatement Date of this Rider, whichever is the latest in respect of all other Critical Illness not set out in Item A above;</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: text-top;">(b)</td>
+					<td colspan="3">The Critical Illness arises directly or indirectly from a Pre-existing Illness as defined, which existed prior to the Issue Date, Alteration Effective Dat or any Reinstatement Date of this Rider, whichever is the latest;</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: text-top;">(c)</td>
+					<td colspan="3">The Critical Illness, where in the CompanyÕs sole and absolute opinion, was caused directly or indirectly by the existence of Acquired Immune Deficiency Syndrome (AIDS) or by the presence of any Human Immuno-deficiency Virus (HIV) infection. We reserve the right to require the Life Assured to undergo a blood test to detect the presence of any HIV infection as a condition precedent before accepting any claim. For the purpose of this Rider,</td>
+				</tr>
+				<tr>
+					<td/><td style="vertical-align: text-top;">(i)</td>
+					<td colspan="2">the definition of AIDS shall be that used by the World Health Organization in 1987, or any subsequent revision by the World Health Organization of that definition; and</td>
+				</tr>
+				<tr>
+					<td/><td style="vertical-align: text-top;">(ii)</td>
+					<td colspan="2">infection shall be deemed to have occurred where blood or other relevant test(s) indicate, in the Company's sole and absolute opinion, either the presence of any Human Immunodeficiency Virus or antibodies to such virus.</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: text-top;">(d)</td>
+					<td colspan="3">Any Critical Illness was diagnosed, whether directly or indirectly, due to a congenital defect or disease, which was manifested or was diagnosed before the Life Assured attained twelve (12) months of age;</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: text-top;">(e)</td>
+					<td colspan="3">Any Critical Illness caused by a self-inflicted injury, while sane or insane; or</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: text-top;">(f)</td>
+					<td colspan="3">Any Critical Illness resulting directly from alcohol or drug abuse.</td>
+				</tr>
+			</table> 
+
+
+</td></tr>
+<!--JCCR- end-->
+
+<!--LSR start-->
+<tr class="LSR" id="LSR" style="display:table-row;">
+<td class="extraContentSmall" style="width: 5%">LifeShield Rider</td>
+
+<td class="content">
+
+Rider ini tidak melindungi kejadian berikut:<br/>
+i. Total and Permanent Disability resulted directly or indirectly: <br/>
+&nbsp;&nbsp;&nbsp;(a) daripada sebarang kecederaan anggota badan yang disengajakan ketika siuman atau tidak siuman;<br/>
+&nbsp;&nbsp;&nbsp;(b) daripada sebarang gangguan saraf atau penyakit mental;;<br/>
+&nbsp;&nbsp;&nbsp;(c) daripada penerbangan di dalam pesawat udara (kecuali sebagai anak kapal, atau sebagai penumpang biasa yang membayar tambang, dalam mana-mana penerbangan komersil berjadual tetap); atau <br/>
+&nbsp;&nbsp;&nbsp;(d) daripada apa jua perkara ketika berkhidmat dalam angkatan bersenjata, polis dan angkatan separa tentera disebabkan oleh perang yang diisytiharkan atau tidak diisytiharkan, rusuhan atau kekecohan awam.
+
+</td>
+</tr>
+<!--LSR- end-->
+
+<!--LCWP-Living Care Waiver of Premium Payor Rider start--> 
+<tr class="LCWP" id="LCWP" style="display:table-row;">
+<td class="extraContentSmall" style="width: 5%">Living Care<br/>Waiver of<br/>Premium<br/>Payor<br/>Rider</td>
+
+<td class="content">
+Rider ini tidak melindungi kejadian berikut:
+i. Death of the life assured due to suicide during the first 12 months from the date of issuance or reinstatement date, whichever is later.
+ii. Total and Permanent disability resulted directly or indirectly:
+(a)	daripada sebarang kecederaan anggota badan yang disengajakan ketika siuman atau tidak siuman;
+(b)	daripada sebarang gangguan saraf atau penyakit mental;;
+(c)	daripada penerbangan di dalam pesawat udara (kecuali sebagai anak kapal, atau sebagai penumpang biasa yang membayar tambang, dalam mana-mana penerbangan komersil berjadual tetap); atau
+(d)	from anything whatsoever while as a member of the armed forces, police and paramilitary forces as a result of declared or undeclared war, riots or civil commotion
+iii. An episode of coronary artery or ischaemic heart disease that occurred before the Issue Date or any reinstatement date, whichever is later
+iv. Diagnosis of the critical illness other than those specified under item (iii) below within 30 days from the Issue Date or any reinstatement date, whichever is
+later
+v. Diagnosis of the critical illness specified below within 60 days from the Issue Date or any reinstatement date, whichever is later:
+(a)	Angioplasty and other invasive treatment for coronary artery disease
+(b)	Cancer
+(c)	Coronary artery disease requiring surgery
+(d)	Heart attack
+(e)	Other serious coronary artery disease
+vi. Other than the first incidence of the dread disease except for dread diseases under Angioplasty and other Invasive Treatments For Major Coronary Artery Disease.
+
+
+
+</td>
+</tr>
+<!--LCWP-Living Care Waiver of Premium Payor Rider end-->
+
+<!--MR-start-->
+<tr class="MR" id="MR" style="display:table-row;">
+<td class="extraContentSmall" style="width: 5%">Acc. Medical<br/>Reimbursement<br/>Rider</td>
+
+<td class="content">
+Rider ini tidak melindungi kejadian berikut:
+  <table id="TableNoBorder" class="TableNoBorder" style="border-collapse:collapse;border: 0px solid black;width: 100%;">
+				<tr>
+					<td style="width:10px">(a)</td>
+					<td >	Penerbangan atau mengambil bahagian dalam sebarang aktiviti penerbangan melainkan ketika menerbang dalam pesawat sebagai penumpang yang membayar tambang dan bukan sebagai anak kapal terbang dan bukan untuk tujuan untuk melakukan sebarang perdagangan atau operasi teknikal dalam atau atas pesawat;</td>
+				</tr>
+				<tr>
+					<td >(b)</td>
+					<td >	Kecederaan diri yang disengajakan, membunuh diri atau cuba untuk membunuh diri, pembunuhan atau serangan yang diprovokasi atau bawah pengaruh sebarang dadah/narkotik/alkohol;</td>
+				</tr>
+				<tr>
+					<td >(c)</td>
+					<td >	Terlibat dalam atau mengambil bahagian dalam sukan profesional atau semi-profesional;</td>
+				</tr>
+				<tr>
+					<td >(d)</td>
+					<td >	Terlibat dalam sebarang perlumbaan (selain daripada perlumbaan yang menggunakan kaki), pendakian gunung atau batuan yang menggunakan tali atau pemandu jalan, sukan musim sejuk, kegiatan bawah air, ski air, bola sepak, polo, pemburuan, pertandingan lompat kuda, penerokaan gua, penerokaan gua bawah tanah, peninjuan atau bergusti;</td>
+				</tr>
+				<tr>
+					<td >(e)</td>
+					<td >Peperangan, pencerobohan, tindakan musuh asing, permusuhan atau operasi semacam peperangan (sama ada perang diisytiharkan atau tidak), perang saudara, kegiatan ketenteraan atau rampasan kuasa;</td>
+				</tr>
+				<tr>
+					<td >(f)</td>
+					<td >	Terlibat langsung dalam mogokan, rusuhan, pemberontakan, revolusi, kegemparan awam atau penderhakaan;</td>
+				</tr>
+				<tr>
+					<td >(g)</td>
+					<td >	Bertugas dalam Pasukan Bersenjata (sama ada secara sukarela atau sebaliknya);</td>
+				</tr>
+				<tr>
+					<td >(h)</td>
+					<td >	Sebarang kesakitan atau penyakit yang disebabkan atau dijangkiti oleh atau menerusi sebarang kaedah yang berpunca daripada virus, parasit, bakteria atau sebarang mikro-organisma termasuk virus, parasit, bakteria atau mikro-organisma yang dikenali dan/atau berpunca daripada gigitan serangga atau transmisi melalui seks;</td>
+				</tr>
+				<tr>
+					<td >(i)</td>
+					<td >	Sebarang rawatan atau pembedahan (kecuali rawatan yang diperlukan untuk merawati kecederaan yang dilindungi bawah Polisi ini).</td>
+				</tr>
+				<tr>
+					<td >(j)</td>
+					<td >	Melakukan atau cuba melakukan sebarang kegiatan yang menyalahi undang-undang;</td>
+				</tr>
+				<tr>
+					<td >(k)</td>
+					<td >	Sebarang penyakit, kesakitan atau kecacatan congenital.</td>
+				</tr>
+				<tr>
+					<td >(l)</td>
+					<td >	Sebarang kecederaan akibat kemalangan yang disebabkan kecacatan mental.</td>
+				</tr>
+				<tr>
+					<td >(m)</td>
+					<td >	Human Immune-deficiency Virus (HIV) dan/atau sebarang penyakit yang berkaitan dengan HIV, termasuk AIDS dan/atau sebarang perkembangan mutan atau variasi-variasi darinya.;</td>
+				</tr>
+				<tr>
+					<td >(n)</td>
+					<td >	Kehamilan, kelahiran anak, keguguran atau sebarang komplikasi yang berkaitan dengan yang sama.</td>
+				</tr>
+				<tr>
+					<td >(o)</td>
+					<td >	Sebarang rawatan gigi yang tidak diperlukan untuk merawati kecederaan yang dilindungi bawah Rider ini.</td>
+				</tr>
+				
+			</table>
+</td>
+</tr>
+<!--MR- end-->
+
+<!--LDYR start-->
+<tr class="LDYR" id="LDYR" style="display:table-row;">
+<td class="extraContentSmall" style="width: 5%">LadyShield Rider</td>
+
+<td class="content">
+<table id="TableNoBorder" class="TableNoBorder" style="border-collapse:collapse;border: 0px solid black;width: 100%;">
+	<table id="TableNoBorder" class="TableNoBorder" style="border-collapse:collapse;border: 0px solid black;width: 100%;">
+	<tr>
+		<td style="width:10px">1.</td>
+		<td colspan="3"><u>Faedah Perlindungan Kanser Wanita Peringkat Awal</u></td>
+	</tr>
+	<tr>
+		<td/>
+		<td colspan="3">Situasi, keadaan atau penyakit yang berikut adalah dikecualikan:</td>
+	</tr>
+	<tr>
+		<td/><td style="width:10px">(a)</td>
+		<td colspan="2">	Sebarang diagnosis Kanser Wanita Peringkat Awal dalam tempoh enam puluh (60) hari daripada Tarikh Penerbitan, Tarikh Pindaan Efektif atau sebarang Tarikh Pengembalian Semula Rider ini, yang mana terkemudian;</td>
+	</tr>
+	<tr>
+		<td/><td>(b)</td>
+		<td colspan="2">Keadaan ini berlaku secara langsung atau tidak langsung daripada Penyakit Pra-wujud, yang wujud sebelum Tarikh Penerbitan, Tarikh Pindaan Efektif atau sebarang Tarikh Pengembalian Semula Rider, yang mana terkemudian;</td>
+	</tr>
+	<tr>
+		<td/><td>(c)</td>
+		<td colspan="2">Sebarang keadaan, di mana pada pendapat tunggal dan mutlak Syarikat, adalah disebabkan secara langsung atau tidak langsung oleh kewujudan Sindrom Kurang Daya Tahan Penyakit (AIDS) atau kehadiran sebarang jangkitan Virus Imunodifisiensi Manusia (HIV). Kami berhak untuk menghendaki orang yang diinsuranskan menjalani ujian darah untuk mengesan kehadiran sebarang jangkitan HIV sebagai syarat duluan sebelum menerima apa-apa tuntutan. Bagi tujuan Rider ini,</td>
+	</tr>
+	<tr>
+		<td/><td/><td style="width:10px">(i)</td>
+		<td>	definisi AIDS hendaklah sebagaimana yang digunakan oleh Pertubuhan Kesihatan Sedunia pada 1987, atau apa-apa semakan selepas itu oleh Pertubuhan Kesihatan Sedunia untuk definisi tersebut; dan</td>
+	</tr>
+	<tr>
+		<td/><td/><td>(ii)</td>
+		<td>	jangkitan hendaklah dianggap terjadi apabila darah atau ujian lain yang berkaitan menunjukkan pada pendapat tunggal dan mutlak Syarikat sama ada kehadiran sebarang jangkitan Virus Imunodifisiensi Manusia atau Antibodi untuk virus sedemikian.</td>
+	</tr>
+	<tr>
+		<td/><td>(d)</td>
+		<td colspan="2">	Tuntutan Kanser Wanita Peringkat Awal dalam peringkat yang sama atau lebih rendah daripada tuntutan Kanser Wanita Peringkat Awal yang sebelumnya; </td>
+	</tr>
+	<tr>
+		<td/><td>(e)</td>
+		<td colspan="2">Sebarang keadaan disebabkan oleh kecederaan diri sendiri yang disengajakan, ketika siuman atau tidak siuman;</td>
+	</tr>
+	<tr>
+		<td/><td>(f)</td>
+		<td colspan="2">	Sebarang keadaan yang disebabkan secara langsung daripada alkohol atau penyalahgunaan dadah;</td>
+	</tr>
+	<tr>
+		<td/><td>(g)</td>
+		<td colspan="2">	Kematian Hayat Diinsuranskan dalam tempoh tujuh (7) hari selepas tarikh diagnosis sebarang Kanser Wanita Peringkat Awal; atau</td>
+	</tr>
+	<tr>
+		<td/><td>(h)</td>
+		<td colspan="2"> Sebarang situasi, keadaan atau penyakit yang disebabkan oleh pelanggaran atau percubaan untuk melanggar undang-undang atau menentang daripada ditahan.</td>
+	</tr>
+	<tr><td><br/></td></tr>
+	<tr>
+		<td>2.</td>
+		<td colspan="3"><u>Faedah Perlindungan Kanser Wanita Peringkat Sederhana </td>
+	</tr>
+	<tr>
+		<td/>
+		<td colspan="3">Situasi, keadaan atau penyakit yang berikut adalah dikecualikan:</td>
+	</tr>
+	<tr>
+		<td/><td>(a)</td>
+		<td colspan="2"> Sebarang diagnosis Kanser Wanita Peringkat Sederhana dalam tempoh enam puluh (60) hari daripada Tarikh Penerbitan, Tarikh Pindaan Efektif atau sebarang Tarikh Pengembalian Semula Rider ini, yang mana terkemudian;</td>
+	</tr>
+	<tr>
+		<td/><td>(b)</td>
+		<td colspan="2">Keadaan ini berlaku secara langsung atau tidak langsung daripada Penyakit Pra-wujud, yang wujud sebelum Tarikh Penerbitan, Tarikh Pindaan Efektif atau sebarang Tarikh Pengembalian Semula Rider, yang mana terkemudian;</td>
+	</tr>
+	<tr>
+		<td/><td>(c)</td>
+		<td colspan="2">	Sebarang keadaan, di mana pada pendapat tunggal dan mutlak Syarikat, adalah disebabkan secara langsung atau tidak langsung oleh kewujudan Sindrom Kurang Daya Tahan Penyakit (AIDS) atau kehadiran sebarang jangkitan Virus Imunodifisiensi Manusia (HIV). Kami berhak untuk menghendaki orang yang diinsuranskan menjalani ujian darah untuk mengesan kehadiran sebarang jangkitan HIV sebagai syarat duluan sebelum menerima apa-apa tuntutan. Bagi tujuan Rider ini,</td>
+	</tr>
+	<tr>
+		<td/><td/><td>(i)</td>
+		<td>	definisi AIDS hendaklah sebagaimana yang digunakan oleh Pertubuhan Kesihatan Sedunia pada 1987, atau apa-apa semakan selepas itu oleh Pertubuhan Kesihatan Sedunia untuk definisi tersebut; dan</td>
+	</tr>
+	<tr>
+		<td/><td/><td>(ii)</td>
+		<td>	jangkitan hendaklah dianggap terjadi apabila darah atau ujian lain yang berkaitan menunjukkan pada pendapat tunggal dan mutlak Syarikat sama ada kehadiran sebarang jangkitan Virus Imunodifisiensi Manusia atau Antibodi untuk virus sedemikian</td>
+	</tr>
+        <tr>
+		<td/><td>(d)</td>
+		<td colspan="2">	Tuntutan Kanser Wanita Peringkat Sederhana dalam peringkat yang sama atau lebih rendah daripada tuntutan Kanser Wanita Peringkat Serdehana yang sebelumnya; </td>
+	</tr>
+	<tr><td/><td>(e)</td>
+		<td colspan="2">	Sebarang keadaan disebabkan oleh kecederaan diri sendiri yang disengajakan, ketika siuman atau tidak siuman;</td>
+	</tr>
+	<tr>
+		<td/><td>(f)</td>
+		<td colspan="2">	Sebarang keadaan yang disebabkan secara langsung daripada alkohol atau penyalahgunaan dadah;</td>
+	</tr>
+	<tr>
+		<td/><td>(g)</td>
+		<td colspan="2">Kematian Hayat Diinsuranskan dalam tempoh dua puluh lapan (28) hari selepas tarikh diagnosis sebarang Kanser Wanita Peringkat Sederhana.</td>
+	</tr>
+	<tr>
+		<td/><td>(h)</td>
+		<td colspan="2">Sebarang situasi, keadaan atau penyakit yang disebabkan oleh pelanggaran atau percubaan untuk melanggar undang-undang atau menentang daripada ditahan.</td>
+	</tr>
+	<tr>
+		<td>3.</td>
+		<td colspan="3"><u>Faedah Perlindungan Kanser Wanita Peringkat Lanjutan</td>
+	</tr>	
+	<tr>
+		<td/>
+		<td colspan="3">Situasi, keadaan atau penyakit yang berikut adalah dikecualikan:</td>
+	</tr>
+	<tr>
+		<td/><td>(a)</td>
+		<td colspan="2">Sebarang diagnosis Kanser Wanita Peringkat Lanjutan dalam tempoh enam puluh (60) hari daripada Tarikh Penerbitan, Tarikh Pindaan Efektif atau sebarang Tarikh Pengembalian Semula Rider ini, yang mana terkemudian;</td>
+	</tr>
+	<tr>
+		<td/><td>(b)</td>
+		<td colspan="2">	Keadaan ini berlaku secara langsung atau tidak langsung daripada Penyakit Pra-wujud, yang wujud sebelum Tarikh Penerbitan, Tarikh Pindaan Efektif atau sebarang Tarikh Pengembalian Semula Rider, yang mana terkemudian;</td>
+	</tr>
+	<tr>
+		<td/><td>(c)</td>
+		<td colspan="2">	Sebarang keadaan, di mana pada pendapat tunggal dan mutlak Syarikat, adalah disebabkan secara langsung atau tidak langsung oleh kewujudan Sindrom Kurang Daya Tahan Penyakit (AIDS) atau kehadiran sebarang jangkitan Virus Imunodifisiensi Manusia (HIV). Kami berhak untuk menghendaki orang yang diinsuranskan menjalani ujian darah untuk mengesan kehadiran sebarang jangkitan HIV sebagai syarat duluan sebelum menerima apa-apa tuntutan. Bagi tujuan Rider ini,</td>
+	</tr>
+	<tr>
+		<td/><td/><td>(i)</td>
+		<td>	definisi AIDS hendaklah sebagaimana yang digunakan oleh Pertubuhan Kesihatan Sedunia pada 1987, atau apa-apa semakan selepas itu oleh Pertubuhan Kesihatan Sedunia untuk definisi tersebut; dan</td>
+	</tr>
+	<tr>
+		<td/><td/><td>(ii)</td>
+		<td>	jangkitan hendaklah dianggap terjadi apabila darah atau ujian lain yang berkaitan menunjukkan pada pendapat tunggal dan mutlak Syarikat sama ada kehadiran sebarang jangkitan Virus Imunodifisiensi Manusia atau Antibodi untuk virus sedemikian.</td>
+	</tr>
+	<tr>
+		<td/><td>(d)</td>
+		<td colspan="2">	Sebarang keadaan disebabkan oleh kecederaan diri sendiri yang disengajakan, ketika siuman atau tidak siuman;</td>
+	</tr>
+	<tr>
+		<td/><td>(e)</td>
+		<td colspan="2">	Sebarang keadaan yang disebabkan secara langsung daripada alkohol atau penyalahgunaan dadah;</td>
+	</tr>
+	<tr>
+		<td/><td>(f)</td>
+		<td colspan="2">Kematian Hayat Diinsuranskan dalam tempoh dua puluh lapan (28) hari selepas tarikh diagnosis sebarang Kanser Wanita Peringkat Lanjutan.</td>
+	</tr>
+	<tr>
+		<td/><td>(g)</td>
+		<td colspan="2">	Sebarang situasi, keadaan atau penyakit yang disebabkan oleh pelanggaran atau percubaan untuk melanggar undang-undang atau menentang daripada ditahan.</td>
+	</tr>
+	<tr>
+		<td style="width:10px">4.</td>
+		<td colspan="3"><u>Faedah Perlindungan Penyakit Wanita Spesifik</td>
+	</tr>
+	<tr>
+		<td/>
+		<td colspan="3">Situasi, keadaan atau penyakit yang berikut adalah dikecualikan:</td>
+	</tr>
+	<tr>
+		<td/><td>(a)</td>
+		<td colspan="2">Sebarang diagnosis Kanser Wanita Peringkat Lanjutan dalam tempoh enam puluh (60) hari daripada Tarikh Penerbitan, Tarikh Pindaan Efektif atau sebarang Tarikh Pengembalian Semula Rider ini, yang mana terkemudian;</td>
+	</tr>
+	<tr>
+		<td/><td>(b)</td>
+		<td colspan="2">	Keadaan ini berlaku secara langsung atau tidak langsung daripada Penyakit Pra-wujud, yang wujud sebelum Tarikh Penerbitan, Tarikh Pindaan Efektif atau sebarang Tarikh Pengembalian Semula Rider, yang mana terkemudian;</td>
+	</tr>
+	<tr>
+		<td/><td>(c)</td>
+		<td colspan="2">	Sebarang keadaan, di mana pada pendapat tunggal dan mutlak Syarikat, adalah disebabkan secara langsung atau tidak langsung oleh kewujudan Sindrom Kurang Daya Tahan Penyakit (AIDS) atau kehadiran sebarang jangkitan Virus Imunodifisiensi Manusia (HIV). Kami berhak untuk menghendaki orang yang diinsuranskan menjalani ujian darah untuk mengesan kehadiran sebarang jangkitan HIV sebagai syarat duluan sebelum menerima apa-apa tuntutan. Bagi tujuan Rider ini,</td>
+	</tr>
+	<tr>
+		<td/><td/><td>(i)</td>
+		<td>	definisi AIDS hendaklah sebagaimana yang digunakan oleh Pertubuhan Kesihatan Sedunia pada 1987, atau apa-apa semakan selepas itu oleh Pertubuhan Kesihatan Sedunia untuk definisi tersebut; dan</td>
+	</tr>
+	<tr>
+		<td/><td/><td>(ii)</td>
+		<td>	jangkitan hendaklah dianggap terjadi apabila darah atau ujian lain yang berkaitan menunjukkan pada pendapat tunggal dan mutlak Syarikat sama ada kehadiran sebarang jangkitan Virus Imunodifisiensi Manusia atau Antibodi untuk virus sedemikian.</td>
+	</tr>
+        <tr>
+		<td/><td>(d)</td>
+		<td colspan="2">	Sebarang keadaan disebabkan oleh kecederaan diri sendiri yang disengajakan, ketika siuman atau tidak siuman;</td>
+	</tr>
+	<tr>
+		<td/><td>(e)</td>
+		<td colspan="2">	Sebarang keadaan yang disebabkan secara langsung daripada alkohol atau penyalahgunaan dadah;</td>
+	</tr>
+	<tr>
+		<td/><td>(f)</td>
+		<td colspan="2">Kematian Hayat Diinsuranskan dalam tempoh dua puluh lapan (28) hari selepas tarikh diagnosis sebarang Kanser Wanita Peringkat Lanjutan.</td>
+	</tr>
+	<tr>
+		<td/><td>(g)</td>
+		<td colspan="2">	Sebarang situasi, keadaan atau penyakit yang disebabkan oleh pelanggaran atau percubaan untuk melanggar undang-undang atau menentang daripada ditahan.</td>
+	</tr>
+	<tr>
+		<td style="width:10px">5.</td>
+		<td colspan="3"><u>Faedah Prosedur Perubatan</u></td>
+	</tr>
+	<tr>
+		<td/>
+		<td colspan="3">Situasi, keadaan atau penyakit yang berikut adalah dikecualikan:</td>
+	</tr>
+	<tr>
+		<td/><td>(a)</td>
+		<td colspan="2">Pembedahan Pembentukan Semula Payudara selepas mastektomi dalam tempoh enam puluh (60) hari  daripada Tarikh Penerbitan, Tarikh Pindaan Efektif atau pada sebarang Tarikh Pengembalian Semula Rider, yang mana terkemudian;</td>
+	</tr>
+	<tr>
+		<td/><td>(b)</td>
+		<td colspan="2">Keadaan ini berlaku secara langsung atau tidak langsung daripada Penyakit Pra-wujud, yang wujud sebelum Tarikh Penerbitan, Tarikh Pindaan Efektif atau sebarang Tarikh Pengembalian Semula Rider, yang mana terkemudian;</td>
+	</tr>
+	<tr>
+		<td/><td>(c)</td>
+		<td colspan="2">Sebarang keadaan disebabkan oleh kecederaan diri sendiri yang disengajakan, ketika siuman atau tidak siuman;</td>
+	</tr>
+	<tr>
+		<td/><td>(d)</td>
+		<td colspan="2">	Sebarang keadaan yang disebabkan secara langsung daripada alkohol atau penyalahgunaan dadah;atau</td>
+	</tr>
+        <tr>
+		<td/><td>(e)</td>
+		<td colspan="2">	Sebarang situasi, keadaan atau penyakit yang disebabkan oleh pelanggaran atau percubaan untuk melanggar undang-undang atau menentang daripada ditahan.</td>
+	</tr>
+	<tr><td><br/></td></tr>
+	<tr>
+		<td>6.</td>
+		<td colspan="3"><u>	Faedah Penghospitalan akibat Rompakan</u></td>
+	</tr>
+	<tr>
+		<td/>
+		<td colspan="3">Situasi, keadaan atau penyakit yang berikut adalah dikecualikan</td>
+	</tr>
+	<tr>
+		<td/><td>(a)</td>
+		<td colspan="2">	Sebarang Penghospitalan akibat Rompakan selain daripada tiga (3) hari pertama bagi setiap Rompakan; atau</td>
+	</tr>
+	<tr>
+		<td/><td>(b)</td>
+		<td colspan="2">	Sebarang situasi, keadaan atau penyakit yang disebabkan oleh pelanggaran atau percubaan untuk melanggar undang-undang atau menentang daripada ditahan.</td>
+	</tr>
+	<tr><td><br/></td></tr>
+	<tr>
+		<td>7.</td>
+		<td colspan="3"><u>	Faedah Kematian disebabkan oleh Kemalangan akibat Rompakan</u></td>
+	</tr>
+	<tr>
+		<td/>
+		<td colspan="3">Situasi, keadaan atau penyakit yang berikut adalah dikecualikan:</td>
+	</tr>
+	<tr>
+		<td/><td>(a)</td>
+		<td colspan="2">	Sebarang situasi, keadaan atau penyakit yang disebabkan oleh pelanggaran atau percubaan untuk melanggar undang-undang atau menentang daripada ditahan.</td>
+	</tr>
+	<tr><td><br/></td></tr>
+	<tr>
+		<td colspan="4">
+			Jumlah Rider Diinsuranskan akan meningkat pada awal tahun ke-6 dan ke-16 secara automatik dengan kadar 25% dan 50% daripada Jumlah Rider Diinsuranskan awal masing-masing dengan premium dan caj insurans tambahan, dengan syarat tiada tuntutan yang diluluskan terlebih dahulu kecuali Penghospitalan akibat Rompakan. Peningkatan Jumlah Rider Diinsuranskan tersebut tidak terpakai jika terdapat pengurangan dalam Jumlah Rider Diinsuranskan sebelumnya.
+		</td>
+	</tr>
+	
+</table>
+
+
+
+
+
+
+</td>
+</tr>
+<!--LDYR--end-->
+
+<!--LDYR-PCB--start-->
+<tr class="LDYR-PCB" id="LDYR-PCB" style="display:table-row;">
+<td class="extraContentSmall" style="width: 5%">Pregnancy Care Benefit</td>
+
+<td class="content">
+
+Situasi, keadaan atau penyakit yang berikut adalah dikecualikan daripadaFaedah Penjagaan Kehamilan : <br/>
+
+<table id="TableNoBorder" class="TableNoBorder" style="border-collapse:collapse;border: 0px solid black;width: 100%;">
+	<tr>
+		<td style="width:10px">(a).</td>
+		<td colspan="2">Keadaan pra-wujud di mana terdapat tanda-tanda atau symptom-simptom bahawa rawatan, pengubatan, perundingan, nasihat atau diagnosis telah dicari atau diterima oleh Ibu atau mungkin menyebabkan seseorang yang lazimnya berhemat untuk mencari rawatan, sebelum Tarikh Penerbitan, Tarikh Pindaan Efektif atau sebarang Tarikh Pengembalian Semula Faedah, yang mana terkemudian;</td>
+	</tr>
+	<tr>
+		<td>(b).</td>
+		<td colspan="2">	Sebarang keadaan, di mana pada pendapat tunggal dan mutlak Syarikat, adalah disebabkan secara langsung atau tidak langsung oleh kewujudan Sindrom Kurang Daya Tahan Penyakit (AIDS) atau kehadiran sebarang jangkitan Virus Imunodifisiensi Manusia (HIV). Kami berhak untuk menghendaki orang yang diinsuranskan menjalani ujian darah untuk mengesan kehadiran sebarang jangkitan HIV sebagai syarat duluan sebelum menerima apa-apa tuntutan. Bagi tujuan Rider ini,</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="width:10px" >(i)</td>
+		<td>	definisi AIDS hendaklah sebagaimana yang digunakan oleh Pertubuhan Kesihatan Sedunia pada 1987, atau apa-apa semakan selepas itu oleh Pertubuhan Kesihatan Sedunia untuk definisi tersebut; dan</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="width:10px" >(ii)</td>
+		<td>	jangkitan hendaklah dianggap terjadi apabila darah atau ujian lain yang berkaitan menunjukkan pada pada pendapat tunggal dan mutlak Syarikat sama ada kehadiran sebarang jangkitan Virus Imunodifisiensi Manusia atau Antibodi untuk virus sedemikian.</td>
+	</tr>
+	<tr>
+		<td>(c).</td>
+		<td colspan="2">	Sebarang keadaan disebabkan oleh kecederaan diri sendiri yang disengajakan, ketika siuman atau tidak siuman;</td>
+	</tr>
+	<tr>
+		<td>(d).</td>
+		<td colspan="2">	Sebarang keadaan yang disebabkan secara langsung daripada alkohol atau penyalahgunaan dadah;</td>
+	</tr>
+	<tr>
+		<td>(e).</td>
+		<td colspan="2">Pemilihan terminasi kehamilan selain daripada sebab-sebab perubatan di mana sebab-sebab perubatan bermaksud cadangan oleh pakar bahawa kehamilan akan membahayakan nyawa Hayat Yang Diinsuranskan (Ibu); </td>
+	</tr>
+	<tr>
+		<td>(f).</td>
+		<td colspan="2">Kematian, yang merupakan kesan langsung daripada perbuatan yang disengajakan, atau kelalaian pemunya polisi,  atau peninggalan Hayat yang Diinsuranskan untuk mengikuti nasihat perubatan; </td>
+	</tr>
+	<tr>
+		<td>(g).</td>
+		<td colspan="2">Komplikasi kehamilan yang disebabkan oleh rawatan ketidaksuburan termasuk Persenyawaan In-Vitro (IVF); atau</td>
+	</tr>
+	<tr>
+		<td>(h).</td>
+		<td colspan="2">	Sebarang perlakuan yang salah dari sisi undang-undang, jenayah, perlakuan yang disengajakan atau pengabaian, penglibatan secara langsung dalam rusuhan, mogok atau kekecohan awam.</td>
+	</tr>
+</table>
+
+
+</td>
+</tr>
+<!--LDYR-PCB--end-->
+
+<!--LDYR-BBB--start-->
+<tr class="LDYR-BBB" id="LDYR-BBB" style="display:table-row;">
+<td class="extraContentSmall" style="width: 5%">Baby Bonus Benefit</td>
+
+<td class="content">
+
+i.	<u>Faedah Penghospitalan akibat Kelahiran Anak</u><br/>
+Situasi, keadaan atau penyakit yang berikut adalah dikecualikan:<br/>
+(a) Sebarang kemasukan ke hospital akibat Kelahiran Anak dalam tempoh dua (2) tahun daripada Tarikh Penerbitan Faedah ini, yang mana terkemudian; <br/>
+(b) Sebarang kemasukan ke hospital akibat Kelahiran Anak selain daripada tiga (3) tuntutan pertama yang diakui di bawah faedah ini.
+
+
+
+
+</td>
+</tr>
+<!--LDYR-BBB end-->
+
+<!--MSR start -->
+<tr class="MSR" id="MSR" style="display:table-row;">
+<td class="extraContentSmall" style="width: 5%">MenShield Rider</td>
+
+<td class="content">
+ <table id="TableNoBorder" class="TableNoBorder" style="border-collapse:collapse;border: 0px solid black;width: 100%;">
+	<tr>
+		<td style="width:10px">1.</td>
+		<td colspan="3"><u>Faedah Perlindungan Kanser Lelaki Peringkat Awal</u></td>
+	</tr>
+	<tr>
+		<td/>
+		<td colspan="3">Situasi, keadaan atau penyakit yang berikut adalah dikecualikan:</td>
+	</tr>
+	<tr>
+		<td/><td style="width:10px">(a)</td>
+		<td colspan="2">Sebarang diagnosis Kanser Lelaki Peringkat Awal dalam tempoh enam puluh (60) hari daripada Tarikh Penerbitan, Tarikh Pindaan Efektif atau sebarang Tarikh Pengembalian Semula Rider ini, yang mana terkemudian;</td>
+	</tr>
+	<tr>
+		<td/><td>(b)</td>
+		<td colspan="2">Keadaan ini berlaku secara langsung atau tidak langsung daripada Penyakit Pra-wujud, yang wujud sebelum Tarikh Penerbitan, Tarikh Pindaan Efektif atau sebarang Tarikh Pengembalian Semula Rider, yang mana terkemudian;</td>
+	</tr>
+	<tr>
+		<td/><td>(c)</td>
+		<td colspan="2">Sebarang keadaan, di mana pada pendapat tunggal dan mutlak Syarikat, adalah disebabkan secara langsung atau tidak langsung oleh kewujudan Sindrom Kurang Daya Tahan Penyakit (AIDS) atau kehadiran sebarang jangkitan Virus Imunodifisiensi Manusia (HIV). Kami berhak untuk menghendaki orang yang diinsuranskan menjalani ujian darah untuk mengesan kehadiran sebarang jangkitan HIV sebagai syarat duluan sebelum menerima apa-apa tuntutan. Bagi tujuan Rider ini,</td>
+	</tr>
+	<tr>
+		<td/><td/><td style="width:10px">(i)</td>
+		<td>definisi AIDS hendaklah sebagaimana yang digunakan oleh Pertubuhan Kesihatan Sedunia pada 1987, atau apa-apa semakan selepas itu oleh Pertubuhan Kesihatan Sedunia untuk definisi tersebut; dan</td>
+	</tr>
+	<tr>
+		<td/><td/><td>(ii)</td>
+		<td>jangkitan hendaklah dianggap terjadi apabila darah atau ujian lain yang berkaitan menunjukkan pada pendapat tunggal dan mutlak Syarikat sama ada kehadiran sebarang jangkitan Virus Imunodifisiensi Manusia atau Antibodi untuk virus sedemikian.</td>
+	</tr>
+	<tr>
+		<td/><td>(d)</td>
+		<td colspan="2">Tuntutan Kanser Lelaki Peringkat Awal dalam peringkat yang sama atau lebih rendah daripada tuntutan Kanser Lelaki Peringkat Awal yang sebelumnya; </td>
+	</tr>
+	<tr>
+		<td/><td>(e)</td>
+		<td colspan="2">Sebarang keadaan disebabkan oleh kecederaan diri sendiri yang disengajakan, ketika siuman atau tidak siuman;</td>
+	</tr>
+	<tr>
+		<td/><td>(f)</td>
+		<td colspan="2">Sebarang keadaan yang disebabkan secara langsung daripada alkohol atau penyalahgunaan dadah;</td>
+	</tr>
+	<tr>
+		<td/><td>(g)</td>
+		<td colspan="2">	Kematian Hayat Diinsuranskan dalam tempoh tujuh (7) hari selepas tarikh diagnosis sebarang Kanser Lelaki Peringkat Awa; ataul</td>
+	</tr>
+	<tr>
+		<td/><td>(h)</td>
+		<td colspan="2">Sebarang situasi, keadaan atau penyakit yang disebabkan oleh pelanggaran atau percubaan untuk melanggar undang-undang atau menentang daripada ditahan.</td>
+	</tr>
+	<tr><td><br/></td></tr>
+	<tr>
+		<td>2.</td>
+		<td colspan="3"><u>Faedah Perlindungan Kanser Lelaki Peringkat Sederhana</td>
+	</tr>
+	<tr>
+		<td/>
+		<td colspan="3">Situasi, keadaan atau penyakit yang berikut adalah dikecualikan:</td>
+	</tr>
+	<tr>
+		<td/><td>(a)</td>
+		<td colspan="2">	Sebarang diagnosis Kanser Lelaki Peringkat Sederhana dalam tempoh enam puluh (60) hari daripada Tarikh Penerbitan, Tarikh Pindaan Efektif atau sebarang Tarikh Pengembalian Semula Rider, yang mana terkemudian;</td>
+	</tr>
+	<tr>
+		<td/><td>(b)</td>
+		<td colspan="2">	Keadaan ini berlaku secara langsung atau tidak langsung daripada Penyakit Pra-wujud, yang wujud sebelum Tarikh Penerbitan, Tarikh Pindaan Efektif atau sebarang Tarikh Pengembalian Semula Rider, yang mana terkemudian;</td>
+	</tr>
+	<tr>
+		<td/><td>(c)</td>
+		<td colspan="2">	Sebarang keadaan, di mana pada pendapat tunggal dan mutlak Syarikat, adalah disebabkan secara langsung atau tidak langsung oleh kewujudan Sindrom Kurang Daya Tahan Penyakit (AIDS) atau kehadiran sebarang jangkitan Virus Imunodifisiensi Manusia (HIV). Kami berhak untuk menghendaki orang yang diinsuranskan menjalani ujian darah untuk mengesan kehadiran sebarang jangkitan HIV sebagai syarat duluan sebelum menerima apa-apa tuntutan. Bagi tujuan Rider ini,</td>
+	</tr>
+	<tr>
+		<td/><td/><td>(i)</td>
+		<td>definisi AIDS hendaklah sebagaimana yang digunakan oleh Pertubuhan Kesihatan Sedunia pada 1987, atau apa-apa semakan selepas itu oleh Pertubuhan Kesihatan Sedunia untuk definisi tersebut; dan</td>
+	</tr>
+	<tr>
+		<td/><td/><td>(ii)</td>
+		<td>jangkitan hendaklah dianggap terjadi apabila darah atau ujian lain yang berkaitan menunjukkan pada pendapat tunggal dan mutlak Syarikat sama ada kehadiran sebarang jangkitan Virus Imunodifisiensi Manusia atau Antibodi untuk virus sedemikian.</td>
+	</tr>
+	<tr>
+		<td/><td>(d)</td>
+		<td colspan="2">	Tuntutan Kanser Lelaki Peringkat Sederhana dalam peringkat yang sama atau lebih rendah daripada tuntutan Kanser Lelaki Peringkat Sederhana yang sebelumnya; </td>
+	</tr>
+	<tr><td/><td>(e)</td>
+		<td colspan="2">	Sebarang keadaan disebabkan oleh kecederaan diri sendiri yang disengajakan, ketika siuman atau tidak siuman;</td>
+	</tr>
+	<tr>
+		<td/><td>(f)</td>
+		<td colspan="2">	Sebarang keadaan yang disebabkan secara langsung daripada alkohol atau penyalahgunaan dadah;</td>
+	</tr>
+	<tr>
+		<td style="width:10px">5.</td>
+		<td colspan="3"><u>Faedah Prosedur Perubatan</u></td>
+	</tr>	
+	<tr>
+		<td/>
+		<td colspan="3">Situasi, keadaan atau penyakit yang berikut adalah dikecualikan:</td>
+	</tr>
+	<tr>
+		<td/><td>(a)</td>
+		<td colspan="2">Keadaan ini berlaku secara langsung atau tidak langsung daripada Penyakit Pra-wujud, yang wujud sebelum Tarikh Penerbitan, Tarikh Pindaan Efektif atau sebarang Tarikh Pengembalian Semula Rider, yang mana terkemudian;</td>
+	</tr>
+	<tr>
+		<td/><td>(b)</td>
+		<td colspan="2">	Sebarang keadaan disebabkan oleh kecederaan diri sendiri yang disengajakan, ketika siuman atau tidak siuman;</td>
+	</tr>
+	<tr>
+		<td/><td>(c)</td>
+		<td colspan="2">	Sebarang keadaan yang disebabkan secara langsung daripada alkohol atau penyalahgunaan dadah</td>
+	</tr>
+	<tr>
+		<td/><td>(d)</td>
+		<td colspan="2">Sebarang situasi, keadaan atau penyakit yang disebabkan oleh pelanggaran atau percubaan untuk melanggar undang-undang atau menentang daripada ditahan.</td>
+	</tr>
+	<tr><td><br/></td></tr>
+	<tr>
+		<td>6.</td>
+		<td colspan="3"><u>	Faedah Penghospitalan akibat Rompakan</u></td>
+	</tr>
+	<tr>
+		<td/>
+		<td colspan="3">Situasi, keadaan atau penyakit yang berikut adalah dikecualikan:</td>
+	</tr>
+	<tr>
+		<td/><td>(a)</td>
+		<td colspan="2">Sebarang Penghospitalan akibat Rompakan selain daripada tiga (3) hari pertama bagi setiap Rompakan; atau</td>
+	</tr>
+	<tr>
+		<td/><td>(b)</td>
+		<td colspan="2">Sebarang situasi, keadaan atau penyakit yang disebabkan oleh pelanggaran atau percubaan untuk melanggar undang-undang atau menentang daripada ditahan.</td>
+	</tr>
+	<tr><td><br/></td></tr>
+	<tr>
+		<td>7.</td>
+		<td colspan="3"><u>	Faedah Kematian disebabkan oleh Kemalangan akibat Rompakan</u></td>
+	</tr>
+	<tr>
+		<td/>
+		<td colspan="3">Situasi, keadaan atau penyakit yang berikut adalah dikecualikan:</td>
+	</tr>
+	<tr>
+		<td/><td>(a)</td>
+		<td colspan="2">Sebarang situasi, keadaan atau penyakit yang disebabkan oleh pelanggaran atau percubaan untuk melanggar undang-undang atau menentang daripada ditahan.</td>
+	</tr>
+	<tr><td><br/></td></tr>
+	<tr>
+		<td colspan="4">
+			Jumlah Rider Diinsuranskan akan meningkat pada awal tahun ke-6 dan ke-16 secara automatik dengan kadar 25% dan 50% daripada Jumlah Rider Diinsuranskan awal masing-masing dengan premium dan caj insurans tambahan, dengan syarat tiada tuntutan yang diluluskan terlebih dahulu kecuali Penghospitalan akibat Rompakan. Peningkatan Jumlah Rider Diinsuranskan tersebut tidak terpakai jika terdapat pengurangan dalam Jumlah Rider Diinsuranskan sebelumnya
+		</td>
+	</tr>
+	
+	
+	
+</table>
+</td>
+</tr>
+<!--MSR-end-->
+
+<!--PA-start--> 
+<tr class="PA" id="PA" style="display:table-row;">
+<td class="extraContentSmall" style="width: 5%">Personal<br/>Accident Rider</td>
+
+<td class="content">
+1.	Faedah Kematian akibat Kemalangan dan Faedah Hilang Upaya Separa/Menyeluruh & Kekal akibat Kemalangan<br/>
+        Kejadian-kejadian berikut dikecualikan:<br/>
+(a)	Penerbangan atau mengambil bahagian dalam sebarang aktiviti penerbangan melainkan ketika menerbang dalam pesawat sebagai penumpang yang membayar tambang dan bukan sebagai anak kapal terbang dan bukan untuk tujuan untuk melakukan sebarang perdagangan atau operasi teknikal dalam atau atas pesawat;<br/>
+(b)	Kecederaan diri yang disengajakan, membunuh diri atau cuba untuk membunuh diri, pembunuhan atau serangan yang diprovokasi atau bawah pengaruh sebarang dadah/narkotik/alkohol;<br/>
+(c)	Terlibat dalam atau mengambil bahagian dalam sukan profesional atau semi-profesional;<br/>
+(d)	Terlibat dalam sebarang perlumbaan (selain daripada perlumbaan yang menggunakan kaki), pendakian gunung atau batuan yang menggunakan tali atau pemandu jalan, sukan musim sejuk, kegiatan bawah air, ski air, bola sepak, polo, pemburuan, pertandingan lompat kuda, penerokaan gua, penerokaan gua bawah tanah, peninjuan atau bergusti;<br/>
+(e)	Peperangan, pencerobohan, tindakan musuh asing, permusuhan atau operasi semacam peperangan (sama ada perang diisytiharkan atau tidak), perang saudara, kegiatan ketenteraan atau rampasan kuasa;<br/>
+(f)	Terlibat langsung dalam mogokan, rusuhan, pemberontakan, revolusi, kegemparan awam atau penderhakaan;<br/>
+(g)	Bertugas dalam Pasukan Bersenjata (sama ada secara sukarela atau sebaliknya);<br/>
+(h)	Sebarang kesakitan atau penyakit yang disebabkan atau dijangkiti oleh atau menerusi sebarang kaedah yang berpunca daripada virus, parasit, bakteria atau sebarang mikro-organisma termasuk virus, parasit, bakteria atau mikro-organisma yang dikenali dan/atau berpunca daripada gigitan serangga atau transmisi melalui seks;<br/>
+(i)	Melakukan atau cuba melakukan sebarang kegiatan yang menyalahi undang-undang;<br/>
+(j)	Sebarang kecederaan akibat gangguan mental;<br/>
+(k)	Keguguran atau sebarang komplikasi yang berkaitan dengan yang sama;<br/>
+(l)	Sebarang rawatan gigi yang tidak diperlukan untuk merawati kecederaan yang dilindungi bawah Rider ini.<br/><br/>
+
+2.	Faedah Indemniti Berganda<br/>
+        Kejadian-kejadian berikut dikecualikan:<br/>
+(a)	Kecederaan diri yang disengajakan, membunuh diri atau cuba untuk membunuh diri, pembunuhan atau serangan yang diprovokasi atau bawah pengaruh sebarang dadah/narkotik/alkohol;<br/>
+(b)	Terlibat langsung dalam mogokan, rusuhan, pemberontakan, revolusi, kegemparan awam atau penderhakaan;<br/>
+(c)	Melakukan atau cuba melakukan sebarang kegiatan yang menyalahi undang-undang;<br/>
+(d)	Sebarang kecederaan akibat gangguan mental.<br/><br/>
+
+3.	Faedah Elaun Ihsan<br/>
+I.	Bagi kematian akibat semula jadi, membunuh diri atau cuba untuk membunuh diri dikecualikan.<br/>
+II.	Bagi kematian akibat kemalangan, kejadian-kejadian berikut dikecualikan:<br/>
+(a)	Penerbangan atau mengambil bahagian dalam sebarang aktiviti penerbangan melainkan ketika menerbang dalam pesawat sebagai penumpang yang membayar tambang dan bukan sebagai anak kapal terbang dan bukan untuk tujuan untuk melakukan sebarang perdagangan atau operasi teknikal dalam atau atas pesawat;<br/>
+(b)	Kecederaan diri yang disengajakan, membunuh diri atau cuba untuk membunuh diri, pembunuhan atau serangan yang diprovokasi atau bawah pengaruh sebarang dadah/narkotik/alkohol;<br/>
+(c)	Terlibat dalam atau mengambil bahagian dalam sukan profesional atau semi-profesional;<br/>
+(d)	Terlibat dalam sebarang perlumbaan (selain daripada perlumbaan yang menggunakan kaki), pendakian gunung atau batuan yang menggunakan tali atau pemandu jalan, sukan musim sejuk, kegiatan bawah air, ski air, bola sepak, polo, pemburuan, pertandingan lompat kuda, penerokaan gua, penerokaan gua bawah tanah, peninjuan atau bergusti;<br/>
+(e)	Peperangan, pencerobohan, tindakan musuh asing, permusuhan atau operasi semacam peperangan (sama ada perang diisytiharkan atau tidak), perang saudara, kegiatan ketenteraan atau rampasan kuasa;<br/>
+(f)	Terlibat langsung dalam mogokan, rusuhan, pemberontakan, revolusi, kegemparan awam atau penderhakaan;<br/>
+(g)	Bertugas dalam Pasukan Bersenjata (sama ada secara sukarela atau sebaliknya;<br/>
+(h)	Sebarang kesakitan atau penyakit yang disebabkan atau dijangkiti oleh atau menerusi sebarang kaedah yang berpunca daripada virus, parasit, bakteria atau sebarang mikro-organisma termasuk virus, parasit, bakteria atau mikro-organisma yang dikenali dan/atau berpunca daripada gigitan serangga atau transmisi melalui seks;<br/>
+(i)	Melakukan atau cuba melakukan sebarang kegiatan yang menyalahi undang-undang;<br/>
+(j)	Sebarang kecederaan akibat gangguan mental;<br/>
+(k)	Keguguran atau sebarang komplikasi yang berkaitan dengan yang sama;<br/>
+(l)	Sebarang rawatan gigi yang tidak diperlukan untuk merawati kecederaan yang dilindungi bawah Rider ini.
+</td>
+</tr>
+<!--LCPR-Living Care Plus Rider end-->
+
+<!--TCCR -->
+<tr class="TCCR" id="TCCR" style="display:table-row;">
+<td class="extraContentSmall" style="width: 5%">Total CI Care Rider</td>
+
+<td class="content">
+ 
+Situasi, keadaan atau penyakit yang berikut adalah dikecualikan:<br/>
+<table id="TableNoBorder" class="TableNoBorder" style="border-collapse:collapse;border: 0px solid black;width: 100%;">
+	<tr>
+		<td style="width:10px">(a).</td>
+		<td colspan="2">	Sebarang penyakit atau pembedahan selain diagnosis atau pembedahan untuk Penyakit Kritikal seperti yang ditakrifkan di dalam ini;</td>
+	</tr>
+	<tr>
+		<td>(b).</td>
+		<td colspan="2">	Tanda-tanda atau gejala-gejala bagi Penyakit Kritikal Peringkat Lanjutan dimanifestasikan sebelum atau:</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="width:10px" >(i)</td>
+		<td>	dalam enam puluh (60) hari dari Tarikh Penerbitan, Tarikh Pindaan Efektif atau pada sebarang Tarikh Pengembalian Semula, yang mana terkemudian bagi Kanser, Penyakit arteri koronori yang memerlukan pembedahan, Serangan Jantung, lain-lain penyakit arteri koronori yang tenat; dan</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="width:10px" >(ii)</td>
+		<td>	dalam tiga puluh (30) hari dari Tarikh Penerbitan, Tarikh Pindaan Efektif atau pada sebarang Tarikh Pengembalian Semula, yang mana terkemudian bagi semua Penyakit Kritikal yang ditakrifkan bawah Peringkat Lanjutan yang tidak disenaraikan dalam item (i);</td>
+	</tr>
+	<tr>
+		<td>(c).</td>
+		<td colspan="2">	Tanda-tanda atau gejala-gejala bagi Penyakit Kritikal Peringkat Awal dan Serdehana dimanifestasikan enam puluh (60) sebelum atau dari Tarikh Penerbitan, Tarikh Pindaan Efektif atau pada sebarang Tarikh Pengembalian Semula, yang mana terkemudian</td>
+	</tr>
+	<tr>
+		<td>(d).</td>
+		<td colspan="2">	Keadaan ini berlaku secara langsung atau tidak langsung daripada Penyakit Pra-wujud, yang wujud sebelum Tarikh Penerbitan, Tarikh Pindaan Efektif atau sebarang Tarikh Pengembalian Semula Rider, yang mana terkemudian;</td>
+	</tr>
+	<tr>
+		<td>(e).</td>
+		<td colspan="2">	Sebarang Penyakit Kritikal, di mana pada pendapat tunggal dan mutlak Syarikat, adalah disebabkan secara langsung atau tidak langsung oleh kewujudan Sindrom Kurang Daya Tahan Penyakit (AIDS) atau kehadiran sebarang jangkitan Virus Imunodifisiensi Manusia (HIV). Kami berhak untuk menghendaki orang yang diinsuranskan untuk mengesan kehadiran sebarang jangkitan HIV sebagai syarat duluan sebelum menerima apa-apa tuntutan. Bagi tujuan Rider ini,</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="width:10px" >(i)</td>
+		<td>	definisi AIDS hendaklah sebagaimana yang digunakan oleh Pertubuhan Kesihatan Sedunia pada 1987, atau apa-apa semakan selepas itu oleh Pertubuhan Kesihatan Sedunia untuk definisi tersebut; dan</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="width:10px" >(ii)</td>
+		<td>	jangkitan hendaklah dianggap terjadi apabila darah atau ujian lain yang berkaitan menunjukkan pada pada pendapat tunggal dan mutlak Syarikat sama ada kehadiran sebarang jangkitan Virus Imunodifisiensi Manusia atau Antibodi untuk virus sedemikian.</td>
+	</tr>
+	
+	
+	<tr>
+		<td>(f).</td>
+		<td colspan="2">	Penyakit Kritikal yang berlaku dalam Peringkat Keparahan yang sama atau lebih rendah daripada tuntutan penyakit Kritikal yang sebelumnya bagi Sub-kategori yang sama.  </td>
+	</tr>
+	<tr>
+		<td>(g).</td>
+		<td colspan="2">	Sebarang Penyakit Kritikal didiagnosis, sama ada secara langsung atau tidak langsung, disebabkan oleh kecacatan kongenital atau penyakit, yang telah dimanifestasikan atau didiagnosis sebelum Hayat Diinsuranskan mencapai tujuh belas (17) tahun;</td>
+	</tr>
+	<tr>
+		<td>(h).</td>
+		<td colspan="2">		Sebarang Penyakit Kritikal disebabkan oleh kecederaan diri sendiri yang disengajakan, ketika siuman atau tidak siuman;</td>
+	</tr>
+	<tr>
+		<td>(i).</td>
+		<td colspan="2">	Sebarang Penyakit Kritikal yang disebabkan secara langsung daripada alkohol atau penyalahgunaan dadah;</td>
+	</tr>
+	<tr>
+		<td>(j).</td>
+		<td colspan="2">	Hayat Diinsuranskan  tidak hidup sekurang-kurangnya :</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="width:10px" >(i)</td>
+		<td>	tujuh (7) hari selepas diagnosis Penyakit Kritikal yang ditakrifkan bawah Peringkat Awal; atau</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="width:10px" >(ii)</td>
+		<td>	dua puluh lapan (28) hari selepas diagnosis Penyakit Kritikal yang ditakrifkan bawah Peringkat Serdehana dan Lanjutan; atau</td>
+	</tr>
+	<tr>
+		<td>(k).</td>
+		<td colspan="2">	Diagnosis Penyakit Kritikal yang ditakrifkan dalam Peringkat Lanjutan adalah dalam satu (1) tahun selepas diagnosis sebarang Penyakit Kritikal yang didiagnosis sebelumnya yang ditakrifkan dalam Peringkat Lanjutan. </td>
+	</tr>
+</table>
+
+<br/>
+Sila rujuk kepada kontrak polisi untuk butiran penyakit kritikal/keadaan yang dilindungi dalam kategori yang dinyatakan.
+</td>
+
+</tr>
+<!--TCCR-end-->
+
+<!--TSER-start-->
+<tr class="TSER" id="TSER" style="display:table-row;">
+<td class="extraContentSmall" style="width: 5%">TermShield<br/>Extra<br/>Rider</td>
+
+<td class="content">
+Rider ini tidak melindungi kejadian berikut:
+i) Kematian hayat diinsuranskan kerana membunuh diri dalam tempoh 12 bulan pertama dari Tarikh Penerbitan, Tarikh Pindaan Efektif atau pada sebarang Tarikh Pengembalian Semula, mengikut mana-mana yang terkemudian.<br/>
+ii) Hilang Upaya Menyeluruh dan Kekal yang berpunca secara langsung atau tidak langsung:<br/>
+-	daripada sebarang kecederaan anggota badan yang disengajakan ketika siuman atau tidak siuman;<br/>
+-	daripada sebarang gangguan saraf atau penyakit mental;;<br/>
+-	daripada penerbangan di dalam pesawat udara (kecuali sebagai anak kapal, atau sebagai penumpang biasa yang membayar tambang, dalam mana-mana penerbangan komersil berjadual tetap); atau<br/>
+-	daripada apa jua perkara ketika berkhidmat dalam angkatan bersenjata, polis dan angkatan separa tentera disebabkan oleh perang yang diisytiharkan atau tidak diisytiharkan, rusuhan atau kekecohan awam.<br/>
+iii) 	Hilang Upaya Masa Tua yang berpunca secara langsung atau tidak langsung:<br/>
+-	daripada sebarang kecederaan anggota badan yang disengajakan ketika siuman atau tidak siuman;<br/>
+-	daripada sebarang gangguan saraf atau penyakit mental;;<br/>
+-	daripada penerbangan di dalam pesawat udara (kecuali sebagai anak kapal, atau sebagai penumpang biasa yang membayar tambang, dalam mana-mana penerbangan komersil berjadual tetap); atau<br/>
+-	daripada apa jua perkara ketika berkhidmat dalam angkatan bersenjata, polis dan angkatan separa tentera disebabkan oleh perang yang diisytiharkan atau tidak diisytiharkan, rusuhan atau kekecohan awam.<br/>
+
+
+</td>
+</tr>
+<!--TSER- end-->
+
+
+
+<!--TPDMLA- start-->
+<tr class="TPDMLA" id="TPDMLA" style="display:table-row;">
+<td class="extraContentSmall" style="width: 5%">Acc. TPD<br/>Monthly Living<br/>Allowance<br/>Rider</td>
+
+<td class="content">
+
+<table id="TableNoBorder" class="TableNoBorder" style="border-collapse:collapse;border: 0px solid black;width: 100%;">
+				<tr>
+					<td style="width:10px">1.</td>
+					<td colspan="2">	Faedah Elaun Saraan Hidup Bulanan TPD akibat Kemalangan </td>
+				</tr>
+				<tr>
+					<td ></td>
+					<td colspan="2">Kejadian-kejadian berikut dikecualikan:</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td style="width:10px">(a)</td>
+					<td >Penerbangan atau mengambil bahagian dalam sebarang aktiviti penerbangan melainkan ketika menerbang dalam pesawat sebagai penumpang yang membayar tambang dan bukan sebagai anak kapal terbang dan bukan untuk tujuan untuk melakukan sebarang perdagangan atau operasi teknikal dalam atau atas pesawat;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(b)</td>
+					<td >	Kecederaan diri yang disengajakan, membunuh diri atau cuba untuk membunuh diri, pembunuhan atau serangan yang diprovokasi atau bawah pengaruh sebarang dadah/narkotik/alkohol;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(c)</td>
+					<td >	Terlibat dalam atau mengambil bahagian dalam sukan profesional atau semi-profesional;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(d)</td>
+					<td >	Terlibat dalam sebarang perlumbaan (selain daripada perlumbaan yang menggunakan kaki), pendakian gunung atau batuan yang menggunakan tali atau pemandu jalan, sukan musim sejuk, kegiatan bawah air, ski air, bola sepak, polo, pemburuan, pertandingan lompat kuda, penerokaan gua, penerokaan gua bawah tanah, peninjuan atau bergusti;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(e)</td>
+					<td >	Peperangan, pencerobohan, tindakan musuh asing, permusuhan atau operasi semacam peperangan (sama ada perang diisytiharkan atau tidak), perang saudara, kegiatan ketenteraan atau rampasan kuasa;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(f)</td>
+					<td >	Terlibat langsung dalam mogokan, rusuhan, pemberontakan, revolusi, kegemparan awam atau penderhakaan;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(g)</td>
+					<td >	Bertugas dalam Pasukan Bersenjata (sama ada secara sukarela atau sebaliknya);</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(h)</td>
+					<td >	Sebarang kesakitan atau penyakit yang disebabkan atau dijangkiti oleh atau menerusi sebarang kaedah yang berpunca daripada virus, parasit, bakteria atau sebarang mikro-organisma termasuk virus, parasit, bakteria atau mikro-organisma yang dikenali dan/atau berpunca daripada gigitan serangga atau transmisi melalui seks;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(i)</td>
+					<td >	Melakukan atau cuba melakukan sebarang kegiatan yang menyalahi undang-undang;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(j)</td>
+					<td >	Sebarang kecederaan akibat gangguan mental;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(k)</td>
+					<td >Keguguran atau sebarang komplikasi yang berkaitan dengan yang sama;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(l)</td>
+					<td >	Sebarang rawatan gigi yang tidak diperlukan untuk merawati kecederaan yang dilindungi bawah Rider ini.</td>
+				</tr>
+				
+			</table>
+	
+	<table id="TableNoBorder" class="TableNoBorder" style="border-collapse:collapse;border: 0px solid black;width: 100%;">
+				<tr>
+					<td style="width:10px">2.</td>
+					<td colspan="3">	Faedah Elaun Ihsan</td>
+				</tr>
+				<tr>
+					<td style="width:10px"></td>
+					<td style="width:10px">I. </td>
+					<td colspan="2" >	Bagi kematian akibat semula jadi, membunuh diri atau cuba untuk membunuh diri dikecualikan.</td>
+				</tr>
+				<tr>
+					<td style="width:10px"></td>
+					<td style="width:10px">II. </td>
+					<td colspan="2" >	Bagi kematian akibat kemalangan, kejadian-kejadian berikut dikecualikan: </td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td style="width:10px">(a)</td>
+					<td >Penerbangan atau mengambil bahagian dalam sebarang aktiviti penerbangan melainkan ketika menerbang dalam pesawat sebagai penumpang yang membayar tambang dan bukan sebagai anak kapal terbang dan bukan untuk tujuan untuk melakukan sebarang perdagangan atau operasi teknikal dalam atau atas pesawat;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(b)</td>
+					<td >	Kecederaan diri yang disengajakan, membunuh diri atau cuba untuk membunuh diri, pembunuhan atau serangan yang diprovokasi atau bawah pengaruh sebarang dadah/narkotik/alkohol;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(c)</td>
+					<td >	Terlibat dalam atau mengambil bahagian dalam sukan profesional atau semi-profesional;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(d)</td>
+					<td >	Terlibat dalam sebarang perlumbaan (selain daripada perlumbaan yang menggunakan kaki), pendakian gunung atau batuan yang menggunakan tali atau pemandu jalan, sukan musim sejuk, kegiatan bawah air, ski air, bola sepak, polo, pemburuan, pertandingan lompat kuda, penerokaan gua, penerokaan gua bawah tanah, peninjuan atau bergusti;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(e)</td>
+					<td >	Peperangan, pencerobohan, tindakan musuh asing, permusuhan atau operasi semacam peperangan (sama ada perang diisytiharkan atau tidak), perang saudara, kegiatan ketenteraan atau rampasan kuasa;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(f)</td>
+					<td >	Terlibat langsung dalam mogokan, rusuhan, pemberontakan, revolusi, kegemparan awam atau penderhakaan;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(g)</td>
+					<td >	Bertugas dalam Pasukan Bersenjata (sama ada secara sukarela atau sebaliknya);</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(h)</td>
+					<td >	Sebarang kesakitan atau penyakit yang disebabkan atau dijangkiti oleh atau menerusi sebarang kaedah yang berpunca daripada virus, parasit, bakteria atau sebarang mikro-organisma termasuk virus, parasit, bakteria atau mikro-organisma yang dikenali dan/atau berpunca daripada gigitan serangga atau transmisi melalui seks;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(i)</td>
+					<td >	Melakukan atau cuba melakukan sebarang kegiatan yang menyalahi undang-undang;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(j)</td>
+					<td >	Sebarang kecederaan akibat gangguan mental;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(k)</td>
+					<td >Keguguran atau sebarang komplikasi yang berkaitan dengan yang sama;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(l)</td>
+					<td >	Sebarang rawatan gigi yang tidak diperlukan untuk merawati kecederaan yang dilindungi bawah Rider ini.</td>
+				</tr>
+				
+			</table>
+</td>
+</tr>
+<!--TPDMLA end-->
+
+<!--TPDYLA- start-->
+<tr class="TPDYLA" id="TPDYLA" style="display:table-row;">
+<td class="extraContentSmall" style="width: 5%">TPD Yearly <br/>Living <br/>Allowance<br/>Rider</td>
+
+<td class="content">
+
+
+Rider ini tidak melindungi kejadian berikut:<br/>
+i. Total and Permanent Disability resulted directly or indirectly: <br/>
+&nbsp;&nbsp;&nbsp;(a) daripada sebarang kecederaan anggota badan yang disengajakan ketika siuman atau tidak siuman;<br/>
+&nbsp;&nbsp;&nbsp;(b) daripada sebarang gangguan saraf atau penyakit mental;;<br/>
+&nbsp;&nbsp;&nbsp;(c) daripada penerbangan di dalam pesawat udara (kecuali sebagai anak kapal, atau sebagai penumpang biasa yang membayar tambang, dalam mana-mana penerbangan komersil berjadual tetap); atau <br/>
+&nbsp;&nbsp;&nbsp;(d) daripada apa jua perkara ketika berkhidmat dalam angkatan bersenjata, polis dan angkatan separa tentera disebabkan oleh perang yang diisytiharkan atau tidak diisytiharkan, rusuhan atau kekecohan awam.
+
+</td>
+</tr>
+<!--TPDYLA end-->
+
+<!--TPDWP-start-->
+<tr class="TPDWP" id="TPDWP" style="display:table-row;">
+<td class="extraContentSmall" style="width: 5%">TPD Waiver<br/>of Premium<br/>Rider</td>
+
+
+<td class="content">
+  Rider ini tidak melindungi kejadian berikut:<br/>
+i. Hilang Updaya Menyeluruh dan Kekal yang berpunca secara langsung atau tidak langsung: <br/>
+&nbsp;&nbsp;&nbsp;(a) daripada sebarang kecederaan anggota badan yang disengajakan ketika siuman atau tidak siuman;<br/>
+&nbsp;&nbsp;&nbsp;(b) daripada sebarang gangguan saraf atau penyakit mental;;<br/>
+&nbsp;&nbsp;&nbsp;(c) daripada penerbangan di dalam pesawat udara (kecuali sebagai anak kapal, atau sebagai penumpang biasa yang membayar tambang, dalam mana-mana penerbangan komersil berjadual tetap); atau <br/>
+&nbsp;&nbsp;&nbsp;(d) daripada apa jua perkara ketika berkhidmat dalam angkatan bersenjata, polis dan angkatan separa tentera disebabkan oleh perang yang diisytiharkan atau tidak diisytiharkan, rusuhan atau kekecohan awam.
+</td>
+</tr>
+<!--TPDWP- end-->
+
+<!--TSR-start-->
+<tr class="TSR" id="TSR" style="display:table-row;">
+<td class="extraContentSmall" style="width: 5%">TermShield<br/>Rider</td>
+
+<td class="content">
+Rider ini tidak melindungi kejadian berikut:
+i) Kematian hayat diinsuranskan kerana membunuh diri dalam tempoh 12 bulan pertama dari Tarikh Penerbitan, Tarikh Pindaan Efektif atau pada sebarang Tarikh Pengembalian Semula, mengikut mana-mana yang terkemudian.<br/>
+ii) Hilang Upaya Menyeluruh dan Kekal yang berpunca secara langsung atau tidak langsung:<br/>
+-	daripada sebarang kecederaan anggota badan yang disengajakan ketika siuman atau tidak siuman;<br/>
+-	daripada sebarang gangguan saraf atau penyakit mental;;<br/>
+-	daripada penerbangan di dalam pesawat udara (kecuali sebagai anak kapal, atau sebagai penumpang biasa yang membayar tambang, dalam mana-mana penerbangan komersil berjadual tetap); atau<br/>
+-	daripada apa jua perkara ketika berkhidmat dalam angkatan bersenjata, polis dan angkatan separa tentera disebabkan oleh perang yang diisytiharkan atau tidak diisytiharkan, rusuhan atau kekecohan awam.<br/>
+
+
+</td>
+</tr>
+<!--TSR- end-->
+
+<!--PR- start--> 
+<tr class="PR" id="PR" style="display:table-row;">
+<td class="extraContentSmall" style="width: 5%">Waiver of<br/>Premium<br/>Rider</td>
+
+<td class="content">
+Rider ini tidak melindungi kejadian berikut:<br/>
+i. Hilang Upaya Menyeluruh dan Kekal yang berpunca secara langsung atau tidak langsung:<br/>
+&nbsp;&nbsp;&nbsp;(a) daripada sebarang kecederaan anggota badan yang disengajakan ketika siuman atau tidak siuman;<br/>
+&nbsp;&nbsp;&nbsp;(b) daripada sebarang gangguan saraf atau penyakit mental;;<br/>
+&nbsp;&nbsp;&nbsp;(c) daripada penerbangan di dalam pesawat udara (kecuali sebagai anak kapal, atau sebagai penumpang biasa yang membayar tambang, dalam mana-mana penerbangan komersil berjadual tetap); atau <br/>
+&nbsp;&nbsp;&nbsp;(d) daripada apa jua perkara ketika berkhidmat dalam angkatan bersenjata, polis dan angkatan separa tentera disebabkan oleh perang yang diisytiharkan atau tidak diisytiharkan, rusuhan atau kekecohan awam.
+</td>
+</tr>
+<!--PR end-->
+
+
+
+<!--WI--->
+<tr class="WI" id="WI" style="display:table-row;">
+<td class="extraContentSmall" style="width: 5%">Acc. Weekly<br/>Indemnity<br/>Rider</td>
+
+<td class="content">
+<table id="TableNoBorder" class="TableNoBorder" style="border-collapse:collapse;border: 0px solid black;width: 100%;">
+				<tr>
+					<td style="width:10px">1.</td>
+					<td colspan="2">	Faedah Kematian akibat Kemalangan </td>
+				</tr>
+				<tr>
+					<td ></td>
+					<td colspan="2">Kejadian-kejadian berikut dikecualikan:</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td style="width:10px">(a)</td>
+					<td >Penerbangan atau mengambil bahagian dalam sebarang aktiviti penerbangan melainkan ketika menerbang dalam pesawat sebagai penumpang yang membayar tambang dan bukan sebagai anak kapal terbang dan bukan untuk tujuan untuk melakukan sebarang perdagangan atau operasi teknikal dalam atau atas pesawat;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(b)</td>
+					<td >	Kecederaan diri yang disengajakan, membunuh diri atau cuba untuk membunuh diri, pembunuhan atau serangan yang diprovokasi atau bawah pengaruh sebarang dadah/narkotik/alkohol;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(c)</td>
+					<td >	Terlibat dalam atau mengambil bahagian dalam sukan profesional atau semi-profesional;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(d)</td>
+					<td >	Terlibat dalam sebarang perlumbaan (selain daripada perlumbaan yang menggunakan kaki), pendakian gunung atau batuan yang menggunakan tali atau pemandu jalan, sukan musim sejuk, kegiatan bawah air, ski air, bola sepak, polo, pemburuan, pertandingan lompat kuda, penerokaan gua, penerokaan gua bawah tanah, peninjuan atau bergusti;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(e)</td>
+					<td >	Peperangan, pencerobohan, tindakan musuh asing, permusuhan atau operasi semacam peperangan (sama ada perang diisytiharkan atau tidak), perang saudara, kegiatan ketenteraan atau rampasan kuasa;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(f)</td>
+					<td >	Terlibat langsung dalam mogokan, rusuhan, pemberontakan, revolusi, kegemparan awam atau penderhakaan;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(g)</td>
+					<td >	Bertugas dalam Pasukan Bersenjata (sama ada secara sukarela atau sebaliknya);</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(h)</td>
+					<td >	Sebarang kesakitan atau penyakit yang disebabkan atau dijangkiti oleh atau menerusi sebarang kaedah yang berpunca daripada virus, parasit, bakteria atau sebarang mikro-organisma termasuk virus, parasit, bakteria atau mikro-organisma yang dikenali dan/atau berpunca daripada gigitan serangga atau transmisi melalui seks;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(i)</td>
+					<td >	Melakukan atau cuba melakukan sebarang kegiatan yang menyalahi undang-undang;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(j)</td>
+					<td >	Sebarang kecederaan akibat gangguan mental;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(k)</td>
+					<td >Keguguran atau sebarang komplikasi yang berkaitan dengan yang sama;</td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td style="vertical-align: text-top;">(l)</td>
+					<td >	Sebarang rawatan gigi yang tidak diperlukan untuk merawati kecederaan yang dilindungi bawah Rider ini.</td>
+				</tr>
+				
+			</table>
+	
+	<table id="TableNoBorder" class="TableNoBorder" style="border-collapse:collapse;border: 0px solid black;width: 100%;">
+				<tr>
+					<td style="width:10px">2.</td>
+					<td colspan="3">	Faedah Elaun Ihsan</td>
+				</tr>
+				<tr>
+					<td style="width:10px"></td>
+					<td style="width:10px">I. </td>
+					<td colspan="2" >	Bagi kematian akibat semula jadi, membunuh diri atau cuba untuk membunuh diri dikecualikan.</td>
+				</tr>
+				<tr>
+					<td style="width:10px"></td>
+					<td style="width:10px">II. </td>
+					<td colspan="2" >	Bagi kematian akibat kemalangan, kejadian-kejadian berikut dikecualikan: </td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td style="width:10px">(a)</td>
+					<td >Penerbangan atau mengambil bahagian dalam sebarang aktiviti penerbangan melainkan ketika menerbang dalam pesawat sebagai penumpang yang membayar tambang dan bukan sebagai anak kapal terbang dan bukan untuk tujuan untuk melakukan sebarang perdagangan atau operasi teknikal dalam atau atas pesawat;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(b)</td>
+					<td >	Kecederaan diri yang disengajakan, membunuh diri atau cuba untuk membunuh diri, pembunuhan atau serangan yang diprovokasi atau bawah pengaruh sebarang dadah/narkotik/alkohol;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(c)</td>
+					<td >	Terlibat dalam atau mengambil bahagian dalam sukan profesional atau semi-profesional;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(d)</td>
+					<td >	Terlibat dalam sebarang perlumbaan (selain daripada perlumbaan yang menggunakan kaki), pendakian gunung atau batuan yang menggunakan tali atau pemandu jalan, sukan musim sejuk, kegiatan bawah air, ski air, bola sepak, polo, pemburuan, pertandingan lompat kuda, penerokaan gua, penerokaan gua bawah tanah, peninjuan atau bergusti;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(e)</td>
+					<td >	Peperangan, pencerobohan, tindakan musuh asing, permusuhan atau operasi semacam peperangan (sama ada perang diisytiharkan atau tidak), perang saudara, kegiatan ketenteraan atau rampasan kuasa;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(f)</td>
+					<td >	Terlibat langsung dalam mogokan, rusuhan, pemberontakan, revolusi, kegemparan awam atau penderhakaan;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(g)</td>
+					<td >	Bertugas dalam Pasukan Bersenjata (sama ada secara sukarela atau sebaliknya);</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(h)</td>
+					<td >	Sebarang kesakitan atau penyakit yang disebabkan atau dijangkiti oleh atau menerusi sebarang kaedah yang berpunca daripada virus, parasit, bakteria atau sebarang mikro-organisma termasuk virus, parasit, bakteria atau mikro-organisma yang dikenali dan/atau berpunca daripada gigitan serangga atau transmisi melalui seks;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(i)</td>
+					<td >	Melakukan atau cuba melakukan sebarang kegiatan yang menyalahi undang-undang;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(j)</td>
+					<td >	Sebarang kecederaan akibat gangguan mental;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(k)</td>
+					<td >Keguguran atau sebarang komplikasi yang berkaitan dengan yang sama;</td>
+				</tr>
+				<tr>
+				    <td></td>
+				    <td></td>
+					<td style="vertical-align: text-top;">(l)</td>
+					<td >	Sebarang rawatan gigi yang tidak diperlukan untuk merawati kecederaan yang dilindungi bawah Rider ini.</td>
+				</tr>
+				
+			</table>
+
+
+</td>
+</tr>
+<!--WI- end-->
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+<tr>
+<td width="79%" style="font-family:Times New Roman;font-size:9.5px;font-weight:normal;padding: 5px 5px 5px 0px;">
+Risalah Pendedahan Produk ini mengandungi <span class="totalPages">{totalPages}</span> muka surat and setiap muka surat membentuk sebahagian daripada illustrasi jualan.<br/>
+Bakal pemunya polisi adalah dinasihatkan untuk membaca dan memahami maklumat yang tercetak pada setiap muka surat.<br/>
+<b><span id="rptVersion" class="rptVersion">{rptVersion}</span></b><br/>
+Level 3, Tower B, PJ City Development, No. 15A Jalan 219, Seksyen 51A, 46100 Petaling Jaya, Selangor. Tel: 03-7650 1818 Fax: 03-7650 1991 Website: www.hla.com.my<br/>
+</td>
+<td width="7%" align="left" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Times New Roman;font-size:9.5px;">Page <span class="currentPage">1</span> of <span class="totalPages">56</span></td>
+<td width="14%" align="right" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Times New Roman;font-size:8px;"> Ref: <span id=SICode class="SICode">{SINo}</span></td>
+</tr>
+</table>
+
+<script>
+$('#table-attachingRider2 tr').css('display','none');
+</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,903 @@
+<html><script id="tinyhippos-injected">if (window.top.ripple) { window.top.ripple("bootstrap").inject(window, document); }</script><head>
+    <meta name="viewport" content="width=device-width; minimum-scale=1.255; maximum-scale=1; user-scalable=no"> 
+<style type="text/css">
+<!--
+span.cls_002{font-family:Arial,serif;font-size:8.2px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_002{font-family:Arial,serif;font-size:8.2px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_003{font-family:Arial,serif;font-size:7.9px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_003{font-family:Arial,serif;font-size:7.9px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_004{font-family:Arial,serif;font-size:14.4px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_004{font-family:Arial,serif;font-size:14.4px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_005{font-family:Arial,serif;font-size:14.4px;color:rgb(0,0,255);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_005{font-family:Arial,serif;font-size:14.4px;color:rgb(0,0,255);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_006{font-family:Arial,serif;font-size:7.0px;color:rgb(0,0,255);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_006{font-family:Arial,serif;font-size:7.0px;color:rgb(0,0,255);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_007{font-family:Arial,serif;font-size:7.9px;color:rgb(0,0,255);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_007{font-family:Arial,serif;font-size:7.9px;color:rgb(0,0,255);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_008{font-family:Arial,serif;font-size:8.2px;color:rgb(0,0,255);font-weight:normal;font-style:italic;text-decoration: none}
+div.cls_008{font-family:Arial,serif;font-size:8.2px;color:rgb(0,0,255);font-weight:normal;font-style:italic;text-decoration: none}
+span.cls_009{font-family:Arial,serif;font-size:7.2px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_009{font-family:Arial,serif;font-size:7.2px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_010{font-family:Arial,serif;font-size:7.2px;color:rgb(0,0,255);font-weight:normal;font-style:italic;text-decoration: none}
+div.cls_010{font-family:Arial,serif;font-size:7.2px;color:rgb(0,0,255);font-weight:normal;font-style:italic;text-decoration: none}
+span.cls_011{font-family:Arial,serif;font-size:8.8px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_011{font-family:Arial,serif;font-size:8.8px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_012{font-family:Arial,serif;font-size:8.9px;color:rgb(0,0,255);font-weight:bold;font-style:italic;text-decoration: none}
+div.cls_012{font-family:Arial,serif;font-size:8.9px;color:rgb(0,0,255);font-weight:bold;font-style:italic;text-decoration: none}
+span.cls_013{font-family:Arial,serif;font-size:9.1px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_013{font-family:Arial,serif;font-size:9.1px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_021{font-family:Arial,serif;font-size:7.2px;color:rgb(0,0,255);font-weight:normal;font-style:italic;text-decoration: underline}
+div.cls_021{font-family:Arial,serif;font-size:7.2px;color:rgb(0,0,255);font-weight:normal;font-style:italic;text-decoration: none}
+span.cls_014{font-family:Arial,serif;font-size:8.8px;color:rgb(0,0,255);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_014{font-family:Arial,serif;font-size:8.8px;color:rgb(0,0,255);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_015{font-family:Arial,serif;font-size:7.0px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_015{font-family:Arial,serif;font-size:7.0px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_016{font-family:Arial,serif;font-size:7.0px;color:rgb(0,0,255);font-weight:bold;font-style:italic;text-decoration: none}
+div.cls_016{font-family:Arial,serif;font-size:7.0px;color:rgb(0,0,255);font-weight:bold;font-style:italic;text-decoration: none}
+span.cls_017{font-family:Arial,serif;font-size:8.2px;color:rgb(128,128,128);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_017{font-family:Arial,serif;font-size:8.2px;color:rgb(128,128,128);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_022{font-family:Arial,serif;font-size:7.0px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: underline}
+div.cls_022{font-family:Arial,serif;font-size:7.0px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_023{font-family:Arial,serif;font-size:7.0px;color:rgb(0,0,255);font-weight:bold;font-style:italic;text-decoration: underline}
+div.cls_023{font-family:Arial,serif;font-size:7.0px;color:rgb(0,0,255);font-weight:bold;font-style:italic;text-decoration: none}
+span.cls_018{font-family:Arial,serif;font-size:7.2px;color:rgb(0,0,255);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_018{font-family:Arial,serif;font-size:7.2px;color:rgb(0,0,255);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_024{font-family:Arial,serif;font-size:7.0px;color:rgb(34,31,31);font-weight:bold;font-style:normal;text-decoration: underline}
+div.cls_024{font-family:Arial,serif;font-size:7.0px;color:rgb(34,31,31);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_020{font-family:Arial,serif;font-size:7.2px;color:rgb(34,31,31);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_020{font-family:Arial,serif;font-size:7.2px;color:rgb(34,31,31);font-weight:normal;font-style:normal;text-decoration: none}
+-->
+</style>
+</head>
+<body>
+    <div style="position:absolute;top:0px;width:595px;height:842px;overflow:hidden;">
+<div style="position:absolute;left:0px;top:0px">
+<img src="background1.png" width="595" height="842"></div>
+<div style="position:absolute;left:344.00px;top:13.30px" class="cls_002"><span class="cls_002">Hong Leong Assurance Berhad (94613-X)</span></div>
+<div style="position:absolute;left:344.00px;top:23.50px" class="cls_002"><span class="cls_002">Level 3, Tower B, PJ City Development</span></div>
+<div style="position:absolute;left:344.00px;top:33.70px" class="cls_002"><span class="cls_002">No. 15A, Jalan 219, Seksyen 51A</span></div>
+<div style="position:absolute;left:344.00px;top:43.90px" class="cls_002"><span class="cls_002">46100 Petaling Jaya, Selangor</span></div>
+<div style="position:absolute;left:344.00px;top:59.70px" class="cls_003"><span class="cls_003">Telephone</span></div>
+<div style="position:absolute;left:398.00px;top:59.40px" class="cls_002"><span class="cls_002">03-7650 1818</span></div>
+<div style="position:absolute;left:344.00px;top:70.50px" class="cls_003"><span class="cls_003">Facsimile</span></div>
+<div style="position:absolute;left:398.00px;top:70.20px" class="cls_002"><span class="cls_002">03-7650 1991</span></div>
+<div style="position:absolute;left:344.00px;top:81.30px" class="cls_003"><span class="cls_003">Website</span></div>
+<div style="position:absolute;left:398.00px;top:81.00px" class="cls_002"><span class="cls_002"> </span><a href="http://www.hla.com.my/">www.hla.com.my</a> </div>
+<div style="position:absolute;left:344.00px;top:92.10px" class="cls_003"><span class="cls_003">Customer Service Hotline</span></div>
+<div style="position:absolute;left:445.40px;top:91.80px" class="cls_002"><span class="cls_002">03-7650 1288</span></div>
+<div style="position:absolute;left:22.75px;top:98.70px" class="cls_003"><span class="cls_003">E-Reference No :</span></div>
+<div style="position:absolute;left:109.25px;top:98.70px" class="cls_002"><span class="cls_002" id="ReferenceNo"></span></div>
+<div style="position:absolute;left:344.00px;top:102.90px" class="cls_003"><span class="cls_003">Customer Service Hotfax</span></div>
+<div style="position:absolute;left:445.45px;top:102.60px" class="cls_002"><span class="cls_002">03-7650 1299</span></div>
+<div style="position:absolute;left:203.95px;top:124.80px" class="cls_004"><span class="cls_004">Customer Fact Find Form</span></div>
+<div style="position:absolute;left:170.90px;top:143.65px" class="cls_005"><span class="cls_005">Borang Pencarian Fakta Pelanggan</span></div>
+<div style="position:absolute;left:142.60px;top:166.60px" class="cls_003"><span class="cls_003">IMPORTANT NOTICE TO CUSTOMERS: /</span><span class="cls_006"> </span><span class="cls_007">NOTIS PENTING UNTUK PELANGGAN:</span></div>
+<div style="position:absolute;left:137.20px;top:175.30px" class="cls_002"><span class="cls_002">(Read carefully and understand fully the Customer Fact Find Form before proceeding)</span></div>
+<div style="position:absolute;left:67.00px;top:185.50px" class="cls_008"><span class="cls_008">(Sila baca dengan teliti isi kandungan Borang Pencarian Fakta Pelanggan ini sebelum mengambil tindakan yang selanjutnya)</span></div>
+<div style="position:absolute;left:22.75px;top:203.05px" class="cls_009"><span class="cls_009">1.</span></div>
+<div style="position:absolute;left:37.45px;top:203.05px" class="cls_009"><span class="cls_009">Your  intermediary  must  have  sufficient  information  before  making  a  suitable  recommendation.  The  information  that  you  provide  will  be  the  basis</span></div>
+<div style="position:absolute;left:37.45px;top:212.30px" class="cls_009"><span class="cls_009">on which advice will be given.</span></div>
+<div style="position:absolute;left:37.45px;top:221.60px" class="cls_010"><span class="cls_010">Pihak  perantara  anda  mesti  mempunyai  maklumat  yang  mencukupi  sebelum  memberi  sebarang  bentuk  cadangan  kepada  anda.  Pihak  perantara</span></div>
+<div style="position:absolute;left:37.45px;top:230.95px" class="cls_010"><span class="cls_010">akan memberi nasihat berdasarkan kepada maklumat yang anda bekalkan.</span></div>
+<div style="position:absolute;left:24.25px;top:242.90px" class="cls_009"><span class="cls_009">2.  If  you  choose  not  to  provide  all  relevant  information  requested,  your  intermediary  may  not  be  able  to  provide  you  with  suitable  advice  and  as  a</span></div>
+<div style="position:absolute;left:36.75px;top:252.15px" class="cls_009"><span class="cls_009">result, you may risk making a financial commitment to a life insurance policy inappropriate to your needs.</span></div>
+<div style="position:absolute;left:36.75px;top:261.45px" class="cls_010"><span class="cls_010">Sekiranya  anda  membuat  pilihan  untuk  tidak  mendedahkan  maklumat  yang  diperlukan,  pihak  perantara  tidak  akan  dapat  memberi  anda  nasihat</span></div>
+<div style="position:absolute;left:36.75px;top:270.80px" class="cls_010"><span class="cls_010">yang  bersesuaian.  Akibatnya,  anda  mungkin  berisiko  untuk  membuat  suatu  komitmen  kewangan  kepada  suatu  polisi  insurans  hayat    yang  tidak</span></div>
+<div style="position:absolute;left:36.75px;top:280.15px" class="cls_010"><span class="cls_010">bersesuaian dengan keperluan anda.</span></div>
+<div style="position:absolute;left:23.50px;top:291.55px" class="cls_009"><span class="cls_009">3.   Your  intermediary  is  required  to  preserve  the  confidentiality  of  information  disclosed  by  you  and  restrict  the  use  of  such  information  only  for  the</span></div>
+<div style="position:absolute;left:37.45px;top:300.80px" class="cls_009"><span class="cls_009">purpose of recommending life insurance products.</span></div>
+<div style="position:absolute;left:37.45px;top:310.10px" class="cls_010"><span class="cls_010">Pihak  perantara  harus  merahsiakan  segala  maklumat  yang  telah  anda  dedahkan  dan  menggunakan  maklumat  ini  hanya  untuk  tujuan  pemberian</span></div>
+<div style="position:absolute;left:37.45px;top:319.45px" class="cls_010"><span class="cls_010">cadangan/nasihat mengenai produk insurans hayat.</span></div>
+<div style="position:absolute;left:23.15px;top:331.90px" class="cls_009"><span class="cls_009">4.   You  must  ensure  that  important  information  regarding  the  policy  is  disclosed  to  you,  and  that  you  understand  the  information  disclosed.   Where</span></div>
+<div style="position:absolute;left:37.45px;top:341.15px" class="cls_009"><span class="cls_009">there is ambiguity, you should seek an explanation from the intermediary or the insurer.</span></div>
+<div style="position:absolute;left:37.45px;top:350.45px" class="cls_010"><span class="cls_010">Anda   harus   memastikan   segala   maklumat   penting   mengenai   polisi   ini   telah   didedahkan   kepada   anda   sepenuhnya   oleh   pihak   perantara.</span></div>
+<div style="position:absolute;left:37.45px;top:359.80px" class="cls_010"><span class="cls_010">Sekiranya terdapat sebarang keraguan, anda harus mendapatkan penjelasan daripada pihak perantara atau syarikat insurans.</span></div>
+<div style="position:absolute;left:23.75px;top:371.40px" class="cls_009"><span class="cls_009">5.   Prior  to  making  a  decision  to  purchase  any  life  insurance  policy,  you  must  satisfy  yourself  that  the  policy  best  meets  your  insurance  needs  and</span></div>
+<div style="position:absolute;left:37.45px;top:380.65px" class="cls_009"><span class="cls_009">resources.</span></div>
+<div style="position:absolute;left:37.45px;top:389.95px" class="cls_010"><span class="cls_010">Sebelum  anda  membuat  sebarang  keputusan  untuk  membeli  sebarang  polisi  insurans  hayat,  anda  harus  berpuas  hati  dengan  polisi  tersebut  dan</span></div>
+<div style="position:absolute;left:37.45px;top:399.30px" class="cls_010"><span class="cls_010">memastikan bahawa ia dapat memenuhi keperluan insurans serta kemampuan diri anda.</span></div>
+<div style="position:absolute;left:28.75px;top:418.30px" class="cls_011"><span class="cls_011">A. DISCLOSURE OF INTERMEDIARY STATUS / </span><span class="cls_012">PENDEDAHAN STATUS PIHAK PERANTARA</span></div>
+<div style="position:absolute;left:22.75px;top:435.40px" class="cls_009"><span class="cls_009">*Standard disclosure statement applicable depends on the type of intermediary (Please tick where appropriate).</span></div>
+<div style="position:absolute;left:22.75px;top:444.70px" class="cls_010"><span class="cls_010">*Kenyataan pendedahan standard yang tertera di bawah bergantung kepada jenis perantara (Pilih yang bersesuaian).</span></div>
+<div style="position:absolute;left:39.25px;top:463.25px" class="cls_009"><span class="cls_009">Life insurance agent/staff of a bank/insurer/other financial institutions</span></div>
+<div style="position:absolute;left:-1.25px;top:453.2px" class="cls_013"><ul type="circle" id="Selection1_A"><li></li></ul></div>
+<div style="position:absolute;left:39.25px;top:472.55px" class="cls_021"><span class="cls_021">Ejen insurans hayat/Kakitangan bank/Syarikat insurans/Institusi kewangan yang lain</span></div>
+<div style="position:absolute;left:22.75px;top:481.95px" class="cls_009"><span class="cls_009">I  am</span></div>
+<div style="position:absolute;left:44.00px;top:481.95px" class="cls_009"><span class="cls_009">(an  insurance  agent/staff  of  a  bank/insurer/other  financial  institutions)  who  represents  HLA  and  can  advise  you  on  all  Insurance  products  such  as</span></div>
+<div style="position:absolute;left:22.75px;top:491.20px" class="cls_009"><span class="cls_009">Whole   Life,   Endowment,   Term   Assurance,   Health   Riders,   Accident   Riders,   Critical   Illness   Riders,   Investment   Linked   Products   of   HLA.   I   receive</span></div>
+<div style="position:absolute;left:22.75px;top:500.45px" class="cls_009"><span class="cls_009">remuneration from HLA for providing advice on/selling of their insurance products.</span></div>
+<div style="position:absolute;left:22.75px;top:509.75px" class="cls_010"><span class="cls_010">Saya</span></div>
+<div style="position:absolute;left:46.85px;top:509.75px" class="cls_010"><span class="cls_010">(Ejen   insurans/Kakitangan   bank/Syarikat   insurans/Institusi   kewangan   yang   lain)   mewakili   HLA   dan   boleh   memberi   nasihat   kepada   anda</span></div>
+<div style="position:absolute;left:22.75px;top:519.10px" class="cls_010"><span class="cls_010">mengenai   produk   insurans   hayat   seperti   Insurans   Sepanjang   Hayat,   Endowmen,   Bertempoh,   Rider   Kesihatan,   Rider   Kemalangan,   Rider   Penyakit</span></div>
+<div style="position:absolute;left:22.75px;top:528.45px" class="cls_010"><span class="cls_010">Kritikal,  Produk  Berkaitan  Pelaburan  yang  ditawarkan  oleh  HLA.  Saya  menerima  imbuhan  daripada  HLA  dalam  memberikan  nasihat  ke  atas/menjual</span></div>
+<div style="position:absolute;left:22.75px;top:537.80px" class="cls_010"><span class="cls_010">produk insurans mereka.</span></div>
+<div style="position:absolute;left:38.75px;top:550.45px" class="cls_009"><span class="cls_009">Life insurance broker/financial adviser</span></div>
+<div style="position:absolute;left:-1.25px;top:540.4px" class="cls_013"><ul type="circle" id="Selection2_A"><li></li></ul></div>
+<div style="position:absolute;left:38.75px;top:559.75px" class="cls_021"><span class="cls_021">Broker insurans hayat/Penasihat kewangan</span></div>
+<div style="position:absolute;left:22.75px;top:570.30px" class="cls_009"><span class="cls_009">I am (an insurance broker/financial adviser) with</span></div>
+<div style="position:absolute;left:509.75px;top:570.30px" class="cls_009"><span class="cls_009">and can</span></div>
+<div style="position:absolute;left:22.75px;top:580.75px" class="cls_009"><span class="cls_009">source   and   recommend/advise   all   Insurance   products   such   as   Whole   Life,   Endowment,   Term   Assurance,   Health   Riders,   Accident   Riders,   Critical</span></div>
+<div style="position:absolute;left:22.75px;top:590.00px" class="cls_009"><span class="cls_009">Illness Riders, Investment Linked Products from HLA. I receive remuneration from HLA for providing advice on/selling of their insurance products.</span></div>
+<div style="position:absolute;left:22.75px;top:600.95px" class="cls_010"><span class="cls_010">Saya adalah (Broker insurans hayat/Penasihat kewangan) bagi</span></div>
+<div style="position:absolute;left:22.75px;top:610.60px" class="cls_010"><span class="cls_010">dan  boleh  menawarkan  dan  mencadangkan/memberi  nasihat  produk  insurans  hayat  seperti  Insurans  Sepanjang  Hayat,  Endowmen,  Bertempoh,  Rider</span></div>
+<div style="position:absolute;left:22.75px;top:619.95px" class="cls_010"><span class="cls_010">Kesihatan,   Rider   Kemalangan,   Rider   Penyakit   Kritikal,   Produk   Berkaitan   Pelaburan   yang   ditawarkan   oleh   HLA.   Saya   menerima   imbuhan   daripada</span></div>
+<div style="position:absolute;left:22.75px;top:629.30px" class="cls_010"><span class="cls_010">HLA dalam memberikan nasihat ke atas/menjual produk insurans mereka.</span></div>
+<div style="position:absolute;left:28.75px;top:651.50px" class="cls_011"><span class="cls_011">B. CUSTOMER'S CHOICE /</span><span class="cls_014"> PILIHAN PELANGGAN</span></div>
+<div style="position:absolute;left:22.75px;top:668.55px" class="cls_009"><span class="cls_009">*Please tick where appropriate</span></div>
+<div style="position:absolute;left:22.75px;top:677.85px" class="cls_010"><span class="cls_010">*Sila tanda pada petak yang berkenaan</span></div>
+<div style="position:absolute;left:42.25px;top:690.55px" class="cls_009"><span class="cls_009">1.</span></div>
+<div style="position:absolute;left:56.95px;top:690.30px" class="cls_009"><span class="cls_009">I/We wish to disclose </span><span class="cls_015">all information</span><span class="cls_009"> requested for in this form.</span></div>
+<div style="position:absolute;left:-1.25px;top:681.00px" class="cls_013"><ul type="circle" id="Selection1_B"><li></li></ul></div>
+<div style="position:absolute;left:56.95px;top:699.70px" class="cls_010"><span class="cls_010">Saya/kami akan </span><span class="cls_016">mengisytiharkan kesemua maklumat </span><span class="cls_010">yang diperlukan seperti yang tertera di dalam borang ini.</span></div>
+<div style="position:absolute;left:42.25px;top:710.05px" class="cls_009"><span class="cls_009">2.</span></div>
+<div style="position:absolute;left:56.95px;top:709.80px" class="cls_009"><span class="cls_009">I/We wish to disclose </span><span class="cls_015">partial information</span><span class="cls_009"> requested for in this form.</span></div>
+<div style="position:absolute;left:-1.25px;top:700.95px" class="cls_013"><ul type="circle" id="Selection2_B"><li></li></ul></div>
+<div style="position:absolute;left:56.95px;top:719.20px" class="cls_010"><span class="cls_010">Saya/kami akan </span><span class="cls_016">mengisytiharkan sebahagian maklumat </span><span class="cls_010">yang diperlukan seperti yang tertera di dalam borang ini.</span></div>
+<div style="position:absolute;left:-1.25px;top:718.00px" class="cls_013"><ul type="circle" id="Selection3_B"><li></li></ul></div>
+<div style="position:absolute;left:42.25px;top:728.55px" class="cls_009"><span class="cls_009">3.</span></div>
+<div style="position:absolute;left:56.95px;top:728.80px" class="cls_009"><span class="cls_009">I/We wish to receive product information only and </span><span class="cls_015">do not</span><span class="cls_009"> wish to disclose </span><span class="cls_015">any information</span><span class="cls_009"> requested for in this form.</span></div>
+<div style="position:absolute;left:56.95px;top:738.20px" class="cls_010"><span class="cls_010">Saya/kami ingin menerima maklumat mengenai produk sahaja dan </span><span class="cls_016">tidak </span><span class="cls_010">ingin </span><span class="cls_016">mengisytiharkan maklumat</span><span class="cls_010"> yang diperlukan seperti yang</span></div>
+<div style="position:absolute;left:56.95px;top:747.55px" class="cls_010"><span class="cls_010">tertera di dalam borang ini.</span></div>
+<div style="position:absolute;left:56.95px;top:763.55px" class="cls_009"><span class="cls_009">Signature of Customer:</span></div>
+<div style="position:absolute;left:352.75px;top:763.55px" class="cls_009"><span class="cls_009">Date:</span></div>
+<div style="position:absolute;left:485.75px;top:763.55px" class="cls_009"><span class="cls_009">(DD/MM/YYYY)</span></div>
+<div style="position:absolute;left:163.75px;top:768.20px" class="cls_017"><span class="cls_017">Signature is required in Authorization Form</span></div>
+<div style="position:absolute;left:56.95px;top:772.85px" class="cls_010"><span class="cls_010">Tandatangan Pelanggan:</span></div>
+<div style="position:absolute;left:352.75px;top:772.85px" class="cls_010"><span class="cls_010">Tarikh:</span></div>
+<div style="position:absolute;left:485.75px;top:772.85px" class="cls_010"><span class="cls_010">(HH/BB/TTTT)</span></div>
+<div style="position:absolute;left:488.50px;top:793.20px" class="cls_009"><span class="cls_009">NBD/CFF/011113</span></div>
+<div style="position:absolute;left:319.50px;top:820.45px" class="cls_009"><span class="cls_009">1</span></div>
+</div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div style="position:absolute;top:852px;width:595px;height:842px;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="background2.png" width="595" height="842"></div>
+<div style="position:absolute;left:28.75px;top:19.20px" class="cls_011"><span class="cls_011">C. CUSTOMER'S PERSONAL DATA / </span><span class="cls_012">MAKLUMAT PERIBADI PELANGGAN</span></div>
+<div style="position:absolute;left:22.75px;top:42.65px" class="cls_015"><span class="cls_015">1. </span><span class="cls_022">Personal Details</span></div>
+<div style="position:absolute;left:258.05px;top:42.65px" class="cls_015"><span class="cls_015">Customer</span></div>
+<div style="position:absolute;left:432.55px;top:43.25px" class="cls_015"><span class="cls_015">Partner/Spouse</span></div>
+<div style="position:absolute;left:30.55px;top:52.05px" class="cls_023"><span class="cls_023">Maklumat Peribadi</span></div>
+<div style="position:absolute;left:256.50px;top:52.05px" class="cls_016"><span class="cls_016">Pelanggan</span></div>
+<div style="position:absolute;left:441.65px;top:52.65px" class="cls_016"><span class="cls_016">Pasangan</span></div>
+<div style="position:absolute;left:22.75px;top:70.55px" class="cls_009"><span class="cls_009">Title and Name: / </span><span class="cls_010">Gelaran dan Nama:</span></div>
+<div style="position:absolute;left:193.75px;top:71.50px" class="cls_009"><span class="cls_009" id="Customer_NameTitle"></span></div>
+<div style="position:absolute;left:383.75px;top:72.10px" class="cls_009"><span class="cls_009" id="Partner_NameTitle"></span></div>
+<div style="position:absolute;left:22.75px;top:94.25px" class="cls_009"><span class="cls_009">NRIC/Passport No.: / </span><span class="cls_010">No. K.P/No. Pasport:</span></div>
+<div style="position:absolute;left:193.75px;top:94.20px" class="cls_009"><span class="cls_009" id="Customer_NRIC"></span></div>
+<div style="position:absolute;left:383.75px;top:94.80px" class="cls_009"><span class="cls_009" id="Partner_NRIC"></span></div>
+<div style="position:absolute;left:22.75px;top:107.20px" class="cls_009"><span class="cls_009">Nationality/Citizenship: / </span><span class="cls_010">Warganegara/Rakyat:</span></div>
+<div style="position:absolute;left:193.75px;top:107.15px" class="cls_009"><span class="cls_009" id="Customer_Nationality"></span></div>
+<div style="position:absolute;left:384.25px;top:107.75px" class="cls_009"><span class="cls_009" id="Partner_Nationality"></span></div>
+<div style="position:absolute;left:22.75px;top:120.55px" class="cls_009"><span class="cls_009">Race/Religion: / </span><span class="cls_010">Bangsa/Agama:</span></div>
+<div style="position:absolute;left:193.75px;top:120.50px" class="cls_009"><span class="cls_009" id="Customer_Race/Religion"></span></div>
+<div style="position:absolute;left:383.75px;top:121.10px" class="cls_009"><span class="cls_009" id="Partner_Race/Religion"></span></div>
+<div style="position:absolute;left:22.75px;top:134.45px" class="cls_009"><span class="cls_009">Sex: / </span><span class="cls_010">Jantina:</span></div>
+<div style="position:absolute;left:166.75px;top:124.35px" class="cls_013"><ul type="circle" id="Selection_Customer_Male"><li></li></ul></div>
+<div style="position:absolute;left:205.70px;top:134.45px" class="cls_009"><span class="cls_009">Male /</span><span class="cls_018"> </span><span class="cls_010">Lelaki</span></div>
+<div style="position:absolute;left:252.25px;top:124.35px" class="cls_013"><ul type="circle" id="Selection_Customer_Female"><li></li></ul></div>
+<div style="position:absolute;left:290.50px;top:134.45px" class="cls_009"><span class="cls_009">Female /</span><span class="cls_018"> </span><span class="cls_010">Perempuan</span></div>
+<div style="position:absolute;left:356.75px;top:124.95px" class="cls_013"><ul type="circle" id="Selection_Partner_Male"><li></li></ul></div>
+<div style="position:absolute;left:395.70px;top:135.05px" class="cls_009"><span class="cls_009">Male /</span><span class="cls_018"> </span><span class="cls_010">Lelaki</span></div>
+<div style="position:absolute;left:441.25px;top:124.95px" class="cls_013"><ul type="circle" id="Selection_Partner_Female"><li></li></ul></div>
+<div style="position:absolute;left:481.50px;top:135.05px" class="cls_009"><span class="cls_009">Female /</span><span class="cls_018"> </span><span class="cls_010">Perempuan</span></div>
+<div style="position:absolute;left:22.75px;top:147.80px" class="cls_009"><span class="cls_009">Smoker: / </span><span class="cls_010">Merokok:</span></div>
+<div style="position:absolute;left:166.75px;top:137.15px" class="cls_013"><ul type="circle" id="Selection_Customer_Smoker_Yes"><li></li></ul></div>
+<div style="position:absolute;left:206.15px;top:147.80px" class="cls_009"><span class="cls_009">Yes /</span><span class="cls_018"> </span><span class="cls_010">Ya</span></div>
+<div style="position:absolute;left:252.25px;top:138.15px" class="cls_013"><ul type="circle" id="Selection_Customer_Smoker_No"><li></li></ul></div>
+<div style="position:absolute;left:290.15px;top:148.30px" class="cls_009"><span class="cls_009">No /</span><span class="cls_018"> </span><span class="cls_010">Tidak</span></div>
+<div style="position:absolute;left:356.75px;top:138.30px" class="cls_013"><ul type="circle" id="Selection_Partner_Smoker_Yes"><li></li></ul></div>
+<div style="position:absolute;left:395.70px;top:148.40px" class="cls_009"><span class="cls_009">Yes /</span><span class="cls_018"> </span><span class="cls_010">Ya</span></div>
+<div style="position:absolute;left:441.25px;top:138.30px" class="cls_013"><ul type="circle" id="Selection_Partner_Smoker_No"><li></li></ul></div>
+<div style="position:absolute;left:481.15px;top:148.40px" class="cls_009"><span class="cls_009">No /</span><span class="cls_018"> </span><span class="cls_010">Tidak</span></div>
+<div style="position:absolute;left:22.75px;top:163.55px" class="cls_009"><span class="cls_009">Date of Birth/Age: / </span><span class="cls_010">Tarikh Lahir/Umur:</span></div>
+<div style="position:absolute;left:193.75px;top:162.50px" class="cls_009"><span class="cls_009" id="Customer_DOB"></span></div>
+<div style="position:absolute;left:264.40px;top:163.55px" class="cls_009"><span class="cls_009">Age /</span><span class="cls_010"> Umur:</span></div>
+<div style="position:absolute;left:314.75px;top:163.50px" class="cls_009"><span class="cls_009" id="Customer_Age"></span></div>
+<div style="position:absolute;left:385.25px;top:163.10px" class="cls_009"><span class="cls_009" id="Partner_DOB"></span></div>
+<div style="position:absolute;left:455.40px;top:163.15px" class="cls_009"><span class="cls_009">Age /</span><span class="cls_010"> Umur:</span></div>
+<div style="position:absolute;left:508.25px;top:163.10px" class="cls_009"><span class="cls_009" id="Partner_Age"></span></div>
+<div style="position:absolute;left:22.75px;top:178.65px" class="cls_009"><span class="cls_009">Marital Status: / </span><span class="cls_010">Taraf Perkahwinan:</span></div>
+<div style="position:absolute;left:166.75px;top:168.15px" class="cls_013"><ul type="circle" id="Selection_Customer_Single"><li></li></ul></div>
+<div style="position:absolute;left:204.20px;top:178.20px" class="cls_009"><span class="cls_009">Single /</span><span class="cls_010"> Bujang</span></div>
+<div style="position:absolute;left:256.75px;top:168.10px" class="cls_013"><ul type="circle" id="Selection_Customer_Married"><li></li></ul></div>
+<div style="position:absolute;left:295.20px;top:178.20px" class="cls_009"><span class="cls_009">Married /</span><span class="cls_010"> Berkahwin</span></div>
+<div style="position:absolute;left:356.75px;top:168.75px" class="cls_013"><ul type="circle" id="Selection_Partner_Single"><li></li></ul></div>
+<div style="position:absolute;left:395.50px;top:178.85px" class="cls_009"><span class="cls_009">Single /</span><span class="cls_010"> Bujang</span></div>
+<div style="position:absolute;left:445.75px;top:168.75px" class="cls_013"><ul type="circle" id="Selection_Partner_Married"><li></li></ul></div>
+<div style="position:absolute;left:484.20px;top:178.85px" class="cls_009"><span class="cls_009">Married /</span><span class="cls_010"> Berkahwin</span></div>
+<div style="position:absolute;left:166.75px;top:179.70px" class="cls_013"><ul type="circle" id="Selection_Customer_Widowed"><li></li></ul></div>
+<div style="position:absolute;left:204.20px;top:189.80px" class="cls_009"><span class="cls_009">Widowed/</span><span class="cls_010">Duda/Balu</span></div>
+<div style="position:absolute;left:256.75px;top:179.70px" class="cls_013"><ul type="circle" id="Selection_Customer_Divorced"><li></li></ul></div>
+<div style="position:absolute;left:295.20px;top:189.75px" class="cls_009"><span class="cls_009">Divorced/Separated</span></div>
+<div style="position:absolute;left:356.75px;top:180.30px" class="cls_013"><ul type="circle" id="Selection_Partner_Widowed"><li></li></ul></div>
+<div style="position:absolute;left:395.50px;top:193.80px" class="cls_009"><span class="cls_009">Widowed/</span><span class="cls_010">Duda/Balu</span></div>
+<div style="position:absolute;left:445.25px;top:183.70px" class="cls_013"><ul type="circle" id="Selection_Partner_Divorced"><li></li></ul></div>
+<div style="position:absolute;left:484.55px;top:193.75px" class="cls_009"><span class="cls_009">Divorced/Separated</span></div>
+<div style="position:absolute;left:295.20px;top:199.05px" class="cls_010"><span class="cls_010">Bercerai/Berpisah</span></div>
+<div style="position:absolute;left:484.55px;top:203.05px" class="cls_010"><span class="cls_010">Bercerai/Berpisah</span></div>
+<div style="position:absolute;left:22.75px;top:212.90px" class="cls_009"><span class="cls_009">Occupation: / </span><span class="cls_010">Pekerjaan:</span></div>
+<div style="position:absolute;left:193.75px;top:212.85px" class="cls_009"><span class="cls_009" id="Customer_Occupation"></span></div>
+<div style="position:absolute;left:383.75px;top:213.45px" class="cls_009"><span class="cls_009" id="Partner_Occupation"></span></div>
+<div style="position:absolute;left:22.75px;top:237.05px" class="cls_009"><span class="cls_009">Mailing address: / </span><span class="cls_010">Alamat surat-menyurat:</span></div>
+<div style="position:absolute;left:193.75px;top:236.00px" class="cls_009"><label style="display: block;width: 79px;height:27px;line-height:10px;"><span class="cls_009" id="Customer_Mailing_Address"></span></label></div>
+<div style="position:absolute;left:383.75px;top:236.60px" class="cls_009"><label style="display: block;width: 79px;height:27px;line-height:10px;"><span class="cls_009" id="Partner_Mailing_Address"></span></label></div>
+<div style="position:absolute;left:22.75px;top:279.55px" class="cls_009"><span class="cls_009">Permanent address: / </span><span class="cls_010">Alamat tetap:</span></div>
+    <div style="position:absolute;left:193.75px;top:279.50px" class="cls_009"><label style="display: block;width: 79px;height:27px;line-height:10px;"><span class="cls_009" id="Customer_Permanent_Address"></span></label></div>
+<div style="position:absolute;left:383.75px;top:280.10px" class="cls_009"><label style="display: block;width: 79px;height:27px;line-height:10px;"><span class="cls_009" id="Partner_Permanent_Address"></span></label></div>
+<div style="position:absolute;left:22.75px;top:328.80px" class="cls_009"><span class="cls_009">Contact number: / </span><span class="cls_010">Nombor telefon:</span></div>
+<div style="position:absolute;left:193.75px;top:328.80px" class="cls_009"><span class="cls_009">Home / </span><span class="cls_010">Rumah:</span></div>
+<div style="position:absolute;left:266.25px;top:328.75px" class="cls_009"><span class="cls_009" id="Customer_Contact_Home"></span></div>
+<div style="position:absolute;left:383.75px;top:329.40px" class="cls_009"><span class="cls_009">Home / </span><span class="cls_010">Rumah:</span></div>
+<div style="position:absolute;left:193.75px;top:339.05px" class="cls_009"><span class="cls_009">Work / </span><span class="cls_010">Pejabat:</span></div>
+<div style="position:absolute;left:266.25px;top:339.00px" class="cls_009"><span class="cls_009" id="Customer_Contact_Work"></span></div>
+<div style="position:absolute;left:383.75px;top:339.65px" class="cls_009"><span class="cls_009">Work / </span><span class="cls_010">Pejabat:</span></div>
+<div style="position:absolute;left:193.75px;top:349.30px" class="cls_009"><span class="cls_009">Mobile / </span><span class="cls_010">Tel Bimbit:</span></div>
+<div style="position:absolute;left:266.25px;top:349.25px" class="cls_009"><span class="cls_009" id="Customer_Contact_Mobile"></span></div>
+<div style="position:absolute;left:383.75px;top:349.90px" class="cls_009"><span class="cls_009">Mobile / </span><span class="cls_010">Tel Bimbit:</span></div>
+<div style="position:absolute;left:456.75px;top:349.85px" class="cls_009"><span class="cls_009" id="Partner_Contact_Mobile"></span></div>
+<div style="position:absolute;left:193.75px;top:359.45px" class="cls_009"><span class="cls_009">Fax / </span><span class="cls_010">Faks:</span></div>
+<div style="position:absolute;left:383.75px;top:360.05px" class="cls_009"><span class="cls_009">Fax / </span><span class="cls_010">Faks:</span></div>
+<div style="position:absolute;left:22.75px;top:371.55px" class="cls_009"><span class="cls_009">Email Address: / </span><span class="cls_010">Alamat e-mel:</span></div>
+<div style="position:absolute;left:22.75px;top:393.90px" class="cls_022"><span class="cls_022">2. Children and Dependents' Details /</span><span class="cls_024"> </span><span class="cls_023">Maklumat Anak-anak dan Tanggungan</span></div>
+<div style="position:absolute;left:77.45px;top:410.00px" class="cls_009"><span class="cls_009">Name</span></div>
+<div style="position:absolute;left:272.30px;top:410.00px" class="cls_009"><span class="cls_009">Relationship</span></div>
+<div style="position:absolute;left:328.30px;top:410.00px" class="cls_009"><span class="cls_009">Date of birth/Age</span></div>
+<div style="position:absolute;left:431.20px;top:409.50px" class="cls_009"><span class="cls_009">Sex</span></div>
+<div style="position:absolute;left:484.60px;top:410.00px" class="cls_009"><span class="cls_009">Years to support</span></div>
+<div style="position:absolute;left:77.40px;top:419.30px" class="cls_010"><span class="cls_010">Nama</span></div>
+<div style="position:absolute;left:275.45px;top:419.30px" class="cls_010"><span class="cls_010">Hubungan</span></div>
+<div style="position:absolute;left:327.65px;top:419.30px" class="cls_010"><span class="cls_010">Tarikh lahir/Umur</span></div>
+<div style="position:absolute;left:425.80px;top:418.80px" class="cls_010"><span class="cls_010">Jantina</span></div>
+<div style="position:absolute;left:467.00px;top:419.30px" class="cls_010"><span class="cls_010">Bilangan tahun tanggungan</span></div>
+<div style="position:absolute;left:403.50px;top:436.35px" class="cls_009"><span class="cls_009">Male</span></div>
+<div style="position:absolute;left:441.50px;top:436.35px" class="cls_009"><span class="cls_009">Female</span></div>
+<div style="position:absolute;left:22.75px;top:445.00px" class="cls_009"><span class="cls_009">1</span></div>
+<div style="position:absolute;left:40.40px;top:446.10px" class="cls_009"><span class="cls_009" id="ChildrenName_1"></span></div>
+<div style="position:absolute;left:266.00px;top:446.10px" class="cls_009"><span class="cls_009" id="ChildrenRelationship_1"></span></div>
+<div style="position:absolute;left:322.75px;top:446.10px" class="cls_009"><span class="cls_009" id="ChildrenDOB/Age_1"></span></div>
+<div style="position:absolute;left:361.25px;top:426.35px" class="cls_013"><ul type="circle" id="Selection_Children_Male_1"><li></li></ul></div>
+<div style="position:absolute;left:403.50px;top:442.20px" class="cls_010"><span class="cls_010">Lelaki</span></div>
+<div style="position:absolute;left:398.25px;top:426.35px" class="cls_013"><ul type="circle" id="Selection_Children_FeMale_1"><li></li></ul></div>
+<div style="position:absolute;left:441.50px;top:445.65px" class="cls_010"><span class="cls_010">Perempuan</span></div>
+<div style="position:absolute;left:522.60px;top:446.10px" class="cls_009"><span class="cls_009" id="Children_YearToSupport_1"></span></div>
+<div style="position:absolute;left:403.50px;top:458.15px" class="cls_009"><span class="cls_009">Male</span></div>
+<div style="position:absolute;left:441.50px;top:458.15px" class="cls_009"><span class="cls_009">Female</span></div>
+<div style="position:absolute;left:22.75px;top:466.80px" class="cls_009"><span class="cls_009">2</span></div>
+<div style="position:absolute;left:40.40px;top:467.90px" class="cls_009"><span class="cls_009" id="ChildrenName_2"></span></div>
+<div style="position:absolute;left:266.00px;top:467.90px" class="cls_009"><span class="cls_009" id="ChildrenRelationship_2"></span></div>
+<div style="position:absolute;left:322.75px;top:467.90px" class="cls_009"><span class="cls_009" id="ChildrenDOB/Age_2"></span></div>
+<div style="position:absolute;left:361.25px;top:448.15px" class="cls_013"><ul type="circle" id="Selection_Children_Male_2"><li></li></ul></div>
+<div style="position:absolute;left:403.50px;top:464.00px" class="cls_010"><span class="cls_010">Lelaki</span></div>
+<div style="position:absolute;left:398.25px;top:448.15px" class="cls_013"><ul type="circle" id="Selection_Children_FeMale_2"><li></li></ul></div>
+<div style="position:absolute;left:441.50px;top:467.45px" class="cls_010"><span class="cls_010">Perempuan</span></div>
+<div style="position:absolute;left:522.60px;top:467.90px" class="cls_009"><span class="cls_009" id="Children_YearToSupport_2"></span></div>
+<div style="position:absolute;left:403.50px;top:479.95px" class="cls_009"><span class="cls_009">Male</span></div>
+<div style="position:absolute;left:441.50px;top:479.95px" class="cls_009"><span class="cls_009">Female</span></div>
+<div style="position:absolute;left:22.75px;top:488.60px" class="cls_009"><span class="cls_009">3</span></div>
+<div style="position:absolute;left:362.50px;top:489.70px" class="cls_009"><span class="cls_009">/</span></div>
+<div style="position:absolute;left:361.25px;top:469.95px" class="cls_013"><ul type="circle" id="Selection1"><li></li></ul></div>
+<div style="position:absolute;left:403.50px;top:485.80px" class="cls_010"><span class="cls_010">Lelaki</span></div>
+<div style="position:absolute;left:398.25px;top:469.95px" class="cls_013"><ul type="circle" id="Selection1"><li></li></ul></div>
+<div style="position:absolute;left:441.50px;top:489.25px" class="cls_010"><span class="cls_010">Perempuan</span></div>
+<div style="position:absolute;left:403.50px;top:501.75px" class="cls_009"><span class="cls_009">Male</span></div>
+<div style="position:absolute;left:441.50px;top:501.75px" class="cls_009"><span class="cls_009">Female</span></div>
+<div style="position:absolute;left:22.75px;top:510.40px" class="cls_009"><span class="cls_009">4</span></div>
+<div style="position:absolute;left:362.50px;top:511.50px" class="cls_009"><span class="cls_009">/</span></div>
+<div style="position:absolute;left:361.25px;top:491.75px" class="cls_013"><ul type="circle" id="Selection1"><li></li></ul></div>
+<div style="position:absolute;left:403.50px;top:507.60px" class="cls_010"><span class="cls_010">Lelaki</span></div>
+<div style="position:absolute;left:398.25px;top:491.75px" class="cls_013"><ul type="circle" id="Selection1"><li></li></ul></div>
+<div style="position:absolute;left:441.50px;top:511.05px" class="cls_010"><span class="cls_010">Perempuan</span></div>
+<div style="position:absolute;left:403.50px;top:523.55px" class="cls_009"><span class="cls_009">Male</span></div>
+<div style="position:absolute;left:441.50px;top:523.55px" class="cls_009"><span class="cls_009">Female</span></div>
+<div style="position:absolute;left:22.75px;top:532.20px" class="cls_009"><span class="cls_009">5</span></div>
+<div style="position:absolute;left:362.50px;top:533.30px" class="cls_009"><span class="cls_009">/</span></div>
+<div style="position:absolute;left:361.25px;top:513.55px" class="cls_013"><ul type="circle" id="Selection1"><li></li></ul></div>
+<div style="position:absolute;left:403.50px;top:529.40px" class="cls_010"><span class="cls_010">Lelaki</span></div>
+<div style="position:absolute;left:398.25px;top:513.55px" class="cls_013"><ul type="circle" id="Selection1"><li></li></ul></div>
+<div style="position:absolute;left:441.50px;top:532.85px" class="cls_010"><span class="cls_010">Perempuan</span></div>
+<div style="position:absolute;left:25.75px;top:566.00px" class="cls_011"><span class="cls_011">D. POTENTIAL AREAS FOR DISCUSSION / </span><span class="cls_012">PERKARA YANG BOLEH DIPERBINCANGKAN</span></div>
+<div style="position:absolute;left:114.80px;top:593.45px" class="cls_009"><span class="cls_009">Possible Needs</span></div>
+<div style="position:absolute;left:292.45px;top:593.45px" class="cls_009"><span class="cls_009">Have planned</span></div>
+<div style="position:absolute;left:406.95px;top:593.45px" class="cls_009"><span class="cls_009">To discuss/review</span></div>
+<div style="position:absolute;left:511.10px;top:593.45px" class="cls_009"><span class="cls_009">Priority</span></div>
+<div style="position:absolute;left:120.25px;top:602.95px" class="cls_016"><span class="cls_016">(Keperluan)</span></div>
+<div style="position:absolute;left:285.35px;top:602.95px" class="cls_016"><span class="cls_016">(Telah dirancang)</span></div>
+<div style="position:absolute;left:404.85px;top:602.95px" class="cls_016"><span class="cls_016">(Untuk dibincang /</span></div>
+<div style="position:absolute;left:501.00px;top:602.95px" class="cls_016"><span class="cls_016">(Keutamaan)</span></div>
+<div style="position:absolute;left:411.90px;top:612.30px" class="cls_016"><span class="cls_016">Dikaji semula)</span></div>
+<div style="position:absolute;left:28.15px;top:624.05px" class="cls_009"><span class="cls_009">1.</span></div>
+<div style="position:absolute;left:44.50px;top:624.05px" class="cls_009"><span class="cls_009">Protecting  your  family  against  death,  emergency  and</span></div>
+<div style="position:absolute;left:44.50px;top:633.30px" class="cls_009"><span class="cls_009">yourself against disability and critical illness.</span></div>
+<div style="position:absolute;left:270.25px;top:632.05px" class="cls_009"><span class="cls_009">Yes</span></div>
+<div style="position:absolute;left:318.60px;top:632.05px" class="cls_009"><span class="cls_009">No</span></div>
+<div style="position:absolute;left:386.15px;top:632.45px" class="cls_009"><span class="cls_009">Yes</span></div>
+<div style="position:absolute;left:434.50px;top:632.45px" class="cls_009"><span class="cls_009">No</span></div>
+<div style="position:absolute;left:44.50px;top:642.60px" class="cls_010"><span class="cls_010">Melindungi</span></div>
+<div style="position:absolute;left:92.22px;top:642.60px" class="cls_010"><span class="cls_010">keluarga</span></div>
+<div style="position:absolute;left:132.94px;top:642.60px" class="cls_010"><span class="cls_010">anda    terhadap    kematian,</span></div>
+<div style="position:absolute;left:270.25px;top:641.35px" class="cls_010"><span class="cls_010">Ya</span></div>
+<div style="position:absolute;left:258.9px;top:631.3px" class="cls_013"><ul type="circle" id="Selection1_HavePlanned_Yes"><li></li></ul></div>
+<div style="position:absolute;left:318.60px;top:641.35px" class="cls_010"><span class="cls_010">Tidak</span></div>
+<div style="position:absolute;left:316.25px;top:631.3px" class="cls_013"><ul type="circle" id="Selection1_HavePlanned_No"><li></li></ul></div>
+<div style="position:absolute;left:386.15px;top:641.75px" class="cls_010"><span class="cls_010">Ya</span></div>
+<div style="position:absolute;left:374.25px;top:631.3px" class="cls_013"><ul type="circle" id="Selection1_ToDiscuss_Yes"><li></li></ul></div>
+<div style="position:absolute;left:434.50px;top:641.75px" class="cls_010"><span class="cls_010">Tidak</span></div>
+<div style="position:absolute;left:431.25px;top:631.3px" class="cls_013"><ul type="circle" id="Selection1_ToDiscuss_No"><li></li></ul></div>
+<div style="position:absolute;left:518.00px;top:638.45px" class="cls_009"><span class="cls_009" id="Priority_1"></span></div>
+<div style="position:absolute;left:44.50px;top:651.95px" class="cls_010"><span class="cls_010">kecemasan  dan  diri  anda  terhadap  hilang  upaya  dan</span></div>
+<div style="position:absolute;left:44.50px;top:661.30px" class="cls_010"><span class="cls_010">penyakit kritikal.</span></div>
+<div style="position:absolute;left:28.15px;top:672.75px" class="cls_009"><span class="cls_009">2.</span></div>
+<div style="position:absolute;left:43.40px;top:672.65px" class="cls_020"><span class="cls_020">Security in retirement.</span></div>
+<div style="position:absolute;left:270.25px;top:672.65px" class="cls_009"><span class="cls_009">Yes</span></div>
+<div style="position:absolute;left:318.60px;top:672.65px" class="cls_009"><span class="cls_009">No</span></div>
+<div style="position:absolute;left:386.15px;top:673.05px" class="cls_009"><span class="cls_009">Yes</span></div>
+<div style="position:absolute;left:434.50px;top:673.05px" class="cls_009"><span class="cls_009">No</span></div>
+<div style="position:absolute;left:43.40px;top:681.95px" class="cls_010"><span class="cls_010">Jaminan semasa persaraan.</span></div>
+<div style="position:absolute;left:270.25px;top:681.95px" class="cls_010"><span class="cls_010">Ya</span></div>
+<div style="position:absolute;left:258.9px;top:671.85px" class="cls_013"><ul type="circle" id="Selection2_HavePlanned_Yes"><li></li></ul></div>
+<div style="position:absolute;left:318.60px;top:681.95px" class="cls_010"><span class="cls_010">Tidak</span></div>
+<div style="position:absolute;left:316.25px;top:671.85px" class="cls_013"><ul type="circle" id="Selection2_HavePlanned_No"><li></li></ul></div>
+<div style="position:absolute;left:386.15px;top:682.35px" class="cls_010"><span class="cls_010">Ya</span></div>
+<div style="position:absolute;left:374.25px;top:671.85px" class="cls_013"><ul type="circle" id="Selection2_ToDiscuss_Yes"><li></li></ul></div>
+<div style="position:absolute;left:434.50px;top:682.35px" class="cls_010"><span class="cls_010">Tidak</span></div>
+<div style="position:absolute;left:431.25px;top:671.85px" class="cls_013"><ul type="circle" id="Selection2_ToDiscuss_No"><li></li></ul></div>
+<div style="position:absolute;left:518.00px;top:678.95px" class="cls_009"><span class="cls_009" id="Priority_2"></span></div>
+<div style="position:absolute;left:28.15px;top:693.90px" class="cls_009"><span class="cls_009">3.</span></div>
+<div style="position:absolute;left:43.75px;top:693.40px" class="cls_009"><span class="cls_009">Provision for your children's education.</span></div>
+<div style="position:absolute;left:270.25px;top:694.50px" class="cls_009"><span class="cls_009">Yes</span></div>
+<div style="position:absolute;left:318.60px;top:694.50px" class="cls_009"><span class="cls_009">No</span></div>
+<div style="position:absolute;left:386.15px;top:694.90px" class="cls_009"><span class="cls_009">Yes</span></div>
+<div style="position:absolute;left:434.50px;top:694.90px" class="cls_009"><span class="cls_009">No</span></div>
+<div style="position:absolute;left:518.00px;top:698.95px" class="cls_009"><span class="cls_009" id="Priority_3"></span></div>
+<div style="position:absolute;left:43.75px;top:702.70px" class="cls_010"><span class="cls_010">Peruntukan untuk pendidikan anak-anak.</span></div>
+<div style="position:absolute;left:270.25px;top:703.80px" class="cls_010"><span class="cls_010">Ya</span></div>
+<div style="position:absolute;left:258.9px;top:692.85px" class="cls_013"><ul type="circle" id="Selection3_HavePlanned_Yes"><li></li></ul></div>
+<div style="position:absolute;left:318.60px;top:703.80px" class="cls_010"><span class="cls_010">Tidak</span></div>
+<div style="position:absolute;left:316.25px;top:692.85px" class="cls_013"><ul type="circle" id="Selection3_HavePlanned_No"><li></li></ul></div>
+<div style="position:absolute;left:386.15px;top:704.20px" class="cls_010"><span class="cls_010">Ya</span></div>
+<div style="position:absolute;left:374.25px;top:692.85px" class="cls_013"><ul type="circle" id="Selection3_ToDiscuss_Yes"><li></li></ul></div>
+<div style="position:absolute;left:434.50px;top:704.20px" class="cls_010"><span class="cls_010">Tidak</span></div>
+<div style="position:absolute;left:431.25px;top:692.85px" class="cls_013"><ul type="circle" id="Selection3_ToDiscuss_No"><li></li></ul></div>
+<div style="position:absolute;left:28.15px;top:716.05px" class="cls_009"><span class="cls_009">4.</span></div>
+<div style="position:absolute;left:43.15px;top:715.15px" class="cls_020"><span class="cls_020">Regular savings for the future.</span></div>
+<div style="position:absolute;left:270.25px;top:715.10px" class="cls_009"><span class="cls_009">Yes</span></div>
+<div style="position:absolute;left:318.60px;top:715.55px" class="cls_009"><span class="cls_009">No</span></div>
+<div style="position:absolute;left:386.15px;top:715.45px" class="cls_009"><span class="cls_009">Yes</span></div>
+<div style="position:absolute;left:434.50px;top:715.40px" class="cls_009"><span class="cls_009">No</span></div>
+<div style="position:absolute;left:518.00px;top:720.35px" class="cls_009"><span class="cls_009" id="Priority_4"></span></div>
+<div style="position:absolute;left:43.15px;top:724.45px" class="cls_010"><span class="cls_010">Simpanan tetap untuk masa depan.</span></div>
+<div style="position:absolute;left:270.25px;top:724.40px" class="cls_010"><span class="cls_010">Ya</span></div>
+<div style="position:absolute;left:258.9px;top:713.35px" class="cls_013"><ul type="circle" id="Selection4_HavePlanned_Yes"><li></li></ul></div>
+<div style="position:absolute;left:318.60px;top:724.85px" class="cls_010"><span class="cls_010">Tidak</span></div>
+<div style="position:absolute;left:316.25px;top:713.35px" class="cls_013"><ul type="circle" id="Selection4_HavePlanned_No"><li></li></ul></div>
+<div style="position:absolute;left:386.15px;top:724.75px" class="cls_010"><span class="cls_010">Ya</span></div>
+<div style="position:absolute;left:374.25px;top:713.35px" class="cls_013"><ul type="circle" id="Selection4_ToDiscuss_Yes"><li></li></ul></div>
+<div style="position:absolute;left:434.50px;top:724.70px" class="cls_010"><span class="cls_010">Tidak</span></div>
+<div style="position:absolute;left:431.25px;top:713.35px" class="cls_013"><ul type="circle" id="Selection4_ToDiscuss_No"><li></li></ul></div>
+<div style="position:absolute;left:28.15px;top:736.05px" class="cls_009"><span class="cls_009">5.</span></div>
+<div style="position:absolute;left:42.65px;top:735.15px" class="cls_009"><span class="cls_009">Lump sum investment.</span></div>
+<div style="position:absolute;left:270.25px;top:735.65px" class="cls_009"><span class="cls_009">Yes</span></div>
+<div style="position:absolute;left:318.60px;top:736.05px" class="cls_009"><span class="cls_009">No</span></div>
+<div style="position:absolute;left:386.15px;top:736.05px" class="cls_009"><span class="cls_009">Yes</span></div>
+<div style="position:absolute;left:434.50px;top:736.15px" class="cls_009"><span class="cls_009">No</span></div>
+<div style="position:absolute;left:518.00px;top:739.95px" class="cls_009"><span class="cls_009" id="Priority_5"></span></div>
+<div style="position:absolute;left:42.65px;top:744.45px" class="cls_010"><span class="cls_010">Pelaburan sekali gus.</span></div>
+<div style="position:absolute;left:270.25px;top:744.95px" class="cls_010"><span class="cls_010">Ya</span></div>
+<div style="position:absolute;left:258.9px;top:733.85px" class="cls_013"><ul type="circle" id="Selection5_HavePlanned_Yes"><li></li></ul></div>
+<div style="position:absolute;left:318.60px;top:745.35px" class="cls_010"><span class="cls_010">Tidak</span></div>
+<div style="position:absolute;left:316.25px;top:733.85px" class="cls_013"><ul type="circle" id="Selection5_HavePlanned_No"><li></li></ul></div>
+<div style="position:absolute;left:386.15px;top:745.35px" class="cls_010"><span class="cls_010">Ya</span></div>
+<div style="position:absolute;left:374.25px;top:733.85px" class="cls_013"><ul type="circle" id="Selection5_ToDiscuss_Yes"><li></li></ul></div>
+<div style="position:absolute;left:434.50px;top:745.45px" class="cls_010"><span class="cls_010">Tidak</span></div>
+<div style="position:absolute;left:431.25px;top:733.85px" class="cls_013"><ul type="circle" id="Selection5_ToDiscuss_No"><li></li></ul></div>
+<div style="position:absolute;left:319.50px;top:820.45px" class="cls_009"><span class="cls_009">2</span></div>
+</div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div style="position:absolute;top:1704px;width:595px;height:842px;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="background3.png" width="595" height="842"></div>
+<div style="position:absolute;left:28.00px;top:20.05px" class="cls_011"><span class="cls_011">E. PREFERENCE / </span><span class="cls_012">KEUTAMAAN</span></div>
+<div style="position:absolute;left:23.15px;top:46.45px" class="cls_022"><span class="cls_022">Investment Preference / </span><span class="cls_023">Keutamaan Pelaburan</span></div>
+<div style="position:absolute;left:22.75px;top:62.90px" class="cls_009"><span class="cls_009">- Please place an 'X' on the scale to give an indication of your risk-return profile.</span></div>
+<div style="position:absolute;left:22.75px;top:72.20px" class="cls_010"><span class="cls_010">- Sila tanda 'X' pada skala di bawah sebagai petanda kepada tahap risiko yang anda boleh tanggungi.</span></div>
+<div style="position:absolute;left:26.50px;top:100.40px" class="cls_009"><span class="cls_009">1</span></div>
+<div style="position:absolute;left:136.00px;top:99.90px" class="cls_009"><span class="cls_009">2</span></div>
+<div style="position:absolute;left:77.9px;top:97.25px" class="cls_002"><span class="cls_002" id="Investment_Preference_1"></span></div>
+<div style="position:absolute;left:187.90px;top:97.25px" class="cls_002"><span class="cls_002" id="Investment_Preference_2"></span></div>
+<div style="position:absolute;left:294.9px;top:97.25px" class="cls_002"><span class="cls_002" id="Investment_Preference_3"></span></div>
+<div style="position:absolute;left:400.9px;top:97.25px" class="cls_002"><span class="cls_002" id="Investment_Preference_4"></span></div>
+<div style="position:absolute;left:507.9px;top:97.25px" class="cls_002"><span class="cls_002" id="Investment_Preference_5"></span></div>
+<div style="position:absolute;left:241.50px;top:100.40px" class="cls_009"><span class="cls_009">3</span></div>
+<div style="position:absolute;left:347.50px;top:99.90px" class="cls_009"><span class="cls_009">4</span></div>
+<div style="position:absolute;left:456.00px;top:99.90px" class="cls_009"><span class="cls_009">5</span></div>
+<div style="position:absolute;left:22.75px;top:117.40px" class="cls_009"><span class="cls_009">Low risk</span></div>
+<div style="position:absolute;left:526.80px;top:117.40px" class="cls_009"><span class="cls_009">High risk</span></div>
+<div style="position:absolute;left:22.75px;top:126.70px" class="cls_010"><span class="cls_010">Risiko rendah</span></div>
+<div style="position:absolute;left:515.95px;top:126.70px" class="cls_010"><span class="cls_010">Risiko tinggi</span></div>
+<div style="position:absolute;left:22.75px;top:136.00px" class="cls_009"><span class="cls_009">Low potential return</span></div>
+<div style="position:absolute;left:490.00px;top:136.00px" class="cls_009"><span class="cls_009">High potential return</span></div>
+<div style="position:absolute;left:22.75px;top:145.30px" class="cls_010"><span class="cls_010">Potensi pulangan rendah</span></div>
+<div style="position:absolute;left:479.95px;top:145.30px" class="cls_010"><span class="cls_010">Potensi pulangan tinggi</span></div>
+<div style="position:absolute;left:28.75px;top:171.05px" class="cls_011"><span class="cls_011">F. FINANCIAL NEEDS ANALYSIS / </span><span class="cls_012">ANALISA KEPERLUAN KEWANGAN</span></div>
+<div style="position:absolute;left:25.10px;top:196.75px" class="cls_015"><span class="cls_015">1.  </span><span class="cls_022">Protection / </span><span class="cls_023">Perlindungan</span></div>
+<div style="position:absolute;left:37.75px;top:212.80px" class="cls_015"><span class="cls_015">Existing Protection Plans / </span><span class="cls_016">Pelan Perlindungan Sedia Ada</span></div>
+<div style="position:absolute;left:26.50px;top:232.65px" class="cls_009"><span class="cls_009">Policy Owner</span></div>
+<div style="position:absolute;left:95.15px;top:232.40px" class="cls_009"><span class="cls_009">Company</span></div>
+<div style="position:absolute;left:138.75px;top:232.40px" class="cls_009"><span class="cls_009">Type of Plan</span></div>
+<div style="position:absolute;left:192.50px;top:232.40px" class="cls_009"><span class="cls_009">Life Assured</span></div>
+<div style="position:absolute;left:263.75px;top:232.40px" class="cls_009"><span class="cls_009">Death</span></div>
+<div style="position:absolute;left:310.00px;top:232.40px" class="cls_009"><span class="cls_009">Disability</span></div>
+<div style="position:absolute;left:367.40px;top:232.40px" class="cls_009"><span class="cls_009">Critical Illness</span></div>
+<div style="position:absolute;left:423.65px;top:232.40px" class="cls_009"><span class="cls_009">Other</span></div>
+<div style="position:absolute;left:467.15px;top:232.40px" class="cls_009"><span class="cls_009">Premium</span></div>
+<div style="position:absolute;left:519.50px;top:232.40px" class="cls_009"><span class="cls_009">Maturity</span></div>
+<div style="position:absolute;left:26.50px;top:241.95px" class="cls_010"><span class="cls_010">Pemunya Polisi</span></div>
+<div style="position:absolute;left:95.15px;top:241.70px" class="cls_010"><span class="cls_010">Syarikat</span></div>
+<div style="position:absolute;left:138.75px;top:241.70px" class="cls_010"><span class="cls_010">Jenis Pelan</span></div>
+<div style="position:absolute;left:192.50px;top:241.70px" class="cls_010"><span class="cls_010">Hayat</span></div>
+<div style="position:absolute;left:263.75px;top:241.65px" class="cls_009"><span class="cls_009">Benefit</span></div>
+<div style="position:absolute;left:310.00px;top:241.65px" class="cls_009"><span class="cls_009">Benefit</span></div>
+<div style="position:absolute;left:367.40px;top:241.65px" class="cls_009"><span class="cls_009">Benefit</span></div>
+<div style="position:absolute;left:423.65px;top:241.65px" class="cls_009"><span class="cls_009">Benefit</span></div>
+<div style="position:absolute;left:467.15px;top:241.65px" class="cls_009"><span class="cls_009">(RM)/Mode</span></div>
+<div style="position:absolute;left:519.50px;top:241.65px" class="cls_009"><span class="cls_009">Date</span></div>
+<div style="position:absolute;left:192.50px;top:251.05px" class="cls_010"><span class="cls_010">Diinsuranskan</span></div>
+<div style="position:absolute;left:263.75px;top:250.95px" class="cls_010"><span class="cls_010">Manfaat</span></div>
+<div style="position:absolute;left:310.00px;top:250.95px" class="cls_010"><span class="cls_010">Manfaat</span></div>
+<div style="position:absolute;left:367.40px;top:250.95px" class="cls_010"><span class="cls_010">Manfaat</span></div>
+<div style="position:absolute;left:423.65px;top:250.95px" class="cls_010"><span class="cls_010">Manfaat</span></div>
+<div style="position:absolute;left:467.15px;top:250.95px" class="cls_010"><span class="cls_010">Premium</span></div>
+<div style="position:absolute;left:519.50px;top:250.95px" class="cls_010"><span class="cls_010">Tarikh</span></div>
+<div style="position:absolute;left:263.75px;top:260.30px" class="cls_010"><span class="cls_010">Kematian</span></div>
+<div style="position:absolute;left:310.00px;top:260.30px" class="cls_010"><span class="cls_010">Hilang</span></div>
+<div style="position:absolute;left:367.40px;top:260.30px" class="cls_010"><span class="cls_010">Penyakit</span></div>
+<div style="position:absolute;left:423.65px;top:260.30px" class="cls_010"><span class="cls_010">Lain(RM)</span></div>
+<div style="position:absolute;left:467.15px;top:260.30px" class="cls_010"><span class="cls_010">(RM)/Cara</span></div>
+<div style="position:absolute;left:519.50px;top:260.30px" class="cls_010"><span class="cls_010">Matang</span></div>
+<div style="position:absolute;left:263.75px;top:269.65px" class="cls_010"><span class="cls_010">(RM)</span></div>
+<div style="position:absolute;left:310.00px;top:269.65px" class="cls_010"><span class="cls_010">Upaya (RM)</span></div>
+<div style="position:absolute;left:367.40px;top:269.65px" class="cls_010"><span class="cls_010">Kritikal (RM)</span></div>
+<div style="position:absolute;left:467.15px;top:269.65px" class="cls_010"><span class="cls_010">Pembayaran</span></div>
+<div style="position:absolute;left:26.25px;top:287.40px" class="cls_009"><span class="cls_009" id="Protection_Policy_Owner"></span></div>
+<div style="position:absolute;left:94.00px;top:287.40px" class="cls_009"><span class="cls_009" id="Protection_Company"></span></div>
+<div style="position:absolute;left:136.25px;top:287.40px" class="cls_009"><span class="cls_009" id="Protection_Type_Of_Plan"></span></div>
+<div style="position:absolute;left:191.25px;top:287.40px" class="cls_009"><span class="cls_009" id="Protection_Life_Assured"></span></div>
+<div style="position:absolute;left:292.60px;top:287.40px" class="cls_009"><span class="cls_009" id="Protection_Death_Benefit"></span></div>
+<div style="position:absolute;left:349.35px;top:287.40px" class="cls_009"><span class="cls_009" id="Protection_Disablibity_Benefit"></span></div>
+<div style="position:absolute;left:403.60px;top:287.40px" class="cls_009"><span class="cls_009" id="Protection_Critical_Illness_Benefit"></span></div>
+<div style="position:absolute;left:452.60px;top:287.40px" class="cls_009"><span class="cls_009" id="Protection_Other_Benefit"></span></div>
+<div style="position:absolute;left:468.65px;top:287.40px" class="cls_009"><span class="cls_009" id="Protection_Premium"></span></div>
+<div style="position:absolute;left:517.00px;top:287.40px" class="cls_009"><span class="cls_009" id="Protection_Maturiy_Date"></span></div>
+<div style="position:absolute;left:282.75px;top:352.75px" class="cls_009"><span class="cls_009">Current Amount</span></div>
+<div style="position:absolute;left:373.15px;top:352.75px" class="cls_009"><span class="cls_009">Required Amount</span></div>
+<div style="position:absolute;left:466.15px;top:352.75px" class="cls_009"><span class="cls_009">Surplus/Shortfall</span></div>
+<div style="position:absolute;left:282.75px;top:362.05px" class="cls_010"><span class="cls_010">Jumlah Kini</span></div>
+<div style="position:absolute;left:373.15px;top:362.05px" class="cls_010"><span class="cls_010">Jumlah diperlukan</span></div>
+<div style="position:absolute;left:466.15px;top:362.05px" class="cls_010"><span class="cls_010">Kelebihan/Kekurangan</span></div>
+<div style="position:absolute;left:27.25px;top:375.35px" class="cls_009"><span class="cls_009">Total Sum Assured (Death &amp; Disability)</span></div>
+<div style="position:absolute;left:339.75px;top:379.20px" class="cls_009"><span class="cls_009" id="TotalSumAssured_CurrentAmount"></span></div>
+<div style="position:absolute;left:411.75px;top:379.20px" class="cls_009"><span class="cls_009" id="TotalSumAssured_RequiredAmount"></span></div>
+<div style="position:absolute;left:507.25px;top:379.20px" class="cls_009"><span class="cls_009" id="TotalSumAssured_Surplus"></span></div>
+<div style="position:absolute;left:27.25px;top:384.65px" class="cls_010"><span class="cls_010">Jumlah Perlindungan (Kematian &amp; Hilang Upaya)</span></div>
+<div style="position:absolute;left:27.65px;top:394.85px" class="cls_009"><span class="cls_009">Total Critical Illness Sum Assured</span></div>
+<div style="position:absolute;left:339.75px;top:398.70px" class="cls_009"><span class="cls_009" id="TotalCriticalIllnessSumAssured_CurrentAmount"></span></div>
+<div style="position:absolute;left:411.75px;top:398.70px" class="cls_009"><span class="cls_009" id="TotalCriticalIllnessSumAssured_RequiredAmount"></span></div>
+<div style="position:absolute;left:507.25px;top:398.70px" class="cls_009"><span class="cls_009" id="TotalCriticalIllnessSumAssured_Surplus"></span></div>
+<div style="position:absolute;left:27.65px;top:404.15px" class="cls_010"><span class="cls_010">Jumlah Perlindungan Penyakit Kritikal</span></div>
+<div style="position:absolute;left:27.25px;top:414.00px" class="cls_009"><span class="cls_009">Total Hospitalization Benefit (per day)</span></div>
+<div style="position:absolute;left:339.75px;top:418.20px" class="cls_009"><span class="cls_009" id="TotalHospitalizationBenefit_CurrentAmount"></span></div>
+<div style="position:absolute;left:411.75px;top:418.70px" class="cls_009"><span class="cls_009" id="TotalHospitalizationBenefit_RequiredAmount"></span></div>
+<div style="position:absolute;left:507.25px;top:418.70px" class="cls_009"><span class="cls_009" id="TotalHospitalizationBenefit_Surplus"></span></div>
+<div style="position:absolute;left:27.25px;top:423.30px" class="cls_010"><span class="cls_010">Jumlah Manfaat penghospitalan (sehari)</span></div>
+<div style="position:absolute;left:27.25px;top:433.50px" class="cls_009"><span class="cls_009">Total Personal Accident Sum Assured</span></div>
+<div style="position:absolute;left:339.75px;top:437.20px" class="cls_009"><span class="cls_009" id="TotalPersonalAccidentSumAssured_CurrentAmount"></span></div>
+<div style="position:absolute;left:411.75px;top:437.20px" class="cls_009"><span class="cls_009" id="TotalPersonalAccidentSumAssured_RequiredAmount"></span></div>
+<div style="position:absolute;left:507.25px;top:437.20px" class="cls_009"><span class="cls_009" id="TotalPersonalAccidentSumAssured_Surplus"></span></div>
+<div style="position:absolute;left:27.25px;top:442.80px" class="cls_010"><span class="cls_010">Jumlah Perlindungan Kemalangan Peribadi</span></div>
+<div style="position:absolute;left:367.75px;top:457.75px" class="cls_009"><span class="cls_009">Customer</span></div>
+<div style="position:absolute;left:477.25px;top:457.00px" class="cls_009"><span class="cls_009">Partner/Spouse</span></div>
+<div style="position:absolute;left:367.75px;top:467.05px" class="cls_021"><span class="cls_021">Pelanggan</span></div>
+<div style="position:absolute;left:477.25px;top:466.30px" class="cls_021"><span class="cls_021">Pasangan</span></div>
+<div style="position:absolute;left:23.90px;top:479.40px" class="cls_015"><span class="cls_015">How much of your current income would you like to allocate for protection per</span></div>
+<div style="position:absolute;left:338.75px;top:483.25px" class="cls_009"><span class="cls_009">RM</span></div>
+<div style="position:absolute;left:360.25px;top:483.25px" class="cls_009"><span class="cls_009" id="FNA_Customer_AmountAllocatedPerMonth"></span></div>
+<div style="position:absolute;left:453.75px;top:483.25px" class="cls_009"><span class="cls_009">RM</span></div>
+<div style="position:absolute;left:474.75px;top:483.25px" class="cls_009"><span class="cls_009" id="FNA_Partner_AmountAllocatedPerMonth"></span></div>
+<div style="position:absolute;left:23.90px;top:489.00px" class="cls_015"><span class="cls_015">month?</span></div>
+<div style="position:absolute;left:23.90px;top:498.40px" class="cls_016"><span class="cls_016">Berapakah amaun yang anda ingin ketepikan dari pendapatan sekarang untuk</span></div>
+<div style="position:absolute;left:23.90px;top:507.75px" class="cls_016"><span class="cls_016">perlindungan pada setiap bulan?</span></div>
+<div style="position:absolute;left:319.50px;top:820.45px" class="cls_009"><span class="cls_009">3</span></div>
+</div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div style="position:absolute;top:2556px;width:595px;height:842px;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="background4.png" width="595" height="842"></div>
+<div style="position:absolute;left:25.10px;top:14.85px" class="cls_015"><span class="cls_015">2.</span></div>
+<div style="position:absolute;left:38.90px;top:14.80px" class="cls_022"><span class="cls_022">Retirement / </span><span class="cls_023">Persaraan</span></div>
+<div style="position:absolute;left:39.25px;top:31.05px" class="cls_015"><span class="cls_015">Existing retirement plans / </span><span class="cls_016">Pelan Persaraan sedia ada</span></div>
+<div style="position:absolute;left:26.00px;top:49.15px" class="cls_009"><span class="cls_009">Policy Owner</span></div>
+<div style="position:absolute;left:94.65px;top:48.90px" class="cls_009"><span class="cls_009">Company</span></div>
+<div style="position:absolute;left:138.25px;top:48.90px" class="cls_009"><span class="cls_009">Type of Plan</span></div>
+<div style="position:absolute;left:192.25px;top:48.90px" class="cls_009"><span class="cls_009">Premium</span></div>
+<div style="position:absolute;left:232.75px;top:48.90px" class="cls_009"><span class="cls_009">Frequency</span></div>
+<div style="position:absolute;left:276.75px;top:48.90px" class="cls_009"><span class="cls_009">Start Date</span></div>
+<div style="position:absolute;left:324.90px;top:48.90px" class="cls_009"><span class="cls_009">Date</span></div>
+<div style="position:absolute;left:364.90px;top:48.90px" class="cls_009"><span class="cls_009">Projected Lump</span></div>
+<div style="position:absolute;left:430.25px;top:48.90px" class="cls_009"><span class="cls_009">Projected</span></div>
+<div style="position:absolute;left:492.25px;top:48.90px" class="cls_009"><span class="cls_009">Additional</span></div>
+<div style="position:absolute;left:26.00px;top:58.45px" class="cls_010"><span class="cls_010">Pemunya Polisi</span></div>
+<div style="position:absolute;left:94.65px;top:58.20px" class="cls_010"><span class="cls_010">Syarikat</span></div>
+<div style="position:absolute;left:138.25px;top:58.20px" class="cls_010"><span class="cls_010">Jenis Pelan</span></div>
+<div style="position:absolute;left:192.25px;top:58.20px" class="cls_010"><span class="cls_010">Premium</span></div>
+<div style="position:absolute;left:232.75px;top:58.20px" class="cls_010"><span class="cls_010">Kekerapan</span></div>
+<div style="position:absolute;left:276.75px;top:58.20px" class="cls_010"><span class="cls_010">Tarikh</span></div>
+<div style="position:absolute;left:324.90px;top:58.20px" class="cls_010"><span class="cls_010">Tarikh</span></div>
+<div style="position:absolute;left:364.90px;top:58.15px" class="cls_009"><span class="cls_009">Sum at Maturity</span></div>
+<div style="position:absolute;left:430.25px;top:58.15px" class="cls_009"><span class="cls_009">Annual Income</span></div>
+<div style="position:absolute;left:492.25px;top:58.15px" class="cls_009"><span class="cls_009">Benefits</span></div>
+<div style="position:absolute;left:192.25px;top:67.55px" class="cls_010"><span class="cls_010">(RM)</span></div>
+<div style="position:absolute;left:276.75px;top:67.55px" class="cls_010"><span class="cls_010">Bermula</span></div>
+<div style="position:absolute;left:324.90px;top:67.55px" class="cls_010"><span class="cls_010">Matang</span></div>
+<div style="position:absolute;left:364.90px;top:67.45px" class="cls_010"><span class="cls_010">Amaun yang</span></div>
+<div style="position:absolute;left:430.25px;top:67.40px" class="cls_009"><span class="cls_009">at Maturity</span></div>
+<div style="position:absolute;left:492.25px;top:67.45px" class="cls_010"><span class="cls_010">Manfaat</span></div>
+<div style="position:absolute;left:364.90px;top:76.80px" class="cls_010"><span class="cls_010">dijangkakan</span></div>
+<div style="position:absolute;left:430.25px;top:76.70px" class="cls_010"><span class="cls_010">Pendapatan</span></div>
+<div style="position:absolute;left:492.25px;top:76.80px" class="cls_010"><span class="cls_010">Tambahan</span></div>
+<div style="position:absolute;left:364.90px;top:86.15px" class="cls_010"><span class="cls_010">pada tarikh</span></div>
+<div style="position:absolute;left:430.25px;top:86.05px" class="cls_010"><span class="cls_010">tahunan yang</span></div>
+<div style="position:absolute;left:364.90px;top:95.50px" class="cls_010"><span class="cls_010">matang</span></div>
+<div style="position:absolute;left:430.25px;top:95.40px" class="cls_010"><span class="cls_010">dijangkakan</span></div>
+<div style="position:absolute;left:430.25px;top:104.75px" class="cls_010"><span class="cls_010">pada tarikh</span></div>
+<div style="position:absolute;left:25.25px;top:127.90px" class="cls_009"><span class="cls_009" id="Retirement_Policy_Owner_1"></span></div>
+<div style="position:absolute;left:92.75px;top:127.90px" class="cls_009"><span class="cls_009" id="Retirement_Company_1"></span></div>
+<div style="position:absolute;left:136.40px;top:127.80px" class="cls_009"><span class="cls_009" id="Retirement_Type_Of_Plan_1"></span></div>
+<div style="position:absolute;left:206.25px;top:127.65px" class="cls_009"><span class="cls_009" id="Retirement_Premium_1"></span></div>
+<div style="position:absolute;left:232.50px;top:127.90px" class="cls_009"><span class="cls_009" id="Retirement_Frequency_1"></span></div>
+<div style="position:absolute;left:275.75px;top:127.90px" class="cls_009"><span class="cls_009" id="Retirement_Start_Date_1"></span></div>
+<div style="position:absolute;left:320.50px;top:127.90px" class="cls_009"><span class="cls_009" id-"Retirement_Date_1"></span></div>
+<div style="position:absolute;left:25.25px;top:142.95px" class="cls_009"><span class="cls_009" id="Retirement_Policy_Owner_2"></span></div>
+<div style="position:absolute;left:92.75px;top:142.95px" class="cls_009"><span class="cls_009" id="Retirement_Company_2"></span></div>
+<div style="position:absolute;left:136.40px;top:142.85px" class="cls_009"><span class="cls_009" id="Retirement_Type_Of_Plan_2"></span></div>
+<div style="position:absolute;left:206.25px;top:142.70px" class="cls_009"><span class="cls_009" id="Retirement_Premium_2"></span></div>
+<div style="position:absolute;left:232.50px;top:142.95px" class="cls_009"><span class="cls_009" id="Retirement_Frequency_2"></span></div>
+<div style="position:absolute;left:275.75px;top:142.95px" class="cls_009"><span class="cls_009" id="Retirement_Start_Date_2"></span></div>
+<div style="position:absolute;left:320.50px;top:142.95px" class="cls_009"><span class="cls_009" id="Retirement_Date_2"></span></div>
+<div style="position:absolute;left:383.25px;top:142.95px" class="cls_009"><span class="cls_009" id="Retirement_Projected_Lump_Sum_at_Maturity_2"></span></div>
+<div style="position:absolute;left:438.25px;top:142.95px" class="cls_009"><span class="cls_009" id="Retirement_Projected_Annual_Income_at_Maturity_2"></span></div>
+<div style="position:absolute;left:490.40px;top:142.95px" class="cls_009"><span class="cls_009" id="Retirement_Additional_Benefits_2"></span></div>
+<div style="position:absolute;left:470.25px;top:152.20px" class="cls_009"><span class="cls_009">0.00</span></div>
+<div style="position:absolute;left:490.40px;top:152.20px" class="cls_009"><span class="cls_009">rider 3</span></div>
+<div style="position:absolute;left:282.75px;top:187.15px" class="cls_009"><span class="cls_009">Current Amount</span></div>
+<div style="position:absolute;left:374.15px;top:187.15px" class="cls_009"><span class="cls_009">Required Amount</span></div>
+<div style="position:absolute;left:466.15px;top:187.15px" class="cls_009"><span class="cls_009">Surplus/Shortfall</span></div>
+<div style="position:absolute;left:282.75px;top:196.45px" class="cls_010"><span class="cls_010">Jumlah Kini</span></div>
+<div style="position:absolute;left:374.15px;top:196.45px" class="cls_010"><span class="cls_010">Jumlah diperlukan</span></div>
+<div style="position:absolute;left:466.15px;top:196.45px" class="cls_010"><span class="cls_010">Kelebihan/Kekurangan</span></div>
+<div style="position:absolute;left:27.25px;top:209.75px" class="cls_009"><span class="cls_009">Retirement</span></div>
+<div style="position:absolute;left:311.75px;top:213.55px" class="cls_009"><span class="cls_009" id="Retirement_CurrentAmount"></span></div>
+<div style="position:absolute;left:402.75px;top:213.55px" class="cls_009"><span class="cls_009" id="Retirement_RequiredAmount"></span></div>
+<div style="position:absolute;left:499.75px;top:213.55px" class="cls_009"><span class="cls_009" id="Retirement_Surplus"></span></div>
+<div style="position:absolute;left:27.25px;top:219.05px" class="cls_010"><span class="cls_010">Persaraan</span></div>
+<div style="position:absolute;left:367.75px;top:234.15px" class="cls_009"><span class="cls_009">Customer</span></div>
+<div style="position:absolute;left:477.25px;top:233.40px" class="cls_009"><span class="cls_009">Partner/Spouse</span></div>
+<div style="position:absolute;left:367.75px;top:243.45px" class="cls_021"><span class="cls_021">Pelanggan</span></div>
+<div style="position:absolute;left:477.25px;top:242.70px" class="cls_021"><span class="cls_021">Pasangan</span></div>
+<div style="position:absolute;left:23.50px;top:256.20px" class="cls_015"><span class="cls_015">How much of your current income would you like to allocate for retirement per</span></div>
+<div style="position:absolute;left:340.75px;top:259.65px" class="cls_009"><span class="cls_009">RM</span></div>
+<div style="position:absolute;left:358.75px;top:259.65px" class="cls_009"><span class="cls_009" id="Retirement_Customer_AmountAllocatedPerMonth"></span></div>
+<div style="position:absolute;left:455.75px;top:259.65px" class="cls_009"><span class="cls_009">RM</span></div>
+<div style="position:absolute;left:474.25px;top:259.65px" class="cls_009"><span class="cls_009" id="Retirement_Partner_AmountAllocatedPerMonth"></span></div>
+<div style="position:absolute;left:23.50px;top:265.80px" class="cls_015"><span class="cls_015">month?</span></div>
+<div style="position:absolute;left:23.50px;top:275.20px" class="cls_016"><span class="cls_016">Berapakah amaun yang anda ingin ketepikan dari pendapatan sekarang untuk</span></div>
+<div style="position:absolute;left:23.50px;top:284.55px" class="cls_016"><span class="cls_016">keperluan persaraan pada setiap bulan?</span></div>
+<div style="position:absolute;left:23.90px;top:300.20px" class="cls_015"><span class="cls_015">What other sources of income do you expect to rely on during retirement?</span></div>
+<div style="position:absolute;left:341.50px;top:302.55px" class="cls_009"><span class="cls_009" id="Retirement_Customer_IncomeSource"></span></div>
+<div style="position:absolute;left:454.75px;top:302.55px" class="cls_009"><span class="cls_009" id="Retirement_Partner_IncomeSource"></span></div>
+<div style="position:absolute;left:23.90px;top:309.60px" class="cls_016"><span class="cls_016">Apakah sumber pendapatan lain yang anda jangkakan semasa dalam tempoh</span></div>
+<div style="position:absolute;left:23.90px;top:318.95px" class="cls_016"><span class="cls_016">persaraan?</span></div>
+<div style="position:absolute;left:25.10px;top:368.75px" class="cls_015"><span class="cls_015">3.   </span><span class="cls_022">Education Cost Planning / </span><span class="cls_023">Kos Perancangan Pendidikan</span></div>
+<div style="position:absolute;left:38.75px;top:385.25px" class="cls_015"><span class="cls_015">Existing children's education plans / </span><span class="cls_016">Pelan Pendidikan anak-anak yang sedia ada</span></div>
+<div style="position:absolute;left:25.75px;top:403.10px" class="cls_009"><span class="cls_009">Child's Name</span></div>
+<div style="position:absolute;left:185.15px;top:403.10px" class="cls_009"><span class="cls_009">Company</span></div>
+<div style="position:absolute;left:267.75px;top:403.10px" class="cls_009"><span class="cls_009">Premium</span></div>
+<div style="position:absolute;left:321.25px;top:403.10px" class="cls_009"><span class="cls_009">Frequency</span></div>
+<div style="position:absolute;left:368.25px;top:403.10px" class="cls_009"><span class="cls_009">Start Date</span></div>
+<div style="position:absolute;left:432.75px;top:403.10px" class="cls_009"><span class="cls_009">MaturityDate</span></div>
+<div style="position:absolute;left:491.25px;top:403.10px" class="cls_009"><span class="cls_009">Projected Value</span></div>
+<div style="position:absolute;left:25.75px;top:412.40px" class="cls_010"><span class="cls_010">Nama Anak</span></div>
+<div style="position:absolute;left:185.15px;top:412.40px" class="cls_010"><span class="cls_010">Syarikat</span></div>
+<div style="position:absolute;left:267.75px;top:412.40px" class="cls_010"><span class="cls_010">Premium</span></div>
+<div style="position:absolute;left:321.25px;top:412.40px" class="cls_010"><span class="cls_010">Kekerapan</span></div>
+<div style="position:absolute;left:368.25px;top:412.40px" class="cls_010"><span class="cls_010">Tarikh Bermula</span></div>
+<div style="position:absolute;left:432.75px;top:412.40px" class="cls_010"><span class="cls_010">Tarikh</span></div>
+<div style="position:absolute;left:491.25px;top:412.35px" class="cls_009"><span class="cls_009">at Maturity (RM)</span></div>
+<div style="position:absolute;left:267.75px;top:421.75px" class="cls_010"><span class="cls_010">(RM)</span></div>
+<div style="position:absolute;left:432.75px;top:421.75px" class="cls_010"><span class="cls_010">Matang</span></div>
+<div style="position:absolute;left:491.25px;top:421.65px" class="cls_010"><span class="cls_010">Nilai matang</span></div>
+<div style="position:absolute;left:491.25px;top:431.00px" class="cls_010"><span class="cls_010">yang dijangkakan</span></div>
+<div style="position:absolute;left:491.25px;top:440.35px" class="cls_010"><span class="cls_010">pada tarikh</span></div>
+<div style="position:absolute;left:26.25px;top:466.35px" class="cls_009"><span class="cls_009" id="EducationCostPlanning_Child's_Name"></span></div>
+<div style="position:absolute;left:181.75px;top:466.35px" class="cls_009"><span class="cls_009" id="EducationCostPlanning_Company"></span></div>
+<div style="position:absolute;left:302.85px;top:466.35px" class="cls_009"><span class="cls_009" id="EducationCostPlanning_Premium"></span></div>
+<div style="position:absolute;left:320.15px;top:466.25px" class="cls_009"><span class="cls_009" id="EducationCostPlanning_Frequency"></span></div>
+<div style="position:absolute;left:367.00px;top:466.35px" class="cls_009"><span class="cls_009" id="EducationCostPlanning_Start_Date"></span></div>
+<div style="position:absolute;left:429.25px;top:466.35px" class="cls_009"><span class="cls_009" id="EducationCostPlanning_MaturityDate"></span></div>
+<div style="position:absolute;left:489.25px;top:466.35px" class="cls_009"><span class="cls_009" id="EducationCostPlanning_Projected_Value"></span></div>
+<div style="position:absolute;left:282.75px;top:518.50px" class="cls_009"><span class="cls_009">Current Amount</span></div>
+<div style="position:absolute;left:374.15px;top:518.50px" class="cls_009"><span class="cls_009">Required Amount</span></div>
+<div style="position:absolute;left:466.15px;top:518.50px" class="cls_009"><span class="cls_009">Surplus/Shortfall</span></div>
+<div style="position:absolute;left:282.75px;top:527.80px" class="cls_010"><span class="cls_010">Jumlah Kini</span></div>
+<div style="position:absolute;left:374.15px;top:527.80px" class="cls_010"><span class="cls_010">Jumlah diperlukan</span></div>
+<div style="position:absolute;left:466.15px;top:527.80px" class="cls_010"><span class="cls_010">Kelebihan/Kekurangan</span></div>
+<div style="position:absolute;left:26.25px;top:545.55px" class="cls_009"><span class="cls_009">Child 1 / </span><span class="cls_010">Anak 1</span></div>
+<div style="position:absolute;left:342.75px;top:543.75px" class="cls_009"><span class="cls_009" id="Child1_CurrentAmount"></span></div>
+<div style="position:absolute;left:416.25px;top:543.75px" class="cls_009"><span class="cls_009" id="Child1_RequiredAmount"></span></div>
+<div style="position:absolute;left:512.25px;top:543.75px" class="cls_009"><span class="cls_009" id="Child1_Surplus"></span></div>
+<div style="position:absolute;left:26.25px;top:562.55px" class="cls_009"><span class="cls_009">Child 2 / </span><span class="cls_010">Anak 2</span></div>
+<div style="position:absolute;left:342.75px;top:561.25px" class="cls_009"><span class="cls_009" id="Child2_CurrentAmount"></span></div>
+<div style="position:absolute;left:416.25px;top:561.25px" class="cls_009"><span class="cls_009" id="Child2_RequiredAmount"></span></div>
+<div style="position:absolute;left:512.25px;top:561.25px" class="cls_009"><span class="cls_009" id="Child2_Surplus"></span></div>
+<div style="position:absolute;left:25.75px;top:581.05px" class="cls_009"><span class="cls_009">Child 3 / </span><span class="cls_010">Anak 3</span></div>
+<div style="position:absolute;left:343.25px;top:579.25px" class="cls_009"><span class="cls_009" id="Child3_CurrentAmount"></span></div>
+<div style="position:absolute;left:26.25px;top:598.55px" class="cls_009"><span class="cls_009">Child 4 / </span><span class="cls_010">Anak 4</span></div>
+<div style="position:absolute;left:342.75px;top:596.75px" class="cls_009"><span class="cls_009" id="Child4_CurrentAmount"></span></div>
+<div style="position:absolute;left:479.75px;top:619.50px" class="cls_009"><span class="cls_009">Customer</span></div>
+<div style="position:absolute;left:479.75px;top:628.80px" class="cls_021"><span class="cls_021">Pelanggan</span></div>
+<div style="position:absolute;left:25.25px;top:642.20px" class="cls_015"><span class="cls_015">How much of your current income would you like to allocate for education cost planning per month?</span></div>
+<div style="position:absolute;left:452.75px;top:645.00px" class="cls_009"><span class="cls_009">RM</span></div>
+<div style="position:absolute;left:471.75px;top:645.00px" class="cls_009"><span class="cls_009" id="EducationCostPlanning_AmountAllocatedPerMonth"></span></div>
+<div style="position:absolute;left:25.25px;top:651.60px" class="cls_016"><span class="cls_016">Berapakah amaun yang anda ingin ketepikan dari pendapatan sekarang untuk perancangan kos</span></div>
+<div style="position:absolute;left:25.25px;top:660.95px" class="cls_016"><span class="cls_016">pendidikan pada setiap bulan?</span></div>
+<div style="position:absolute;left:319.50px;top:820.45px" class="cls_009"><span class="cls_009">4</span></div>
+</div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div style="position:absolute;top:3408px;width:595px;height:842px;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="background5.png" width="595" height="842"></div>
+<div style="position:absolute;left:25.10px;top:15.35px" class="cls_015"><span class="cls_015">4.   </span><span class="cls_022">Savings and Investment Plan / </span><span class="cls_023">Pelan Simpanan dan Pelaburan</span></div>
+<div style="position:absolute;left:38.90px;top:32.30px" class="cls_015"><span class="cls_015">Existing savings and investment plans / </span><span class="cls_016">Pelan simpanan dan pelaburan yang sedia ada</span></div>
+<div style="position:absolute;left:25.75px;top:49.90px" class="cls_009"><span class="cls_009">Policy Owner</span></div>
+<div style="position:absolute;left:148.15px;top:50.15px" class="cls_009"><span class="cls_009">Company</span></div>
+<div style="position:absolute;left:209.75px;top:50.15px" class="cls_009"><span class="cls_009">Type of Savings/</span></div>
+<div style="position:absolute;left:293.25px;top:50.15px" class="cls_009"><span class="cls_009">Purpose</span></div>
+<div style="position:absolute;left:356.25px;top:51.40px" class="cls_009"><span class="cls_009">Premium</span></div>
+<div style="position:absolute;left:406.25px;top:49.90px" class="cls_009"><span class="cls_009">Commencement</span></div>
+<div style="position:absolute;left:477.75px;top:50.40px" class="cls_009"><span class="cls_009">Amount Available at</span></div>
+<div style="position:absolute;left:25.75px;top:59.20px" class="cls_010"><span class="cls_010">Pemunya Polisi</span></div>
+<div style="position:absolute;left:148.15px;top:59.45px" class="cls_010"><span class="cls_010">Syarikat</span></div>
+<div style="position:absolute;left:209.75px;top:59.40px" class="cls_009"><span class="cls_009">Investment</span></div>
+<div style="position:absolute;left:293.25px;top:59.45px" class="cls_010"><span class="cls_010">Tujuan</span></div>
+<div style="position:absolute;left:356.25px;top:60.70px" class="cls_010"><span class="cls_010">Premium</span></div>
+<div style="position:absolute;left:406.25px;top:59.15px" class="cls_009"><span class="cls_009">Date</span></div>
+<div style="position:absolute;left:477.75px;top:59.65px" class="cls_009"><span class="cls_009">Maturity(RM)</span></div>
+<div style="position:absolute;left:209.75px;top:68.70px" class="cls_010"><span class="cls_010">Jenis Tabungan/</span></div>
+<div style="position:absolute;left:356.25px;top:70.05px" class="cls_010"><span class="cls_010">(RM)</span></div>
+<div style="position:absolute;left:406.25px;top:68.45px" class="cls_010"><span class="cls_010">Tarikh</span></div>
+<div style="position:absolute;left:477.75px;top:68.95px" class="cls_010"><span class="cls_010">Amaun pada tarikh</span></div>
+<div style="position:absolute;left:209.75px;top:78.05px" class="cls_010"><span class="cls_010">Pelaburan</span></div>
+<div style="position:absolute;left:406.25px;top:77.80px" class="cls_010"><span class="cls_010">Bermula</span></div>
+<div style="position:absolute;left:477.75px;top:78.30px" class="cls_010"><span class="cls_010">matang</span></div>
+<div style="position:absolute;left:26.25px;top:93.40px" class="cls_009"><span class="cls_009" id="SavingsandInvestmentPlan_Policy_Owner"></span></div>
+<div style="position:absolute;left:144.75px;top:93.40px" class="cls_009"><span class="cls_009" id="SavingsandInvestmentPlan_Company"></span></div>
+<div style="position:absolute;left:211.25px;top:93.40px" class="cls_009"><span class="cls_009" id="SavingsandInvestmentPlan_Type_of_Saving"></span></div>
+<div style="position:absolute;left:286.25px;top:93.40px" class="cls_009"><span class="cls_009" id="SavingsandInvestmentPlan_Purpose"></span></div>
+<div style="position:absolute;left:385.35px;top:93.40px" class="cls_009"><span class="cls_009" id="SavingsandInvestmentPlan_Premium"></span></div>
+<div style="position:absolute;left:405.25px;top:93.40px" class="cls_009"><span class="cls_009" id="SavingsandInvestmentPlan_Commencement_Date"></span></div>
+<div style="position:absolute;left:543.85px;top:93.40px" class="cls_009"><span class="cls_009" id="SavingsandInvestmentPlan_Amount_Available_at_Maturity"></span></div>
+<div style="position:absolute;left:281.75px;top:146.55px" class="cls_009"><span class="cls_009">Current Amount</span></div>
+<div style="position:absolute;left:370.15px;top:146.55px" class="cls_009"><span class="cls_009">Required Amount</span></div>
+<div style="position:absolute;left:465.15px;top:146.55px" class="cls_009"><span class="cls_009">Surplus/Shortfall</span></div>
+<div style="position:absolute;left:281.75px;top:155.85px" class="cls_010"><span class="cls_010">Jumlah Kini</span></div>
+<div style="position:absolute;left:370.15px;top:155.85px" class="cls_010"><span class="cls_010">Jumlah diperlukan</span></div>
+<div style="position:absolute;left:465.15px;top:155.85px" class="cls_010"><span class="cls_010">Kelebihan/Kekurangan</span></div>
+<div style="position:absolute;left:26.75px;top:169.50px" class="cls_009"><span class="cls_009">Savings and Investment Plan</span></div>
+<div style="position:absolute;left:341.25px;top:171.05px" class="cls_009"><span class="cls_009" id="SavingsandInvestmentPlan_CurrentAmount"></span></div>
+<div style="position:absolute;left:415.25px;top:171.05px" class="cls_009"><span class="cls_009" id="SavingsandInvestmentPlan_RequiredAmount"></span></div>
+<div style="position:absolute;left:514.25px;top:171.05px" class="cls_009"><span class="cls_009" id="SavingsandInvestmentPlan_Surplus"></span></div>
+<div style="position:absolute;left:26.75px;top:178.80px" class="cls_010"><span class="cls_010">Pelan Simpanan dan Pelaburan</span></div>
+<div style="position:absolute;left:478.75px;top:197.55px" class="cls_009"><span class="cls_009">Customer</span></div>
+<div style="position:absolute;left:478.75px;top:206.85px" class="cls_021"><span class="cls_021">Pelanggan</span></div>
+<div style="position:absolute;left:23.75px;top:219.00px" class="cls_015"><span class="cls_015">How much of your current income would you like to allocate for savings and investment plans per month?</span></div>
+<div style="position:absolute;left:451.75px;top:225.05px" class="cls_009"><span class="cls_009">RM</span></div>
+<div style="position:absolute;left:470.25px;top:224.55px" class="cls_009"><span class="cls_009" id="SavingsandInvestmentPlan_AmountAllocatedPerMonth"></span></div>
+<div style="position:absolute;left:23.75px;top:228.40px" class="cls_016"><span class="cls_016">Berapakah amaun yang anda ingin ketepikan dari pendapatan sekarang untuk keperluan  simpanan dan</span></div>
+<div style="position:absolute;left:23.75px;top:237.75px" class="cls_016"><span class="cls_016">pelaburan pada setiap bulan?</span></div>
+<div style="position:absolute;left:25.75px;top:281.95px" class="cls_011"><span class="cls_011">G. RECORD OF ADVICE / </span><span class="cls_012">REKOD NASIHAT</span></div>
+<div style="position:absolute;left:22.75px;top:307.20px" class="cls_022"><span class="cls_022">Recommendations and Reasons for Recommendations / </span><span class="cls_023">Cadangan dan Sebab</span></div>
+<div style="position:absolute;left:132.75px;top:322.50px" class="cls_015"><span class="cls_015">Priority 1 - Recommended solution</span></div>
+<div style="position:absolute;left:352.25px;top:323.00px" class="cls_015"><span class="cls_015">Priority 2 - Recommended solution</span></div>
+<div style="position:absolute;left:132.75px;top:331.90px" class="cls_016"><span class="cls_016">Keutamaan 1 - Cadangan penyelesaian</span></div>
+<div style="position:absolute;left:352.25px;top:332.40px" class="cls_016"><span class="cls_016">Keutamaan 2 - Cadangan penyelesaian</span></div>
+<div style="position:absolute;left:23.65px;top:348.05px" class="cls_009"><span class="cls_009">Type of plan:</span></div>
+<div style="position:absolute;left:132.75px;top:353.30px" class="cls_009"><span class="cls_009" id="RecordOfAdvice_Typeofplan"></span></div>
+<div style="position:absolute;left:23.65px;top:357.35px" class="cls_010"><span class="cls_010">Jenis pelan:</span></div>
+<div style="position:absolute;left:23.75px;top:368.55px" class="cls_009"><span class="cls_009">Term:</span></div>
+<div style="position:absolute;left:132.75px;top:373.30px" class="cls_009"><span class="cls_009" id="RecordOfAdvice_Term"></span></div>
+<div style="position:absolute;left:23.75px;top:377.85px" class="cls_010"><span class="cls_010">Tempoh:</span></div>
+<div style="position:absolute;left:24.65px;top:390.05px" class="cls_009"><span class="cls_009">Name of insurer:</span></div>
+<div style="position:absolute;left:132.75px;top:393.30px" class="cls_009"><span class="cls_009" id="RecordOfAdvice_Nameofinsurer"></span></div>
+<div style="position:absolute;left:24.65px;top:399.35px" class="cls_010"><span class="cls_010">Syarikat insurans:</span></div>
+<div style="position:absolute;left:23.65px;top:411.05px" class="cls_009"><span class="cls_009">Name of insured:</span></div>
+<div style="position:absolute;left:132.75px;top:414.30px" class="cls_009"><span class="cls_009" id="RecordOfAdvice_Nameofinsured"></span></div>
+<div style="position:absolute;left:23.65px;top:420.35px" class="cls_010"><span class="cls_010">Nama hayat diinsuranskan:</span></div>
+<div style="position:absolute;left:24.15px;top:431.05px" class="cls_009"><span class="cls_009">Sum assured:</span></div>
+<div style="position:absolute;left:132.75px;top:434.30px" class="cls_009"><span class="cls_009" id="RecordOfAdvice_Sumassured"></span></div>
+<div style="position:absolute;left:24.15px;top:440.35px" class="cls_010"><span class="cls_010">Jumlah diinsuranskan:</span></div>
+<div style="position:absolute;left:23.15px;top:450.55px" class="cls_009"><span class="cls_009">Additional Benefits:</span></div>
+<div style="position:absolute;left:132.75px;top:453.55px" class="cls_009"><span class="cls_009" id="RecordOfAdvice_AdditionalBenefits"></span></div>
+<div style="position:absolute;left:23.15px;top:459.85px" class="cls_010"><span class="cls_010">Manfaat tambahan:</span></div>
+<div style="position:absolute;left:132.75px;top:473.05px" class="cls_009"><span class="cls_009">HLA Major Medi</span></div>
+<div style="position:absolute;left:132.75px;top:492.55px" class="cls_009"><span class="cls_009">Living Care Waiver of Premium Rider</span></div>
+<div style="position:absolute;left:23.15px;top:509.05px" class="cls_009"><span class="cls_009">Reasons for recommending:</span></div>
+<div style="position:absolute;left:132.75px;top:512.80px" class="cls_009"><span class="cls_009" id="RecordOfAdvice_Reasonsforrecommending"></span></div>
+<div style="position:absolute;left:23.15px;top:518.35px" class="cls_010"><span class="cls_010">Sebab-sebab bagi cadangan:</span></div>
+<div style="position:absolute;left:175.65px;top:613.15px" class="cls_015"><span class="cls_015">Action taken if different from recommendations and the reasons</span></div>
+<div style="position:absolute;left:143.70px;top:622.55px" class="cls_016"><span class="cls_016">Tindakan yang akan diambil sekiranya berlainan daripada cadangan dan sebabnya</span></div>
+<div style="position:absolute;left:319.50px;top:820.45px" class="cls_009"><span class="cls_009">5</span></div>
+</div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div style="position:absolute;top:4260px;width:595px;height:842px;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="background6.png" width="595" height="842"></div>
+<div style="position:absolute;left:24.25px;top:10.80px" class="cls_022"><span class="cls_022">Intermediary’s Declaration and Acknowledgement / </span><span class="cls_023">Akuan dan Pengiktirafan Perantara</span></div>
+<div style="position:absolute;left:22.75px;top:29.30px" class="cls_009"><span class="cls_009">I declare that I will treat the information provided to me in the Customer Fact Find Form with strict confidence and I will use it only for the purpose of</span></div>
+<div style="position:absolute;left:22.75px;top:38.55px" class="cls_009"><span class="cls_009">fact finding in the process of recommending suitable insurance products and shall not use it for any other purposes.</span></div>
+<div style="position:absolute;left:22.75px;top:47.85px" class="cls_010"><span class="cls_010">Saya   berjanji   akan   merahsiakan   maklumat   yang   diberikan   kepada   saya   dalam   Borang   Pencarian   Fakta   Pelanggan   dan   saya   tidak   akan</span></div>
+<div style="position:absolute;left:22.75px;top:57.20px" class="cls_010"><span class="cls_010">menggunakan maklumat-maklumat ini untuk tujuan yang lain selain untuk tujuan memberi cadangan produk-produk insurans yang bersesuaian.</span></div>
+<div style="position:absolute;left:22.75px;top:75.85px" class="cls_009"><span class="cls_009">The  above  analysis/advice  is  based  on  the  facts  furnished  in  the  Form.  I  have  taken  reasonable  steps  to  ensure  that  the  advice  is  suitable  for  the</span></div>
+<div style="position:absolute;left:22.75px;top:85.10px" class="cls_009"><span class="cls_009">Customer,  having  regard  to  the  facts  disclosed  and  other  relevant  facts  of  which  are  made  available  to  me.  I  have  also  explained  to  the  Customer</span></div>
+<div style="position:absolute;left:22.75px;top:94.35px" class="cls_009"><span class="cls_009">about the features of the product recommended and have given sufficient information to enable the Customer to make an informed decision.</span></div>
+<div style="position:absolute;left:22.75px;top:103.65px" class="cls_010"><span class="cls_010">Analisa di atas adalah berdasarkan fakta yang diberikan dalam Borang. Saya telah mengambil langkah-langkah wajar untuk memastikan nasihat</span></div>
+<div style="position:absolute;left:22.75px;top:113.00px" class="cls_010"><span class="cls_010">sesuai   untuk   Pelanggan,   dengan   mengambil   kira   fakta   yang   diberitahu   dalam   Borang   ini   dan   fakta-fakta   lain   yang   berkaitan.   Saya   juga   telah</span></div>
+<div style="position:absolute;left:22.75px;top:122.35px" class="cls_010"><span class="cls_010">memberi   penerangan   tentang   ciri-ciri   produk   yang   dicadangkan   dan   telah   memberikan   maklumat   yang   secukupnya   kepada   Pelanggan</span></div>
+<div style="position:absolute;left:525.34px;top:122.35px" class="cls_010"><span class="cls_010">supaya</span></div>
+<div style="position:absolute;left:22.75px;top:131.70px" class="cls_010"><span class="cls_010">beliau dapat membuat keputusan yang sewajarnya.</span></div>
+<div style="position:absolute;left:22.75px;top:155.95px" class="cls_009"><span class="cls_009">Signature of intermediary:</span></div>
+<div style="position:absolute;left:313.75px;top:155.95px" class="cls_009"><span class="cls_009">Date:</span></div>
+<div style="position:absolute;left:425.20px;top:155.95px" class="cls_009"><span class="cls_009">(DD/MM/YYYY)</span></div>
+<div style="position:absolute;left:124.75px;top:161.30px" class="cls_017"><span class="cls_017">Signature is required in Authorization Form</span></div>
+<div style="position:absolute;left:22.75px;top:165.25px" class="cls_010"><span class="cls_010">Tandatangan perantara:</span></div>
+<div style="position:absolute;left:313.75px;top:165.20px" class="cls_018"><span class="cls_018">Tarikh:</span></div>
+<div style="position:absolute;left:424.10px;top:165.10px" class="cls_008"><span class="cls_008">(HH/BB/TTTT)</span></div>
+<div style="position:absolute;left:22.75px;top:185.30px" class="cls_009"><span class="cls_009">Name of intermediary:</span></div>
+<div style="position:absolute;left:313.75px;top:185.30px" class="cls_009"><span class="cls_009">Address of intermediary:</span></div>
+<div style="position:absolute;left:22.75px;top:194.60px" class="cls_010"><span class="cls_010">Nama perantara:</span></div>
+<div style="position:absolute;left:114.25px;top:192.40px" class="cls_009"><span class="cls_009" id="Nameofintermediary"></span></div>
+<div style="position:absolute;left:313.75px;top:194.60px" class="cls_010"><span class="cls_010">Alamat perantara:</span></div>
+<div style="position:absolute;left:394.25px;top:193.20px" class="cls_009"><span class="cls_009">agent address d'crimson</span></div>
+<div style="position:absolute;left:22.75px;top:216.30px" class="cls_009"><span class="cls_009">Intermediary's contract Date:</span></div>
+<div style="position:absolute;left:238.70px;top:216.95px" class="cls_009"><span class="cls_009">(DD/MM/YYYY)</span></div>
+<div style="position:absolute;left:22.75px;top:225.60px" class="cls_010"><span class="cls_010">Tarikh Kontrak perantara:</span></div>
+<div style="position:absolute;left:131.25px;top:224.70px" class="cls_009"><span class="cls_009" id="Intermediary'scontractDate"></span></div>
+<div style="position:absolute;left:237.60px;top:226.10px" class="cls_008"><span class="cls_008">(HH/BB/TTTT)</span></div>
+<div style="position:absolute;left:22.75px;top:252.75px" class="cls_022"><span class="cls_022">Manager’s Declaration (applicable to intermediary who has been contracted for one year and below).</span></div>
+<div style="position:absolute;left:22.75px;top:262.15px" class="cls_023"><span class="cls_023">Akuan Pengurus (hanya untuk perantara yang dikontrak satu tahun dan ke bawah).</span></div>
+<div style="position:absolute;left:22.75px;top:281.05px" class="cls_009"><span class="cls_009">I declare that I have reviewed this Customer Fact Find Form and to my best belief and knowledge, the advice and recommendation given by the</span></div>
+<div style="position:absolute;left:22.75px;top:290.30px" class="cls_009"><span class="cls_009">intermediary is sound and appropriate.</span></div>
+<div style="position:absolute;left:22.75px;top:299.60px" class="cls_010"><span class="cls_010">Saya mengaku bahawa saya telah mengkaji Borang Pencarian Fakta Pelanggan ini dan berdasarkan pertimbangan dan pengetahuan saya,</span></div>
+<div style="position:absolute;left:22.75px;top:308.95px" class="cls_010"><span class="cls_010">nasihat dan cadangan yang diberikan oleh perantara adalah kukuh dan bersesuaian.</span></div>
+<div style="position:absolute;left:22.75px;top:330.90px" class="cls_009"><span class="cls_009">Signature of Manager:</span></div>
+<div style="position:absolute;left:313.75px;top:329.55px" class="cls_009"><span class="cls_009">Date:</span></div>
+<div style="position:absolute;left:424.85px;top:331.30px" class="cls_009"><span class="cls_009">(DD/MM/YYYY)</span></div>
+<div style="position:absolute;left:22.75px;top:340.20px" class="cls_010"><span class="cls_010">Tandatangan Pengurus:</span></div>
+<div style="position:absolute;left:313.75px;top:338.80px" class="cls_018"><span class="cls_018">Tarikh:</span></div>
+<div style="position:absolute;left:423.75px;top:340.45px" class="cls_008"><span class="cls_008">(HH/BB/TTTT)</span></div>
+<div style="position:absolute;left:22.75px;top:359.30px" class="cls_009"><span class="cls_009">Name of Manager:</span></div>
+<div style="position:absolute;left:22.75px;top:368.60px" class="cls_010"><span class="cls_010">Nama Pengurus:</span></div>
+<div style="position:absolute;left:22.75px;top:399.45px" class="cls_022"><span class="cls_022">Customer’s Acknowledgement / </span><span class="cls_023">Pengiktirafan Pelanggan</span></div>
+<div style="position:absolute;left:39.75px;top:417.95px" class="cls_020"><span class="cls_020">I/We acknowledge that the intermediary has provided me/us with a copy of the Customer Fact Find Form.</span></div>
+<div style="position:absolute;left:22.75px;top:417.90px" class="cls_013"><ul type="circle" id="Selection1"><li></li></ul></div>
+<div style="position:absolute;left:39.75px;top:427.25px" class="cls_010"><span class="cls_010">Saya/Kami mengaku bahawa perantara telah memberikan saya/kami satu salinan Borang Pencarian Fakta Pelanggan.</span></div>
+<div style="position:absolute;left:39.75px;top:442.55px" class="cls_009"><span class="cls_009">I/We acknowledge that the intermediary has shown me/us the contents of the completed Customer Fact Find Form in softcopy and I/we agree</span></div>
+<div style="position:absolute;left:22.75px;top:442.50px" class="cls_013"><ul type="circle" id="Selection1"><li></li></ul></div>
+<div style="position:absolute;left:39.75px;top:451.80px" class="cls_009"><span class="cls_009">that a physical copy of the same Form will be provided to me/us before the issuance of the policy contract.</span></div>
+<div style="position:absolute;left:39.75px;top:461.10px" class="cls_010"><span class="cls_010">Saya/Kami mengaku bahawa perantara telah menunjukkan kepada saya/kami kandungan Borang Pencarian Fakta Pelanggan ini dan saya/kami</span></div>
+<div style="position:absolute;left:39.75px;top:470.45px" class="cls_010"><span class="cls_010">bersetuju bahawa salinan fizikal Borang akan diberikan kepada saya/kami sebelum kontrak polisi dikeluarkan.</span></div>
+<div style="position:absolute;left:23.15px;top:501.80px" class="cls_009"><span class="cls_009">Signature of customer:</span></div>
+<div style="position:absolute;left:313.40px;top:501.80px" class="cls_009"><span class="cls_009">Date:</span></div>
+<div style="position:absolute;left:427.65px;top:502.20px" class="cls_009"><span class="cls_009">(DD/MM/YYYY)</span></div>
+<div style="position:absolute;left:124.75px;top:505.80px" class="cls_017"><span class="cls_017">Signature is required in Authorization Form</span></div>
+<div style="position:absolute;left:23.15px;top:511.10px" class="cls_010"><span class="cls_010">Tandatangan pelanggan:</span></div>
+<div style="position:absolute;left:313.40px;top:511.05px" class="cls_018"><span class="cls_018">Tarikh:</span></div>
+<div style="position:absolute;left:426.55px;top:511.35px" class="cls_008"><span class="cls_008">(HH/BB/TTTT)</span></div>
+<div style="position:absolute;left:22.75px;top:530.20px" class="cls_009"><span class="cls_009">Name of customer:</span></div>
+<div style="position:absolute;left:114.25px;top:534.40px" class="cls_009"><span class="cls_009" id="Nameofcustomer"></span></div>
+<div style="position:absolute;left:22.75px;top:539.50px" class="cls_010"><span class="cls_010">Nama pelanggan:</span></div>
+<div style="position:absolute;left:22.75px;top:562.05px" class="cls_009"><span class="cls_009">This form should be attached with the application form(s).</span></div>
+<div style="position:absolute;left:22.75px;top:571.35px" class="cls_010"><span class="cls_010">Borang ini harus dilampirkan bersama-sama dengan borang cadangan.</span></div>
+<div style="position:absolute;left:22.75px;top:580.65px" class="cls_009"><span class="cls_009">A Confirmation of Advice will be sent to you together with the issuance of life insurance policy contract by your insurer.</span></div>
+<div style="position:absolute;left:22.75px;top:589.95px" class="cls_010"><span class="cls_010">Syarikat insurans akan menghantar Pengesahan Nasihat bersama-sama dengan kontrak polisi insurans hayat kepada anda.</span></div>
+<div style="position:absolute;left:178.75px;top:608.35px" class="cls_015"><span class="cls_015">Additional comments and notes / </span><span class="cls_016">Pendapat dan nota tambahan</span></div>
+<div style="position:absolute;left:319.50px;top:820.45px" class="cls_009"><span class="cls_009">6</span></div>
+</div>
+
+
+
+</body></html>

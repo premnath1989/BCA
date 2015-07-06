@@ -1,0 +1,262 @@
+//
+//  IssuingBankPopoverVC.m
+//  iMobile Planner
+//
+//  Created by Juliana on 8/30/13.
+//  Copyright (c) 2013 InfoConnect Sdn Bhd. All rights reserved.
+//
+
+#import "IssuingBankPopoverVC.h"
+NSString *SelectedString;
+
+
+@interface IssuingBankPopoverVC ()
+
+@end
+
+@implementation IssuingBankPopoverVC
+@synthesize FilteredData,isFiltered,FilteredCode;
+
+-(id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+        NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *docsDir = [dirPaths objectAtIndex:0];
+        
+        databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"hladb.sqlite"]];
+        
+        [self getIssuingBank];
+        
+        self.clearsSelectionOnViewWillAppear = NO;
+        
+        NSInteger rowsCount = [_IssuingBank count];
+        NSInteger singleRowHeight = [self.tableView.delegate tableView:self.tableView
+                                               heightForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        NSInteger totalRowsHeight = rowsCount * singleRowHeight;
+        
+        
+        CGFloat largestLabelWidth = 0;
+        for (NSString *FPT in _IssuingBank) {
+            //Checks size of text using the default font for UITableViewCell's textLabel.
+            CGSize labelSize = [FPT sizeWithFont:[UIFont boldSystemFontOfSize:20.0f]];
+            if (labelSize.width > largestLabelWidth) {
+                largestLabelWidth = labelSize.width;
+            }
+        }
+        
+        CGFloat popoverWidth = largestLabelWidth + 100;
+        
+        self.contentSizeForViewInPopover = CGSizeMake(popoverWidth, totalRowsHeight);
+    }
+    return self;
+}
+
+- (void)getIssuingBank {
+    
+    _IssuingBank = [[NSMutableArray alloc] init];
+    dbpath = [databasePath UTF8String];
+    if (sqlite3_open(dbpath, &contactDB) == SQLITE_OK){
+        NSString *querySQL = [NSString stringWithFormat:@"SELECT CompanyName FROM eProposal_Credit_Card_Bank Order by CompanyName"];
+        const char *query_stmt = [querySQL UTF8String];
+        if (sqlite3_prepare_v2(contactDB, query_stmt, -1, &statement, NULL) == SQLITE_OK)
+        {
+            while (sqlite3_step(statement) == SQLITE_ROW){
+                [_IssuingBank addObject:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)]];
+            }
+            sqlite3_finalize(statement);
+        }
+        sqlite3_close(contactDB);
+    }//
+    
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    UISearchBar *zzz = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 200, 50) ];
+    
+    zzz.opaque = false;
+    zzz.delegate = (id) self;
+    self.tableView.tableHeaderView = zzz;
+    CGRect searchbarFrame = zzz.frame;
+    [self.tableView scrollRectToVisible:searchbarFrame animated:NO];
+    
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    if (isFiltered == false) {
+        return [_IssuingBank count];
+    }
+    else {
+        return [FilteredData count ];
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell==nil) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        
+    }
+    
+    
+    //    // Configure the cell...
+    //    cell.textLabel.text = [_IssuingBank objectAtIndex:indexPath.row];
+    //
+    //    return cell;
+    // Configure the cell...
+    if (isFiltered == false) {
+        NSString *title = [_IssuingBank objectAtIndex:indexPath.row];
+        cell.textLabel.text = title;
+        
+        
+        
+        if (title == SelectedString) {
+            
+            cell.accessoryType= UITableViewCellAccessoryCheckmark;
+        }
+        else
+        {
+            
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
+        
+    }
+    else
+    {
+        
+        NSString *title = [FilteredData objectAtIndex:indexPath.row];
+        cell.textLabel.text = title;
+        
+        if (title == SelectedString) {
+            cell.accessoryType= UITableViewCellAccessoryCheckmark;
+        }
+        else
+        {
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
+        if ([FilteredData objectAtIndex:indexPath.row] == SelectedString) {
+            cell.accessoryType= UITableViewCellAccessoryCheckmark;
+        }
+        else
+        {
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
+        
+        
+        
+    }
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.textLabel.font = [UIFont fontWithName:@"TreBuchet MS" size:16 ];
+    
+    return cell;
+    
+    
+}
+
+-(void)searchBar:(UISearchBar*)searchBar textDidChange:(NSString*)text
+{
+    if (text.length == 0) {
+        isFiltered = false;
+        
+    }
+    else {
+        isFiltered = true;
+        FilteredData = [[NSMutableArray alloc] init ];
+        FilteredCode = [[NSMutableArray alloc] init ];
+        
+        
+        for (int a =0; a<_IssuingBank.count; a++ ) {
+            NSRange Occu = [[_IssuingBank objectAtIndex:a ] rangeOfString:text options:NSCaseInsensitiveSearch];
+            
+            if (Occu.location != NSNotFound) {
+                [FilteredData addObject:[_IssuingBank objectAtIndex:a ] ];
+                [FilteredCode addObject:[_IssuingBank objectAtIndex:a ] ];
+            }
+        }
+    }
+    
+    [self.tableView reloadData];
+}
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *selectedIssuingBank = [_IssuingBank objectAtIndex:indexPath.row];
+    
+    //Notify the delegate if it exists.
+    //    if (_delegate != nil) {
+    //        [_delegate selectedIssuingBank:selectedIssuingBank];
+    //    }
+    if (_delegate != nil) {
+        if (isFiltered == false)
+        {
+            [self resignFirstResponder];
+            [self.view endEditing:TRUE];
+            
+            //NSString *selectedTitle = [_Title objectAtIndex:indexPath.row];
+            //[_delegate selectedTitle:selectedTitle];
+            
+            NSString *selectedTitleDesc = [_IssuingBank objectAtIndex:indexPath.row];
+            [_delegate selectedIssuingBank:selectedTitleDesc];
+            
+            NSString *selectedTitleCode = [_IssuingBank objectAtIndex:indexPath.row];
+            [_delegate selectedIssuingBank:selectedTitleCode];
+            
+            SelectedString = [_IssuingBank objectAtIndex:indexPath.row ];
+        }
+        else
+        {
+            [self resignFirstResponder];
+            [self.view endEditing:TRUE];
+            NSString *selectedTitleDesc = [FilteredData objectAtIndex:indexPath.row];
+            [_delegate selectedIssuingBank:selectedTitleDesc];
+            NSString *selectedTitleCode = [FilteredData objectAtIndex:indexPath.row];
+            [_delegate selectedIssuingBank:selectedTitleCode];
+            SelectedString = [FilteredData objectAtIndex:indexPath.row ];
+        }
+        
+    }
+    
+    [tableView reloadData];
+    
+}
+
+-(void) setTitle:(NSString *)title
+{
+    
+    SelectedString = title;
+    
+    [self.tableView reloadData];
+}
+
+@end

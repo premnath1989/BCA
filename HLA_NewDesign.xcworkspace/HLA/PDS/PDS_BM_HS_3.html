@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/hla.js"></script>
+  <script>
+  var gData;
+  function onBodyLoad(){
+  		//writeSummary1();
+  }
+  
+    function replaceChar(char){
+        var temp, returnVal;
+        if (char == "0")
+            returnVal = "-"
+        else if (char == "")
+            returnVal = "-"
+        else
+            returnVal = char;
+        return returnVal;
+    }
+    
+    function isIncomeRider(amt,rider){
+		//rider.replace(/^\s+|\s$/g,"")
+		//$.trim(rider)
+		var temp;
+		temp = $.trim(rider)
+		//alert(temp + "x")
+        if (temp == "HLA Income Builder" || temp == "Income 20 Rider" || temp == "Income 30 Rider" || temp == "Income 40 Rider" || temp == "Income D-20 Rider" || temp == "Income D-30 Rider" || temp == "Income D-40 Rider" || temp == "Income E-20 Rider" || temp == "Income E-30 Rider"){
+        	return amt + " *";
+        }
+        else
+        	return amt + "&nbsp;&nbsp;";
+    }
+    
+  </script>
+  <head>
+  <body onload="onBodyLoad()">
+  
+<div id="header">
+	<div class="agentInfo">
+  		Prepared By : <span id="agentName" class="agentName">{agentName}</span>
+  		<br/>Code : <span id="agentCode" class="agentCode">{agentCode}</span>
+  	</div>
+  	<div class="ContentInfo">Printed On : <span id="dateModified" class="dateModified">{DateModified}</span></div>
+  	<div class="hruleInfo"></div>
+</div>
+<div class="main-content">
+<!--520px-->
+
+
+
+<div class="contentArea">
+
+
+
+<table cellspacing="5">
+	<tr>
+	    <td width="10" valign="top"></td>
+	    <td valign="top">
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Penyakit yang ditetapkan yang berlaku dalam tempoh satu ratus dua puluh (120) hari pertama bagi perlindungan berterusan.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Apa-apa keadaan perubatan atau fizikal yang berlaku dalam tempoh tiga puluh (30) hari dari Tarikh Penerbitan, Tarikh Pindaan Efektif atau pada sebarang Tarikh Pengembalian Semula, mengikut mana-mana<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yang terkemudian kecuali bagi kecederaan untuk kemalangan.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pembedahan Plastik/Kosmetik, khatan, pemeriksaan mata, cermin mata dan pembetulan penglihatan dekat melalui pembiasan atau pembedahan (Keratotomi Radial atau Lasik) dan penggunaan<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;atau pemerolehan perkakas atau alat prostetik luaran seperti anggota tiruan, alat pendengaran, perentak yang diimplankan dan preskripsinya.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Penyakit pergigian termasuk rawatan pergigian atau Pembedahan oral kecuali apabila diperlukan kerana Kecederaan akibat Kemalangan pada gigi asli yang sihat yang berlaku sepenuhnya dalam Tempoh Insurans.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Penjagaan peribadi, rehat pulih atau jagaan kebersihan, dadah yang tidak dibenarkan, intoksikasi, pensterilan, penyakit venereal dan sekuelanya, AIDS (Sindrom Kurang Daya Tahan Penyakit)<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;atau ARC (Kompleks berkaitan AIDS) dan penyakit berkaitan HIV, dan apa-apa Penyakit berjangkit yang memerlukan kuarantin oleh undang-undang<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Apa-apa rawatan atau operasi pembedahan untuk keabnormalan atau kecacatan kongenital termasuk penyakit keturunan.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kehamilan, melahirkan anak (termasuk kelahiran secara pembedahan), keguguran, mengguguran kanduangan dan jagaan serta pembedahan pranatal atau postnatum, kaedah kawalan kelahiran<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;kontraseptif mekanikal atau kimia atau rawatan berkaitan ketaksuburan, disfungsi erektil dan ujian atau rawatan berkaitan impoten atau pensterilan.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Penghospitalan terutamanya untuk tujuan penyiasatan, diagnosis, pemeriksaan sinar-x, pemeriksaan fizikal atau perubatan am, tidak berkaitan dengan rawatan atau diagnosis Hilang Upaya yang<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dilindungi yang tidak Perlu Dari Segi Perubatan dan apa-apa rawatan pencegahan, ubat atau pemeriksaan pencegahan yang dijalankan oleh Pakar Perubatan, dan rawatan khusus untuk mengurangkan atau menaikkan berat badan.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bunuh diri, percubaan bunuh diri atau kecederaan diri sendiri yang disengajakan ketika siuman atau tidak siuman.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Perang atau apa-apa tindakan perang, diisytiharkan atau tidak diisytiharkan, aktiviti jenayah atau pengganas, bergiat cergas dalam mana-mana angkatan bersenjata, penyertaan secara langsung<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dalam mogok, rusuhan dan kekecohan awam atau penderhakaan tentera.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Radiasi pengionan atau pencemaran melalui radioaktiviti daripada mana-mana bahan api nuklear atau sisa nuklear daripada proses pembelahan nuklear atau daripada apa-apa bahan senjata nuklear.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Belanja yang ditanggung untuk menderma mana-mana organ tubuh oleh Hayat diinsuranskan dan kos pemerolehan organ termasuk semua kos yang ditanggung oleh penderma ketika transplan organ dan komplikasinya.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Penyiasatan dan rawatan gangguan tidur dan dengkur, terapi penggantian hormon dan terapi pilihan seperti rawatan, khidmat atau bekalan perubatan, termasuk tetapi tidak terhad kepada khidmat<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;kiropraktik, akupunktur, akutekanan, refleksologi, pengikatan tulang, rawatan pakar herba, urut atau terapi aroma atau rawatan pilihan yang lain.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jagaan atau rawatan yang pembayarannya tidak dikehendaki atau setakat yang ia dibayar oleh mana-mana insurans lain atau tanggung rugi yang melindungi Hayat diinsuranskan dan Hilang<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Upaya yang timbul daripada tugas dalam pekerjaan atau kerjaya yang dilindungi di bawah Kontrak Insurans Pampasan Pekerja.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Psikotik, gangguan mental atau saraf (termasuk apa-apa neurosis dan manifestasi fisiologi atau psikosomatiknya).<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kos/belanja bagi khidmat yang bersifat bukan perubatan, seperti televisyen, telefon, khidmat teleks, radio atau kemudahan yang serupa, kit/pek kemasukan dan barang bukan perubatan lain yang tidak layak.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sakit atau Kecederaan yang timbul daripada apa-apa jenis perlumbaan (kecuali perlumbaan jalan kaki), sukan berbahaya seperti tetapi tidak terhad kepada terjun di udara, luncur air, aktiviti dalam<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;air yang memerlukan alat pernafasan, sukan musim sejuk, sukan profesional dan aktiviti yang tidak dibenarkan.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Penerbangan peribadi selain sebagai penumpang yang membayar tambang dalam mana-mana penerbangan komersil berjadual untuk mengangkut penumpang melalui laluan yang ditetapkan.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Belanja yang ditanggung untuk menukar jantina.
+	    </td>
+	</tr>
+	<tr>
+	    <td width="10" valign="top"></td>
+	    <td valign="top">
+		Rider ini tidak melindungi, dan Syarikat dalam apa jua keadaan tidak akan bertanggungan untuk, perkara berikut:<br/><br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rawatan perubatan yang diberi di luar Malaysia kepada seorang Hayat diinsuranskan yang bukan seorang warganegara Malaysia;<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rawatan perubatan yang diberi di luar Malaysia kepada seorang Hayat diinsuranskan yang kebiasaannya tidak menetap di Malaysia;<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rawatan perubatan yang diberi di luar Malaysia kepada seorang Hayat diinsuranskan yang tinggal atau melancong di luar Malaysia melebihi sembilan puluh (90) hari secara berterusan;<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rawatan perubatan yang diberi di mana-mana negara (selain daripada Malaysia) kepada Hayat diinsuranskan di mana Hayat diinsuranskan seorang penduduk kekal di negara tersebut;<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rawatan perubatan yang diberi di luar Malaysia kepada Hayat diinsuranskan yang meneruskan pelajaran di luar Malaysia; dan<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rawatan perubatan yang diberi di luar Malaysia kepada Hayat diinsuranskan yang menjalankan pekerjaan (samada sementara atau sebaliknya) di luar Malaysia melainkan notis bagi pekerjaan di<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;luar Malaysia tersebut telah diberi kepada Syarikat dan DENGAN SYARAT Syarikat meluluskan perkara ini tertakluk kepada terma dan syarat seperti yang mungkin ditentukan oleh Syarikat dan<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;kemudian dari ini akan dikuatkuasakan.<br/><br/>
+		<i>Nota: Senarai ini tidak lengkap. Sila rujuk kontrak polisi untuk mendapatkan terma dan syarat di bawah polisi ini.</i>
+
+
+	    </td>
+	</tr>
+	<tr>
+	    <td width="10" valign="top"><b>7.</b></td>
+	    <td valign="top"><b>Bolehkah saya membatalkan polisi saya?</b><br/><br/>
+Anda boleh membatalkan rider anda dengan memberikan notis bertulis kepada syarikat insurans. Jika tiada tuntutan dibuat, anda akan menerima kembali premium yang ditetapkan.
+	    <br/><br/</td>
+	</tr>
+	<tr>
+	    <td valign="top"><b>8.</b></td>
+	    <td valign="top">
+		<b>Apakah yang perlu saya lakukan jika saya bertukar alamat dan nombor telefon?</b><br/><br/>
+Anda mestilah memaklumkan kami tentang sebarang perubahan maklumat perhubungan anda (termasuk maklumat tentang penama dan/atau pemegang amanah) bagi memastikan anda menerima
+<br/>semua surat-menyurat sampai kepada anda dan/atau penama/pemegang amanah tepat pada masanya.
+	    </td>
+	</tr>
+
+
+<!--	
+	<tr>
+	    <td width="10" valign="top"><b>7.</b></td>
+	    <td valign="top"><b>Can I cancel my policy?</b><br/>
+		You may cancel the rider by giving a written notice to Hong Leong Assurance Berhad. After the free look period the cash surrender value
+		(if any) of your rider will be paid to you when you cancel the rider provided<br/>that no claim has been admitted prior to cancellation,
+		however the amount payable may be less than the total premiums you had paid.
+	    </td>
+	</tr>
+	<tr>
+	    <td valign="top"><b>8.</b></td>
+	    <td valign="top">
+		<b>What do I need to do if there are changes to my contact details?</b><br/>
+		It is important that you inform us of any change in your contact details (including that of the nominee and/or trustee) to ensure that
+		all correspondences reach you and/or nominee/trustee in a timely manner.
+	    </td>
+	</tr>
+	<tr>
+	    <td valign="top"><b>9.</b></td>
+	    <td valign="top">
+		<b>Where can I get further information?</b><br/>
+		Should you require additional information about medical & health insurance, please refer to the insurance info booklet on 'Medical & Health Insurance',
+		available at all our branches or you can obtain a copy from the insurance agent or visit www.insuranceinfo.com.my.
+	    </td>
+	</tr>
+	-->
+	
+    </table>
+
+
+
+
+</div>
+
+
+
+
+
+<table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+<tr>
+<td width="75%" style="font-family:Arial;font-size:8px;font-weight:normal;padding: 5px 5px 5px 0px;">
+Risalah Pendedahan Produk ini mengandungi <span class="totalPages">{totalPages}</span> muka surat and setiap muka surat membentuk sebahagian daripada Risalah Pendedahan Produk. Bakal pemunya polisi adalah<br/>
+dinasihatkan untuk membaca dan memahami maklumat yang tercetak pada setiap muka surat.<br/>
+<b><span id="rptVersion" class="rptVersion">{rptVersion}</span></b> <br/>
+Level 3, Tower B, PJ City Development, No. 15A Jalan 219, Seksyen 51A, 46100 Petaling Jaya, Selangor. Tel: 03-7650 1818 Fax: 03-7650 1991 Website: www.hla.com.my<br/>
+</td>
+<td width="10%" align="left" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:10px;font-weight:normal;">Page <span class="currentPage">22</span> of <span class="totalPages">56</span></td>
+<td width="15%" align="right" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:12px;font-weight:normal;">Ref: <span id=SICode class="SICode">{SINo}</span></td>
+</tr>
+</table>
+
+</div>
+</body>
+</html>

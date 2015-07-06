@@ -1,0 +1,130 @@
+.pageContent
+{
+    height:100%;
+
+
+}
+.pageFooter
+{
+    height:10%;
+}
+#table-LA
+{
+    border-collapse: collapse;
+    width:98%;
+    margin-left:5px;
+}
+.table_LA_headerColA
+{
+    width: 70%;
+    background-color: #c0c0c0;
+    text-align:left;
+    padding: 3px 3px 3px 3px;
+    border: 1px solid black;
+    
+}
+.table_LA_headerColB{
+    width:30%;
+    text-align:left;
+    padding: 3px 3px 3px 3px;
+    border: 1px solid black;
+}
+
+.table_LA_headerColARowA{
+    
+   text-align:left;
+   padding: 3px 3px 3px 3px;
+   border: 1px solid black;
+   
+}
+.main_content_inner{
+    
+    height:703px;
+    background-color: #fff;
+}
+.numbering
+{
+    width: 20px;
+    font-weight: bold;
+}
+.bold
+{
+    font-weight: bold;
+
+}
+.boldUnderLine
+{
+    font-weight: bold;
+    text-decoration: underline;
+}
+.textAlignCenter
+{
+    text-align:center;
+    width: 50%;
+    border: 1px solid;
+}
+.normalTable
+{
+    border-collapse: collapse;
+    border: 2px solid black;
+    
+}
+
+.normalTableTD
+{
+    border-collapse: collapse;
+    border: 2px solid black;    
+}
+.fundChosenWidth
+{
+   
+    text-align: center; 
+    width: 16.66%;
+}
+.alignTop
+{
+   vertical-align: top;
+}
+.tableNothing
+{
+    border: none;    
+}
+.indentOneLayer
+{
+     margin-left: 25px;
+}
+.tableHeaderTD
+{
+    padding-left: 20px;
+    border-collapse: collapse;
+    border: 2px solid black;
+    font-weight: bold;
+}
+
+.footerClass {   
+    width: 1200px;
+    margin-left:10px;
+}
+ .tableMain{
+        
+    background-color:transparent;
+
+}
+.tdVerticalAlign
+{
+    vertical-align: top;
+}
+.displayNone
+{
+    display: none;
+}
+.leftRightMargin
+{
+    padding-left:30px;
+    padding-right:30px;
+}
+.textAlignCenter
+{
+    text-align: center;
+
+}

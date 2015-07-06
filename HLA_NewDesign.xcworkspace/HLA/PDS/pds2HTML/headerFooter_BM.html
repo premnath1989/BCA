@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <script type="text/javascript" charset="utf-8" src="PDS/pds2HTML/js/jquery-1.8.2.min.js"></script>
+      <!--  <script type="text/javascript" charset="utf-8" src="PDS/pds2HTML/js/js-PDS_ENG.js"></script>-->
+       <script type="text/javascript" charset="utf-8" src="PDS/pds2HTML/js/js-PDS_BM.js"></script>
+
+</head>
+    <body style="margin:0px;background-color:white;font-family:Arial">
+    
+        <div id="page"></div>
+    </body>
+    <script>
+
+        appendPage('page1','PDS/pds2HTML/PDSTwo_BM_Page1.html');
+        appendPage('page2','PDS/pds2HTML/PDSTwo_BM_Page2.html');
+        appendPage('page3','PDS/pds2HTML/PDSTwo_BM_Page3.html');
+        //appendPage('page4','PDS/pds2HTML/PDSTwo_BM_Page4.html');
+        needSplitPageForRider_2B();//for page 5 and 5b
+        
+        needSplitPageForPlan();//for page 5 and 5b
+        appendPage('page6','PDS/pds2HTML/PDSTwo_BM_Page6.html');
+        appendPage('page7','PDS/pds2HTML/PDSTwo_BM_Page7.html');
+        appendPage('page7b','PDS/pds2HTML/PDSTwo_BM_Page7b.html');
+        
+        needSplitPageForRider_6B();
+        // appendPage('page9','PDS/pds2HTML/PDSTwoPage9.html');
+        needSplitPageForRider_7B();
+      
+        </script>
+</html>

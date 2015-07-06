@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <script>
+  var gData;
+  function onBodyLoad(){
+  		//writeSummary1();
+  }
+  
+    function replaceChar(char){
+        var temp, returnVal;
+        if (char == "0")
+            returnVal = "-"
+        else if (char == "")
+            returnVal = "-"
+        else
+            returnVal = char;
+        return returnVal;
+    }
+    
+    function isIncomeRider(amt,rider){
+		//rider.replace(/^\s+|\s$/g,"")
+		//$.trim(rider)
+		var temp;
+		temp = $.trim(rider)
+		//alert(temp + "x")
+        if (temp == "HLA Income Builder" || temp == "Income 20 Rider" || temp == "Income 30 Rider" || temp == "Income 40 Rider" || temp == "Income D-20 Rider" || temp == "Income D-30 Rider" || temp == "Income D-40 Rider" || temp == "Income E-20 Rider" || temp == "Income E-30 Rider"){
+        	return amt + " *";
+        }
+        else
+        	return amt + "&nbsp;&nbsp;";
+    }
+    
+  </script>
+  <head>
+  <body onload="onBodyLoad()">
+  
+<div id="header">
+	<div class="agentInfo">
+  		Prepared By : <span id="agentName" class="agentName">{agentName}</span>
+  		<br/>Code : <span id="agentCode" class="agentCode">{agentCode}</span>
+  	</div>
+  	<div class="ContentInfo">Printed On : <span id="dateModified" class="dateModified">{DateModified}</span></div>
+  	<div class="hruleInfo"></div>
+</div>
+<div class="main-content">
+<!--520px-->
+
+
+
+<div class="contentArea">
+    <table cellspacing="3" id="item2B" class="item2B">
+	<tr style="display:table-row;">
+	    <td>&nbsp;</td>
+	    <td>
+		<table width="100%" border="0" cellspacing="0">
+		    <tr>
+			<td width="20"style="padding: 0px 0px 10px 0px;" class="2B" id="2B"><b>B)</b></td>
+			<td colspan="2" style="padding: 0px 0px 10px 0px;" class="2B" id="2B"><u><b>Attaching Rider(s)</b></u></td>
+		    </tr>
+		    
+		    <tr class="2B_1" id="2B_1">
+			<td></td>
+			<td></td>
+			<td>
+			
+			
+			
+<table id="table-attachingRider1" class="table-attachingRider1">
+<tr class="tblHeader" id="tblHeader" style="display:table-row;">
+    <th class="contentSmall" style="text-align:left;vertical-align:text-top;"><b>Rider(s)</b></th>
+    <th class="contentSmall" style="text-align:left;vertical-align:text-top;"><b>Sum Assured/<br/>Benefit</b></th>
+    <th class="contentSmall" style="text-align:left;vertical-align:text-top;"><b>Coverage<br/>Period</b></th>
+    <th class="contentSmall" style="text-align:left;vertical-align:text-top;"><b>Insured<br/>Life</b></th>
+    <th class="content" style="vertical-align:text-top;"><b>Description of Benefits</b></th>
+</tr>
+ 
+<!--CCTR-Convertible Comprehensive Term Rider start--> 
+<tr class="CCTR" id="CCTR" style="display:table-row;">
+    <td class="contentSmall">Convertible<br/>Comprehensive<br/>Term<br/>Rider</td>
+    <td class="contentSmall" style="text-align:right;"><span id="CCTRRiderGYI" class="CCTRRiderGYI">{CCTRRiderGYI}</span></td>
+    <td class="contentSmall" style="text-align:center;"><span id="CCTRRiderTerm" class="CCTRRiderTerm">{CCTRRiderTerm}</span></td>
+    <td class="contentSmall" style="text-align:left;">Life<br/>Assured</td>
+    <td class="content">
+    RM <span id="CCTRRiderGYI" class="CCTRRiderGYI">{CCTRRiderGYI}</span> is payable upon death / TPD (prior to age 65) of the life assured during the coverage term. TPD benefit will be paid in accordance to TPD<br/>
+    provision. During the term of the rider and before attaining age 60, the life assured may convert the policy to a whole life plan or endowment without further<br/>
+    evidence of insurability.<br/><br/>
+</td>
+</tr>
+<!--CCTR-Convertible Comprehensive Term Rider end-->
+
+<!--CIR-Critical Illness Rider start--> 
+<tr class="CIR" id="CIR" style="display:table-row;">
+<td class="contentSmall">Critical<br/>Illness<br/>Rider</td>
+<td class="contentSmall" style="text-align:right;"><span id="CIRRiderGYI" class="CIRRiderGYI">{CIRRiderGYI}</span></td>
+<td class="contentSmall" style="text-align:center;"><span id="CIRRiderTerm" class="CIRRiderTerm">{CIRRiderTerm}</span></td>
+<td class="contentSmall" style="text-align:left;">Life<br/>Assured</td>
+<td class="content">
+RM <span id="CIRRiderGYI" class="CIRRiderGYI">{CIRRiderGYI}</span> is payable upon diagnosis of any of the 36 critical illnesses covered of the life assured during the coverage term.<br/>
+Premium is not guaranteed and is subject to review by the Company at any time and from time to time by giving you at least 90-day written notice.<br/>
+The following 36 critical illnesses are covered:<br/><br/>
+
+<table id="illness" class="illness" style="border-collapse:separate;border: 0px solid black;width: 75%;">
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">1.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Stroke</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">19.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Loss of Speech</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">2.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Heart Attack</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">20.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Brain Surgery</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">3.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">End Stage Kidney Failure</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">21.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Heart Valve Surgery</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">4.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Cancer</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">22.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Terminal Illness</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">5.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Coronary Artery By-Pass Surgery</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">23.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">HIV Due To Blood Transfusion</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">6.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Other Serious Coronary Artery Disease</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">24.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Bacterial Meningitis</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">7.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Angioplasty And Other Invasive Treatments For Major Coronary Artery Disease *</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">25.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Major Head Trauma</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">8.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">End Stage Liver Failure</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">26.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Chronic Aplastic Anemia</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">9.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Fulminant Viral Hepatitis</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">27.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Motor Neuron Disease</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">10.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Coma</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">28.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Parkinson's Disease</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">11.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Benign Brain Tumor</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">29.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Alzheimer's Disease/Irreversible Organic Degenerative Brain Disorders</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">12.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Paralysis/Paraplegia</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">30.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Muscular Dystrophy</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">13.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Blindness /Total Loss Of Sight</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">31.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Surgery To Aorta</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">14.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Deafness/Total Loss Of Hearing</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">32.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Multiple Sclerosis</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">15.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Major Burns</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">33.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Primary Pulmonary Arterial Hypertension</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">16.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">End Stage Lung Disease</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">34.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Medullary Cystic Disease</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">17.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Encephalitis</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">35.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Severe Cardiomyopathy</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">18.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Major Organ / Bone Marrow Transplant</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">36.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Systemic Lupus Erythematosus With Lupus Nephritis</td>
+</tr>
+</table>
+
+<br/>
+*Benefit payment under this illness is limited to 10% of the Critical Illness coverage under this plan subject to a maximum of RM 25,000. This benefit is payable<br/>
+once only and shall be deducted from the coverage of this plan, thereby reducing the amount of lump sum payment upon CI.
+</td>
+</tr>
+<!--CIR-Critical Illness Rider end-->
+
+<!--CIWP-Critical Illness WP Rider start--> 
+<tr class="CIWP" id="CIWP" style="display:table-row;">
+    <td class="contentSmall">Critical<br/>Illness WP<br/>Rider</td>
+    <td class="contentSmall" style="text-align:right;"><span id="CIWPRiderGYI" class="CIWPRiderGYI">{CIWPRiderGYI}</span><br/>(Annual)</td>
+    <td class="contentSmall" style="text-align:center;"><span id="CIWPRiderTerm" class="CIWPRiderTerm">{CIWPRiderTerm}</span></td>
+    <td class="contentSmall" style="text-align:left;">Life<br/>Assured</td>
+    <td class="content">
+    The rider Sum Assured will be paid to reduce future premium up to expiry date of the rider upon diagnosis of any of the 36 critical illnesses covered of the Life<br/>
+    assured during the coverage period.<br/>
+    Premium is not guaranteed and is subject to review by the Company at any time and from time to time by giving you at least 90-day written notice.<br/>
+    The following 36 critical illnesses are covered :<br/><br/>
+    <table id="illness" class="illness" style="border-collapse:separate;border: 0px solid black;width: 75%;">
+    <tr>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">1.</td>
+    <td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Stroke</td>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">19.</td>
+    <td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Loss of Speech</td>
+    </tr>
+    <tr>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">2.</td>
+    <td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Heart Attack</td>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">20.</td>
+    <td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Brain Surgery</td>
+    </tr>
+    <tr>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">3.</td>
+    <td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">End Stage Kidney Failure</td>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">21.</td>
+    <td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Heart Valve Surgery</td>
+    </tr>
+    <tr>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">4.</td>
+    <td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Cancer</td>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">22.</td>
+    <td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Terminal Illness</td>
+    </tr>
+    <tr>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">5.</td>
+    <td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Coronary Artery By-Pass Surgery</td>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">23.</td>
+    <td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">HIV Due To Blood Transfusion</td>
+    </tr>
+    <tr>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">6.</td>
+    <td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Other Serious Coronary Artery Disease</td>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">24.</td>
+    <td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Bacterial Meningitis</td>
+    </tr>
+    <tr>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">7.</td>
+    <td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Angioplasty And Other Invasive Treatments For Major Coronary Artery Disease *</td>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">25.</td>
+    <td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Major Head Trauma</td>
+    </tr>
+    <tr>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">8.</td>
+    <td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">End Stage Liver Failure</td>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">26.</td>
+    <td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Chronic Aplastic Anemia</td>
+    </tr>
+    <tr>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">9.</td>
+    <td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Fulminant Viral Hepatitis</td>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">27.</td>
+    <td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Motor Neuron Disease</td>
+    </tr>
+    <tr>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">10.</td>
+    <td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Coma</td>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">28.</td>
+    <td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Parkinson's Disease</td>
+    </tr>
+    <tr>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">11.</td>
+    <td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Benign Brain Tumor</td>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">29.</td>
+    <td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Alzheimer's Disease/Irreversible Organic Degenerative Brain Disorders</td>
+    </tr>
+    <tr>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">12.</td>
+    <td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Paralysis/Paraplegia</td>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">30.</td>
+    <td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Muscular Dystrophy</td>
+    </tr>
+    <tr>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">13.</td>
+    <td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Blindness /Total Loss Of Sight</td>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">31.</td>
+    <td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Surgery To Aorta</td>
+    </tr>
+    <tr>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">14.</td>
+    <td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Deafness/Total Loss Of Hearing</td>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">32.</td>
+    <td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Multiple Sclerosis</td>
+    </tr>
+    <tr>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">15.</td>
+    <td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Major Burns</td>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">33.</td>
+    <td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Primary Pulmonary Arterial Hypertension</td>
+    </tr>
+    <tr>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">16.</td>
+    <td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">End Stage Lung Disease</td>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">34.</td>
+    <td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Medullary Cystic Disease</td>
+    </tr>
+    <tr>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">17.</td>
+    <td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Encephalitis</td>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">35.</td>
+    <td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Severe Cardiomyopathy</td>
+    </tr>
+    <tr>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">18.</td>
+    <td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Major Organ / Bone Marrow Transplant</td>
+    <td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">36.</td>
+    <td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Systemic Lupus Erythematosus With Lupus Nephritis</td>
+    </tr>
+</table>
+<br/>
+*Benefit payment under this illness is limited to 10% of the Critical Illness coverage under this plan subject to a maximum of RM 25,000. This benefit is payable<br/>
+once only and shall be deducted from the coverage of this plan, thereby reducing the amount of lump sum payment upon CI.
+
+</td></tr>
+<!--CIWP-Critical Illness WP Rider end-->
+
+<!--CPA-Compprehensive Personal Accident Rider start-->
+<tr class="CPA" id="CPA" style="display:table-row;">
+<td class="contentSmall">Comprehensive<br/>Personal<br/>Accident<br/>Rider</td>
+<td class="contentSmall" style="text-align:right;"><span id="CPARiderGYI" class="CPARiderGYI">{CPARiderGYI}</span></td>
+<td class="contentSmall" style="text-align:center;"><span id="CPARiderTerm" class="CPARiderTerm">{CPARiderTerm}</span></td>
+<td class="contentSmall" style="text-align:left;">Life<br/>Assured</td>
+<td class="content">
+The following benefits are payable upon death or disability of the life assured caused by an accident during the coverage period:<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total &amp; Permanent Disability due to accident - refer to schedule of indemnities<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Temporary total disability - weekly indemnity of RM8 per 1,000 sum assured<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Temporary partial disability - weekly indemnity of RM2 per 1,000 sum assured<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Medical fees &amp; expenses reimbursement - up to RM20 per 1,000 sum assured<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Double indemnity - sum assured payable is doubled if accidental death of Life Assured occurred while the Life Assured is on mechanically<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;propelled Public Conveyance over an established route on land, excluding Taxis
+
+<!--CPA-Compprehensive Personal Accident Rider end-->
+
+<!--EDB-Enchanced Death Benefit Rider start-->
+<tr class="EDB" id="EDB" style="display:table-row;">
+<td class="contentSmall">Enchanced<br/>Death<br/>Benefit<br/>Rider</td>
+<td class="contentSmall" style="text-align:right;"><span id="EDBRiderGYI" class="EDBRiderGYI">{EDBRiderGYI}</span></td>
+<td class="contentSmall" style="text-align:center;"><span id="EDBRiderTerm" class="EDBRiderTerm">{EDBRiderTerm}</span></td>
+<td class="contentSmall" style="text-align:left;">Life<br/>Assured</td>
+<td class="content">
+In the event of Death of the Life Assured, a lump sum amount equivalent to RM<span id="EDBGYI" class="EDBGYI">{EDBGYI}</span> shall be payable.<br/>
+Juvenile LIEN rule is applicable.
+</td>
+</tr>
+<!--EDB-Enchanced Death Benefit Rider end-->
+
+<!--ETPD-Extended TPD Rider start-->
+<tr class="ETPD" id="ETPD" style="display:table-row;">
+<td class="contentSmall">Extended<br/>TPD Rider</td>
+<td class="contentSmall" style="text-align:right;"><span id="ETPDRiderGYI" class="ETPDRiderGYI">{ETPDRiderGYI}</span></td>
+<td class="contentSmall" style="text-align:center;"><span id="ETPDRiderTerm" class="ETPDRiderTerm">{ETPDRiderTerm}</span></td>
+<td class="contentSmall" style="text-align:left;">Life<br/>Assured</td>
+<td class="content">
+Upon TPD of the Life Assured during the coverage term and the Life Assured remained disabled, RM<span id="ETPDGYI" class="ETPDGYI">{ETPDGYI}</span> shall be payable annually up to age 65 or death of<br/>
+the Life Assured, whichever is earlier.The first payment is on the 1st anniversary subsequent to the commencement of TPD.
+</td>
+</tr>
+<!--ETPD-Extended TPD Rider end-->
+
+<!--ETPDB-Enchanced TPD Benefit Rider start-->
+<tr class="ETPDB" id="ETPDB" style="display:table-row;">
+<td class="contentSmall">Enchanced<br/>TPD Benefit<br/>Rider</td>
+<td class="contentSmall" style="text-align:right;"><span id="ETPDBRiderGYI" class="ETPDBRiderGYI">{ETPDBRiderGYI}</span></td>
+<td class="contentSmall" style="text-align:center;"><span id="ETPDBRiderTerm" class="ETPDBRiderTerm">{ETPDBRiderTerm}</span></td>
+<td class="contentSmall" style="text-align:left;">Life<br/>Assured</td>
+<td class="content">
+In the event of Total and Permanent Disability prior to attaining age 65 (TPD) or Old Age Disablement after attaining age 65 (OAD) of the Life Assured,<br/>
+a lump sum amount equivalent to RM<span id="ETPDBGYI" class="ETPDBGYI">{ETPDBGYI}</span> be payable. Juvenile LIEN rule is applicable.<br/>
+<u>Provision for TPD Benefit</u><br/>
+TPD Benefit will be paid in accordance to TPD provision as below:<br/><br/>
+    <table id="illness" class="illness" style="border-collapse:collapse;border: 1px solid black;width: 50%;" >
+	<tr>
+	    <td width="50%" style="text-align:center;">Attained Age upon TPD</td>
+	    <td width="50%" style="text-align:center;">TPD Benefit Limit per Life</td>
+	</tr>
+	<tr>
+	    <td style="text-align:center;">Less than 7</td>
+	    <td style="text-align:center;">RM100,000</td>
+	</tr>
+	<tr>
+	    <td style="text-align:center;">7 to less than 15</td>
+	    <td style="text-align:center;">RM500,000</td>
+	</tr>
+	<tr>
+	    <td style="text-align:center;">15 to less than 65</td>
+	    <td style="text-align:center;">RM3,500,000</td>
+	</tr>
+    </table>
+    <br/>
+Total TPD Benefits per Life payable under all policies insuring the Life Assured shall not exceed the TPD Benefit Limit per Life stated above.<br/>
+The Total TPD Benefit per Life refers to TPD coverage of all in force policies for <u>each Life Assured</u> at the point of claim event after applications of Juvenile Lien.<br/><br/>
+<u>Provision for OAD Benefit</u><br/>
+OAD Benefits payable under all policies insuring the Life Assured shall limit to RM1,000,000 per life. OAD Benefit Limit per Life is determined by OAD coverage<br/>
+of all in-force policies for <u>each Life Assured</u> at the point of claim event.<br/><br/>
+Note: TPD refers to Total & Permanent Disability prior to attaining age 65 and OAD refers to Old Age Disablement after attaining age 65. These definitions<br/>
+apply consistently across all marketing collaterals for Enhanced TPD Benefit Rider.
+
+
+</td>
+</tr>
+<!--ETPDB-Enchanced TPD Benefit Rider end-->
+
+<!--HB-Hospitalisation Benefit start-->
+<tr class="HB" id="HB" style="display:table-row;">
+<td class="contentSmall">Hospitalisation<br/>Benefit</td>
+<td class="contentSmall" style="text-align:right;"><span id="HBRiderGYI" class="HBRiderGYI">{HBRiderGYI}</span></td>
+<td class="contentSmall" style="text-align:center;"><span id="HBRiderTerm" class="HBRiderTerm">{HBRiderTerm}</span></td>
+<td class="contentSmall" style="text-align:left;">Life<br/>Assured</td>
+<td class="content">
+Hospitalisation benefit of RM <span id="HBBenefit" class="HBBenefit">{HBBenefit}</span> per week is payable if the life assured hospitalized during the coverage period.
+</td>
+</tr>
+<!--HB-Hospitalisation Benefit end-->
+
+<!--ICR-Income Care Rider start-->
+<tr class="ICR" id="ICR" style="display:table-row;">
+<td class="contentSmall">Income<br/>Care Rider</td>
+<td class="contentSmall" style="text-align:right;"><span id="ICRRiderGYI" class="ICRRiderGYI">{ICRRiderGYI}</span></td>
+<td class="contentSmall" style="text-align:center;"><span id="ICRRiderTerm" class="ICRRiderTerm">{ICRRiderTerm}</span></td>
+<td class="contentSmall" style="text-align:left;">Life<br/>Assured</td>
+<td class="content">
+Upon TPD or diagnosis of any 36 critical illness of the life assured during the coverage period and the life assured remained disabled, RM <span id=""ICRGYI class="ICRGYI">{ICRGYI}</span> shall be<br/>
+payable annually up to age 65 or death of the life assured, whichever is earlier. The following 36 critical illnesses are covered<br/><br/>
+
+<table id="illness" class="illness" style="border-collapse:separate;border: 0px solid black;width: 75%;">
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">1.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Stroke</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">19.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Loss of Speech</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">2.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Heart Attack</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">20.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Brain Surgery</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">3.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">End Stage Kidney Failure</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">21.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Heart Valve Surgery</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">4.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Cancer</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">22.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Terminal Illness</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">5.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Coronary Artery By-Pass Surgery</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">23.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">HIV Due To Blood Transfusion</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">6.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Other Serious Coronary Artery Disease</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">24.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Bacterial Meningitis</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">7.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Angioplasty And Other Invasive Treatments For Major Coronary Artery Disease *</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">25.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Major Head Trauma</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">8.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">End Stage Liver Failure</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">26.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Chronic Aplastic Anemia</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">9.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Fulminant Viral Hepatitis</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">27.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Motor Neuron Disease</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">10.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Coma</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">28.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Parkinson's Disease</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">11.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Benign Brain Tumor</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">29.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Alzheimer's Disease/Irreversible Organic Degenerative Brain Disorders</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">12.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Paralysis/Paraplegia</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">30.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Muscular Dystrophy</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">13.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Blindness /Total Loss Of Sight</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">31.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Surgery To Aorta</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">14.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Deafness/Total Loss Of Hearing</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">32.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Multiple Sclerosis</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">15.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Major Burns</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">33.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Primary Pulmonary Arterial Hypertension</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">16.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">End Stage Lung Disease</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">34.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Medullary Cystic Disease</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">17.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Encephalitis</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">35.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Severe Cardiomyopathy</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">18.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Major Organ / Bone Marrow Transplant</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">36.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Systemic Lupus Erythematosus With Lupus Nephritis</td>
+</tr>
+</table>
+<br/>
+*Benefit payment under this illness is limited to 10% of the Critical Illness coverage under this plan subject to a maximum of RM 25,000. This benefit<br/>
+is payable once only and shall be deducted from the coverage of this plan, thereby reducing the amount of lump sum payment upon CI or TPD.
+</td>
+</tr>
+<!--ICR-Income Care Rider end-->
+
+<!--LCPR-Living Carew Income Rider start-->
+<tr class="LCPR" id="LCPR" style="display:table-row;">
+<td class="contentSmall">Living<br/>Care Plus<br/>Rider</td>
+<td class="contentSmall" style="text-align:right;"><span id="LCPRRiderGYI" class="LCPRRiderGYI">{LCPRRiderGYI}</span></td>
+<td class="contentSmall" style="text-align:center;"><span id="LCPRRiderTerm" class="LCPRRiderTerm">{LCPRRiderGYI}</span></td>
+<td class="contentSmall" style="text-align:left;">Life<br/>Assured</td>
+<td class="content">
+
+RM <span id=""LCPRGYI class="LCPRGYI">{LCPRGYI}</span> is payable upon the first occurance death / TPD / diagnosis of any of the 36 critical illness of the life assired during the coverage period. TPD<br/>
+benefit will be paid in accordance to TPD provision.<br/>
+The following 36 critical illnesses are covered:
+
+<table id="illness" class="illness" style="border-collapse:separate;border: 0px solid black;width: 75%;">
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">1.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Stroke</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">19.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Loss of Speech</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">2.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Heart Attack</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">20.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Brain Surgery</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">3.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">End Stage Kidney Failure</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">21.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Heart Valve Surgery</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">4.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Cancer</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">22.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Terminal Illness</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">5.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Coronary Artery By-Pass Surgery</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">23.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">HIV Due To Blood Transfusion</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">6.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Other Serious Coronary Artery Disease</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">24.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Bacterial Meningitis</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">7.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Angioplasty And Other Invasive Treatments For Major Coronary Artery Disease *</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">25.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Major Head Trauma</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">8.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">End Stage Liver Failure</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">26.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Chronic Aplastic Anemia</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">9.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Fulminant Viral Hepatitis</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">27.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Motor Neuron Disease</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">10.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Coma</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">28.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Parkinson's Disease</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">11.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Benign Brain Tumor</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">29.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Alzheimer's Disease/Irreversible Organic Degenerative Brain Disorders</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">12.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Paralysis/Paraplegia</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">30.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Muscular Dystrophy</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">13.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Blindness /Total Loss Of Sight</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">31.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Surgery To Aorta</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">14.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Deafness/Total Loss Of Hearing</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">32.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Multiple Sclerosis</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">15.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Major Burns</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">33.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Primary Pulmonary Arterial Hypertension</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">16.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">End Stage Lung Disease</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">34.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Medullary Cystic Disease</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">17.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Encephalitis</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">35.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Severe Cardiomyopathy</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">18.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Major Organ / Bone Marrow Transplant</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">36.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Systemic Lupus Erythematosus With Lupus Nephritis</td>
+</tr>
+</table>
+<br/>
+*Benefit payment under this illness is limited to 10% of the Critical Illness coverage under this plan subject to a maximum of RM 25,000. This benefit<br/>
+is payable once only and shall be deducted from the coverage of this plan, thereby reducing the amount of lump sum payment upon CI or TPD.
+</td>
+</tr>
+<!--LCPR-Living Carew Income Rider end-->
+
+
+<!--PA-Personal Accident Rider start-->
+<tr class="PA" id="PA" style="display:table-row;">
+<td class="contentSmall">Personal<br/>Accident<br/>Rider</td>
+<td class="contentSmall" style="text-align:right;"><span id="PARiderGYI" class="PARiderGYI">{PARiderGYI}</span></td>
+<td class="contentSmall" style="text-align:center;"><span id="PARiderTerm" class="PARiderTerm">{PARiderTerm}</span></td>
+<td class="contentSmall" style="text-align:left;">Life<br/>Assured</td>
+<td class="content">
+
+The following benefits are payable upon death or disability of the life assured caused by an accident during the coverage period:<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Accidental Death - sum assured of this rider payable<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total &amp; Permanent Disability due to accident - refer to schedule of indemnities<br/>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Double indemnity - sum assured payable is doubled if accidental death of Life Assured occurred while the Life Assured is on mechanically<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;propelled Public Conveyance over an established route on land, excluding Taxis
+
+</td>
+</tr>
+<!--PA-Personal Accident Rider end-->
+
+<!--LCWP-Living Care Waiver of Premium Payor Rider start--> 
+<tr class="LCWP" id="LCWP" style="display:table-row;">
+<td class="contentSmall">Living Care Waiver of<br/>Premium Payor Rider</td>
+<td class="contentSmall" style="text-align:center;"><span id="LCWPRRiderGYI" class="LCWPRRiderGYI">{LCWPRRiderGYI}</span><br/>(Annual)</td>
+<td class="contentSmall" style="text-align:center;"><span id="LCWPRiderTerm" class="LCWPRiderTerm">{LCWPRiderTerm}</span></td>
+<td class="contentSmall" style="text-align:center;"><span id="LCWPInsuredLives" class="LCWPInsuredLives">{LCWPInsuredLives}</span></td>
+<td class="content">
+The rider sum assured will be paid to reduce future premium up to the expiry date of the rider upon death / TPD / diagnosis of any of the 36 critical illnesses<br/>
+covered of the payor during the coverage period.<br/>
+The following 36 critical illnesses are covered:<br/><br/>
+
+<table id="illness" class="illness" style="border-collapse:separate;border: 0px solid black;width: 75%;">
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">1.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Stroke</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">19.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Loss of Speech</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">2.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Heart Attack</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">20.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Brain Surgery</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">3.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">End Stage Kidney Failure</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">21.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Heart Valve Surgery</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">4.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Cancer</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">22.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Terminal Illness</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">5.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Coronary Artery By-Pass Surgery</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">23.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">HIV Due To Blood Transfusion</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">6.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Other Serious Coronary Artery Disease</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">24.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Bacterial Meningitis</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">7.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Angioplasty And Other Invasive Treatments For Major Coronary Artery Disease *</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">25.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Major Head Trauma</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">8.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">End Stage Liver Failure</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">26.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Chronic Aplastic Anemia</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">9.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Fulminant Viral Hepatitis</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">27.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Motor Neuron Disease</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">10.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Coma</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">28.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Parkinson's Disease</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">11.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Benign Brain Tumor</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">29.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Alzheimer's Disease/Irreversible Organic Degenerative Brain Disorders</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">12.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Paralysis/Paraplegia</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">30.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Muscular Dystrophy</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">13.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Blindness /Total Loss Of Sight</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">31.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Surgery To Aorta</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">14.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Deafness/Total Loss Of Hearing</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">32.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Multiple Sclerosis</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">15.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Major Burns</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">33.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Primary Pulmonary Arterial Hypertension</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">16.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">End Stage Lung Disease</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">34.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Medullary Cystic Disease</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">17.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Encephalitis</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">35.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Severe Cardiomyopathy</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">18.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Major Organ / Bone Marrow Transplant</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">36.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Systemic Lupus Erythematosus With Lupus Nephritis</td>
+</tr>
+</table>
+<br/>
+*Benefit payment under this illness is limited to 10% of the Critical Illness coverage under this plan subject to a maximum of RM 25,000. This benefit is<br/>
+payable once only and shall be deducted from the coverage of this plan, thereby reducing the amount of lump sum payment upon CI, Death or TPD.
+</td>
+</tr>
+<!--LCWP-Living Care Waiver of Premium Payor Rider end-->
+
+<!--PR-Waiver of Premium Payor Rider start--> 
+<tr class="PR" id="PR" style="display:table-row;">
+<td class="contentSmall">Waiver of<br/>Premium<br/>Payor Rider</td>
+<td class="contentSmall" style="text-align:right;"><span id="PRRiderGYI" class="PRRiderGYI">{PRRiderGYI}</span><br/>(Annual)</td>
+<td class="contentSmall" style="text-align:center;"><span id="PRRiderTerm" class="PRRiderTerm">{PRRiderTerm}</span></td>
+<td class="contentSmall" style="text-align:left;"><span id="PRInsuredLives" class="PRInsuredLives">{PRInsuredLives}</span></td>
+<td class="content">
+The rider sum assured will be paid to reduce future premium up to the expiry date of the rider upon death / TPD of the payor during the coverage period.<br/>
+</td>
+</tr>
+<!--PR-Waiver of Premium Payor Rider end-->
+
+<!--SP_STD-WOP Spouse Rider (Standard) start--> 
+<tr class="SP_STD" id="SP_STD" style="display:table-row;">
+<td class="contentSmall">WOP Spouse Rider<br/>(Standard)</td>
+<td class="contentSmall" style="text-align:right;"><span id="SP_STDRiderGYI" class="SP_STDRiderGYI">{SP_STDRiderGYI}</span><br/>(Annual)</td>
+<td class="contentSmall" style="text-align:center;"><span id="SP_STDRiderTerm" class="SP_STDRiderTerm">{SP_STDRiderTerm}</span></td>
+<td class="contentSmall" style="text-align:left;">2nd Life<br/>Assured</td>
+<td class="content">
+The rider sum assured will be paid to reduce future premium up to the expiry date of the rider upon death / TPD of the 2nd life assured during the coverage<br/>
+period.<br/>
+<br/>
+
+</td>
+</tr>
+<!--SP_STD-WOP Spouse Rider (Standard) end-->
+
+<!--SP_PRE-WOP Spouse Rider (Premier) start--> 
+<tr class="SP_PRE" id="SP_PRE" style="display:table-row;">
+<td class="contentSmall">WOP<br/>Spouse<br/>Rider<br/>(Premier)</td>
+<td class="contentSmall" style="text-align:right;"><span id="SP_PRERiderGYI" class="SP_PRERiderGYI">{SP_PRERiderGYI}</span><br/>(Annual)</td>
+<td class="contentSmall" style="text-align:center;"><span id="SP_PRERiderTerm" class="SP_PRERiderTerm">{SP_PRERiderTerm}</span></td>
+<td class="contentSmall" style="text-align:left;">2nd Life<br/>Assured</td>
+<td class="content">
+
+The rider sum assured will be paid to reduce future premium up to the expiry date of the rider upon death / TPD / diagnosis of any of the 36 critical illnesses covered<br/>
+of the 2nd life assured during the coverage period.<br/>
+The following 36 critical illnesses are covered:<br/><br/>
+
+<table id="illness" class="illness" style="border-collapse:separate;border: 0px solid black;width: 75%;">
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">1.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Stroke</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">19.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Loss of Speech</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">2.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Heart Attack</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">20.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Brain Surgery</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">3.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">End Stage Kidney Failure</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">21.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Heart Valve Surgery</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">4.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Cancer</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">22.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Terminal Illness</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">5.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Coronary Artery By-Pass Surgery</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">23.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">HIV Due To Blood Transfusion</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">6.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Other Serious Coronary Artery Disease</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">24.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Bacterial Meningitis</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">7.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Angioplasty And Other Invasive Treatments For Major Coronary Artery Disease *</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">25.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Major Head Trauma</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">8.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">End Stage Liver Failure</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">26.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Chronic Aplastic Anemia</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">9.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Fulminant Viral Hepatitis</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">27.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Motor Neuron Disease</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">10.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Coma</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">28.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Parkinson's Disease</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">11.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Benign Brain Tumor</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">29.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Alzheimer's Disease/Irreversible Organic Degenerative Brain Disorders</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">12.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Paralysis/Paraplegia</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">30.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Muscular Dystrophy</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">13.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Blindness /Total Loss Of Sight</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">31.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Surgery To Aorta</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">14.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Deafness/Total Loss Of Hearing</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">32.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Multiple Sclerosis</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">15.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Major Burns</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">33.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Primary Pulmonary Arterial Hypertension</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">16.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">End Stage Lung Disease</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">34.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Medullary Cystic Disease</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">17.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Encephalitis</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">35.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Severe Cardiomyopathy</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">18.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Major Organ / Bone Marrow Transplant</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">36.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Systemic Lupus Erythematosus With Lupus Nephritis</td>
+</tr>
+</table>
+<br/>
+*Benefit payment under this illness is limited to 10% of the Critical Illness coverage under this plan subject to a maximum of RM 25,000. This benefit is payable<br/>
+once only and shall be deducted from the coverage of this plan, thereby reducing the amount of lump sum payment upon CI, Death or TPD.
+</td>
+</tr>
+<!--SP_PRE-WOP Spouse Rider (Premier) end-->
+
+<!--PLCP-Payor Living Care PLus Rider start--> 
+<tr class="PLCP" id="PLCP" style="display:table-row;">
+<td class="contentSmall">Payor<br/>Living Care<br/>PLus Rider</td>
+<td class="contentSmall" style="text-align:right;"><span id="PLCPRiderGYI" class="PLCPRiderGYI">{PLCPRiderGYI}</span></td>
+<td class="contentSmall" style="text-align:center;"><span id="PLCPRiderTerm" class="PLCPRiderTerm">{PLCPRiderTerm}</span></td>
+<td class="contentSmall" style="text-align:left;">Policy Owner</td>
+<td class="content">
+RM <span id="PLCPRiderGYI" class="PLCPRiderGYI">{PLCPRiderGYI}</span> is payable upon the first occurrence of death / TPD / diagnosis of any of the 36 critical illnesses of the payor during the coverage period.<br/>
+The following 36 critical illnesses are covered:<br/><br/>
+
+
+
+<table id="illness" class="illness" style="border-collapse:separate;border: 0px solid black;width: 75%;">
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">1.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Stroke</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">19.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Loss of Speech</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">2.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Heart Attack</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">20.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Brain Surgery</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">3.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">End Stage Kidney Failure</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">21.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Heart Valve Surgery</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">4.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Cancer</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">22.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Terminal Illness</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">5.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Coronary Artery By-Pass Surgery</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">23.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">HIV Due To Blood Transfusion</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">6.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Other Serious Coronary Artery Disease</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">24.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Bacterial Meningitis</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">7.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Angioplasty And Other Invasive Treatments For Major Coronary Artery Disease *</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">25.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Major Head Trauma</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">8.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">End Stage Liver Failure</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">26.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Chronic Aplastic Anemia</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">9.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Fulminant Viral Hepatitis</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">27.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Motor Neuron Disease</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">10.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Coma</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">28.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Parkinson's Disease</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">11.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Benign Brain Tumor</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">29.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Alzheimer's Disease/Irreversible Organic Degenerative Brain Disorders</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">12.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Paralysis/Paraplegia</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">30.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Muscular Dystrophy</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">13.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Blindness /Total Loss Of Sight</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">31.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Surgery To Aorta</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">14.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Deafness/Total Loss Of Hearing</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">32.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Multiple Sclerosis</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">15.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Major Burns</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">33.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Primary Pulmonary Arterial Hypertension</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">16.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">End Stage Lung Disease</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">34.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Medullary Cystic Disease</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">17.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Encephalitis</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">35.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Severe Cardiomyopathy</td>
+</tr>
+<tr>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">18.</td>
+<td width="50%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Major Organ / Bone Marrow Transplant</td>
+<td width="4%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">36.</td>
+<td width="42%" style="padding: 0px 0px 1px 0px;text-align:left;border: 0px solid black;vertical-align: text-top;">Systemic Lupus Erythematosus With Lupus Nephritis</td>
+</tr>
+</table>
+<br/>
+*Benefit payment under this illness is limited to 10% of the Critical Illness coverage under this plan subject to a maximum of RM 25,000. This benefit is payable<br/>
+once only and shall be deducted from the coverage of this plan, thereby reducing the amount of lump sum payment upon CI, Death or TPD.
+</td>
+</tr>
+<!--PLCP-Payor Living Care PLus Rider end-->
+
+<!--PTR-Payor Term Rider start--> 
+<tr class="PTR" id="PTR" style="display:table-row;">
+<td class="contentSmall">Payor Term<br/>Rider</td>
+<td class="contentSmall" style="text-align:center;"><span id="PTRRiderGYI" class="PTRRiderGYI">{PTRRiderGYI}</span></td>
+<td class="contentSmall" style="text-align:center;"><span id="PTRRiderTerm" class="PTRRiderTerm">{PTRRiderTerm}</span></td>
+<td class="contentSmall" style="text-align:left;">Policy Owner</td>
+<td class="content">
+RM <span id="PTRGYI" class="PTRGYI">{PTRGYI}</span> is payable upon  death / TPD (prior to age 65) of the payor during the coverage period.<br/>
+<br/>
+
+</td>
+</tr>
+<!--PTR-Payor Term Rider end-->
+
+
+
+
+</table>
+			
+			
+			
+			</td>
+		</table>
+	    </td>
+	    <br/>
+	</tr>
+    </table>
+</div>
+
+<table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+<tr>
+<td width="75%" style="font-family:Arial;font-size:8px;font-weight:normal;padding: 5px 5px 5px 0px;">
+This Product Disclosure Sheet consists of <span class="totalPages">{totalPages}</span> pages and each page forms an integral part of the Product Disclosure Sheet. A prospective policy owner is advised to read and<br/>
+understand the information printed on each and every page.<br/>
+<b><span id="rptVersion" class="rptVersion">{rptVersion}</span></b> <br/>
+Level 3, Tower B, PJ City Development, No. 15A Jalan 219, Seksyen 51A, 46100 Petaling Jaya, Selangor. Tel: 03-7650 1818 Fax: 03-7650 1991 Website: www.hla.com.my<br/>
+</td>
+<td width="10%" align="left" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:10px;font-weight:normal;">Page <span class="currentPage">22</span> of <span class="totalPages">56</span></td>
+<td width="15%" align="right" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:12px;font-weight:normal;">Ref: <span id=SICode class="SICode">{SINo}</span></td>
+</tr>
+</table>
+
+<script>
+$('#table-attachingRider1 tr').css('display','none');
+</script>
+</div>
+</body>
+</html>

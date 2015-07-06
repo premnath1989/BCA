@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/hla.js"></script>
+  <script>
+  var gData;
+  function onBodyLoad(){
+  		//writeSummary1();
+  }
+  
+    function replaceChar(char){
+        var temp, returnVal;
+        if (char == "0")
+            returnVal = "-"
+        else if (char == "")
+            returnVal = "-"
+        else
+            returnVal = char;
+        return returnVal;
+    }
+    
+    function isIncomeRider(amt,rider){
+		//rider.replace(/^\s+|\s$/g,"")
+		//$.trim(rider)
+		var temp;
+		temp = $.trim(rider)
+		//alert(temp + "x")
+        if (temp == "HLA Income Builder" || temp == "Income 20 Rider" || temp == "Income 30 Rider" || temp == "Income 40 Rider" || temp == "Income D-20 Rider" || temp == "Income D-30 Rider" || temp == "Income D-40 Rider" || temp == "Income E-20 Rider" || temp == "Income E-30 Rider"){
+        	return amt + " *";
+        }
+        else
+        	return amt + "&nbsp;&nbsp;";
+    }
+    
+  </script>
+  <head>
+  <body onload="onBodyLoad()">
+  
+
+<div class="main-content">
+<!--520px-->
+
+
+
+<div class="contentArea">
+
+
+
+<table cellspacing="3">
+
+	<tr>
+	    <td></td>
+	    <td>
+		<table border="1" style="border-collapse: collapse" width="80%">
+		    
+		 		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Emergency Accidental Outpatient Treatment<br/>(within 30 days following such emergency treatment)</td>
+			<td rowspan="5" colspan="4" align="center">Reasonable & Customary Charges **</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Emergency Accidental Dental Treatment</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;" >Outpatient Physiotherapy Treatment(within 90 days from the date of Hospital discharge or Surgery)</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;"  >Outpatient Cancer Treatment</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;" >Outpatient Kidney Dialysis Treatment</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;" >Home Nursing Care (up to 180 days per lifetime)</td>
+			<td align="center" style="padding: 3px 3px 3px 3px;">40</td>
+			<td align="center" style="padding: 3px 3px 3px 3px;">60</td>
+			<td align="center" style="padding: 3px 3px 3px 3px;">80</td>
+			<td align="center" style="padding: 3px 3px 3px 3px;">100</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;" >Overall Annual (per Rider Year) limit</td>
+			<td align="center" style="padding: 3px 3px 3px 3px;">75,000</td>
+			<td align="center" style="padding: 3px 3px 3px 3px;">120,000</td>
+			<td align="center" style="padding: 3px 3px 3px 3px;">180,000</td>
+			<td align="center" style="padding: 3px 3px 3px 3px;">240,000</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;" >Aggregate Term Limit</td>
+			<td align="center" style="padding: 3px 3px 3px 3px;">300,000</td>
+			<td align="center" style="padding: 3px 3px 3px 3px;">600,000</td>
+			<td align="center" style="padding: 3px 3px 3px 3px;">900,000</td>
+			<td align="center" style="padding: 3px 3px 3px 3px;">1,200,000</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;" >Emergency Evacuation & Repatriation (limit per event)</td>
+			<td align="center" style="padding: 3px 3px 3px 3px;">150,000</td>
+			<td align="center" style="padding: 3px 3px 3px 3px;">150,000</td>
+			<td align="center" style="padding: 3px 3px 3px 3px;">150,000</td>
+			<td align="center" style="padding: 3px 3px 3px 3px;">150,000</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;" >Deductible (RM) per disability</td>
+			<td colspan="4" align="center">5,000<br/>10,000<br/>15,000</td>
+		    </tr>   
+		    
+		</table>
+	    </td>
+	</tr>
+	<tr>
+	    <td></td>
+	    <td>
+		* A Malaysian Highway shall mean highway or expressway as listed by the Malaysian Highway Authority.<br/>
+		** Charges for medical care which is Medically Necessary shall be considered reasonable and customary to the extent that it does not exceed the general level of charges being made by other similar standing in<br/>
+		the locality where the charge is incurred, when furnishing like or comparable treatment, services or supplies to individual of the same sex and of comparable age for a similar Sickness, Disease or Injury and in<br/>
+		accordance with accepted medical standards and practice could not have been omitted without adversely affecting the Life Assured's medical condition.
+	    </td>
+	</tr>
+	<tr>
+	    
+	    <td width="10"></td>
+	    <td>
+		<u><b>Non-Deductible Benefit</b></u><br/>
+		The following benefits shall not be subject to deductible:<br/>
+		(a).&nbsp;&nbsp;&nbsp;Daily Cash amount for hospitalisation due to road accidents on a Malaysian Highway<br/>
+		(b).&nbsp;&nbsp;&nbsp;Daily Cash allowance for each day confined in a Government Hospital<br/>
+		(c).&nbsp;&nbsp;&nbsp;Outpatient Cancer Treatment<br/>
+		(d).&nbsp;&nbsp;&nbsp;Outpatient Kidney Dialysis Treatment<br/>
+		(e).&nbsp;&nbsp;&nbsp;Emergency Evacuation & Repatriation<br/><br/>
+		
+		<u><b>Renewal</b></u><br/>
+		This rider is renewable at the option of the Policy Owner until the occurrence of any of the following:<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;non payment of premium or premium not made on time<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fraud or misrepresentation of material fact during application<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the Rider is cancelled at the request of the Policy Owner<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total claims of the Rider have reached the lifetime limit specified (i.e. the Aggregate Term Limit) ,and/or on the death of the Life Assured.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the Life Assured ceases to qualify as a dependent based on the definition of the Rider.<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on the Policy Anniversary Date immediately following the Life Assured attaining the coverage age limit of 100th birthday<br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;termination of coverage of this rider for all policies in a certain market and the Company withdraws this rider completely from the market in accordance with the Portfolio Withdrawal Condition<br/>
+	    </td>
+	</tr>
+	<tr>
+	    <td valign="top"><b>3.</b></td>
+	    <td>
+		<b>How much premium do I have to pay?</b><br/>
+		-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The total premium you have to pay and the policy term may vary depending on the underwriting requirements of the insurance company.<br/>
+	         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The estimated total premium that you have to pay:
+	    </td>
+	</tr>
+    
+	<tr>
+	    <td></td>
+	    <td>
+		<table id="table-2" style="border-collapse: collapse" border="1" width="70%">
+		    <tr>
+			<td rowspan="2" style="padding:2px 2px 2px 2px;">Rider</td>
+		    </tr>
+		    <tr>
+			<td style="padding:2px 2px 2px 2px;" align="center">Insured Lives</td>
+			<td style="padding:2px 2px 2px 2px;" align="center">Initial Premium - Annually (RM)</td>
+		    </tr>
+		    <tr>
+			<td valign="top" height="10px" style="padding:2px 2px 2px 2px;">HLA Major Medi <span id="HMMOption" class="HMMOption">{HMMOption}</span></td>
+			<td align="center"><span id="HMMLifeAssured" class="HMMLifeAssured">{HMMLifeAssured}</span></td>
+			<td align="center"><span id="HMMTotalPrem" class="HMMTotalPrem">{HMMTotalPrem}</span></td>
+		    </tr>
+		</table>    
+	    </td>
+	    
+	</tr>
+    
+	<tr>
+	    <td></td>
+	    <td>-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Premium duration:</td>
+	</tr>
+	<tr>
+	    <td></td>
+	    <td>
+		<table id="table-3" style="border-collapse: collapse" border="1" width="60%">
+		    <tr>
+			<td style="padding:2px 2px 2px 2px;">Rider</td>
+			<td style="padding:2px 2px 2px 2px;" align="center">Insured Lives</td>
+			<td style="padding:2px 2px 2px 2px;" align="center">Premium payable until insured life's age</td>
+		    </tr>
+			<td height="10px" style="padding:2px 2px 2px 2px;">HLA Major Medi</td>
+			<td style="padding:2px 2px 2px 2px;">Life Assured</td>
+			<td align="center" style="padding:2px 2px 2px 2px;"><span id="HMMPayableAge" class="HMMPayableAge">{HMMPayableAge}</span></td>
+		</table>    
+	    </td>
+	</tr>
+    
+	<tr>
+	    <td></td>
+	    <td>Insurance company allocates a portion of the premium to purchase units in the unit-linked fund that you have chosen. Any unallocated amount will be used to pay commissions to agents and other expenses of the insurance company. You are advised to refer to the allocation rates given in the sales illustration. Charges are not guaranteed and maybe revised from time to time.</td>
+	</tr>
+
+    </table>
+
+
+
+</div>
+
+</div>
+</body>
+</html>

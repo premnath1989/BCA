@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="SI/css/style.css" rel="stylesheet" type="text/css" />
+  	<script type="text/javascript" charset="utf-8" src="SI/js/jquery-1.8.2.min.js"></script>
+  	<script type="text/javascript" charset="utf-8" src="SI/js/hla.js"></script>
+  	<script type="text/javascript" charset="utf-8" src="SI/js/hlawp.js"></script>
+  	<script>
+
+	function loadJson() 
+	{		
+		setPage();
+		writeGST();
+		setRiderText();
+		if(gdata.SI[0].SI_Temp_Trad_Details.data.length > 13){
+			hideHLAWP_Page1();
+			document.getElementById('HLAWPMain').style.height="360px";
+		}
+		loadBenefitPage();
+		writeSummary1_HLCP(); //basic page 1
+		writeSummary2_HLCP(); // basic page 2
+		writeWP_GYIRiders(); //for WP Riders
+		writeRiderPage1_HLCP();
+		writeRiderPage2_HLCP();
+		writeRiderPage3_HLCP();
+		writeRiderPage4_HLCP();
+		writeRiderPage5_HLCP();
+		writeRiderPage6_HLCP();
+		writeRiderPage7_HLCP();
+		writeRiderPage8_HLCP();
+		writeHLAWP_Summary(); //summary Page
+		writeRiderDescription_EN();
+		writeRiderDescription2_EN();
+		writeFootnote_HLAWP();
+		initializePage();
+		loadDataToTable();			
+	}
+
+	</script>
+</head>
+<body onload="onBodyLoad()">
+	<div id="gstPage"></div>
+	<div id="header" style="margin-top:-10px">
+    	<img src="SI/img/HLA.png"/>
+	  	<div class="welcome">
+			Code : <span id="agentCode" class="agentCode">{agentCode}</span>&nbsp;&nbsp;Prepared By : <span id="agentName" class="agentName">{agentName}</span>
+	  	</div>
+		<div class="Content">Printed On : <span id="dateModified" class="dateModified">{DateModified}</span></div>
+		<div class="hrule"></div>
+  	</div>
+  	<div class="main-content">
+		<div align="center" style="padding: 0px 0px 0px 0px"><b>HLA Wealth Plan</b></div>
+		<div align="center" style="padding: 0px 0px 3px 0px;">Pelan Penyertaan Endowmen dengan Tempoh Pembayaran Premium Terhad <span id="PremiumPaymentOption" class="PremiumPaymentOption">{PremiumPaymentOption}</span> Tahun &nbsp;&nbsp;&nbsp;</div>
+    	<table id="table-LA" style="margin-top:0px;"> 
+		<tr>
+		  <!-- added width % to fix the size of name and life insured column to be longer @ Edwin 6-9-2013 -->
+		<td style="text-align:left;padding: 2px 2px 2px 2px;border: 2px solid black; width: 21%;">Hayat-hayat yang Diinsuranskan</td>
+		<td style="text-align:left;padding: 2px 2px 2px 2px;border: 2px solid black; width: 55%;">Nama</td>
+		<td style="text-align:right;padding: 2px 2px 2px 2px;border: 2px solid black; width: 8%;">Umur (Hari Jadi Lepas)</td>
+		<td style="text-align:right;padding: 2px 2px 2px 2px;border: 2px solid black; width: 8%;">Jantina</td>
+		<td style="text-align:right;padding: 2px 2px 2px 2px; width: 8%;">Perokok</td>
+		</tr>
+		<tr>
+		<td style="text-align:left;padding: 2px 2px 2px 2px;border: 2px solid black;" id="LADesc" class="LADesc">{LADesc}</td>
+		<td style="text-align:left;padding: 2px 2px 2px 2px;border: 2px solid black;" id="LAName" class="LAName">{LANAME}</td>
+		<td style="text-align:right;padding: 2px 2px 2px 2px;border: 2px solid black;" id="LAAge" class="LAAge">{LAAge}</td>
+		<td style="text-align:right;padding: 2px 2px 2px 2px;border: 2px solid black;" id="LASex" class="LASex">{LASex}</td>
+		<td style="text-align:right;padding: 2px 2px 2px 2px;border: 2px solid black;" id="LASmoker" class="LASmoker">{LASmoker}</td>
+		</tr>
+		</table>
+    	<!--520,430px-->    
+    	<div id="HLAWPMain" style="width:100%;height:380px;margin-top:0px;">
+			<table id="table-data" class="table-main" style="width:100%;">
+			<thead>
+			<tr>
+			<th colspan="3">&nbsp;</th>
+			<th colspan="4" id="dynamic" class="dynamic" style="text-align:center;"><b><u>Bayaran Premium Asal (RM)</u></b></th>
+			<th colspan="2">&nbsp;</th>
+			</tr> 
+			<tr>
+			<th class="contentLeft">Pelan Asas/ Rider</th>
+			<th class="contentSmallRight" style="width:90px">Tempoh Diinsuranskan<br/>(Tahun)</th>
+			<th class="contentSmallRight" style="width:90px">Tempoh Bayaran<br/>(Tahun)</th>
+			<th class="contentSmallRight" style="width:45px">Tahunan</th>
+			<th class="contentSmallRight" style="width:45px">Setengah Tahun</th>
+			<th class="contentSmallRight" style="width:45px">Suku Tahun</th>
+			<th class="contentSmallRight" style="width:45px">Bulanan</th>
+			<th class="contentSmallRight" style="width:90px" id="hLoading" class="hLoading">Caj Tambahan Kesihatan<br/>(1k JD)</th>
+			<th class="contentSmallRight" style="width:90px" id="occLoading" class="occLoading">Caj Tambahan Pekerjaan<br/>(1k JD)</th>
+			</tr> 
+			</thead>
+			<tbody>
+			</tbody>
+			<tfoot>
+			</tfoot>
+			</table>
+			<div id="disclaimer" class="disclaimer" style="display:block">
+		  		<div id="Page1withRiders" style="padding: 0px 0px 0px 0px;">
+					Semua rider ditunjukkan atas adalah tidak wajib dan tidak semestinya dijual bersama pelan asas.<br/>
+		  		</div>
+		  		<div style="padding: 0px 0px 0px 0px;">
+		  			Perlindungan insurans yang ditunjukkan di atas adalah untuk tujuan illustrasi sahaja dan bukan bermaksud untuk menyatakan perlindungan insurans sebenar. Perlindungan insurans sebenar adalah tertakluk kepada kelulusan, polisi, terma-terma dan syarat-syarat yang ditentukan oleh Hong Leong Assurance.<b> Kesemua permohonan adalah tertakluk kepada kelulusan pengunderaitan.</b><br/>
+		  			<br/>
+		  		</div>
+			</div>	
+			<div id="GIRR" class="GIRR" style="display: none">
+				Sila ambil perhatian bahawa Faedah Terjamin bagi pelan ini akan kurang daripada jumlah premium yang dibayar.
+			</div>
+		</div>
+		<div  style="background-color:#ddd;border:1px solid black;padding:2px 0px 2px 5px;width:40%;height:8px;margin-bottom:5px;margin-top:-38px;">
+			Nilai-nilai yang ditunjukkan dalam Ilustrasi Jualan masih belum mengambil kira GST.
+		</div>
+		<table style="border-collapse:separate;border:1px solid black;width:100%;">
+		<tr>
+		<td width="95%" align="left" style="padding: 2px 2px 2px 2px;">
+			<span style="text-align:center;width:500px;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>HONG LEONG ASSURANCE BERHAD</b></span><br/>
+			Hong Leong Assurance Berhad ialah ahli Perbadanan Insurans Deposit Malaysia (PIDM). Sebagai ahli PIDM, sebahagian daripada manfaat yang diinsuranskan di bawah sijil takaful atau polisi insurans yang ditawarkan oleh Hong Leong
+			Assurance Berhad dilindungi daripada kehilangan sebahagian atau kesemua manfaat takaful atau insurans oleh PIDM, sekiranya berlaku kegagalan ahli penginsurans. Untuk maklumat lanjut mengenai had dan skop perlindungan ini, sila
+			dapatkan risalah maklumat PIDM daripada Hong Leong Assurance Berhad atau layari laman web PIDM (www.pidm.gov.my) atau hubungi talian bebas tol PIDM (1-800-88-1266).<br/>
+		</td>
+		<td width="5%" style="text-align:center"><img src="SI/img/PIDM.png"/></td>
+		</tr>
+		</table>
+		<table border="0" style="border-collapse:separate;border:0px solid black;width:100%;margin-top:0px;">
+		<tr>
+		<td width="75%" style="padding: 0px 0px 0px 0px;">
+			Illustrasi Jualan ini mengandungi <span class="totalPages">{totalPages}</span> muka surat dan setiap muka surat membentuk sebahagian daripada illustrasi jualan. Bakal
+			pemunya polisi adalah dinasihatkan untuk membaca dan memahami maklumat yang tercetak pada setiap muka surat.<br/>
+			<b><span id="rptVersion" class="rptVersion">{rptVersion}</span></b> <br/>
+			Level 3, Tower B, PJ City Development, No. 15A Jalan 219, Seksyen 51A, 46100 Petaling Jaya, Selangor. Tel: 03-7650 1818 Fax: 03-7650 1991 Website: www.hla.com.my<br/>
+		</td>
+		<td width="9%" align="left" valign="bottom" style="padding: 0px 0px 0px 0px;">Page <span class="currentPage">1</span> of <span class="totalPages">56</span></td>
+		<td width="16%" align="right" valign="bottom" style="padding: 0px 0px 0px 0px;"><br/>
+			<img src="SI/img/barcode.png" style="vertical-align:text-top;padding: 0px 0px 0px 0px;" height="70%" width="100%"/></br>Ref: <span id=SICode class="SICode">{SINo}</span>
+		</td>
+		</tr>
+		</table>
+    	<div id="externalPages"></div>
+	</div>
+</body>
+</html>

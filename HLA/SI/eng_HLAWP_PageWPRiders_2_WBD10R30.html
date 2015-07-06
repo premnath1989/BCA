@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <script>
+  function onBodyLoad(){
+  }
+  
+    function replaceChar(char){
+        var temp, returnVal;
+        if (char == "0")
+            returnVal = "-"
+        else if (char == "")
+            returnVal = "-"
+        else
+            returnVal = char;
+        return returnVal;
+    }
+    
+    function isIncomeRider(amt,rider){
+		//rider.replace(/^\s+|\s$/g,"")
+		//$.trim(rider)
+		var temp;
+		temp = $.trim(rider)
+		//alert(temp + "x")
+        if (temp == "HLA Income Builder" || temp == "Income 20 Rider" || temp == "Income 30 Rider" || temp == "Income 40 Rider" || temp == "Income D-20 Rider" || temp == "Income D-30 Rider" || temp == "Income D-40 Rider" || temp == "Income E-20 Rider" || temp == "Income E-30 Rider"){
+        	return amt + " *";
+        }
+        else
+        	return amt + "&nbsp;&nbsp;";
+    }
+    
+  </script>
+  <head>
+  <body onload="onBodyLoad()">
+  
+<div id="header">
+	<div class="agentInfo">
+  		Code : <span id="agentCode" class="agentCode">{agentCode}</span>&nbsp;&nbsp;Prepared By : <span id="agentName" class="agentName">{agentName}</span>
+  		
+  	</div>
+  	<div class="ContentInfo">Printed On : <span id="dateModified" class="dateModified">{DateModified}</span></div>
+  	<div class="hruleInfo"></div>
+</div>
+<div class="main-content">
+<!--520px-->
+
+
+
+<div class="contentArea" style="height: 600px">
+<table border=0 width="100%">
+<tr>
+<td width="20%" valign="top">Basic Plan : <span id="planName" class="planName">{PlanName}</span></td>
+<td width="50%" valign="top"><span id="paymentDesc" class="paymentDesc">{PaymentDescription}</span></td>
+<td width="30%" valign="top">&nbsp;&nbsp;Life Assured : <span id="LAName1" class="LAName1">{LAName1}</span></td>
+</tr>
+</table>
+
+
+
+
+<table id="table-SummaryGYI_Riders2_WBD10R30" class="table-SummaryGYI_Riders2">
+<thead>
+<tr><th colspan="14"><div align="center"><span id="illustrationOf_WBD10R30" class="illustrationOf_WBD10R30">{illustrationOf_WBD10R30}</span></div></th></tr>
+
+<tr>
+    <th rowspan="3" class="content"><br/>Policy<br/>Year<br/></th>
+    <th rowspan="3" class="contentMedium"><br/>Life Assured's Age at End of<br/>Year<br/></th>
+    <th  colspan="10">Not Guaranteed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Set B)</th>
+
+</tr>
+<tr>
+    <th colspan="2" class="contentSmall">Current Year<br/>Cash Dividend<br/>(7)</th>
+    <th colspan="2" class="contentSmall" id="col1">Accumulated<br/>Cash Dividends<br/>(8)</th>
+    <th colspan="2" class="contentSmall" id="col2">Accumulated<br/>Yearly Cash coupons (Cumulative of (2B) With Interest) <sup><span class='fnPageWB30R_AYCC' style='font-size: 5px'></span></sup> <br/>(9)</th>
+    <th colspan="2" class="contentSmall" id="col3">Terminal Dividend Payable<br/>on Surrender/ Maturity<br/>(10)</th>
+    <th colspan="2" class="contentSmall" id="col4">Special Terminal Dividend Payable<br/>on Death/TPD<br/>(11)</th>
+</tr>
+<tr>
+    <th>Sce. A</th>
+    <th>Sce. B</th>
+
+    <th id="col1A">Sce. A</th>
+    <th id="col1B">Sce. B</th>
+
+    <th id="col2A">Sce. A</th>
+    <th id="col2B">Sce. B</th>
+
+    <th id="col3A">Sce. A</th>
+    <th id="col3B">Sce. B</th>
+
+    <th id="col4A">Sce. A</th>
+    <th id="col4B">Sce. B</th>
+</tr>
+    
+
+
+    
+
+</thead>
+<tbody>
+</tbody>
+</table>
+
+<span style="display:none;padding: 0px 0px 0px 0px;" id="ShowGYI" class="ShowGYI">
+<span class='fnPageWB30R_AYCC'></span>The amount shown in this column is inclusive of the Guaranteed Yearly Cash Coupons/ Cash Payments amount accumulated with the company as shown in the column (2D).
+Only the interest payable on accumulated Guaranteed Yearly Cash Coupons/ Cash Payments is not guaranteed
+</span>
+
+
+
+
+</div>
+
+
+<table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+<tr>
+<td width="77%" style="font-family:Times New Roman;font-size:9.5px;font-weight:normal;padding: 5px 5px 5px 0px;">
+This sales illustration consists of <span class="totalPages">{totalPages}</span> pages and each page forms an integral part of the sales illustration. A prospective policy owner is advised to read and understand the
+information printed on each and every page. <br/>
+<b><span id="rptVersion" class="rptVersion">{rptVersion}</span></b> <br/>
+Level 3, Tower B, PJ City Development, No. 15A Jalan 219, Seksyen 51A, 46100 Petaling Jaya, Selangor. Tel: 03-7650 1818 Fax: 03-7650 1991 Website: www.hla.com.my<br/>
+</td>
+<td width="8%" align="left" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Times New Roman;font-size:9.5px;font-weight:normal;">Page <span class="currentPage">22</span> of <span class="totalPages">56</span></td>
+<td width="15%" align="right" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Times New Roman;font-size:9.5px;font-weight:normal;"></td>
+</tr>
+</table>
+
+</body>
+</html>

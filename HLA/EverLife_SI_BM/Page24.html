@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/hla.js"></script>
+  <script>
+  var gData;
+  function onBodyLoad(){
+  		//alert("aa")
+  		//writeSummary1();
+		$.ajaxSetup({ cache: false });
+		$.getJSON('SI.json', function(data) {
+			gdata = data;
+			setPage();
+			writeRiderPage5_HLCP();
+			
+			//$.each(gdata.SI[0].SI_Temp_Trad_Basic.data, function(index, SI_Temp_Trad_Basic) {	
+			//	document.write('aa');
+				//$('#table-Summary1 > tbody').append("aaa");		
+				//$('#table-Summary1 > tbody').append('<tr><td>' + SI_Temp_Trad_Basic.col0_1 + '</td><td>' + SI_Temp_Trad_Basic.col0_2 + '</td><td>' + SI_Temp_Trad_Basic.col1 + '</td><td>' + SI_Temp_Trad_Basic.col2 + '</td><td>' + SI_Temp_Trad_Basic.col3 + '</td><td>' + SI_Temp_Trad_Basic.col4 + '</td><td>' + SI_Temp_Trad_Basic.col5 + '</td><td>' + SI_Temp_Trad_Basic.col6 + '</td><td>' + SI_Temp_Trad_Basic.col7 + '</td><td>' + SI_Temp_Trad_Basic.col8 + '</td><td>' + SI_Temp_Trad_Basic.col9 + '</td><td>' + SI_Temp_Trad_Basic.col10 + '</td><td>' + SI_Temp_Trad_Basic.col11 + '</td><td>' + SI_Temp_Trad_Basic.col12 + '</td></tr>');
+			//});
+			
+			//alert(gdata.SI[0].SI_Trad_Details.data[0].AdvanceYearlyIncome)
+            
+            //if (parseInt(gdata.SI[0].SI_Trad_Details.data[0].AdvanceYearlyIncome) == 0){ //title
+            //    $('.advanceYearlyIncome').html('Illustration of HLA Income Builder&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Ilustrasi HLA Income Builder</i>');
+                //$('#advanceYearlyDesc').hide();
+            //}
+            //else if (parseInt(gdata.SI[0].SI_Trad_Details.data[0].AdvanceYearlyIncome) == 60){
+            //    $('.advanceYearlyIncome').html('Illustration of HLA Income Builder - Advance Yearly Income at age 60&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Ilustrasi HLA Income Builder - Pendahuluan Pendapatan Tahunan pada umur 60</i>');
+            //}
+            //else if (parseInt(gdata.SI[0].SI_Trad_Details.data[0].AdvanceYearlyIncome) == 75){
+            //    $('.advanceYearlyIncome').html('Illustration of HLA Income Builder - Advance Yearly Income at age 75&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Ilustrasi HLA Income Builder - Pendahuluan Pendapatan Tahunan pada umur 75</i>');
+            //}
+		
+		
+		});
+
+
+
+  }
+  
+    function replaceChar(char){
+        var temp, returnVal;
+        if (char == "0")
+            returnVal = "-"
+        else if (char == "")
+            returnVal = "-"
+        else
+            returnVal = char;
+        return returnVal;
+    }
+    
+    function isIncomeRider(amt,rider){
+		//rider.replace(/^\s+|\s$/g,"")
+		//$.trim(rider)
+		var temp;
+		temp = $.trim(rider)
+		//alert(temp + "x")
+        if (temp == "HLA Income Builder" || temp == "Income 20 Rider" || temp == "Income 30 Rider" || temp == "Income 40 Rider" || temp == "Income D-20 Rider" || temp == "Income D-30 Rider" || temp == "Income D-40 Rider" || temp == "Income E-20 Rider" || temp == "Income E-30 Rider"){
+        	return amt + " *";
+        }
+        else
+        	return amt + "&nbsp;&nbsp;";
+    }
+    
+  </script>
+  <head>
+  <body onload="onBodyLoad()">
+  
+<div id="header">
+	<div class="agentInfo">
+  		Prepared By : <span id="agentName" class="agentName">{agentName}</span>
+  		<br/>Code : <span id="agentCode" class="agentCode">{agentCode}</span>
+  	</div>
+  	<div class="ContentInfo">Printed On : <span id="dateModified" class="dateModified">{DateModified}</span></div>
+  	<div class="hruleInfo"></div>
+</div>
+<div class="main-content">
+<!--520px-->
+
+
+
+<div class="contentArea">
+
+
+
+<table border=0 width="100%">
+<tr>
+<td width="30%" valign="top">Basic Plan <i>Pelan Asas</i>: <span id="planName" class="planName">{PlanName}</span></td>
+<td width="40%" valign="top"><span id="paymentDesc" class="paymentDesc">{PaymentDescription}</span></td>
+<td width="30%" valign="top">&nbsp;&nbsp;Life Assured <i>Hayat&nbsp;&nbsp;Diinsuranskan:</i> <span id="LAName" class="LAName">{LAName}</span></td>
+</tr>
+</table>
+
+
+
+<table class="table-Rider" id="table-Rider5">
+
+<thead>
+<tr><th colspan="14" style="text-align: left;">&nbsp;&nbsp;Illustration of Riders&nbsp;&nbsp;&nbsp;<i>Illustrasi Rider</i></th></tr>
+<tr>
+<th colspan="2">&nbsp;</th>
+    <th colspan="4" id="rider1Page5" class="title">{rider1}</th>
+    <th colspan="4" id="rider2Page5" class="title">{rider2}</th>
+    <th colspan="4" id="rider3Page5" class="title">{rider3}</th>
+
+</tr>
+<tr>
+<th id="col0_1_EPage5" class="content">Policy Year</th>
+<th id="col0_2_EPage5" class="content">Life Ass'd Age at end of Year</th>
+
+<th id="col1_EPage5" class="content">Annual Premium (Beg. of Year)</th>
+<th id="col2_EPage5" class="content">Surrender Value</th>
+<th id="col3_EPage5" class="content">Death/TPD Benefit</th>
+<th id="col4_EPage5" class="content">-</th>
+
+<th id="col5_EPage5" class="content">Annual Premium (Beg. of Year)</th>
+
+<th id="col6_EPage5" class="content">Surrender Value (End of Year)</th>
+
+<th  id="col7_EPage5" class="content">Death/TPD Benefit</th>
+
+<th id="col8_EPage5" class="content">Critical Illness Benefit</th>
+
+<th id="col9_EPage5" class="content">Annual Premium (Beg. of Year)</th>
+
+<th id="col10_EPage5" class="content">Critical Illness Benefit</th>
+
+<th id="col11_EPage5" class="content">-</th>
+
+<th id="col12_EPage5" class="content">-</th>
+</tr>
+
+<!--
+<tr>
+
+<th id="col0_1_MPage5" class="content"><i>Tahun Polisi</i></th>
+
+<th id="col0_2_MPage5" class="content"><i>Umur Hayat Diinsuranskan pada Akhir Tahun</i></th>
+
+<th id="col1_MPage5" class="content"><i>Premium Tahunan (Permulaan Tahun)</i></th>
+
+<th id="col2_MPage5" class="content"><i>Nilai Penyerahan (Akhir Tahun)</i></th>
+
+<th id="col3_MPage5" class="content"><i>Faedah Kematian/HUMK</i></th>
+
+<th id="col4_MPage5" class="content">-</th>
+
+<th id="col5_MPage5" class="content"><i>Premium Tahunan (Permulaan Tahun)</th>
+
+<th id="col6_MPage5" class="content"><i>Nilai Penyerahan (Akhir Tahun)</th>
+
+<th id="col7_MPage5" class="content"><i>Faedah Kematian/HUMK</th>
+
+<th id="col8_MPage5" class="content"><i>Faedah Penyakit Kritikal</th>
+
+<th id="col9_MPage5" class="content"><i>Premium Tahunan (Permulaan Tahun)</th>
+
+<th id="col10_MPage5" class="content"><i>Faedah Penyakit Kritikal</th>
+
+<th id="col11_MPage5" class="content">-</th>
+
+<th id="col12_MPage5" class="content">-</th>
+</tr>-->
+</thead>
+<tbody>
+</tbody>
+</table>
+
+
+
+
+
+
+</div>
+
+
+<table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+<tr>
+<td width="75%" style="font-family:Arial;font-size:8px;font-weight:normal;padding: 5px 5px 5px 0px;">
+<i>Illustrasi Jualan ini mengandungi <span class="totalPages">{totalPages}</span> muka surat and setiap muka surat membentuk sebahagian daripada illustrasi jualan. Bakal<br/>
+pemunya polisi adalah dinasihatkan untuk membaca dan memahami maklumat yang tercetak pada setiap muka surat.</i><br/>
+<b><span id="rptVersion" class="rptVersion">{rptVersion}</span></b> <br/>
+Level 3, Tower B, PJ City Development, No. 15A Jalan 219, Seksyen 51A, 46100 Petaling Jaya, Selangor. Tel: 03-7650 1818 Fax: 03-7650 1991 Website: www.hla.com.my<br/>
+</td>
+<td width="10%" align="left" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:10px;font-weight:normal;">Page <span class="currentPage">22</span> of <span class="totalPages">56</span></td>
+<td width="15%" align="right" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:12px;font-weight:normal;">Ref: <span id=SICode class="SICode">{SINo}</span></td>
+</tr>
+</table>
+
+</body>
+</html>

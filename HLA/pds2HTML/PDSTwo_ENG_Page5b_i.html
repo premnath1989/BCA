@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <link href="pds2HTML/css/css_PDS.css" rel="stylesheet" type="text/css" />
+        <title>
+            C) FUND CHOOSEN
+        </title>
+        
+    </head>
+    <body>
+        <div id = "premiumPaid">
+            <table class="leftRightMargin" border="0">
+                <tr>
+                    <td class="numbering">
+                        3.
+                    </td>
+                    <td class= "bold">
+                        How much premium do I have to pay?
+                    </td>
+                </tr>
+                <tr id="premiumPayTR">
+                    <td></td>
+                    <td id="premiumPay">
+                        <p>The  total premium you have to pay may vary depending on our underwriting decisions. </p>
+                        The estimated total premium that you have to pay:
+                        <script>
+                            document.getElementById("premiumPay").appendChild(loadPremiumPay());
+                            </script>
+                    </td>
+                </tr>
+                
+                <tr id="premiumPayEcarTR">
+                    <td></td>
+                    <td id="premiumPayEcar">
+                        <b>EverCash 60 Rider's Annual Premium Breakdown</b>
+                        <table style='width:50%;' class="normalTable">
+                            <tr>
+                                <td style='width: 40%;text-align:center;vertical-align: top;border: 1px solid;'>&nbsp;</td>
+                                <td style='width: 30%;text-align:center;vertical-align: top;border: 1px solid;'><b>Percentage (%)</b></td>
+                                <td style='width: 30%;text-align:center;vertical-align: top;border: 1px solid;'><b>Amount (RM)</b></td>
+                            </tr>
+                            <tr>
+                                <td style='width: 40%;text-align:center;vertical-align: top;border: 1px solid;'>Annuity Premium*</td>
+                                <td style='width: 30%;text-align:center;vertical-align: top;border: 1px solid;'><span id='AnnuityPremPct' class='AnnuityPremPct'>{AnnuityPremPct}</span>%</td>
+                                <td style='width: 30%;text-align:center;vertical-align: top;border: 1px solid;'><span id='AnnuityAmount' class='AnnuityAmount'>{AnnuityAmount}</span></td>
+                            </tr> 
+                            <tr>
+                                <td style='width: 40%;text-align:center;vertical-align: top;border: 1px solid;'>Non Annuity Premium</td>
+                                <td style='width: 30%;text-align:center;vertical-align: top;border: 1px solid;'><span id='NonAnnuityPremPct' class='NonAnnuityPremPct'>{NonAnnuityPremPct}</span>%</td>
+                                <td style='width: 30%;text-align:center;vertical-align: top;border: 1px solid;'><span id='NonAnnuityAmount' class='NonAnnuityAmount'>{NonAnnuityAmount}</span></td>
+                            </tr> 
+                        </table>
+                        * Only the Annuity Premium will qualify for tax relief up to RM 3,000 per year and under the current tax rules, the tax relief on the Annuity Premium is only available up to year 2021.
+                    </td>
+                </tr>
+                
+                
+               <!-- <tr id="premiumDurationTR">
+                    <td></td>
+                    <td id="premiumDuration">
+                        <span>Premium duration:</span>
+                        <script>
+                            document.getElementById("premiumDuration").appendChild(loadPremiumDuration());
+                            </script>
+                    </td>
+                </tr>-->
+            </table>
+        </div>
+        <!-- end of How much premium do I have to pay?-->
+    </body>
+
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/hla.js"></script>
+  <script>
+  function onBodyLoad(){
+  }
+  
+    function replaceChar(char){
+        var temp, returnVal;
+        if (char == "0")
+            returnVal = "-"
+        else if (char == "")
+            returnVal = "-"
+        else
+            returnVal = char;
+        return returnVal;
+    }
+    
+    function isIncomeRider(amt,rider){
+		//rider.replace(/^\s+|\s$/g,"")
+		//$.trim(rider)
+		var temp;
+		temp = $.trim(rider)
+		//alert(temp + "x")
+        if (temp == "HLA Income Builder" || temp == "Income 20 Rider" || temp == "Income 30 Rider" || temp == "Income 40 Rider" || temp == "Income D-20 Rider" || temp == "Income D-30 Rider" || temp == "Income D-40 Rider" || temp == "Income E-20 Rider" || temp == "Income E-30 Rider"){
+        	return amt + " *";
+        }
+        else
+        	return amt + "&nbsp;&nbsp;";
+    }
+    
+  </script>
+  <head>
+  <body onload="onBodyLoad()">
+  
+<div id="header">
+	<div class="agentInfo">
+  		Prepared By : <span id="agentName" class="agentName">{agentName}</span>
+  		<br/>Code : <span id="agentCode" class="agentCode">{agentCode}</span>
+  	</div>
+  	<div class="ContentInfo">Printed On : <span id="dateModified" class="dateModified">{DateModified}</span></div>
+  	<div class="hruleInfo"></div>
+</div>
+<div class="main-content">
+<!--520px-->
+
+
+
+<div style="width:100%;height:793px;background-color: #fff;margin-top:-38px;">
+
+<br/>
+
+<b>Fund Fact Sheet</b><br/><br/>
+<table id="table-design1" style="width: 100%">
+  <tr>
+    <td style="width: 8%">Name of Fund</td>
+    <td style="text-align: center;width: 23%">HLA EverGreen 2023 Fund, HLA EverGreen 2025 Fund, HLA EverGreen 2028 Fund, HLA EverGreen 2030 Fund & HLA EverGreen 2035 Fund</td>
+    <td style="text-align: center;width: 23%">HLA Dana Suria</td>
+    <td style="text-align: center;width: 23%">HLA Secure Fund</td>
+    <td style="text-align: center;width: 23%">HLA Cash Fund</td>
+  </tr>
+  <tr>
+    <td>Investment Objective</td>
+    <td>The fund is designed to provide investors with principal and
+enhanced profit protection via a systematic investment in a
+globally diversified multi asset (equities, currency, rates,
+commodities, property, hedge fund strategies) long short
+strategy.</td>
+    <td>This fund provides investors an affordable access into a diversified investment portfolio which offers steady and consistent return
+	over a long-term investment horizon by investing into local and global equities and fixed income securities that comply with Shariah requirements.</td>
+    <td>To provide investors with steady and
+consistent return over a long-term investment
+horizon by investing into local and global
+fixed income securities and equities.</td>
+    <td>This fund aims to provide high principal security
+and consistent return to the investors by
+investing in money market instrument. Returns
+will be comparable to prevailing overnight
+policy rates but correspondingly, the risks will
+be significantly lower than that for equities
+investment.
+    </td>
+  </tr>
+  <tr>
+    <td>Investment Strategy & Approach</td>
+    <td>The main investment strategy is executed via portfolio
+optimization methodology. The fund is open ended with
+defined maturity date. The investment execution is
+accomplished via a Floating Rate Negotiable Instrument of
+Deposits (FRNID) issued by CIMB Bank Berhad.
+The FRNID is principal protected at maturity by CIMB Bank.
+The FRNID dynamically adjusts its exposure to the strategy,
+such as to reduce exposure when the strategy has negative
+performance and increase exposure when it has positive
+performance.</td>
+    <td>At inception, this fund will invest by feeding into Hong Leong Dana Maa&apos;rof and HLA Venture Dana Putra (&quot;Target Funds&quot;) with
+	the option to increase the number of funds or replace the Target Funds in future. Generally, the Target Funds select undervalued companies that have the
+	potential to offer good Medium-To-Long Term capital growth. In terms of fixed income instruments, selection depends
+	largely on credit quality to assure relative certainty in profit income, principal payment, and overall total return stability.</td>
+    <td>The strategy is to provide investors an
+affordable access into a diversified
+investment portfolio with a mixture of
+equities and fixed income instrument. The
+fund will invest primarily in fixed income
+instruments such as bonds, money market
+instruments, repo and deposits with financial
+institutions that provide regular income as
+well as in high dividend yield stocks to
+enhance the fund&apos;s returns. The asset
+allocation decision between fixed income
+instruments and equity is decided after
+considering the fixed income and equity
+market outlook over the medium to
+long-term horizon. Initially the fund will invest
+by feeding into Hwang Select Income Fund,
+with the option to increase the number of
+funds or replace Hwang Select Income Fund
+with other fund(s) in future.</td>
+    <td >This fund may be placed with any licensed
+financial institution under the Islamic Financial
+Services Act 2013, determined by the fund
+manager.</td>
+  </tr>
+  <tr>
+    <td >Asset Allocation</td>
+    <td style="text-align: center;">The fund will invest in a Floating Rate Negotiable Instrument
+of Deposits ("FRNID").</td>
+    <td >Hong Leong Dana Maa’rof will invest a minimum 40% and maximum 60% of its NAV into Shariah-compliant equities while HLA Venture Dana Putra will invest up to
+	  maximum 90%, but not less than 40% of fund’s NAV into equities.</td>
+    <td >The fund shall invest a minimum 70% of the
+NAV in Fixed Income Instruments and
+maximum 30% of NAV in Equities</td>
+    <td >This fund may be placed with any licensed
+financial institution under the Islamic Financial
+Services Act 2013, determined by the fund
+manager.</td>
+  </tr>
+  <tr>
+    <td >Fund Management Charge</td>
+    <td style="text-align: center;">1.30% p.a</td>
+    <td style="text-align: center;">1.30% p.a</td>
+    <td style="text-align: center;">1.00% p.a</td>
+    <td style="text-align: center;">0.25% p.a</td>
+  </tr>
+  <tr>
+    <td >Fund Manager</td>
+    <td style="text-align: center;" colspan="4">Hong Leong Assurance Berhad</td>
+  </tr>
+  <tr>
+    <td >Others</td>
+    <td >HLA EverGreen Funds are managed by HLA. Allocated
+premiums of the policy invested in these funds are invested
+by HLA on behalf of Policy Owner in a Floating Rate
+Negotiable Instrument of Deposits ("FRNID") issued by CIMB
+Bank Berhad. The amount invested in the FRNID is
+guaranteed by the issuer if held to maturity. If the issuer of
+the FRNID defaults or insolvent, the Policy Owner risks losing
+part or all of his/her allocated premium amounts that were
+invested into the FRNID on their behalf by HLA. Should the
+issuer/ financial institutions default the above investment
+instrument, the Minimum Guaranteed Unit Price at Fund
+Maturity will not be applicable.</td>
+    <td >HLA Dana Suria is managed by HLA. Any amount invested in this fund is invested by HLA on behalf of Policy Owner into Islamic
+	unit trust/ investment-linked funds which will invest in Shariah-compliant fixed income securities, equities and money market
+	instruments. If the financial institutions and/or corporations issuing the funds defaults or become insolvent, the Policy
+	Owner risks losing part or all of his/her amount that were invested into the fund on their behalf by HLA.</td>
+    <td >HLA Secure Fund is managed by HLA. Any
+amount invested in this fund is invested by
+HLA on behalf of Policy Owner in fixed
+income, equity and money market
+instrument/s. If the financial institutions
+and/or corporations issuing the fixed income,
+equity and money market instruments
+defaults or insolvent, the Policy Owner risks
+losing part or all of his/her amount that were
+invested into the instruments on their behalf
+by HLA.</td>
+    <td >HLA Cash Fund is managed by HLA. Any
+amount invested in this fund is invested by HLA
+on behalf of Policy Owner in money market
+instrument/s issued by licensed financial
+institution/s under the Islamic Financial Services
+Act 2013. The amount invested in this money
+market instrument/s is guaranteed by these
+financial institutions, before deducting any
+charge or tax. If the financial institutions issuing
+the money market instruments defaults or
+insolvent, the Policy Owner risks losing part or
+all of his/her amount that were invested into
+the instruments on their behalf by HLA.</td>
+  </tr>
+</table>
+
+
+</div>
+
+
+<table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+<tr>
+<td width="75%" style="font-family:Arial;font-size:8px;font-weight:normal;padding: 5px 5px 5px 0px;">
+This sales illustration consists of <span class="totalPages">{totalPages}</span> pages and each page forms an integral part of the sales illustration. A prospective policy owner is advised to read and understand the<br/>
+information printed on each and every page. <i>Illustrasi Jualan ini mengandungi <span class="totalPages">{totalPages}</span> muka surat and setiap muka surat membentuk sebahagian daripada illustrasi jualan. Bakal<br/>
+pemunya polisi adalah dinasihatkan untuk membaca dan memahami maklumat yang tercetak pada setiap muka surat.</i><br/>
+<b><span id="rptVersion" class="rptVersion">{rptVersion}</span></b> <br/>
+Level 3, Tower B, PJ City Development, No. 15A Jalan 219, Seksyen 51A, 46100 Petaling Jaya, Selangor. Tel: 03-7650 1818 Fax: 03-7650 1991 Website: www.hla.com.my<br/>
+</td>
+<td width="10%" align="left" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:10px;font-weight:normal;">Page <span class="currentPage">22</span> of <span class="totalPages">56</span></td>
+<td width="15%" align="right" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:12px;font-weight:normal;">Ref: <span id=SICode class="SICode">{SINo}</span></td>
+</tr>
+</table>
+</div>
+</body>
+</html>

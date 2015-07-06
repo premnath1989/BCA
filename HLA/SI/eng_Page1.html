@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link href="SI/css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="SI/js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="SI/js/hla.js"></script>
+  <script>
+  var gData;
+
+
+
+      
+      
+  function onBodyLoad(){
+		$.ajaxSetup({ cache: false });
+		//$('#Page1_1').load('Page20.html');
+		
+		//$('#Page3').load('Page3.html');
+		//$('#Page4_1').load('Page4_1.html');
+		//$('#Page4_2').load('Page4_2.html');
+		
+		
+		
+
+		
+		//$.getJSON('test.json', function(data) {
+		
+		//var items = [];
+		//var pageCount = 0;
+		//i = 0;
+		//$.each(data.SI[0].SI_Temp_Pages.data, function(index, SI_Temp_Pages) {
+		//	i++
+		//	if (i<12)
+		//	{
+				//htmlPage = SI_Temp_Pages.PageDesc;
+				//aa = '<div id="' + SI_Temp_Pages.PageDesc + '" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>'
+				//$(aa).appendTo('#externalPages');
+		//	}
+		//});
+		
+		
+		
+		//$({html: items.join('')}).appendTo('#externalPages');
+		//$('#externalPages').html('sss');
+		//alert($('#externalPages').html());
+		//$('#Page1').load('Page2.html');
+		//$('#Page2').load('Page3.html');
+		//$('#Page3').load('Page4_1.html');
+		//$('#Page4').load('Page4_2.html');
+		//$('#Page5').load('Page5_1.html');
+		//$('#Page6').load('Page5_2.html');
+		//$('#Page7').load('Page6_1.html');
+		//$('#Page8').load('Page7_1.html');
+		//$('#Page9').load('Page12.html');
+		//$('#Page10').load('Page21.html');
+		//$('#Page11').load('Page22.html');
+		
+		
+		
+		//	loadJson();
+		//});
+		
+		//$('#Page2').load('Page2.html');
+/*		
+		$.ajax({
+  			url: 'SI/Page2.html',
+  			async: false,
+  			dataType: 'html',
+  			success: function (data) {
+  				$('#Page2').html(data);
+  			}
+		});
+
+		$.ajax({
+  			url: 'SI/Page3.html',
+  			async: false,
+  			dataType: 'html',
+  			success: function (data) {
+  				$('#Page3').html(data);
+  			}
+		});
+		
+		$.ajax({
+  			url: 'Page35.html',
+  			async: false,
+  			dataType: 'html',
+  			success: function (data) {
+  				$('#Page3').html(data);
+  			}
+		});
+		
+		//alert($('#Page3 .cPlanOption').html())
+		
+		$.ajax({
+  			url: 'Page36.html',
+  			async: false,
+  			dataType: 'html',
+  			success: function (data) {
+  				$('#Page4').html(data);
+  			}
+		});
+		
+		//$('#Page3 #table-design1 tr.C').css('display','table-row');
+		//$('#Page4 #table-design1 tr.CCTR').css('display','table-row');
+		
+		$.ajax({
+  			url: 'Page35.html',
+  			async: false,
+  			dataType: 'html',
+  			success: function (data) {
+  				$('#Page5').html(data);
+  			}
+		});
+*/
+		
+		$.ajax({
+  			url: 'SI.json',
+  			async: false,
+  			dataType: 'json',
+  			success: function (data) {
+  				gdata = data;
+  				  		
+				for(j=0;j<data.SI[0].SI_Temp_Pages.data.length;j++)
+				{
+					row = gdata.SI[0].SI_Temp_Pages.data[j];
+					if (row.PageDesc != "Page1")
+					{
+// 						if (row.PageDesc == "Page2")
+// 							htmlPages = '<div id="' + row.PageDesc + '" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>';
+// 						else
+							htmlPages = '<div id="' + row.PageDesc + '" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>';
+						$(htmlPages).appendTo('#externalPages');
+					}
+				}
+  		
+  		
+				for(j=0;j<data.SI[0].SI_Temp_Pages.data.length;j++)
+				{
+					row = gdata.SI[0].SI_Temp_Pages.data[j];
+						$.ajax({
+  							url: "SI/" + row.htmlName,
+  							async: false,
+  							dataType: 'html',
+  							success: function (data) {
+  								$("#" + row.PageDesc).html(data);
+  							}
+						});
+				}
+	
+		
+  				loadJson();
+  			}
+		});
+		
+		
+		
+		
+  }
+  
+
+
+
+  
+function loadJson()
+{
+
+//$('#Page2').load('Page2.html', function() {
+//  alert('Load was performed.');
+//});
+
+//alert("1")
+
+//alert("aa")
+
+//	$.ajax({
+//  		url: 'test.json',
+//  		async: false,
+//  		dataType: 'json',
+//  		success: function (data){
+//			gdata = data;
+			setPage();
+            setRiderText();
+
+//alert(gdata.SI[0].SI_Temp_trad_LA.data.length)
+			writeSummary1_HLCP();
+			writeSummary2_HLCP();
+			writeRiderPage1_HLCP();
+			writeRiderPage2_HLCP();
+			writeRiderPage3_HLCP();
+			writeRiderPage4_HLCP();
+			writeRiderPage5_HLCP();
+			writeRiderPage6_HLCP();
+			writeRiderPage7_HLCP();
+			writeRiderPage8_HLCP();
+			//writeSummary1(); //page1
+			//writeSummary2(); //page3
+			//writeI20R_1(); //page4_1
+			//writeI20R_2(); //page4_2
+			//writeI30R_1(); //page5_1
+			//writeI30R_2(); //page5_2
+			//writeI40R_1(); //page6_1
+			//writeI40R_2(); //page6_2
+			//writeID20R_1(); //page7_1
+			//writeID20R_2(); //page7_2
+			//writeID30R_1(); //page8_1
+			//writeID30R_2(); //page8_2
+			//writeID40R_1(); //page9_1
+			//writeID40R_2(); //page9_2
+			//writeIE20R_1(); //page10_1
+			//writeIE20R_2(); //page10_2
+			//writeIE30R_1(); //page11_1
+			//writeIE30R_2(); //page11_2
+			//writeSummary3(); //page12
+			//writeRiderPage1(); //page20
+			//writeRiderPage2(); //page21
+			//writeRiderPage3(); //page22
+			//writeRiderPage4(); //page22
+			//writeRiderPage5(); //page22
+			//writeRiderPage6(); //page22
+			//writeRiderPage7(); //page22
+			//writeRiderPage8(); //page22
+			
+			writeRiderDescription_EN();
+			
+			
+			//$('#dateModified').html(gdata.SI[0].DateModified); //set printed on, heng might need to change this
+			
+			//alert(gdata.SI[0].SI_Temp_trad_LA.data.length)
+			
+			var result = gdata.SI[0].SI_Temp_trad_LA.data;
+			
+			if(result.length > 1){
+            	var row2 = result[1];
+			}
+			
+			
+            if(result.length == 1){
+            	var row = result[0];
+                $('.LADesc').html(row.LADesc);
+                $('.LAName').html(row.Name);
+                $('.LAAge').html(row.Age);
+	      
+                if (row.Sex == 'M'){
+		  
+                	$('.LASex').html('Male');
+            	}
+                else{
+                	$('.LASex').html('Female');
+                }
+                if (row.Smoker == 'Y'){
+                	$('.LASmoker').html('Yes');
+                }
+                else{
+                	$('.LASmoker').html('No');
+                }
+            }
+            else if(result.length == 2 && row2.PTypeCode == 'LA'){ //got 2nd life assured
+            	var row = result[0];
+                var row2 = result[1];
+                $('.LADesc').html(row.LADesc + '<br/><br/>' + row2.LADesc + '<br/>');
+                $('.LAName').html(row.Name + '<br/><br/>' + row2.Name)  ;
+                $('.LAAge').html(row.Age + '<br/><br/>' + row2.Age);
+                if (row.Sex == 'M' && row2.Sex == 'M'){
+                	$('.LASex').html('Male' + '<br/><br/>' + 'Male' );
+            	}
+                else if(row.Sex == 'M' && row2.Sex == 'F'){
+                	$('.LASex').html('Male' + '<br/><br/>' + 'Female' );
+                }
+                else if(row.Sex == 'F' && row2.Sex == 'M'){
+                	$('.LASex').html('Female' + '<br/><br/>' + 'Male' );
+                }
+                else{
+                	$('.LASex').html('Female<br/>' + '<br/><br/>' + 'Female' );
+                }
+                                   
+                if (row.Smoker == 'Y' && row2.Smoker == 'Y' ){
+                	$('.LASmoker').html('Yes' + '<br/><br/>' + 'Yes'  );
+                }
+                else if (row.Smoker == 'Y' && row2.Smoker == 'N' ){
+                	$('.LASmoker').html('Yes' + '<br/><br/>' + 'No'  );
+                }
+                else if (row.Smoker == 'N' && row2.Smoker == 'Y' ){
+                	$('.LASmoker').html('No' + '<br/><br/>' + 'Yes'  );
+                }
+                else{
+                	$('.LASmoker').html('No' + '<br/><br/>' + 'No' );
+                }
+        	}
+            else{ // got payor
+            	var row = result[0];
+                var row2 = result[1];
+
+                $('.LADesc').html(row.LADesc + '<br/><br/>' + row2.LADesc + '<br/>');
+                $('.LAName').html(row.Name + '<br/><br/>' + row2.Name)  ;
+                $('.LAAge').html(row.Age + '<br/><br/>' + row2.Age);
+                if (row.Sex == 'M' && row2.Sex == 'M'){
+                	$('.LASex').html('Male' + '<br/><br/>' + 'Male' );
+                }
+                else if(row.Sex == 'M' && row2.Sex == 'F'){
+                	$('.LASex').html('Male' + '<br/><br/>' + 'Female' );
+                }
+                else if(row.Sex == 'F' && row2.Sex == 'M'){
+                	$('.LASex').html('Female' + '<br/><br/>' + 'Male' );
+                }
+                else{
+                	$('.LASex').html('Female' + '<br/><br/>' + 'Female' );
+                }
+                                   
+            	if (row.Smoker == 'Y' && row2.Smoker == 'Y' ){
+                	$('.LASmoker').html('Yes' + '<br/><br/>' + 'Yes'  );
+                }
+                else if (row.Smoker == 'Y' && row2.Smoker == 'N' ){
+                	$('.LASmoker').html('Yes' + '<br/><br/>' + 'No'  );
+                }
+                else if (row.Smoker == 'N' && row2.Smoker == 'Y' ){
+                	$('.LASmoker').html('No' + '<br/><br/>' + 'Yes'  );
+                }
+                else{
+                	$('.LASmoker').html('No' + '<br/><br/>' + 'No' );
+                }
+            }
+            
+            var row;
+            var rowCol1, rowCol2, rowCol3, rowCol4, rowCol5, rowCol6, rowCol7, rowCol8, rowCol9, rowCol10, rowCol11, rowCol12;
+            var col5Total, col6Total, col7Total, col8Total;
+            col5Total = 0.00;
+            col6Total = 0.00;
+            col7Total = 0.00;
+            col8Total = 0.00;
+		
+		    var showHLoading = false;
+		    var showOccLoading = false;
+		    
+		    $.each(gdata.SI[0].SI_Temp_Trad_Details.data, function(index, row) {
+				if(row.col9 == ''){}
+				else{
+			    	showHLoading = true;
+				}
+			
+				if(row.col10 == ''){}
+				else{
+			    	showOccLoading = true;
+			    }
+		    });
+		    
+		    $.each(gdata.SI[0].SI_Temp_Trad_Details.data, function(index, row) {
+		    	i = 0;
+				col5Total = parseFloat(col5Total) + parseFloat((row.col5).replace(/,/g,'').replace('-', '0'));
+				col6Total = parseFloat(col6Total) + parseFloat((row.col6).replace(/,/g,'').replace('-', '0'));
+				col7Total = parseFloat(col7Total) + parseFloat((row.col7).replace(/,/g ,'').replace('-', '0'));
+				col8Total = parseFloat(col8Total) + parseFloat((row.col8).replace(/,/g,'').replace('-', '0'));
+				
+				
+				if(showHLoading == false){
+				  
+				  if(showOccLoading == false){
+				    
+						document.getElementById('hLoading').style.display = "none";
+						document.getElementById('occLoading').style.display = "none";
+						document.getElementById('dynamic').setAttribute('colspan', '4');
+						//document.getElementById('occLoading').setAttribute('colspan', '2');
+						if(result.length == 1){
+						    if(row.col0_1 == 'HLA Cash Promise'){
+						      $('#table-data > tbody').append('<tr>' + '<td style="text-align:left;padding: 0px 0px 0px 5px;">' + row.col0_1 + '</td>' +
+							'<td style="text-align:left;padding: 0px 0px 0px 5px;">' + replaceChar(row.col0_2) + '</td>' + '<td style="text-align:left;padding: 0px 0px 0px 5px;">' + replaceChar(row.col1) + '</td>' + '<td>' + formatCurrency(row.col2) + '*</td>'  +
+							'<td>' + row.col3 + '</td>' + '<td>' + row.col4 + '</td>' + '<td><span id=row' + i + 'col5>' + formatCurrency(row.col5) + '</span></td>' +
+							'<td id=row1col6>' + formatCurrency(row.col6) + '</td>' + '<td id=row1col7>' + formatCurrency(row.col7) + '</td>' +
+							'<td id=row1col8>' + formatCurrency(row.col8) + '</td>' + '</tr>');
+						    }
+						    else{
+						      $('#table-data > tbody').append('<tr>' + '<td style="text-align:left;padding: 0px 0px 0px 5px;">' + row.col0_1 + '</td>' +
+							'<td style="text-align:left;padding: 0px 0px 0px 5px;">' + replaceChar(row.col0_2) + '</td>' + '<td style="text-align:left;padding: 0px 0px 0px 5px;">' + replaceChar(row.col1) + '</td>' + '<td>' + formatCurrency(row.col2) + '</td>'  +
+							'<td>' + row.col3 + '</td>' + '<td>' + row.col4 + '</td>' + '<td><span id=row' + i + 'col5>' + formatCurrency(row.col5) + '</span></td>' +
+							'<td id=row1col6>' + formatCurrency(row.col6) + '</td>' + '<td id=row1col7>' + formatCurrency(row.col7) + '</td>' +
+							'<td id=row1col8>' + formatCurrency(row.col8) + '</td>' + '</tr>');
+						    }
+							
+						}
+						else{
+						  
+						    /*
+							$('#table-data > tbody').append('<tr>' + '<td style="text-align:left;padding: 0px 0px 0px 0px;">' + row.col0_1 + '</td>' +
+							'<td style="text-align:left;padding: 0px 0px 0px 0px;">' + replaceChar(row.col0_2) + '</td>' + '<td style="text-align:left;padding: 0px 0px 0px 0px;">' + replaceChar(row.col1) + '</td>' + '<td>' + isIncomeRider(formatCurrency(row.col2),row.col0_1) + '</td>'  +
+							'<td>' + row.col3 + '</td>' + '<td>' + row.col4 + '</td>' + '<td><span id=row' + i + 'col5>' + formatCurrency(row.col5) + '</span></td>' +
+							'<td id=row1col6>' + formatCurrency(row.col6) + '</td>' + '<td id=row1col7>' + formatCurrency(row.col7) + '</td>' +
+							'<td id=row1col8>' + formatCurrency(row.col8) + '</td>' + '</tr>');
+							*/
+						    
+						    if(row.col0_1 == 'HLA Cash Promise'){
+						      $('#table-data > tbody').append('<tr>' + '<td style="text-align:left;padding: 0px 0px 0px 0px;">' + row.col0_1 + '</td>' +
+							'<td style="text-align:left;padding: 0px 0px 0px 0px;">' + replaceChar(row.col0_2) + '</td>' + '<td style="text-align:left;padding: 0px 0px 0px 0px;">' + replaceChar(row.col1) + '</td>' + '<td>' + formatCurrency(row.col2) + ' *</td>'  +
+							'<td>' + row.col3 + '</td>' + '<td>' + row.col4 + '</td>' + '<td><span id=row' + i + 'col5>' + formatCurrency(row.col5) + '</span></td>' +
+							'<td id=row1col6>' + formatCurrency(row.col6) + '</td>' + '<td id=row1col7>' + formatCurrency(row.col7) + '</td>' +
+							'<td id=row1col8>' + formatCurrency(row.col8) + '</td>' + '</tr>');  
+						    }
+						    else{
+						      $('#table-data > tbody').append('<tr>' + '<td style="text-align:left;padding: 0px 0px 0px 0px;">' + row.col0_1 + '</td>' +
+							'<td style="text-align:left;padding: 0px 0px 0px 0px;">' + replaceChar(row.col0_2) + '</td>' + '<td style="text-align:left;padding: 0px 0px 0px 0px;">' + replaceChar(row.col1) + '</td>' + '<td>' + formatCurrency(row.col2) + '  </td>'  +
+							'<td>' + row.col3 + '</td>' + '<td>' + row.col4 + '</td>' + '<td><span id=row' + i + 'col5>' + formatCurrency(row.col5) + '</span></td>' +
+							'<td id=row1col6>' + formatCurrency(row.col6) + '</td>' + '<td id=row1col7>' + formatCurrency(row.col7) + '</td>' +
+							'<td id=row1col8>' + formatCurrency(row.col8) + '</td>' + '</tr>');
+						    }
+						    
+						}
+				  }
+				  else{
+						document.getElementById('hLoading').style.display = "none";
+						document.getElementById('dynamic').setAttribute('colspan', '5');
+						//document.getElementById('occLoading').setAttribute('colspan', '2');
+						if(result.length == 1){
+							$('#table-data > tbody').append('<tr>' + '<td style="text-align:left;padding: 0px 0px 0px 5px;">' + row.col0_1 + '</td>' +
+							'<td style="text-align:left;padding: 0px 0px 0px 5px;">' + replaceChar(row.col0_2) + '</td>' + '<td style="text-align:left;padding: 0px 0px 0px 5px;">' + replaceChar(row.col1) + '</td>' + '<td>' + isIncomeRider(formatCurrency(row.col2),row.col0_1) + '</td>'  +
+							'<td>' + row.col3 + '</td>' + '<td>' + row.col4 + '</td>' + '<td><span id=row' + i + 'col5>' + formatCurrency(row.col5) + '</span></td>' +
+							'<td id=row1col6>' + formatCurrency(row.col6) + '</td>' + '<td id=row1col7>' + formatCurrency(row.col7) + '</td>' +
+							'<td id=row1col8>' + formatCurrency(row.col8) + '</td>' + '<td>' + row.col10 + '</td>' + '</tr>');
+						}
+						else{
+							$('#table-data > tbody').append('<tr>' + '<td style="text-align:left;padding: 0px 0px 0px 0px;">' + row.col0_1 + '</td>' +
+							'<td style="text-align:left;padding: 0px 0px 0px 0px;">' + replaceChar(row.col0_2) + '</td>' + '<td style="text-align:left;padding: 0px 0px 0px 0px;">' + replaceChar(row.col1) + '</td>' + '<td>' + isIncomeRider(formatCurrency(row.col2),row.col0_1) + '</td>'  +
+							'<td>' + row.col3 + '</td>' + '<td>' + row.col4 + '</td>' + '<td><span id=row' + i + 'col5>' + formatCurrency(row.col5) + '</span></td>' +
+							'<td id=row1col6>' + formatCurrency(row.col6) + '</td>' + '<td id=row1col7>' + formatCurrency(row.col7) + '</td>' +
+							'<td id=row1col8>' + formatCurrency(row.col8) + '</td>' + '<td>' + row.col10 + '</td>' + '</tr>');
+						}
+				  }
+				}
+				else{
+				  if(showOccLoading == false){
+						document.getElementById('occLoading').style.display = "none";
+						document.getElementById('dynamic').setAttribute('colspan', '5');
+						if(result.length == 1){
+							$('#table-data > tbody').append('<tr>' + '<td style="text-align:left;padding: 0px 0px 0px 5px;">' + row.col0_1 + '</td>' +
+							'<td style="text-align:left;padding: 0px 0px 0px 5px;">' + replaceChar(row.col0_2) + '</td>' + '<td style="text-align:left;padding: 0px 0px 0px 5px;">' + replaceChar(row.col1) + '</td>' + '<td>' + isIncomeRider(formatCurrency(row.col2),row.col0_1) + '</td>'  +
+							'<td>' + row.col3 + '</td>' + '<td>' + row.col4 + '</td>' + '<td><span id=row' + i + 'col5>' + formatCurrency(row.col5) + '</span></td>' +
+							'<td id=row1col6>' + formatCurrency(row.col6) + '</td>' + '<td id=row1col7>' + formatCurrency(row.col7) + '</td>' +
+							'<td id=row1col8>' + formatCurrency(row.col8) + '</td>' + '<td>' + row.col9 + '</td>' + '</tr>');
+			    		}
+			    		else{
+							$('#table-data > tbody').append('<tr>' + '<td style="text-align:left;padding: 0px 0px 0px 0px;">' + row.col0_1 + '</td>' +
+							'<td style="text-align:left;padding: 0px 0px 0px 0px;">' + replaceChar(row.col0_2) + '</td>' + '<td style="text-align:left;padding: 0px 0px 0px 0px;">' + replaceChar(row.col1) + '</td>' + '<td>' + isIncomeRider(formatCurrency(row.col2),row.col0_1) + '</td>'  +
+							'<td>' + row.col3 + '</td>' + '<td>' + row.col4 + '</td>' + '<td><span id=row' + i + 'col5>' + formatCurrency(row.col5) + '</span></td>' +
+							'<td id=row1col6>' + formatCurrency(row.col6) + '</td>' + '<td id=row1col7>' + formatCurrency(row.col7) + '</td>' +
+							'<td id=row1col8>' + formatCurrency(row.col8) + '</td>' + '<td>' + row.col9 + '</td>' + '</tr>');
+			    		}
+			    	}
+			    	else{
+						document.getElementById('dynamic').setAttribute('colspan', '6');
+						if(result.length == 1){ 
+							$('#table-data > tbody').append('<tr>' + '<td style="text-align:left;padding: 0px 0px 0px 5px;">' + row.col0_1 + '</td>' +
+							'<td style="text-align:left;padding: 0px 0px 0px 5px;">' + replaceChar(row.col0_2) + '</td>' + '<td style="text-align:left;padding: 0px 0px 0px 5px;">' + replaceChar(row.col1) + '</td>' + '<td>' + isIncomeRider(formatCurrency(row.col2),row.col0_1) + '</td>'  +
+							'<td>' + row.col3 + '</td>' + '<td>' + row.col4 + '</td>' + '<td><span id=row' + i + 'col5>' + formatCurrency(row.col5) + '</span></td>' +
+							'<td id=row1col6>' + formatCurrency(row.col6) + '</td>' + '<td id=row1col7>' + formatCurrency(row.col7) + '</td>' +
+							'<td id=row1col8>' + formatCurrency(row.col8) + '</td>' + '<td>' + row.col9 + '</td><td>' + row.col10 + '</td>' + '</tr>');
+			    		}
+			    		else{
+							$('#table-data > tbody').append('<tr>' + '<td style="text-align:left;padding: 0px 0px 0px 0px;">' + row.col0_1 + '</td>' +
+							'<td style="text-align:left;padding: 0px 0px 0px 0px;">' + replaceChar(row.col0_2) + '</td>' + '<td style="text-align:left;padding: 0px 0px 0px 0px;">' + replaceChar(row.col1) + '</td>' + '<td>' + isIncomeRider(formatCurrency(row.col2),row.col0_1) + '</td>'  +
+							'<td>' + row.col3 + '</td>' + '<td>' + row.col4 + '</td>' + '<td><span id=row' + i + 'col5>' + formatCurrency(row.col5) + '</span></td>' +
+							'<td id=row1col6>' + formatCurrency(row.col6) + '</td>' + '<td id=row1col7>' + formatCurrency(row.col7) + '</td>' +
+							'<td id=row1col8>' + formatCurrency(row.col8) + '</td>' + '<td>' + row.col9 + '</td><td>' + row.col10 + '</td>' + '</tr>');
+			    		}
+			    	}
+				}
+                i++;
+		    });
+		    
+		    if(showHLoading == false){	
+				if(showOccLoading == false){
+			    	$('#table-data > tfoot').append('<tr><td colspan ="12"><hr/></td></tr><tr>' + '<td></td>' + '<td></td>' + '<td></td>'  + '<td></td>' +
+					'<td colspan=2 style="text-align:right;padding: 0px 0px 0px 0px;"><b>Total Premium</b></td>' +
+					'<td><b>' + formatCurrency(col5Total.toFixed(2)) + '</b></td>' + '<td><b>' + formatCurrency(col6Total.toFixed(2)) + '</b></td>' +
+					'<td><b>' + formatCurrency(col7Total.toFixed(2)) + '</b></td>' + '<td><b>' + formatCurrency(col8Total.toFixed(2)) + '</b></td>' +
+					'</tr><tr><td colspan ="12"><hr/></td></tr>');
+				}
+				else{
+			    	$('#table-data > tfoot').append('</tr><tr><td colspan ="12"><hr/></td></tr><tr>' + '<td></td>' + '<td></td>' + '<td></td>'  + '<td></td>' +
+					'<td colspan=2 style="text-align:right;padding: 5px 5px 5px 5px;"><b>Total Premium</b></td>' +
+					'<td><b>' + formatCurrency(col5Total.toFixed(2)) + '</b></td>' + '<td><b>' + formatCurrency(col6Total.toFixed(2)) + '</b></td>' +
+					'<td><b>' + formatCurrency(col7Total.toFixed(2)) + '</b></td>' + '<td><b>' + formatCurrency(col8Total.toFixed(2)) + '</b></td>' +
+					'<td>&nbsp;</td>' + '</tr><tr><td colspan ="12"><hr/></td></tr>');
+				}
+		    }
+		    else{
+				if(showOccLoading == false){
+			    	$('#table-data > tfoot').append('</tr><tr><td colspan ="12"><hr/></td></tr><tr>' + '<td></td>' + '<td></td>' + '<td></td>'  + '<td></td>' +
+					'<td colspan=2 style="text-align:right;padding: 5px 5px 5px 5px;"><b>Total Premium</b></td>' +
+					'<td><b>' + formatCurrency(col5Total.toFixed(2)) + '</b></td>' + '<td><b>' + formatCurrency(col6Total.toFixed(2)) + '</b></td>' +
+					'<td><b>' + formatCurrency(col7Total.toFixed(2)) + '</b></td>' + '<td><b>' + formatCurrency(col8Total.toFixed(2)) + '</b></td>' +
+					'<td>&nbsp;</td>' + '</tr><tr><td colspan ="12"><hr/></td></tr>');    
+				}
+				else{
+			    	$('#table-data > tfoot').append('</tr><tr><td colspan ="12"><hr/></td></tr><tr>' + '<td></td>' + '<td></td>' + '<td></td>'  + '<td></td>' +
+					'<td colspan=2 style="text-align:right;padding: 5px 5px 5px 5px;"><b>Total Premium</b></td>' +
+					'<td><b>' + formatCurrency(col5Total.toFixed(2)) + '</b></td>' + '<td><b>' + formatCurrency(col6Total.toFixed(2)) + '</b></td>' +
+					'<td><b>' + formatCurrency(col7Total.toFixed(2)) + '</b></td>' + '<td><b>' + formatCurrency(col8Total.toFixed(2)) + '</b></td>' +
+					'<td>&nbsp;</td><td>&nbsp;</td>' + '</tr><tr><td colspan ="12"><hr/></td></tr>');    
+				}
+		    }
+		    
+			
+			
+
+
+}
+  
+  
+  
+  
+  
+
+  
+    function replaceChar(char){
+        var temp, returnVal;
+        if (char == "0")
+            returnVal = "-"
+        else if (char == "")
+            returnVal = "-"
+        else
+            returnVal = char;
+        return returnVal;
+    }
+    
+    function isIncomeRider(amt,rider){
+		//rider.replace(/^\s+|\s$/g,"")
+		//$.trim(rider)
+		
+		var temp;
+		temp = $.trim(rider)
+		//alert(temp + "x")
+		
+        if (temp == "HLA Cash Promise" || temp == "HLA Income Builder" || temp == "Income 20 Rider" || temp == "Income 30 Rider" || temp == "Income 40 Rider" || temp == "Income D-20 Rider" || temp == "Income D-30 Rider" || temp == "Income D-40 Rider" || temp == "Income E-20 Rider" || temp == "Income E-30 Rider"){
+	  
+        	return amt + " *";
+        }
+        else
+        	return amt + "&nbsp;&nbsp;";
+    }
+    
+  </script>
+  <head>
+<body onload="onBodyLoad()">
+  <div id="header">
+    <img src="SI/img/HLA.png"/>
+	  <div class="welcome">
+		  Prepared By : <span id="agentName" class="agentName">{agentName}</span>
+		  <br/>Code : <span id="agentCode" class="agentCode">{agentCode}</span>
+	  </div>
+	  <div class="Content">Printed On : <span id="dateModified" class="dateModified">{DateModified}</span></div>
+	  <div class="hrule"></div>
+  </div>
+  <div class="main-content">
+    <div align="center" style="padding: 0px 0px 0px 0px">HLA Cash Promise</div>
+    <div align="center" style="padding: 0px 0px 3px 0px;">Participating Endowment Plan with Guaranteed Yearly Income and Limited 6 Years Premium Payment Term&nbsp;&nbsp;&nbsp;</div>
+    <table id="table-LA"> 
+      <tr>
+          <!-- added width % to fix the size of name and life insured column to be longer @ Edwin 6-9-2013 -->
+	  <td style="text-align:left;padding: 2px 2px 2px 2px;border: 2px solid black; width: 21%;">Insured Lives</td>
+	  <td style="text-align:left;padding: 2px 2px 2px 2px;border: 2px solid black; width: 55%;">Name</td>
+	  <td style="text-align:right;padding: 2px 2px 2px 2px;border: 2px solid black; width: 8%;">Age (Last Birthday)</td>
+	  <td style="text-align:right;padding: 2px 2px 2px 2px;border: 2px solid black; width: 8%;">Gender</td>
+	  <td style="text-align:right;padding: 2px 2px 2px 2px; width: 8%;">Smoker</td>
+	</tr>
+      <tr>
+	  <td style="text-align:left;padding: 2px 2px 2px 2px;border: 2px solid black;" id="LADesc" class="LADesc">{LADesc}</td>
+	  <td style="text-align:left;padding: 2px 2px 2px 2px;border: 2px solid black;" id="LAName" class="LAName">{LANAME}</td>
+	  <td style="text-align:right;padding: 2px 2px 2px 2px;border: 2px solid black;" id="LAAge" class="LAAge">{LAAge}</td>
+	  <td style="text-align:right;padding: 2px 2px 2px 2px;border: 2px solid black;" id="LASex" class="LASex">{LASex}</td>
+	  <td style="text-align:right;padding: 2px 2px 2px 2px;border: 2px solid black;" id="LASmoker" class="LASmoker">{LASmoker}</td>
+      </tr>
+    </table>
+    <!--520,430px-->
+    
+    <div style="width:100%;height:574px;background-color: #fff;">
+	<table id="table-data" class="table-main">
+	  <thead>
+	  <tr>
+	    
+	    <td colspan="6">&nbsp;</td>
+	    <td colspan="6" id="dynamic" class="dynamic" style="text-align:left;padding-left:60px;"><b><u>Initial Premium</u></b></td>
+	    <!--<td colspan="10"><b><u>Bayaran Premium Asal (RM)</u></b></td>-->
+	  </tr> 
+	  <tr>
+	      <th class="contentLeft">Basic Plan/ Rider</th>
+	      <th class="contentMediumLeft">Plan Choice</th>
+		  <th class="contentSmallLeft">Units</th>
+		  <th class="contentRight">Benefit Amount</th>
+		  <th class="contentSmallRight">Coverage Period<br/>(Yrs)</th>
+		  <th class="contentSmallRight">Payment Period<br/>(Yrs)</th>
+		  <th class="contentSmallRight">Annual</th>
+		  <th class="contentSmallRight">Semi-Annual</th>
+		  <th class="contentSmallRight">Quarterly</th>
+		  <th class="contentSmallRight">Monthly</th>
+		  <th class="contentSmallRight" id="hLoading" class="hLoading">HLoading</th>
+		  <th class="contentSmallRight" id="occLoading" class="occLoading">OccLoading</th>
+	    </tr> 
+	  </thead>
+	  <tbody>
+	  </tbody>
+	  <tfoot>
+	  </tfoot>
+	</table>
+	<div id="disclaimer" class="disclaimer" style="display:block">
+	  <div style="padding: 8px 0px 3px 0px;">
+	    * This is the Guaranteed Yearly Income amount purchased.
+	    <br/>
+	  </div>
+	  <div id="withRiders" style="padding: 0px 0px 3px 0px;">
+	    All riders listed above are optional and not compulsory to be sold with the basic plan.<br/>
+	  </div>
+	  <div style="padding: 0px 0px 3px 0px;">
+	  The projected insurance coverage detailed above is merely for illustrative purposes and not meant to confirm actual insurance coverage. Actual insurance coverage is subject to Hong Leong Assurance's prior approval, policies, terms and conditions. <b>All
+	  applications are subject to underwriting approval.</b><br/>
+	  <br/>
+	  </div>
+	  
+	</div>
+      </div>
+      <table style="border-collapse:separate;border:1px solid black;width:100%;padding: 2px 2px 2px 2px;">
+	<tr>
+	  <td width="95%" align="left" style="font-family:Times New Roman;font-size:9.5px;font-weight:normal;padding: 2px 2px 2px 2px;">
+	  <span style="text-align:center;width:500px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>HONG LEONG ASSURANCE BERHAD</b></span><br/>
+	  Hong Leong Assurance Berhad is a member of Perbadanan Insurans Deposit Malaysia (PIDM). As a member of PIDM, some of the benefits insured under the takaful certificates or insurance policies offered by Hong Leong Assurance Berhad are
+	  protected against loss of part or all of takaful or insurance benefits by PIDM, in the unlikely event of an insurer member failure. For further details of the protection limits and the scope of coverage, please obtain a PIDM information brochure
+	  from Hong Leong Assurance Berhad or visit PIDM website (www.pidm.gov.my) or call PIDM toll free line (1-800-88-1266).<br/>
+	  </td>
+	  <td width="5%" style="font-family:Times New Roman;font-size:10px;font-weight:normal;text-align:center"><img src="SI/img/PIDM.png"/></td>
+	</tr>
+      </table>
+    </div>
+    <table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+      <tr>
+	<td width="75%" style="font-family:Times New Roman;font-size:9.5px;font-weight:normal;padding: 5px 5px 5px 0px;">
+	  This sales illustration consists of <span class="totalPages">{totalPages}</span> pages and each page forms an integral part of the sales illustration. A prospective policy owner is advised to read and understand the
+	  information printed on each and every page.<br/>
+	  <b><span id="rptVersion" class="rptVersion">{rptVersion}</span></b> <br/>
+	  Level 3, Tower B, PJ City Development, No. 15A Jalan 219, Seksyen 51A, 46100 Petaling Jaya, Selangor. Tel: 03-7650 1818 Fax: 03-7650 1991 Website: www.hla.com.my<br/>
+	  
+	</td>
+	<td width="9%" align="left" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Times New Roman;font-size:9.5px;">Page <span class="currentPage">1</span> of <span class="totalPages">56</span></td>
+	<td width="16%" align="right" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Times New Roman;font-size:9.5px;"></br>
+        <img src="SI/img/barcode.png" style="vertical-align:text-top;padding: 0px 0px 0px 0px;" height="70%" height="70%"/></td>
+      </tr>
+    </table>
+    <div id="externalPages">
+    </div>
+  </div>
+</body>
+
+</html>
+
+
+<!--
+	<div id="Page2" style="margin-top:6px;padding: 15px 0px 0px 0px;"></div>
+	<div id="Page3" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>
+	<div id="Page4" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>
+	<div id="Page5" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>
+-->
+
+		<!--<div id="Page1" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>
+		<div id="Page2" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>-->
+
+
+		<!--<div id="Page1_1" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>-->
+		<!--<div id="Page2" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>
+		<div id="Page3" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>
+		<div id="Page4_1" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>
+		<div id="Page4_2" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>-->

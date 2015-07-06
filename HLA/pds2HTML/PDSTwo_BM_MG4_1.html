@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/hla.js"></script>
+  <script>
+  var gData;
+  function onBodyLoad(){
+  		//writeSummary1();
+  }
+  
+    function replaceChar(char){
+        var temp, returnVal;
+        if (char == "0")
+            returnVal = "-"
+        else if (char == "")
+            returnVal = "-"
+        else
+            returnVal = char;
+        return returnVal;
+    }
+    
+    function isIncomeRider(amt,rider){
+		//rider.replace(/^\s+|\s$/g,"")
+		//$.trim(rider)
+		var temp;
+		temp = $.trim(rider)
+		//alert(temp + "x")
+        if (temp == "HLA Income Builder" || temp == "Income 20 Rider" || temp == "Income 30 Rider" || temp == "Income 40 Rider" || temp == "Income D-20 Rider" || temp == "Income D-30 Rider" || temp == "Income D-40 Rider" || temp == "Income E-20 Rider" || temp == "Income E-30 Rider"){
+        	return amt + " *";
+        }
+        else
+        	return amt + "&nbsp;&nbsp;";
+    }
+    
+  </script>
+  <head>
+  <body onload="onBodyLoad()">
+
+<div class="main-content">
+
+<div class="contentArea">
+
+<table id="table-LA"> 
+<tr>
+	<td width="70%" bgcolor="#c0c0c0" style="text-align:left;padding: 3px 3px 3px 3px;border: 1px solid black;"><b>RISALAH PENDEDAHAN PRODUK</b></td>
+	<td width="30%" style="text-align:left;padding: 3px 3px 3px 3px;border: 1px solid black;"><b>Hong Leong Assurance Berhad</b></td>
+</tr>
+<tr>
+	<td valign="top" rowspan="2" style="text-align:left;padding: 3px 3px 3px 3px;border: 1px solid black;"><b>Baca Risalah Pendedahan Produk ini sebelum anda membuat keputusan untuk mengambil <i>Rider HLA MedGLOBAL IV Plus</i>. Pastikan anda juga membaca terma dan syarat am.</b></td>
+	<td style="text-align:left;padding: 3px 3px 3px 3px;border: 1px solid black;"><b>Rider HLA MedGLOBAL IV Plus</b></td>
+</tr>
+<tr>
+	<td style="text-align:left;padding: 3px 3px 3px 3px;border: 1px solid black;"><b><span id="PrintDate2" class="PrintDate2">{PrintDate}</span></b></td>
+</tr>
+</table>
+
+
+
+
+
+
+
+<table cellspacing="5">
+	<tr>
+	    <td width="10"><b>1.</b></td>
+	    <td><b>Apakah produk ini?</b></td>
+	</tr>
+	<tr>
+	    <td width="10"></td>
+	    <td>-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Polisi ini memperuntukkan perbelanjaan penghospitalan & pembedahan, dan faedah rawatan pesakit luar disebabkan oleh penyakit yang di bawah perlindungan polisi ini.</td>
+	</tr>
+	
+	<tr>
+	    <td width="10" valign="top"><b>2.</b></td>
+	    <td><b>Apakah perlindungan / faedah yang disediakan?</b></td>
+	</tr>
+	<tr>
+	    <td width="10" valign="top"></td>
+	    <td>
+		<div id="hideQ2">Rider HLA MedGLOBAL IV Plus boleh didapati dalam 4 pelan iaitu MGIVP 150, MGIVP 200, MGIVP 300 dan MGIVP 400. Pelan yang dipilih adalah pelan <span id="MG4PlanOption" class="MG4PlanOption">{MG4PlanOption}</span>.</div>
+		Tempoh diinsuranskan rider ini ialah <span id="MG4RiderTerm" class="MG4RiderTerm">{MG4RiderTerm}</span> tahun atau apabila rider ditamatkan, yang mana berlaku dahulu.<br/><br/>
+	    </td>
+	</tr>
+	
+	<tr>
+	    <td></td>
+	    <td>
+		<table border="1" style="border-collapse: collapse" width="100%">
+		    <tr>
+			<td width="60%" style="padding: 5px 5px 5px 5px;" align="center">Pelan</td>
+			<td width="10%" align="center" style="padding: 5px 5px 5px 5px;">MGIVP 150<br/>(RM)</td>
+			<td width="10%" align="center" style="padding: 5px 5px 5px 5px;">MGIVP 200<br/>(RM)</td>
+			<td width="10%" align="center" style="padding: 5px 5px 5px 5px;">MGIVP 300<br/>(RM)</td>
+			<td width="10%" align="center" style="padding: 5px 5px 5px 5px;">MGIVP 400<br/>(RM)</td>
+		    </tr>
+		    <tr>
+			<td colspan="5" style="padding: 5px 5px 5px 5px;"><b>Hospital & Pembedahan</b></td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Bilik Hospital dan Makan<br/>(hingga 150 hari untuk Mana-mana Satu Hilang Upaya)</td>
+			<td align="center">150</td>
+			<td align="center">200</td>
+			<td align="center">300</td>
+			<td align="center">400</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Tunai Harian Penghospitalan disebabkan oleh Kemalangan Jalan Raya di Lebuhraya Malaysia *<br/>(hingga 150 hari untuk Mana-mana Satu Hilang Upaya)</td>
+			<td align="center">150</td>
+			<td align="center">200</td>
+			<td align="center">300</td>
+			<td align="center">400</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">DaElaun Tunai Harian di Hospital Kerajaan<br/>(hingga 60 hari untuk Mana-mana Satu Hilang Upaya)</td>
+			<td align="center">50</td>
+			<td align="center">100</td>
+			<td align="center">150</td>
+			<td align="center">200</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;" > Unit Rawatan Rapi<br/>(hingga 75 hari untuk Mana-mana Satu Hilang Upaya)</td>
+			<td  align="center"colspan="4" rowspan="14">Bayaran Munasabah dan Biasa Diamalkan **</td>
+			
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Perbelanjaan Penginap<br/>(hingga 150 hari untuk Mana-mana Satu Hilang Upaya)</td>
+			
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Bekalan dan Khidmat Hospital</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Bayaran Pembedahan (termasuk pemeriksaan pra-pembedahan, lawatan Doktor Pakar<br/>
+			dan penjagaan selepas Pembedahan sehingga 60 hari daripada tarikh Pembedahan)</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Bayaran Pakar Bius</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Bilik Bedah</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Lawatan Pakar Perubatan dalam Hospital(hingga 150 hari untuk Mana-mana Satu Hilang Upaya)</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Yuran Rawatan Fisioterapi dalam Hospital</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Ujian Diagnostik Prahospital<br/>(dalam tempoh 60 hari sebelum penghospitalan)</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Rundingan Pakar Prahospital<br/>(dalam tempoh 60 hari sebelum penghospitalan)</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;" >Rawatan Selepas Penghospitalan<br/>(dalam tempoh 60 hari selepas keluar dari hospital)</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Transplan Organ</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Pembedahan Harian</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Bayaran Ambulans</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Cukai Perkhidmatan Kerajaan</td>
+			<td colspan="4" align="center">(Peratusan yang Berkenaan) x Faedah Bilik Hospital dan Makan</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;" colspan="5"><b>Faedah Rawatan Pesakit Luar</b></td>
+		    </tr>
+		    <!--
+		    <tr>
+			<td style="padding: 3px 3px 3px 3px;">Emergency Accidental Outpatient Treatment(within 30 days following such emergency treatment)</td>
+			<td rowspan="5" colspan="4" align="center"></td>
+		    </tr>
+		    <tr>
+		    -->
+		</table>
+	    </td>
+	</tr>
+    </table>
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+</body>
+</html>

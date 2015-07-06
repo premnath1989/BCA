@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/hla.js"></script>
+  <script>
+  function onBodyLoad(){
+  }
+  
+    function replaceChar(char){
+        var temp, returnVal;
+        if (char == "0")
+            returnVal = "-"
+        else if (char == "")
+            returnVal = "-"
+        else
+            returnVal = char;
+        return returnVal;
+    }
+    
+    function isIncomeRider(amt,rider){
+		//rider.replace(/^\s+|\s$/g,"")
+		//$.trim(rider)
+		var temp;
+		temp = $.trim(rider)
+		//alert(temp + "x")
+        if (temp == "HLA Income Builder" || temp == "Income 20 Rider" || temp == "Income 30 Rider" || temp == "Income 40 Rider" || temp == "Income D-20 Rider" || temp == "Income D-30 Rider" || temp == "Income D-40 Rider" || temp == "Income E-20 Rider" || temp == "Income E-30 Rider"){
+        	return amt + " *";
+        }
+        else
+        	return amt + "&nbsp;&nbsp;";
+    }
+    
+  </script>
+  <head>
+  <body onload="onBodyLoad()">
+  
+<div id="header">
+	<div class="agentInfo">
+  		Prepared By : <span id="agentName" class="agentName">{agentName}</span>
+  		<br/>Code : <span id="agentCode" class="agentCode">{agentCode}</span>
+  	</div>
+  	<div class="ContentInfo">Printed On : <span id="dateModified" class="dateModified">{DateModified}</span></div>
+  	<div class="hruleInfo"></div>
+</div>
+<div class="main-content">
+<!--520px-->
+
+
+
+<div class="contentArea">
+<table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+<tr>
+	<td colspan="4"><b>Deduction of Fund Management Fee</b></td>
+</tr>
+<tr>
+	<td width="30px">-</td><td colspan="3">The Fund Management Fee, all expenses and charges incurred in the purchase, sale, valuation and maintenance of the investment of the fund, and any taxes incurred on the income or capital gains on the assets of the fund, shall be deducted from each fund on respective valuation date.</td>
+</tr>
+<tr>
+	<td colspan="4"><b>Exceptional Circumstances</b></td>
+</tr>
+	<td>-</td><td colspan="3">The Company reserves the right to defer the payment of benefits (other than death benefit) under this policy for a period not exceeding six (6) months from the date the payment would have been normally effected if not for intervening events such as temporary closure of any Stock Exchange in which the Fund is invested which the Company, in its discretion, may consider exceptional.</td>
+</tr>
+<tr>
+	<td colspan="4"><b>Premium Holiday (applicable to Basic Plan & Riders with unitization only)</b></td>
+</tr>
+<tr>
+	<td>-</td><td colspan="3">Once your fund value have accumulated a substantial number of units, you could opt for what is called a "premium holiday", where you do not need to pay the premiums as long as there are sufficient units in the fund to pay the insurance charges and service charge.</td>
+</tr>
+<tr>
+	<td>-</td><td colspan="3">However please note that there is a possibility of your policy lapsing when the required charges, exceed the total value of units.</td>
+</tr>
+<tr>
+	<td>-</td><td colspan="3">Premium Holiday is not applicable for the Basic Plan during the Reduced Paid Up period.</td>
+</tr>
+<tr>
+	<td colspan="4"><b>Free Look Period</b></td>
+</tr>
+<tr>
+	<td>-</td><td colspan="3">If the policy has been issued and for any reason whatsoever you shall decide not to take up the policy, you may return the policy to us for cancellation provided such as request for cancellation is delivered by you to us within 15 days from the date of delivery of the policy. Upon cancellation of the policy,</td>
+</tr>
+<tr>
+	<td/><td width="30px">-</td><td colspan="2">For Basic Plan and Riders with unitization, the Company shall refund to the Policy Owner the sum of:</td>
+</tr>
+<tr>
+	<td/><td/><td width="30px">(a)</td><td>The fund value at next valuation date</td>
+</tr>
+<tr>
+	<td/><td/><td>(b)</td><td>The premiums that have not been allocated, and</td>
+</tr>
+<tr>
+	<td/><td/><td>(c)</td><td>Any insurance charges and monthly policy fee that have been deducted</td>
+</tr>
+<tr>
+	<td/><td/><td colspan="2">less any medical expenses which may have been incurred.</td>
+</tr>
+<tr>
+	<td/><td>-</td><td colspan="2">For Rider without unitization, if any, the Company shall refund to the Policy Owner the premium paid for the said Rider less any medical expenses which may have been incurred.</td>
+</tr>
+</table>
+</div>
+
+
+<table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+<tr>
+<td width="75%" style="font-family:Arial;font-size:8px;font-weight:normal;padding: 5px 5px 5px 0px;">
+This sales illustration consists of <span class="totalPages">{totalPages}</span> pages and each page forms an integral part of the sales illustration. A prospective policy owner is advised to read and understand the<br/>
+information printed on each and every page. <br/>
+<b><span id="rptVersion" class="rptVersion">{rptVersion}</span></b> <br/>
+Level 3, Tower B, PJ City Development, No. 15A Jalan 219, Seksyen 51A, 46100 Petaling Jaya, Selangor. Tel: 03-7650 1818 Fax: 03-7650 1991 Website: www.hla.com.my<br/>
+</td>
+<td width="10%" align="left" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:10px;font-weight:normal;">Page <span class="currentPage">22</span> of <span class="totalPages">56</span></td>
+<td width="15%" align="right" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:12px;font-weight:normal;">Ref: <span id=SICode class="SICode">{SINo}</span></td>
+</tr>
+</table>
+</div>
+</body>
+</html>

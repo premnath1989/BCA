@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/hla.js"></script>
+  <script>
+  var gData;
+  function onBodyLoad(){
+  		//writeSummary1();
+  }
+  
+    function replaceChar(char){
+        var temp, returnVal;
+        if (char == "0")
+            returnVal = "-"
+        else if (char == "")
+            returnVal = "-"
+        else
+            returnVal = char;
+        return returnVal;
+    }
+    
+    function isIncomeRider(amt,rider){
+		//rider.replace(/^\s+|\s$/g,"")
+		//$.trim(rider)
+		var temp;
+		temp = $.trim(rider)
+		//alert(temp + "x")
+        if (temp == "HLA Income Builder" || temp == "Income 20 Rider" || temp == "Income 30 Rider" || temp == "Income 40 Rider" || temp == "Income D-20 Rider" || temp == "Income D-30 Rider" || temp == "Income D-40 Rider" || temp == "Income E-20 Rider" || temp == "Income E-30 Rider"){
+        	return amt + " *";
+        }
+        else
+        	return amt + "&nbsp;&nbsp;";
+    }
+    
+  </script>
+  <head>
+  <body onload="onBodyLoad()">
+  
+<div id="header">
+	<div class="agentInfo">
+  		Code : <span id="agentCode" class="agentCode">{agentCode}</span>&nbsp;&nbsp;Prepared By : <span id="agentName" class="agentName">{agentName}</span>
+  		
+  	</div>
+  	<div class="ContentInfo">Printed On : <span id="dateModified" class="dateModified">{DateModified}</span></div>
+  	<div class="hruleInfo"></div>
+</div>
+<div class="main-content">
+
+<div class="contentArea" style="height:650px;">
+
+<table id="table-LA"> 
+<tr>
+	<td width="70%" bgcolor="#c0c0c0" style="text-align:left;padding: 1px 1px 1px 1px;border: 1px solid black;"><b>PRODUCT DISCLOSURE SHEET</b></td>
+	<td width="30%" style="text-align:left;padding: 1px 1px 1px 1px;border: 1px solid black;"><b>Hong Leong Assurance Berhad</b></td>
+</tr>
+<tr>
+	<td valign="top" rowspan="2" style="text-align:left;padding: 1px 1px 1px 1px;border: 1px solid black;"><b>Read this Product Disclosure Sheet before you decide to take up the HLA Major Medi. Be sure to also read the general terms and conditions.</b></td>
+	<td style="text-align:left;padding: 1px 1px 1px 1px;border: 1px solid black;"><b>HLA Major Medi</b></td>
+</tr>
+<tr>
+	<td style="text-align:left;padding: 1px 1px 1px 1px;border: 1px solid black;"><b><span id="PrintDate2" class="PrintDate2">{PrintDate}</span></b></td>
+</tr>
+</table>
+
+
+
+
+
+
+
+<table width="100%">
+	<tr>
+	    <td width="10"><b>1.</b></td>
+	    <td><b>What is this product about?</b></td>
+	</tr>
+	<tr>
+	    <td width="10"></td>
+	    <td>-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This policy provides for hospitalisation & surgical expenses, and outpatient treatment benefits incurred due to illness covered under the policy.</td>
+	</tr>
+	
+	<tr>
+	    <td width="10" valign="top"><b>2.</b></td>
+	    <td><b>What are the covers / benefits provided?</b></td>
+	</tr>
+	<tr>
+	    <td width="10" valign="top"></td>
+	    <td>
+		<div id="hideQ2">HLA Major Medi is available in 4 plans which are MM 150, MM 200, MM 300 and MM 400. The plan selected is
+		<span id="HMMPlanOption" class="HMMPlanOption">{HMMPlanOption}</span> plan.</div>
+		The duration of coverage of this rider is <span id="HMMRiderTerm" class="HMMRiderTerm">{HMMRiderTerm}</span> years or upon termination, whichever occurs first.<br/><br/>
+	    </td>
+	</tr>
+	
+	<tr>
+	    <td></td>
+	    <td>
+		<table border="1" style="border-collapse: collapse" width="100%">
+		    <tr>
+			<td width="64%" style="padding: 1px 1px 1px 1px;" align="center">Plan</td>
+			<td width="9%" align="center" style="padding: 1px 1px 1px 1px;">MM 150<br/>(RM)</td>
+			<td width="9%" align="center" style="padding: 1px 1px 1px 1px;">MM 200<br/>(RM)</td>
+			<td width="9%" align="center" style="padding: 1px 1px 1px 1px;">MM 300<br/>(RM)</td>
+			<td width="9%" align="center" style="padding: 1px 1px 1px 1px;">MM 400<br/>(RM)</td>
+		    </tr>
+		    <tr>
+			<td colspan="5" style="padding: 1px 1px 1px 1px;"><b>Hospital & Surgical</b></td>
+		    </tr>
+		    <tr>
+			<td style="padding: 1px 1px 1px 1px;">Hospital Room & Board<br/>(up to 150 days per Any One Disability)</td>
+			<td align="center">150</td>
+			<td align="center">200</td>
+			<td align="center">300</td>
+			<td align="center">400</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 1px 1px 1px 1px;"> <sup><span class="fnHighway" style="font-size: 5px"></span></sup>Daily Cash as a result of hospitalisation due to road accidents on a Malaysian Highway <br/>(up to 150 days per Any One Disability)</td>
+			<td align="center">150</td>
+			<td align="center">200</td>
+			<td align="center">300</td>
+			<td align="center">400</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 1px 1px 1px 1px;">Daily Cash Allowance at Government Hospital
+				<br/>(up to 60 days per Any One Disability)</td>
+			<td align="center">50</td>
+			<td align="center">100</td>
+			<td align="center">150</td>
+			<td align="center">200</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 1px 1px 1px 1px;" > Intensive Care Unit
+				<br/>(up to 75 days per Any One Disability)</td>
+			<td  align="center"colspan="4" rowspan="14"> <sup><span class="fnCharges" style="font-size: 5px"></span></sup>Reasonable & Customary Charges</td>			
+		    </tr>
+		    <tr>
+			<td style="padding: 1px 1px 1px 1px;">Lodger Expenses
+				<br/>(up to 150 days per Any One Disability)</td>			
+		    </tr>
+		    <tr>
+			<td style="padding: 1px 1px 1px 1px;">Hospital Supplies & Services</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 1px 1px 1px 1px;">Surgical Fees (including pre-surgical assessment, Specialist's visits and post-Surgery care up to the 60 days from the date of Surgery)</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 1px 1px 1px 1px;">Anaesthetist Fee</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 1px 1px 1px 1px;">Operating Theatres</td>
+		    </tr>
+		    <tr>
+			<td style="padding: 1px 1px 1px 1px;">In-Hospital Physician Visit
+				<br/>(up to 150 days per Any One Disability)</td>
+		    </tr>
+		    
+		    
+		    
+		    
+		    <!--
+		    <tr>
+			<td style="padding: 1px 1px 1px 1px;">Emergency Accidental Outpatient Treatment(within 30 days following such emergency treatment)</td>
+			<td rowspan="5" colspan="4" align="center"></td>
+		    </tr>
+		    <tr>
+		    -->
+		</table>
+		<span class="fnCharges"></span>Charges for medical care which is Medically Necessary shall be considered reasonable and customary to the extent that it does not exceed the general level of charges being made by other similar standing in<br/>
+		the locality where the charge is incurred, when furnishing like or comparable treatment, services or supplies to individual of the same sex and of comparable age for a similar Sickness, Disease or Injury and in<br/>
+		accordance with accepted medical standards and practice could not have been omitted without adversely affecting the Life Assured's medical condition.<br/>
+		<span class="fnHighway"></span>Malaysian Highway shall mean highway or expressway as listed by the Malaysian Highway Authority.
+	    </td>
+	</tr>
+    </table>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+<table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+<tr>
+<td width="77%" style="font-family:Times New Roman;font-size:9.5px;font-weight:normal;padding: 5px 5px 5px 0px;">
+This Product Disclosure Sheet consists of <span class="totalPages">{totalPages}</span> pages and each page forms an integral part of the Product Disclosure Sheet. A prospective policy owner is advised to read and<br/>
+understand the information printed on each and every page.<br/>
+<b><span id="rptVersion" class="rptVersion">{rptVersion}</span></b> <br/>
+Level 3, Tower B, PJ City Development, No. 15A Jalan 219, Seksyen 51A, 46100 Petaling Jaya, Selangor. Tel: 03-7650 1818 Fax: 03-7650 1991 Website: www.hla.com.my<br/>
+</td>
+<td width="8%" align="left" valign="bottom" style="padding: 1px 1px 1px 1px;font-family:Times New Roman;font-size:9.5px;font-weight:normal;">Page <span class="currentPage">22</span> of <span class="totalPages">56</span></td>
+<td width="15%" align="right" valign="bottom" style="padding: 1px 1px 1px 1px;font-family:Times New Roman;font-size:9.5px;font-weight:normal;">Ref: <span id=SICode class="SICode">{SINo}</span></td>
+</tr>
+</table>
+
+</div>
+</body>
+</html>

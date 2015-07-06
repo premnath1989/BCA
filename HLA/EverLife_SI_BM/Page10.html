@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/hla.js"></script>
+  <script>
+  var gData;
+  function onBodyLoad(){
+  		//writeSummary1();
+  }
+  
+    function replaceChar(char){
+        var temp, returnVal;
+        if (char == "0")
+            returnVal = "-"
+        else if (char == "")
+            returnVal = "-"
+        else
+            returnVal = char;
+        return returnVal;
+    }
+    
+    function isIncomeRider(amt,rider){
+		//rider.replace(/^\s+|\s$/g,"")
+		//$.trim(rider)
+		var temp;
+		temp = $.trim(rider)
+		//alert(temp + "x")
+        if (temp == "HLA Income Builder" || temp == "Income 20 Rider" || temp == "Income 30 Rider" || temp == "Income 40 Rider" || temp == "Income D-20 Rider" || temp == "Income D-30 Rider" || temp == "Income D-40 Rider" || temp == "Income E-20 Rider" || temp == "Income E-30 Rider"){
+        	return amt + " *";
+        }
+        else
+        	return amt + "&nbsp;&nbsp;";
+    }
+    
+  </script>
+  <head>
+  <body onload="onBodyLoad()">
+  
+<div id="header">
+	<div class="agentInfo">
+  		Prepared By : <span id="agentName" class="agentName">{agentName}</span>
+  		<br/>Code : <span id="agentCode" class="agentCode">{agentCode}</span>
+  	</div>
+  	<div class="ContentInfo">Printed On : <span id="dateModified" class="dateModified">{DateModified}</span></div>
+  	<div class="hruleInfo"></div>
+</div>
+<div class="main-content">
+  <div class="contentArea" style="height:620px">
+    <table border=0 width="100%">
+      	<tr>
+			<td valign="top" style="text-align: center"><b>HLA EverLife Plus - Perlindungan Meningkat</b></td>
+      	</tr>
+      	<tr>
+			<td style="text-align: left" valign="top">Illustrasi Pelan Asas dan Rider dengan Pengunitan</td>
+      	</tr>
+    </table>
+  
+    <table id="Page10-table">
+      <thead>
+	  <tr>
+	      <th rowspan="3" style="vertical-align: top"><br/>Tahun Polisi</th>
+	      <th rowspan="3" style="vertical-align: top"><br/>Umur Hayat<br>Diinsuranskan pada<br>Akhir Tahun</th>
+	      <th colspan="9">Tidak Terjamin</th>
+	  </tr>
+	  <tr>
+	      <th colspan="3">Jumlah Faedah pada Akhir Tahun &dash; Kematian/ TPD <sup><span class="fnPage9_SV"></span></sup><sup><span class="fnPage10_TPD"></span></sup><span class="Page9ECARLabel">{Page9ECARLabel}</span><br/>(RM)</th>
+	      <th colspan="3">Jumlah Faedah pada<br>Akhir Tahun &dash; OAD <sup><span class="fnPage9_SV"></span></sup><sup><span class="fnPage10_OAD"></span></sup> <span class="Page9ECARLabel">{Page9ECARLabel}</span><br/>(RM)</th>
+	      <th colspan="3">Caj Pengurusan Dana<br/>(RM)</th>
+	  </tr>
+	  <tr>
+	      <th >Bull</th>
+	      <th >Flat</th>
+	      <th >Bear</th>
+	      <th >Bull</th>
+	      <th >Flat</th>
+	      <th >Bear</th>
+	      <th >Bull</th>
+	      <th >Flat</th>
+	      <th >Bear</th>
+	  </tr>
+      </thead>
+      <tbody>
+      <!--sql data here-->
+      </tbody>
+    </table>
+    &ldquo;-&rdquo; Berdasarkan unjuran, pelan asas akan lupus. Anda boleh memilih untuk menambah premium atau mengurangkan perlindungan insurans jika anda ingin mengekalkan polisi anda.<br/>
+    <span class="fnPage9_SV"></span> Termasuk Unit Bonus Terjamin. Sila rujuk bahagian Nota untuk butiran. <br/>
+    <span class="fnPage10_TPD"></span> Berdasarkan unjuran, pelan asas akan lupus. Anda boleh memilih untuk menambah premium atau mengurangkan perlindungan insurans jika anda ingin mengekalkan polisi anda<br/>
+    <span class="fnPage10_OAD"></span> Faedah TPD/OAD akan dibayar mengikut peruntukan TPD/OAD Syarikat.
+  </div>
+
+  <table border="0" style="border-collapse:separate;border:0px solid black;width:100%">
+  <tr>
+  <td width="75%" style="font-family:Arial;font-size:8px;font-weight:normal;padding: 5px 5px 5px 0px;">
+  <i>Illustrasi Jualan ini mengandungi <span class="totalPages">{totalPages}</span> muka surat and setiap muka surat membentuk sebahagian daripada illustrasi jualan. Bakal<br/>
+  pemunya polisi adalah dinasihatkan untuk membaca dan memahami maklumat yang tercetak pada setiap muka surat.</i><br/>
+  <b><span id="rptVersion" class="rptVersion">{rptVersion}</span></b> <br/>
+  Level 3, Tower B, PJ City Development, No. 15A Jalan 219, Seksyen 51A, 46100 Petaling Jaya, Selangor. Tel: 03-7650 1818 Fax: 03-7650 1991 Website: www.hla.com.my<br/>
+  </td>
+  <td width="10%" align="left" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:10px;font-weight:normal;">Page <span class="currentPage">22</span> of <span class="totalPages">56</span></td>
+  <td width="15%" align="right" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:12px;font-weight:normal;">Ref: <span id=SICode class="SICode">{SINo}</span></td>
+  </tr>
+  </table>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<html>
+    <head>
+        <link href="pds2HTML/css/css_PDS.css" rel="stylesheet" type="text/css" />
+        <title>
+            C) FUND CHOOSEN
+        </title>
+        
+        <script>
+            function showEcar() {
+                document.getElementById('premiumPayEcarTR').style.display= "";
+            }
+            function hideEcar() {
+                document.getElementById('premiumPayEcarTR').style.display= "none";
+            }/*
+            function showPremDuration() {
+                document.getElementById('premiumDurationTR').style.display= "";
+            }
+            function hidePremDuration() {
+                document.getElementById('premiumDurationTR').style.display= "none";
+            }*/
+            function showNoteAfterPremDuration() {
+                document.getElementById('noteAfterPremDuration').style.display= "";
+            }
+            function hideNoteAfterPremDuration() {
+                document.getElementById('noteAfterPremDuration').style.display= "none";
+            }
+            function show2EContent() {
+                document.getElementById('2EContent').style.display= "";
+            }
+            function hide2EContent() {
+                document.getElementById('2EContent').style.display= "none";
+            }
+        </script>
+    </head>
+    <body>
+        <div class="pageContent"></br>
+            <div id = "2C" class="leftRightMargin">
+                <!--fund chosen section-->
+                <!--<span class="boldUnderline">C) Dana yang Dipilih</span>-->
+                <b><u><span class="TobeSetAtJsFile">{TobeSetAtJsFile}</span> Dana yang Dipilih</u></b>
+                <div id = "fundChosenInner" style="width:100%"></div>
+                
+                <span><b>Peringatan: </b> Sila baca ilustrasi jualan, yang mengandungi  faedah-faedah  produk dan objektif-objektif  dana berkaitan pelaburan. Anda mestilah memilih pelan atau gabungan dana yang sesuai dengan matlamat kewangan dan profil risiko anda. </span>
+            </div>
+            <!--end of fund chosen section-->
+            <div id="2D"class="leftRightMargin">
+                <!--D) Minimum Guaranteed Unit Price at Fund Maturity (only applicable to HLA EverGreen Funds)-->
+                <p class="boldUnderline"><span class="TobeSetAtJsFile2">{TobeSetAtJsFile2}</span>  Harga Unit Terjamin Minimum pada Kematangan Dana (hanya berkenaan kepada HLA EverGreen Fund)</p>
+                <p>Pada  setiap titik masa pelaburan, harga unit akan didarabkan dengan satu Faktor Gandaan. Harga unit berganda ini adalah harga unit yang dijamin pada kematangan dana. Harga unit pada kematangan dana ini merupakan amaun minimum terjamin yang akan diterima oleh Pemunya Polisi.
+
+                </br>Setiap kali harga unit berganda mencapai nilai lebih tinggi yang terbaru, Harga Unit Terjamin Minimum pada Kematangan Dana akan dibaharui kepada harga unit yang lebih tinggi ini.
+
+                </p>
+                <p>Harga  Unit Terjamin Minimum pada Kematangan Dana sebelum cukai akan dikenakan sejumlah cukai yang masih belum dibayarkan. Pelarasan cukai lanjutan tersebut merupakan perbezaan antara cukai yang perlu dibayar ke atas perolehan modal bagi dana-dana yang ditentukan pada kematangan dana-dana dengan cukai yang telah dibayar bagi dana-dana melalui penentuan harga unit mingguan. Harga unit yang diterbitkan setiap minggu adalah berasaskan dasar selepas penolakan cukai.
+                </p>
+            </div>
+            <div id="2EContent" class="pageContent"></br>
+                <div id="2D"class="leftRightMargin">
+                    <!--D) Minimum Guaranteed Unit Price at Fund Maturity (only applicable to HLA EverGreen Funds)-->
+                    <p class="boldUnderline">E) Berbayar Terkurang</p>
+                    <p>Anda telah menandakan untuk menukar polisi ini kepada Polisi Berbayar Terkurang pada tarikh ulang tahun polisi ke-<span class="Page50-col1">{Page50-col1}</span>.</p>
+                    
+                    <table  width="90%" id="Page50-table1" style='border: 1px solid black;font-family:Arial;font-size:10px;font-weight:normal;' class="normalTable">
+                        <tr class='bold'>
+                            <td width="30%" valign="top" rowspan="2" >&nbsp;</td>
+                            <td width="30%" valign="top" colspan="3" >Jumlah Premium yang Dibayar</td>
+                            <td width="10%" valign="top" rowspan="2" >Jumlah</br>Diinsuranskan</br>Asal</td>
+                            <td width="10%" valign="top" rowspan="2" >Jumlah Diinsuranskan Polisi<br/>Berbayar Terkurang bagi Pelan<br/>Asas</td>
+                            <td width="20%" valign="top" rowspan="2" >Caj Pelan Berbayar Terkurang<br/>(Jumlah Semua Dana)</td>
+                        </tr>
+                        <tr class='bold'>
+                            <td>Pelan Asas</td>
+                            <td><span class="Page50-col3-label">{Page50-col3-label}</span></td>
+                            <td>Keseluruhan Polisi</td>
+                        </tr>
+                        <tr class='bold'>
+                            <td valign="top" >Penukaran kepada Polisi Berbayar Terkurang pada tarikh ulang tahun polisi ke-<span class="Page50-col1">{Page50-col1}</span></td>
+                            <td valign="top" ><span class="Page50-col2">{Page50-col2}</span></td>
+                            <td valign="top" ><span class="Page50-col3">{Page50-col3}</span></td>
+                            <td valign="top" ><span class="Page50-col4">{Page50-col4}</span></td>
+                            <td valign="top" ><span class="Page50-col5">{Page50-col5}</span></td>
+                            <td valign="top" ><span class="Page50-col6">{Page50-col6}</span></td>
+                            <td valign="top" ><span class="Page50-col7">{Page50-col7}</span></td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div id = "premiumPaidOnPage5">
+                    <table class="leftRightMargin" border="0">
+                        <tr>
+                            <td class="numbering">
+                                3.
+                            </td>
+                            <td class= "bold">
+                                Berapakah premium yang perlu saya bayar?
+                            </td>
+                        </tr>
+                        <tr id="premiumPayTR">
+                            <td></td>
+                            <td id="premiumPayPage5">
+                                <p>Jumlah  premium yang perlu anda bayar dan tempoh polisi mungkin berbeza mengikut keperluan penanggungjaminan syarikat insurans. Anggaran jumlah premium yang perlu anda bayar:
+                                </p>
+                                <script>
+                                    document.getElementById("premiumPayPage5").appendChild(loadPremiumPay());
+                                    </script>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td></td>
+                            <td id="premiumDurationTwoPage5">
+                                <span>Tempoh  premium:</span>
+                                <script>
+                                    document.getElementById("premiumDurationTwoPage5").appendChild(loadPremiumDuration());
+                                </script>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <span>Nota:</br>Sekiranya  anda telah memilih untuk menukar pelan asas kepada Polisi Berbayar Terkurang, sila rujuk kepada bahagian depan Risalah Pendedahan Produk ini tentang Berbayar Terkurang untuk tempoh pembayaran premium pelan asas.
+                                </span>
+                                <p>Syarikat  insurans memperuntukkan suatu bahagian premium untuk membeli unit dalam dana berkaitan pelaburan yang anda pilih. Sebarang amaun yang tidak diperuntukkan  daripada premium anda akan digunakan untuk membayar kos pengagihan langsung dan perbelanjaan syarikat insurans. Anda dinasihatkan supaya merujuk kepada kadar peruntukan yang diberikan dalam Ilustrasi Jualan.
+                                </p>
+                            </td>
+                        </tr>
+                        
+                    </table>
+            
+                 </div>
+                
+            </div>
+            <!--end of 2D-->
+        </div>
+    </body>
+    <script>
+        document.getElementById('fundChosenInner').appendChild(loadTableFundChosen());
+        </script>
+</html>

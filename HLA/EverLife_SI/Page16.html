@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link href="EverLife_SI/css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="EverLife_SI/js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="EverLife_SI/js/hla.js"></script>
+  <script>
+    
+  var gData;  
+  function onBodyLoad(){
+  		//writeSummary1();
+  }
+  
+  function formatCurrency(num) {
+	if (num == "-")
+		return "-"
+	num = num.toString().replace(/\$|\,/g, '');
+    if (isNaN(num)) num = "0";
+    sign = (num == (num = Math.abs(num)));
+    num = Math.floor(num * 100 + 0.50000000001);
+    cents = num % 100;
+    num = Math.floor(num / 100).toString();
+    if (cents < 10) cents = "0" + cents;
+    for (var i = 0; i < Math.floor((num.length - (1 + i)) / 3); i++)
+    	num = num.substring(0, num.length - (4 * i + 3)) + ',' + num.substring(num.length - (4 * i + 3));
+    return (((sign) ? '' : '-') + '' + num + '.' + cents);
+        //document.write (((sign) ? '' : '-') + '' + num + '.' + cents);
+}
+  
+  
+
+  
+    function replaceChar(char){
+        var temp, returnVal;
+        if (char == "0")
+            returnVal = "-"
+        else if (char == "")
+            returnVal = "-"
+        else
+            returnVal = char;
+        return returnVal;
+    }
+    
+  </script>
+  <head>
+<body onload="onBodyLoad()">
+  <div id="header">
+	<div class="agentInfo">
+  		Prepared By : <span id="agentName" class="agentName">{agentName}</span>
+  		<br/>Code : <span id="agentCode" class="agentCode">{agentCode}</span>
+  	</div>
+  	<div class="ContentInfo">Printed On : <span id="dateModified" class="dateModified">{DateModified}</span></div>
+  	<div class="hruleInfo"></div>
+  </div>
+  <div class="main-content">
+    <div class="contentArea">
+      <br/>
+      <div style="width:100%;background-color: #fff;">
+	<table id="table-data16" style="border: 1px solid black; width: 100%; border-collapse: collapse;">
+	  <thead>
+	    <tr>
+		<td style="text-align:left;padding: 2px 2px 2px 2px;border: 1px solid black; width: 5%; vertical-align: top" ><b>Account</b></td>
+		<td style="text-align:left;padding: 2px 2px 2px 2px;border: 1px solid black; width: 19%; vertical-align: top"><b>Plan Name</b></td>
+		<td style="text-align:center;padding: 2px 2px 2px 2px;border: 1px solid black; width: 6%; "><b>Coverage<br/>Type</b></td>
+		<td style="text-align:center;padding: 2px 2px 2px 2px;border: 1px solid black; width: 10%; vertical-align: top "><b>Insured Lives</b></td>
+		<td style="text-align:center;padding: 2px 2px 2px 2px;border: 1px solid black; width: 10%; vertical-align: top"><b>Sum Assured/<br/>Benefit(RM)</b></td>
+		<td style="text-align:center;padding: 2px 2px 2px 2px;border: 1px solid black; width: 10%; vertical-align: top"><b>Coverage Period(Years)</b></td>
+		<td style="text-align:center;padding: 2px 2px 2px 2px;border: 1px solid black; width: 10%; vertical-align: top"><b>Premium Payment Terms(Years)</b></td>
+		<td style="text-align:center;padding: 2px 2px 2px 2px;border: 1px solid black; width: 10%; vertical-align: top;" id="Page16PaymentModeLabel" class="Page16PaymentModeLabel"></td>
+		<td style="text-align:center;padding: 2px 2px 2px 2px;border: 1px solid black; width: 10%; vertical-align: top" id="Page16LoadingLabel" class="Page16LoadingLabel"></td>
+		<td style="text-align:center;padding: 2px 2px 2px 2px;border: 1px solid black; width: 10%; vertical-align: top"><b>Total Premium Payable<br/>(RM)</b></td>
+	    </tr> 
+	  </thead>
+	<!-- 
+</table>
+	
+	<table id="table-data16" style="border: 1px solid black; width: 100%; border-collapse: collapse;">
+	  <thead>
+	    
+	  </thead>
+ -->
+	  <tbody style="vertical-align: text-top">
+	  	<!-- the data 2 will appear at here -->
+	  </tbody>
+	  <tfoot>
+	    
+	  </tfoot>
+	</table>
+	<div style="text-align: right;display: block" id="TotalOverAllPremium" class="TotalOverAllPremium">{TotalOverAllPremium} </div>
+	<span class="fnPage2_IndexRidersNotes"></span>
+      </div>
+      
+    </div>
+    
+    
+    
+      
+    <table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+      <tr>
+	<td width="75%" style="font-family:Arial;font-size:8px;font-weight:normal;padding: 5px 5px 5px 0px;">
+	  This sales illustration consists of <span class="totalPages">{totalPages}</span> pages and each page forms an integral part of the sales illustration. A prospective policy owner is advised to read and understand the<br/>
+	  information printed on each and every page. <br/>
+	  <b><span id="rptVersion" class="rptVersion">{rptVersion}</span></b> <br/>
+	  Level 3, Tower B, PJ City Development, No. 15A Jalan 219, Seksyen 51A, 46100 Petaling Jaya, Selangor. Tel: 03-7650 1818 Fax: 03-7650 1991 Website: www.hla.com.my<br/>
+	  
+	</td>
+	<td width="10%" align="left" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:10px;font-weight:normal;">Page <span class="currentPage">22</span> of <span class="totalPages">56</span></td>
+	<td width="15%" align="right" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:12px;font-weight:normal;">Ref: <span id=SICode class="SICode">{SINo}</span></td>
+      </tr>
+    </table>   
+  </div>
+    
+</body>
+
+</html>

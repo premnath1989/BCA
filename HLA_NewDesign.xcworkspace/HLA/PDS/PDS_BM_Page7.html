@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/hla.js"></script>
+  <script>
+  var gData;
+  function onBodyLoad(){
+  		//writeSummary1();
+  }
+  
+    function replaceChar(char){
+        var temp, returnVal;
+        if (char == "0")
+            returnVal = "-"
+        else if (char == "")
+            returnVal = "-"
+        else
+            returnVal = char;
+        return returnVal;
+    }
+    
+    function isIncomeRider(amt,rider){
+		//rider.replace(/^\s+|\s$/g,"")
+		//$.trim(rider)
+		var temp;
+		temp = $.trim(rider)
+		//alert(temp + "x")
+        if (temp == "HLA Income Builder" || temp == "Income 20 Rider" || temp == "Income 30 Rider" || temp == "Income 40 Rider" || temp == "Income D-20 Rider" || temp == "Income D-30 Rider" || temp == "Income D-40 Rider" || temp == "Income E-20 Rider" || temp == "Income E-30 Rider"){
+        	return amt + " *";
+        }
+        else
+        	return amt + "&nbsp;&nbsp;";
+    }
+    
+  </script>
+  <head>
+  <body onload="onBodyLoad()">
+  
+<div id="header">
+	<div class="agentInfo">
+  		Prepared By : <span id="agentName" class="agentName">{agentName}</span>
+  		<br/>Code : <span id="agentCode" class="agentCode">{agentCode}</span>
+  	</div>
+  	<div class="ContentInfo">Printed On : <span id="dateModified" class="dateModified">{DateModified}</span></div>
+  	<div class="hruleInfo"></div>
+</div>
+<div class="main-content">
+<!--520px-->
+
+
+
+<div class="contentArea">
+    <table cellspacing="3" id="item78910" class="item78910">
+	<tr class="item10" style="display:table-row;">
+	    <td><b>7.</b></td>
+	    <td><b>Bolehkah saya membatalkan polisi saya?</b></td>
+	</tr>
+	
+	
+	
+	
+	<tr class="item10" style="display:table-row;">
+	    <td>&nbsp;</td>
+	    <td>
+		<table width="100%" border="0" cellspacing="0" id="table2-page1">
+		    <tr class="item10A">
+			<td width="20"style="padding: 0px 0px 5px 0px;"><b>A)</b></td>
+			<td colspan="2" style="padding: 0px 0px 5px 0px;"><u><b>Pelan Asas</b></u></td>
+		    </tr>
+		    <tr class="item10A">
+			<td></td>
+			<td colspan="2" style="padding: 0px 0px 0px 0px;">
+			Anda boleh membatalkan polisi dengan memberi notis bertulis kepada Hong Leong Assurance Berhad. Setelah tempoh bertenang, nilai penyerahan tunai (jika ada) polisi anda akan dibayar kepada anda ketika<br/>
+			anda membatalkan polisi anda; namun begitu, amaun yang dibayar mungkin kurang daripada jumlah premium yang anda bayar.
+			</td>
+		    </tr>
+
+		    <tr class="item10BB">
+			<td width="20"style="padding: 5px 0px 3px 0px;"><b>B)</b></td>
+			<td colspan="2" style="padding: 5px 0px 3px 0px;"><u><b>Rider yang Dilampirkan</b></u></td>
+		    </tr>
+		    <tr class="item10BB">
+			<td></td>
+			<td colspan="2" style="padding: 0px 0px 0px 0px;">
+			<table border="1" style="border-collapse: collapse;margin-left: 0px" id="table-Cancel" class="table-Cancel" width="100%">
+		    <thead>
+			<tr>
+			    <td width="20%" style="padding: 1px 0px 1px 5px;"><b>Rider</b></td>
+			    <td width="80%" style="padding: 1px 0px 1px 5px;"><b>Hak Pembatalan</b></td>
+			</tr>
+		    </thead>
+		    <tbody>
+		    <!--
+			<tr>
+			    <td style="padding: 1px 0px 1px 5px;vertical-align: text-top">Living Care Waiver Of Premium Payor Rider (110%)</td>
+			    <td style="padding: 1px 0px 1px 5px;vertical-align: text-top">If you terminate this rider prematurely, there will be no refund and the termination will take effect from next premium due date if the Basic Policy remains in force</td>
+			</tr>
+			<tr>
+			    <td style="padding: 1px 0px 1px 5px;vertical-align: text-top">Living Care Waiver Of</td>
+			    <td style="padding: 1px 0px 1px 5px;vertical-align: text-top">If you terminate this rider prematurely, there will be no refund and the termination will take effect from next premium due date if the Basic Policy remains in force</td>
+			</tr>
+			<tr>
+			    <td style="padding: 1px 0px 1px 5px;vertical-align: text-top">Living Care Waiver Of</td>
+			    <td style="padding: 1px 0px 1px 5px;vertical-align: text-top">If you terminate this rider prematurely, there will be no refund and the termination will take effect from next premium due date if the Basic Policy remains in force</td>
+			</tr>
+			<tr>
+			    <td style="padding: 1px 0px 1px 5px;vertical-align: text-top">Living Care Waiver Of</td>
+			    <td style="padding: 1px 0px 1px 5px;vertical-align: text-top">If you terminate this rider prematurely, there will be no refund and the termination will take effect from next premium due date if the Basic Policy remains in force</td>
+			</tr>
+			<tr>
+			    <td style="padding: 1px 0px 1px 5px;vertical-align: text-top">Living Care Waiver Of</td>
+			    <td style="padding: 1px 0px 1px 5px;vertical-align: text-top">If you terminate this rider prematurely, there will be no refund and the termination will take effect from next premium due date if the Basic Policy remains in force</td>
+			</tr>
+			<tr>
+			    <td style="padding: 1px 0px 1px 5px;vertical-align: text-top">Living Care Waiver Of</td>
+			    <td style="padding: 1px 0px 1px 5px;vertical-align: text-top">If you terminate this rider prematurely, there will be no refund and the termination will take effect from next premium due date if the Basic Policy remains in force</td>
+			</tr>
+			<tr>
+			    <td style="padding: 1px 0px 1px 5px;vertical-align: text-top">Living Care Waiver Of</td>
+			    <td style="padding: 1px 0px 1px 5px;vertical-align: text-top">If you terminate this rider prematurely, there will be no refund and the termination will take effect from next premium due date if the Basic Policy remains in force</td>
+			</tr>
+			<tr>
+			    <td style="padding: 1px 0px 1px 5px;vertical-align: text-top">Living Care Waiver Of</td>
+			    <td style="padding: 1px 0px 1px 5px;vertical-align: text-top">If you terminate this rider prematurely, there will be no refund and the termination will take effect from next premium due date if the Basic Policy remains in force</td>
+			</tr>
+			<tr>
+			    <td style="padding: 1px 0px 1px 5px;vertical-align: text-top">Living Care Waiver Of</td>
+			    <td style="padding: 1px 0px 1px 5px;vertical-align: text-top">If you terminate this rider prematurely, there will be no refund and the termination will take effect from next premium due date if the Basic Policy remains in force</td>
+			</tr>
+			<tr>
+			    <td style="padding: 1px 0px 1px 5px;vertical-align: text-top">Living Care Waiver Of</td>
+			    <td style="padding: 1px 0px 1px 5px;vertical-align: text-top">If you terminate this rider prematurely, there will be no refund and the termination will take effect from next premium due date if the Basic Policy remains in force</td>
+			</tr>
+			<tr>
+			    <td style="padding: 1px 0px 1px 5px;vertical-align: text-top">Living Care Waiver Of</td>
+			    <td style="padding: 1px 0px 1px 5px;vertical-align: text-top">If you terminate this rider prematurely, there will be no refund and the termination will take effect from next premium due date if the Basic Policy remains in force</td>
+			</tr>
+			<tr>
+			    <td style="padding: 1px 0px 1px 5px;vertical-align: text-top">Living Care Waiver Of</td>
+			    <td style="padding: 1px 0px 1px 5px;vertical-align: text-top">If you terminate this rider prematurely, there will be no refund and the termination will take effect from next premium due date if the Basic Policy remains in force</td>
+			</tr>
+			<tr>
+			    <td style="padding: 1px 0px 1px 5px;vertical-align: text-top">Living Care Waiver Of</td>
+			    <td style="padding: 1px 0px 1px 5px;vertical-align: text-top">If you terminate this rider prematurely, there will be no refund and the termination will take effect from next premium due date if the Basic Policy remains in force</td>
+			</tr>
+			<tr>
+			    <td style="padding: 1px 0px 1px 5px;vertical-align: text-top">Living Care Waiver Of</td>
+			    <td style="padding: 1px 0px 1px 5px;vertical-align: text-top">If you terminate this rider prematurely, there will be no refund and the termination will take effect from next premium due date if the Basic Policy remains in force</td>
+			</tr>
+			-->
+		    </tbody>
+		</table>
+			</td>
+		    </tr>
+		    
+		</table>
+	    </td>
+	    <br/>
+	</tr>
+	
+	
+	
+	<tr class="item8" style="display:table-row;">
+	    <td><b>8.</b></td>
+	    <td><b>Apakah yang perlu saya lakukan jika saya bertukar alamat dan nombor telefon?</b></td>
+	</tr>
+	<tr class="item8" style="display:table-row;">
+	    <td></td>
+	    <td style="padding: 0px 0px 3px 0px;"> 
+		Anda mestilah memaklumkan kami tentang sebarang perubahan maklumat perhubungan anda (termasuk maklumat tentang penama dan/atau pemegang amanah) bagi memastikan anda menerima semua<br/>
+		surat-menyurat sampai kepada anda dan/atau penama/pemegang amanah tepat pada masanya.
+	    </td>
+	</tr>
+	
+	<tr class="item9" style="display:table-row;">
+	    <td><b>9.</b></td>
+	    <td><b>Di manakah boleh saya dapatkan maklumat lanjut?</b></td>
+	</tr>
+	<tr class="item9" style="display:table-row;">
+	    <td></td>
+	    <td style="padding: 0px 0px 3px 0px;"> 
+		Jika anda memerlukan maklumat lanjut tentang insurans hayat, sila rujuk buku panduan insuranceinfo tentang ‘Insurans Hayat’ yang disediakan di semua cawangan kami atau anda boleh mendapatkannya daripada<br/>
+		ejen insurans atau layari laman web www.insuranceinfo.com.my.<br/><br/>
+		Jika anda mempunyai sebarang pertanyaan, sila hubungi kami di:<br/><br/>
+		<b>Talian Perkhidmatan Pelanggan: 03-76501288 atau</b><br/><br/>
+		<b>Customer Service Department<br/>
+		Level 3, Tower B, PJ City Development<br/>
+		No 15A, Jalan 219, Seksyen 51A<br/>
+		46100 Petaling Jaya, Selangor<br/>
+		P.O.Box 120, 46710 Petaling Jaya<br/><br/>
+		Tel: 03 - 7650 1818<br/>
+		Fax: 03 - 7650 1991<br/>
+		Laman Web: www.hla.com.my</b>		
+	    </td>
+	</tr>
+
+	<tr class="item10" style="display:table-row;">
+	    <td><b>10.</b></td>
+	    <td><b>Jenis perlindungan lain seumpamanya yang disediakan</b></td>
+	</tr>
+	<tr class="item10" style="display:table-row;">
+	    <td></td>
+	    <td style="padding: 0px 0px 10px 0px;"> 
+		Sila rujuk ejen kami untuk mengetahui jenis perlindungan lain seumpamanya yang disediakan.	
+	    </td>
+	</tr>
+    </table>
+		<b>NOTA PENTING:</b><br/>
+		<b>MEMBELI POLISI INSURANS HAYAT MERUPAKAN KOMITMEN KEWANGAN JANGKA PANJANG. ANDA MESTILAH MEMILIH JENIS POLISI YANG PALING SESUAI DENGAN ANDA. ANDA HENDAKLAH<br/>
+		MEMBACA DAN MEMAHAMI POLISI INSURANS DAN BERBINCANG DENGAN EJEN ATAU HUBUNGI TERUS SYARIKAT INSURANS UNTUK MENDAPATKAN MAKLUMAT LANJUT.</b><br/><br/>
+		Maklumat yang disediakan dalam risalah pendedahan ini adalah sah setakat <span id="dateModified2" class="PrintDate2">{PrintDate2}</span>.
+</div>
+<table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+<tr>
+<td width="75%" style="font-family:Arial;font-size:8px;font-weight:normal;padding: 5px 5px 5px 0px;">
+Risalah Pendedahan Produk ini mengandungi <span class="totalPages">{totalPages}</span> muka surat and setiap muka surat membentuk sebahagian daripada Risalah Pendedahan Produk. Bakal pemunya polisi adalah<br/>
+dinasihatkan untuk membaca dan memahami maklumat yang tercetak pada setiap muka surat.<br/>
+<b><span id="rptVersion" class="rptVersion">{rptVersion}</span></b> <br/>
+Level 3, Tower B, PJ City Development, No. 15A Jalan 219, Seksyen 51A, 46100 Petaling Jaya, Selangor. Tel: 03-7650 1818 Fax: 03-7650 1991 Website: www.hla.com.my<br/>
+</td>
+<td width="10%" align="left" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:10px;font-weight:normal;">Page <span class="currentPage">22</span> of <span class="totalPages">56</span></td>
+<td width="15%" align="right" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:12px;font-weight:normal;">Ref: <span id=SICode class="SICode">{SINo}</span></td>
+</tr>
+</table>
+</div>
+</body>
+</html>

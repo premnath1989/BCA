@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="PDS/css/style.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" charset="utf-8" src="PDS/js/jquery-1.8.2.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="PDS/js/hla.js"></script>
+        <script>
+        	var gData;
+            var gCommision;
+            function onBodyLoad(){
+            	$.ajaxSetup({ cache: false });
+                
+                $.ajax({
+                	url: 'SI.json',
+                    async: false,
+                    dataType: 'json',
+					success: function (data) {
+						gdata = data;
+
+						for(j=0;j<data.SI[0].SI_Temp_Pages_PDS.data.length;j++)
+						{
+							row = gdata.SI[0].SI_Temp_Pages_PDS.data[j];
+							if (row.PageDesc != "Page1")
+							{
+								if (row.PageDesc == "Page2") 
+									htmlPages = '<div id="' + row.PageDesc + '" style="margin-top:10px;padding: 15px 0px 0px 0px;"></div>';
+								else
+									htmlPages = '<div id="' + row.PageDesc + '" style="margin-top:700px;padding: 15px 0px 0px 0px;"></div>';
+								$(htmlPages).appendTo('#externalPages');
+							}
+						}
+					   
+						for(j=0;j<data.SI[0].SI_Temp_Pages_PDS.data.length;j++)
+						{
+							row = gdata.SI[0].SI_Temp_Pages_PDS.data[j];
+							$.ajax({
+								url: "PDS/" + row.htmlName,
+							  	async: false,
+							  	dataType: 'html',
+							  	success: function (data) {
+							  		$("#" + row.PageDesc).html(data);
+							  	}
+							});
+						}
+
+						$.ajax({
+							url: 'Rates.json',
+							async: false,
+							dataType: 'json',
+							success: function (data) {
+								gCommision = data;
+							}
+						});
+						loadJson();
+					}
+				});
+            }
+            
+            function loadJson()
+            {                
+                setPage();
+                
+                writeAttachingRider_1('BM'); //page2
+                writeAttachingRider_1_2('BM'); //page2
+                writeAttachingRider_2_2('BM');
+                writeEstimateTotalPremium('BM'); //page3
+                writePremiumDuration('BM'); //page3
+                writeItem456_page3_page4()//page3 and page5
+                writeAttachingRider_2(); //page6
+                writeCancel('BM'); //page7
+                writePDS_C();
+                writePDS_HMM();
+                writePDS_HS();
+                writePDS_MG2();
+                writePDS_MG4();
+                writeFootnote();
+                
+                $('.BasicSA').html(formatCurrency(gdata.SI[0].Trad_Details.data[0].BasicSA));
+            }
+
+            function replaceChar(char){
+                var temp, returnVal;
+                if (char == "0")
+                returnVal = "-"
+                else if (char == "")
+                returnVal = "-"
+                else
+                returnVal = char;
+                return returnVal;
+            }
+            
+            function isIncomeRider(amt,rider){
+                //rider.replace(/^\s+|\s$/g,"")
+                //$.trim(rider)
+                var temp;
+                temp = $.trim(rider)
+                //alert(temp + "x")
+                if (temp == "HLA Wealth Plan" || temp == "HLA Income Builder" || temp == "Income 20 Rider" || temp == "Income 30 Rider" || temp == "Income 40 Rider" ||
+                	temp == "Income D-20 Rider" || temp == "Income D-30 Rider" || temp == "Income D-40 Rider" || temp == "Income E-20 Rider" || temp == "Income E-30 Rider"){
+                    return amt + " *";
+                }
+                else
+                return amt + "&nbsp;&nbsp;";
+            }
+            
+            </script>
+    </head>
+    <body onload="onBodyLoad()">
+        
+        <div id="header">
+            <img src="PDS/img/HLA.png"/>
+            <div class="welcome">
+                Code : <span id="agentCode" class="agentCode">{agentCode}</span>&nbsp;&nbsp;Prepared By : <span id="agentName" class="agentName">{agentName}</span>
+                
+            </div>
+            <div class="Content">Printed On : <span id="dateModified" class="dateModified">{DateModified}</span></div>
+            <div class="hrule"></div>
+        </div>
+        <div class="main-content">
+            <table id="table-LA"> 
+                <tr>
+                    <td width="70%" bgcolor="#c0c0c0" style="text-align:left;padding: 3px 3px 3px 3px;border: 1px solid black;"><b>PRODUCT DISCLOSURE SHEET</b></td>
+                    <td width="30%" style="text-align:left;padding: 3px 3px 3px 3px;border: 1px solid black;"><b>Hong Leong Assurance Berhad</b></td>
+                </tr>
+                <tr>
+                    <td valign="top" rowspan="2" style="text-align:left;padding: 3px 3px 3px 3px;border: 1px solid black;"><b>Baca Risalah Pendedahan Produk ini sebelum anda membuat keputusan untuk mengambil HLA Wealth Plan. Pastikan anda juga membaca terma dan syarat am.</b></td>
+                    <td style="text-align:left;padding: 3px 3px 3px 3px;border: 1px solid black;"><b>HLA Wealth Plan</b></td>
+                </tr>
+                <tr>
+                    <td style="text-align:left;padding: 3px 3px 3px 3px;border: 1px solid black;"><b><span id="PrintDate2" class="PrintDate2">{PrintDate}</span></b></td>
+                </tr>
+            </table>
+            <!--520,430px-->
+
+            <div style="width:100%;height:490px;background-color: #fff;">
+                <table style="width: 100%">
+                    <tr>
+                        <td width="10"><b>1.</b></td>
+                        <td><b>Apakah produk ini?</b></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                            Produk ini merupakan pelan penyertaan endowmen selama <span id="policyTerm" class="policyTerm">{policyTerm}</span> tahun dengan tempoh pembayaran premium ini terhad kepada <span id="premPayOpt" class="premPayOpt">{premPayOpt}</span> tahun sahaja. 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td><b>2.</b></td>
+                        <td><b>Apakah perlindungan / faedah yang disediakan?</b></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                            <table width="100%" border="0" cellspacing="0" id="table2-page1">
+                                <tr>
+                                    <td width="0"style="padding: 0px 0px 5px 0px;"></td>
+                                    <td colspan="2" style="padding: 0px 0px 5px 0px;"><u><b>Pelan Asas</b></u></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td colspan="2" style="padding: 0px 0px 10px 0px;">
+                                        Tempoh diinsuranskan untuk perlindungan ini ialah selama <span id="policyTerm" class="policyTerm">{policyTerm}</span> tahun atau atas penamatan, yang mana berlaku dahulu.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td width="10" style="padding: 0px 0px 0px 0px;"><b>I)</b></td>
+                                    <td style="padding: 0px 0px 0px 0px;"><u><b>Faedah Kematian/ Faedah Hilang Upaya Menyeluruh dan Kekal (TPD)</b></u></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td style="padding: 0px 0px 10px 0px;">
+                                        (a) Jika Hayat Diinsuranskan meninggal dunia/TPD (sebelum mencapai umur 65 tahun), faedah Kematian/ TPD akan dibayar bersamaan dengan jumlah daripada yang berikut:<br/>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;<span id="policyPercentage" class="policyPercentage">{policyPercentage}</span> daripada premium yang sudah dibayar untuk pelan asas (tidak termasuk caj tambahan kepada premium) dikira berdasarkan mod tahunan pembayaran,<br/>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;Dividen Tunai Terkumpul (jika ada), dan <br/>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;(iii)&nbsp;&nbsp;&nbsp;Dividen Terminal Khas (jika ada).<br/>
+
+                                        </br>
+                                        (b) Untuk Pelan Asas dikeluarkan kepada kanak-kanak yang belum lahir, <br/>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;Jika Hayat Diinsuranskan meninggal dunia dari tarikh permulaan kuat kuasa sehingga tiga puluh (30) hari selepas kelahiran, jumlah yang dibayar ialah 100% daripada premium yang dibayar untuk Pelan Asas ini<br/> 
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(tidak termasuk caj tambahan kepada premium) dikira berdasarkan mod tahunan pembayaran.<br/> 
+                                        &nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;Jika Hayat Diinsuranskan TPD dari tarikh kelahiran sehingga tiga puluh (30) hari selepas kelahiran, jumlah yang dibayar ialah 100% daripada premium yang dibayar untuk Pelan Asas ini (tidak termasuk<br/> 
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;caj tambahan kepada premium) dikira berdasarkan mod tahunan pembayaran.<br/>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;(iii)&nbsp;&nbsp;&nbsp;Perlindungan Hayat Diinsuranskan akan mengikut faedah kematian/TPD seperti yang ditunjukkan di bahagian (a) di atas bermula dari tiga puluh satu (31) hari selepas kelahiran dan seterusnya.<br/><br/>
+                                        
+                                        Faedah Hilang Upaya Menyeluruh dan Kekal (TPD) akan dibayar  mengikut peruntukan Hilang Upaya Menyeluruh dan Kekal seperti dalam jadual di bawah:<br/>
+                                        <table width="75%" style="border-collapse: collapse; margin-left: 0px" border="1">
+                                            <tr>
+                                                <td width="45%" align="left">Umur Tercapai semasa Hilang Upaya Menyeluruh dan Kekal </td>
+                                                <td width="55%" style="padding: 0px 0px 0px 5px;">Had Faedah Hilang Upaya Menyeluruh dan Kekal setiap Hayat</td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left">Kurang daripada 7</td>
+                                                <td style="padding: 0px 0px 0px 5px;">RM 100,000</td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left">7 sehingga kurang daripada 15 </td>
+                                                <td style="padding: 0px 0px 0px 5px;">RM 500,000</td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left">15 sehingga kurang daripada 65</td>
+                                                <td style="padding: 0px 0px 0px 5px;">RM 3,500,000</td>
+                                            </tr>
+                                        </table>
+                                        <br/>
+                                        Jumlah Faedah Hilang Upaya Menyeluruh dan Kekal setiap Hayat yang dibayar di bawah semua polisi tidak boleh melebihi Had Faedah Hilang Upaya Menyeluruh dan Kekal setiap Hayat seperti dalam jadual di atas.
+                                        <br/>
+                                        Jumlah Faedah Hilang Upaya Menyeluruh dan Kekal setiap Hayat merujuk kepada liputan Hilang Upaya Menyeluruh dan Kekal setiap Hayat bagi kesemua polisi yang berkuatkuasa bagi setiap Hayat yang Diinsuranskan pada masa tuntutan dibuat.
+                                        <br/>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+									<td></td>
+									<td width="10"><b>II)</b></td>
+									<td><u><b>Faedah Kematangan</b></u></td>
+                                </tr>
+                                <tr>
+									<td></td>
+									<td></td>
+									<td style="padding: 0px 0px 5px 0px;">
+										Polisi akan matang apabila Hayat yang Diinsuranskan masih hidup pada akhir tempoh polisi. Faedah Kematangan bersamaan dengan jumlah daripada yang di bawah ini akan dibayar:</br>
+										(i)&nbsp;&nbsp;&nbsp;&nbsp;<span id="policyPercentage" class="policyPercentage">{policyPercentage}</span> daripada premium yang sudah dibayar untuk pelan asas (tidak termasuk caj tambahan kepada premium) dikira berdasarkan mod tahunan pembayaran,<br/>
+										(ii)&nbsp;&nbsp;&nbsp;&nbsp;Dividen Tunai Terkumpul (jika ada), dan <br/>
+										(iii)&nbsp;&nbsp;&nbsp;Dividen Terminal (jika ada).
+									</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>    
+                </table>
+            </div>            
+            
+            <table border="0" style="border-collapse:separate;border:0px solid black;width:100%;margin-top:20px;height:60px;">
+                <tr>
+                    <td width="77%" style="font-family:Times New Roman;font-size:9.8px;font-weight:normal;padding: 0px 0px 0px 0px;">
+                        Risalah Pendedahan Produk ini mengandungi <span class="totalPages">{totalPages}</span> muka surat and setiap muka surat membentuk sebahagian daripada Risalah Pendedahan Produk. Bakal pemunya polisi adalah dinasihatkan untuk membaca dan memahami maklumat yang tercetak pada setiap muka surat.<br/>
+                        <b><span id="rptVersion" class="rptVersion">{rptVersion}</span></b><br/>
+                        Level 3, Tower B, PJ City Development, No. 15A Jalan 219, Seksyen 51A, 46100 Petaling Jaya, Selangor. Tel: 03-7650 1818 Fax: 03-7650 1991 Website: www.hla.com.my<br/>
+                    </td>
+                    <td width="8%" align="left" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Times New Roman;font-size:9.8px;">Page <span class="currentPage">1</span> of <span class="totalPages">56</span></td>
+                    <td width="75px" align="right" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Times New Roman;font-size:9.8px;">
+                        <img src="PDS/img/barcode.png" style="vertical-align:text-top;padding: 0px 0px 0px 0px;" height="70%" width="100%"/><br/>Ref: <span id=SICode class="SICode">{SINo}</span>
+                    </td>
+                </tr>
+            </table>
+            <div id="externalPages"></div>
+        </div>
+    </body>
+            
+</html>

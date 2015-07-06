@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/hla.js"></script>
+  <script>
+  function onBodyLoad(){
+  }
+  
+    function replaceChar(char){
+        var temp, returnVal;
+        if (char == "0")
+            returnVal = "-"
+        else if (char == "")
+            returnVal = "-"
+        else
+            returnVal = char;
+        return returnVal;
+    }
+    
+    function isIncomeRider(amt,rider){
+		//rider.replace(/^\s+|\s$/g,"")
+		//$.trim(rider)
+		var temp;
+		temp = $.trim(rider)
+		//alert(temp + "x")
+        if (temp == "HLA Income Builder" || temp == "Income 20 Rider" || temp == "Income 30 Rider" || temp == "Income 40 Rider" || temp == "Income D-20 Rider" || temp == "Income D-30 Rider" || temp == "Income D-40 Rider" || temp == "Income E-20 Rider" || temp == "Income E-30 Rider"){
+        	return amt + " *";
+        }
+        else
+        	return amt + "&nbsp;&nbsp;";
+    }
+    
+  </script>
+  <head>
+  <body onload="onBodyLoad()">
+  
+<div id="header">
+	<div class="agentInfo">
+  		Prepared By : <span id="agentName" class="agentName">{agentName}</span>
+  		<br/>Code : <span id="agentCode" class="agentCode">{agentCode}</span>
+  	</div>
+  	<div class="ContentInfo">Printed On : <span id="dateModified" class="dateModified">{DateModified}</span></div>
+  	<div class="hruleInfo"></div>
+</div>
+<div class="main-content">
+<!--520px-->
+
+
+
+<div class="contentArea">
+
+
+
+<table border=0 width="100%">
+<tr>
+<td width="30%" valign="top">Basic Plan <i>Pelan Asas</i>: <span id="planName" class="planName">{PlanName}</span></td>
+<td width="40%" valign="top"><span id="paymentDesc" class="paymentDesc">{PaymentDescription}</span></td>
+<td width="30%" valign="top">&nbsp;&nbsp;Life Assured <i>Hayat&nbsp;&nbsp;Diinsuranskan:</i> <span id="LAName1" class="LAName1">{LAName}</span></td>
+</tr>
+</table>
+
+
+
+<br/>
+<i>
+<u>Maklumat Penting Berkenaan Polisi Anda</u><br/><br/>
+<u>Apa itu Polisi dengan Penyertaan?</u><br/><br/>
+Satu polisi dengan penyertaan membolehkan anda mengambil bahagian dalam keuntungan sesebuah syarikat insurans nyawa. Keuntungan yang dialokasikan kepada pemegang polisi dengan penyertaan lazimnya adalah<br/>
+dalam bentuk dividen tunai. Pembayaran sebenar dividen adalah tidak terjamin dan akan meningkat atau menurun bergantung kepada pengalaman operasi dan pelaburan yang dihadapi oleh Syarikat.<br/>
+<br/><u>Apakah jenis dividen-dividen yang boleh bayar di atas polisi saya?</u><br/>
+<u>-&nbsp;&nbsp;Dividen Tunai</u><br/>
+Ini adalah dividen tidak terjamin. Dividen Tunai Tahunan akan diisytiharkan bermula pada penghujung tahun polisi yang pertama. Sebaik sahaja dialokasikan kepada polisi anda, anda mempunyai pilihan untuk:<br/>
+(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mengeluarkan Dividen Tunai tersebut<br/>
+(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;menyimpan Dividen Tunai tahunan tersebut dengan Syarikat untuk mengumpul dengan faedah yang diisytiharkan oleh Syarikat dari masa ke semasa. Syarikat akan menggunakannya untuk mengurangkan apa-apa<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;premium yang telah matang tetapi belum dibayar.<br/>
+<br/><u>-&nbsp;&nbsp;Dividen Terminal</u><br/>
+Ini adalah dividen tidak terjamin yang mungkin dibayar apabila polisi anda tamat - semasa kematangan atau jika anda memilih untuk menyerahkan polisi anda. Dividen terminal lazimnya direka untuk memberikan<br/>
+pemegang polisi satu bahagian yang adil dari pengalaman lepas operasi dan pelaburan yang dihadapi oleh Syarikat, dan ini mungkin membentuk sebahagian besar pembayaran akhir.<br/>
+<br/><u>-&nbsp;&nbsp;Dividen Terminal Istimewa</u><br/>
+Ini adalah dividen tidak terjamin yang mungkin dibayar apabila polisi anda tamat - semasa kematian atau TPD. Dividen terminal istimewa lazimnya direka untuk memberikan pemegang polisi satu bahagian yang adil dari<br/>
+pengalaman lepas operasi dan pelaburan yang dihadapi oleh Syarikat, dan ini mungkin membentuk sebahagian besar pembayaran akhir.<br/>
+<br/><u>Bagaimana dividen-dividen ditentukan?</u><br/><br/>
+Dividen-dividen ini adalah tidak terjamin dan mereka ditentukan oleh Syarikat berdasarkan pengalaman operasi dan pelaburan yang dihadapi. Contohnya, jika pelaburan adalah menggalakkan pada tahun lepas, Syarikat<br/>
+mungkin boleh membayar dividen yang lebih tinggi. Jika pelaburan adalah tidak menggalakkan, maka Syarikat mungkin membayar dividen yang lebih kurang, atau tidak membayar apa-apa dividen langsung.<br/>
+<br/>Dividen yang dibayar adalah "diratakan". Ini bermakna dalam tahun di mana Syarikat mengalami keputusan operasi dan pelaburan yang baik, mereka mungkin menyimpan sebahagian daripada keuntungan dan<br/>
+menggunakannya untuk meningkatkan dividen pada tahun yang tidak menggalakkan. Ini adalah sifat polisi dengan penyertaan yang unik. Ini bermakna sesebuah Syarikat akan cuba untuk memberi pembayaran yang sama<br/>
+kepada pemegang polisi semasa keputusan adalah tidak menggalakkan. Namun begitu, dividen yang "diratakan" tidak memberi anda satu perlindungan sepenuhnya terhadap keputusan yang tidak menggalakkan. Jika<br/>
+keputusan yang tidak menggalakkan berterusan untuk beberapa tahun, Syarikat mungkin terpaksa mengurangkan dividen-dividen untuk menunjukkan keputusan yang tidak menggalakkan.<br/>
+<br/><br/>
+***********************************************************************************************************************************************************************************************************************************<br/><br/>
+Anda adalah dinasihatkan untuk berbincang dengan agen insurans nyawa anda atau menghubungi Syarikat secara terus untuk maklumat lanjut di atas polisi dengan penyertaan anda.<br/><br/>
+<u>Kenyataan Penafian</u><br/>
+Dokumen ini bertujuan untuk memberi anda maklumat am sahaja. Ia tidak mengandungi maklumat sepenuhnya berkenaan perkara yang dibincangkan.<br/><br/>
+
+        </i>
+
+
+
+
+
+
+
+</div>
+
+
+<table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+<tr>
+<td width="75%" style="font-family:Arial;font-size:8px;font-weight:normal;padding: 5px 5px 5px 0px;">
+This sales illustration consists of <span class="totalPages">{totalPages}</span> pages and each page forms an integral part of the sales illustration. A prospective policy owner is advised to read and understand the<br/>
+information printed on each and every page. <br/>
+<b><span id="rptVersion" class="rptVersion">{rptVersion}</span></b> <br/>
+Level 3, Tower B, PJ City Development, No. 15A Jalan 219, Seksyen 51A, 46100 Petaling Jaya, Selangor. Tel: 03-7650 1818 Fax: 03-7650 1991 Website: www.hla.com.my<br/>
+</td>
+<td width="10%" align="left" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:10px;font-weight:normal;">Page <span class="currentPage">22</span> of <span class="totalPages">56</span></td>
+<td width="15%" align="right" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:12px;font-weight:normal;">Ref: <span id=SICode class="SICode">{SINo}</span></td>
+</tr>
+</table>
+</div>
+</body>
+</html>

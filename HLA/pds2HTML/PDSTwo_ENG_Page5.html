@@ -1,0 +1,137 @@
+<html>
+    <head>
+        <link href="pds2HTML/css/css_PDS.css" rel="stylesheet" type="text/css" />
+        <title>
+            C) FUND CHOOSEN
+        </title>
+        
+    <script>
+        function showEcar() {
+            document.getElementById('premiumPayEcarTR').style.display= "";
+        }
+        function hideEcar() {
+            document.getElementById('premiumPayEcarTR').style.display= "none";
+        }/*
+        function showPremDuration() {
+            document.getElementById('premiumDurationTR').style.display= "";
+        }
+        function hidePremDuration() {
+            document.getElementById('premiumDurationTR').style.display= "none";
+        }*/
+        function showNoteAfterPremDuration() {
+            document.getElementById('noteAfterPremDuration').style.display= "";
+        }
+        function hideNoteAfterPremDuration() {
+            document.getElementById('noteAfterPremDuration').style.display= "none";
+        }
+        function show2EContent() {
+            document.getElementById('2EContent').style.display= "";
+        }
+        function hide2EContent() {
+            document.getElementById('2EContent').style.display= "none";
+        }
+        
+    </script>
+    </head>
+    <body>
+        <div class="pageContent"></br>
+            <div id = "2C" class="leftRightMargin">
+                <!--fund chosen section-->
+                <!--<span class="boldUnderline">C) Funds Chosen</span>-->
+                <b><u><span class="TobeSetAtJsFile">{TobeSetAtJsFile}</span> Funds Chosen</u></b>
+                <div id = "fundChosenInner" style="width:100%"></div>
+                </br>
+                <span><b>Reminder: </b> Please read the Sales Illustration, which includes product benefits and objectives of the investment-linked fund. It is important to select a plan or a combination of funds that suit your financial goals and risk profile. </span>
+            </div>
+            <!--end of fund chosen section-->
+            <div id="2D"class="leftRightMargin">
+                <!--D) Minimum Guaranteed Unit Price at Fund Maturity (only applicable to HLA EverGreen Funds)-->
+                <p class="boldUnderline"><span class="TobeSetAtJsFile2">{TobeSetAtJsFile2}</span> Minimum Guaranteed Unit Price at Fund Maturity (only applicable to HLA EverGreen Funds)</p>
+                <p>At  each point of investment, the unit price is multiplied with a Boost Factor. This boosted unit price will be the unit price guaranteed at fund maturity. This maturity unit price is the minimum guaranteed the Policy Owner  will receive.
+                </br>Whenever  the boosted unit price reaches a new high, the Minimum Guaranteed Unit Price at Fund Maturity will be revised to this higher unit price.
+                </p>
+                <p>The  Minimum Guaranteed Unit Price at Fund Maturity before tax will attract a portion of tax which has yet to be provided for.  The further tax adjustment is the difference of tax payable on the capital gains of the funds determined at funds maturity and tax which has been provided for the funds through weekly unit pricing. The unit prices published weekly are on after tax basis.</p>
+            </div>
+            <!--end of 2D-->
+
+            <div id="2EContent" class="pageContent"></br>
+                <div id="2D"class="leftRightMargin">
+                    <!--D) Minimum Guaranteed Unit Price at Fund Maturity (only applicable to HLA EverGreen Funds)-->
+                    <p class="boldUnderline">E) Reduced Paid Up</p>
+                    <p>You have indicated to convert this policy to a Reduced Paid Up Policy at <span class="Page50-col1">{Page50-col1}</span> policy anniversary date.</p>
+                    
+                    <table  width="90%" id="Page50-table1" style='border: 1px solid black;font-family:Arial;font-size:10px;font-weight:normal;' class="normalTable">
+                        <tr class='bold'>
+                            <td width="30%" valign="top" rowspan="2" >&nbsp;</td>
+                            <td width="30%" valign="top" colspan="3" >Total Premium Paid</td>
+                            <td width="10%" valign="top" rowspan="2" >Original<br/>Sum Assured</td>
+                            <td width="10%" valign="top" rowspan="2" >Reduced Paid Up<br/>Sum Assured of Basic<br/>Plan</td>
+                            <td width="20%" valign="top" rowspan="2" >Reduced Paid Up Charge<br/>(Sum of all funds)</td>
+                        </tr>
+                        <tr class='bold'>
+                            <td>Basic Plan</td>
+                            <td><span class="Page50-col3-label">{Page50-col3-label}</span></td>
+                            <td>Entire Policy</td>
+                        </tr>
+                        <tr class='bold'>
+                            <td valign="top" >Conversion to Reduced Paid Up Policy at <span class="Page50-col1">{Page50-col1}</span> policy anniversary date</td>
+                            <td valign="top" ><span class="Page50-col2">{Page50-col2}</span></td>
+                            <td valign="top" ><span class="Page50-col3">{Page50-col3}</span></td>
+                            <td valign="top" ><span class="Page50-col4">{Page50-col4}</span></td>
+                            <td valign="top" ><span class="Page50-col5">{Page50-col5}</span></td>
+                            <td valign="top" ><span class="Page50-col6">{Page50-col6}</span></td>
+                            <td valign="top" ><span class="Page50-col7">{Page50-col7}</span></td>
+                        </tr>
+                    </table>
+                </div>
+                
+            </div>
+            
+            <div id = "premiumPaidOnPage5">
+                <table class="leftRightMargin" border="0">
+                    <tr>
+                        <td class="numbering">
+                            3.
+                        </td>
+                        <td class= "bold">
+                            How much premium do I have to pay?
+                        </td>
+                    </tr>
+                    <tr id="premiumPayTR">
+                        <td></td>
+                        <td id="premiumPayPage5">
+                            <p>The  total premium you have to pay may vary depending on our underwriting decisions. </p>
+                            The estimated total premium that you have to pay:
+                            <script>
+                                document.getElementById("premiumPayPage5").appendChild(loadPremiumPay());
+                                </script>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td></td>
+                        <td id="premiumDurationTwoPage5">
+                            <span>Premium duration:</span>
+                            <script>
+                                document.getElementById("premiumDurationTwoPage5").appendChild(loadPremiumDuration());
+                            </script>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <span>Note:</br>If you have chosen to convert the basic plan to a Reduced Paid Up Policy, please refer to earlier section on Reduced Paid Up for the premium payment term of the basic plan.</span>
+                             <p>Insurance  company allocates a portion of the basic premium to purchase units in the investment-linked fund that you have chosen. Any unallocated amount of your premium will be used to meet the direct distribution cost and company's expenses. You are advised to refer to the allocation rates given in the Sales Illustration.</p>
+                        </td>
+                    </tr>
+                    
+                </table>
+            
+            </div>
+            
+        </div>
+    </body>
+    <script>
+        document.getElementById('fundChosenInner').appendChild(loadTableFundChosen());
+        </script>
+</html>

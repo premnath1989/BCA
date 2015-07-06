@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <script type='text/javascript'>
+            
+        </script>
+        <script type="text/javascript" charset="utf-8" src="pds2HTML/js/jquery-1.8.2.min.js"></script>
+      <!--  <script type="text/javascript" charset="utf-8" src="PDS/pds2HTML/js/js-PDS_ENG.js"></script>-->
+        <script type="text/javascript" charset="utf-8" src="pds2HTML/js/js-PDS_ENG.js"></script>
+        <script type="text/javascript" charset="utf-8" src="pds2HTML/js/shared.js"></script>
+        <script type="text/javascript" charset="utf-8" src="pds2HTML/js/sql.js"></script>
+        <script type='text/javascript' >
+            function onBodyLoad(){
+                setPage();
+            }
+        </script>       
+    </head> 
+    <body style="margin:0px;background-color:white;font-family:Arial" onload="onBodyLoad()">
+    
+    <div id="page"></div>
+    
+    <script type='text/javascript' >
+        var gdata;
+        var gCommision;
+        
+        $.ajaxSetup({ cache: false });
+        $.ajax({
+               url: 'SI.json',
+               async: false,
+               dataType: 'json',
+               success: function (data) {
+                   gdata = data;
+               }
+               });
+        
+        $.ajax({
+               url: 'Rates.json',
+               async: false,
+               dataType: 'json',
+               success: function (data) {
+                   gCommision = data;
+               }
+               });
+        
+        
+        appendPage('page1','pds2HTML/PDSTwo_ENG_Page1_EverGain.html');
+        appendPage('page2','pds2HTML/PDSTwo_ENG_Page2.html');
+     
+        needSplitPageForRider_2B();//page 4
+     
+        needSplitPageForPlan();//for page 5 and 5b
+             
+        appendPage('page6','pds2HTML/PDSTwo_ENG_Page6.html');
+        
+        appendPage('page7','pds2HTML/PDSTwo_ENG_Page7.html');
+        needSplitPageForRider_6B();
+        
+        needSplitPageForRider_7B();
+        showAdditionalRiders();
+        setEcar60();
+        
+    </script>
+    </body>
+</html>

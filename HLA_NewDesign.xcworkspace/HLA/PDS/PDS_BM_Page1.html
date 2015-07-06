@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link href="PDS/css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="PDS/js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="PDS/js/hla.js"></script>
+  <script>
+  var gData;
+  var gCommision;
+  function onBodyLoad(){
+		$.ajaxSetup({ cache: false });
+		//$('#Page1_1').load('Page20.html');
+		
+		//$('#Page3').load('Page3.html');
+		//$('#Page4_1').load('Page4_1.html');
+		//$('#Page4_2').load('Page4_2.html');
+		
+		
+		
+
+		
+		//$.getJSON('test.json', function(data) {
+		
+		//var items = [];
+		//var pageCount = 0;
+		//i = 0;
+		//$.each(data.SI[0].SI_Temp_Pages.data, function(index, SI_Temp_Pages) {
+		//	i++
+		//	if (i<12)
+		//	{
+				//htmlPage = SI_Temp_Pages.PageDesc;
+				//aa = '<div id="' + SI_Temp_Pages.PageDesc + '" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>'
+				//$(aa).appendTo('#externalPages');
+		//	}
+		//});
+		
+		
+		
+		//$({html: items.join('')}).appendTo('#externalPages');
+		//$('#externalPages').html('sss');
+		//alert($('#externalPages').html());
+		//$('#Page1').load('Page2.html');
+		//$('#Page2').load('Page3.html');
+		//$('#Page3').load('Page4_1.html');
+		//$('#Page4').load('Page4_2.html');
+		//$('#Page5').load('Page5_1.html');
+		//$('#Page6').load('Page5_2.html');
+		//$('#Page7').load('Page6_1.html');
+		//$('#Page8').load('Page7_1.html');
+		//$('#Page9').load('Page12.html');
+		//$('#Page10').load('Page21.html');
+		//$('#Page11').load('Page22.html');
+		
+		
+		
+		//	loadJson();
+		//});
+		
+		//$('#Page2').load('Page2.html');
+/*		
+		$.ajax({
+  			url: 'SI/Page2.html',
+  			async: false,
+  			dataType: 'html',
+  			success: function (data) {
+  				$('#Page2').html(data);
+  			}
+		});
+
+		$.ajax({
+  			url: 'SI/Page3.html',
+  			async: false,
+  			dataType: 'html',
+  			success: function (data) {
+  				$('#Page3').html(data);
+  			}
+		});
+		
+		$.ajax({
+  			url: 'Page35.html',
+  			async: false,
+  			dataType: 'html',
+  			success: function (data) {
+  				$('#Page3').html(data);
+  			}
+		});
+		
+		//alert($('#Page3 .cPlanOption').html())
+		
+		$.ajax({
+  			url: 'Page36.html',
+  			async: false,
+  			dataType: 'html',
+  			success: function (data) {
+  				$('#Page4').html(data);
+  			}
+		});
+		
+		//$('#Page3 #table-design1 tr.C').css('display','table-row');
+		//$('#Page4 #table-design1 tr.CCTR').css('display','table-row');
+		
+		$.ajax({
+  			url: 'Page35.html',
+  			async: false,
+  			dataType: 'html',
+  			success: function (data) {
+  				$('#Page5').html(data);
+  			}
+		});
+*/
+		
+		$.ajax({
+  			url: 'SI.json',
+  			async: false,
+  			dataType: 'json',
+  			success: function (data) {
+  				gdata = data;
+  				
+  		
+  		
+				for(j=0;j<data.SI[0].SI_Temp_Pages_PDS.data.length;j++)
+				{
+					row = gdata.SI[0].SI_Temp_Pages_PDS.data[j];
+					if (row.PageDesc != "Page1")
+					{
+						if (row.PageDesc == "Page2")
+							htmlPages = '<div id="' + row.PageDesc + '" style="margin-top:6px;padding: 17px 0px 0px 0px;"></div>';
+						else
+							htmlPages = '<div id="' + row.PageDesc + '" style="margin-top:900px;padding: 14px 0px 0px 0px;"></div>';
+						$(htmlPages).appendTo('#externalPages');
+					}
+				}
+  		
+  		
+				for(j=0;j<data.SI[0].SI_Temp_Pages_PDS.data.length;j++)
+				{
+					row = gdata.SI[0].SI_Temp_Pages_PDS.data[j];
+						$.ajax({
+  							url: "PDS/" + row.htmlName,
+  							async: false,
+  							dataType: 'html',
+  							success: function (data) {
+  								$("#" + row.PageDesc).html(data);
+  							}
+						});
+				}
+	
+		
+  				
+  				
+/*
+						$.ajax({
+  							url: "PDS/PDS_ENG_Page2.html",
+  							async: false,
+  							dataType: 'html',
+  							success: function (data) {
+  								$("#Page2").html(data);
+  							}
+						});
+						$.ajax({
+  							url: "PDS/PDS_ENG_Page2.html",
+  							async: false,
+  							dataType: 'html',
+  							success: function (data) {
+  								$("#Page3").html(data);
+  							}
+						});
+						$.ajax({
+  							url: "PDS/PDS_ENG_Page2.html",
+  							async: false,
+  							dataType: 'html',
+  							success: function (data) {
+  								$("#Page4").html(data);
+  							}
+						});
+						$.ajax({
+  							url: "PDS/PDS_ENG_Page3.html",
+  							async: false,
+  							dataType: 'html',
+  							success: function (data) {
+  								$("#Page5").html(data);
+  							}
+						});
+						$.ajax({
+  							url: "PDS/PDS_ENG_Page6.html",
+  							async: false,
+  							dataType: 'html',
+  							success: function (data) {
+  								$("#Page6").html(data);
+  							}
+						});
+						$.ajax({
+  							url: "PDS/PDS_ENG_Page6.html",
+  							async: false,
+  							dataType: 'html',
+  							success: function (data) {
+  								$("#Page7").html(data);
+  							}
+						});
+						$.ajax({
+  							url: "PDS/PDS_ENG_Page7.html",
+  							async: false,
+  							dataType: 'html',
+  							success: function (data) {
+  								$("#Page8").html(data);
+  							}
+						});
+						$.ajax({
+  							url: "PDS/PDS_ENG_C_1.html",
+  							async: false,
+  							dataType: 'html',
+  							success: function (data) {
+  								$("#Page9").html(data);
+  							}
+						});
+						$.ajax({
+  							url: "PDS/PDS_ENG_C_2.html",
+  							async: false,
+  							dataType: 'html',
+  							success: function (data) {
+  								$("#Page10").html(data);
+  							}
+						});
+						$.ajax({
+  							url: "PDS/PDS_ENG_C_3.html",
+  							async: false,
+  							dataType: 'html',
+  							success: function (data) {
+  								$("#Page11").html(data);
+  							}
+						});
+						$.ajax({
+  							url: "PDS/PDS_ENG_HMM_1.html",
+  							async: false,
+  							dataType: 'html',
+  							success: function (data) {
+  								$("#Page12").html(data);
+  							}
+						});
+						$.ajax({
+  							url: "PDS/PDS_ENG_HMM_2.html",
+  							async: false,
+  							dataType: 'html',
+  							success: function (data) {
+  								$("#Page13").html(data);
+  							}
+						});
+						$.ajax({
+  							url: "PDS/PDS_ENG_HMM_3.html",
+  							async: false,
+  							dataType: 'html',
+  							success: function (data) {
+  								$("#Page14").html(data);
+  							}
+						});
+						$.ajax({
+  							url: "PDS/PDS_ENG_HMM_4.html",
+  							async: false,
+  							dataType: 'html',
+  							success: function (data) {
+  								$("#Page15").html(data);
+  							}
+						});
+  				
+
+						*/
+
+						
+						$.ajax({
+  							url: 'Rates.json',
+  							async: false,
+  							dataType: 'json',
+  							success: function (data) {
+  								gCommision = data;
+  							}
+  						});
+  				
+  				
+  				loadJson();
+  			}
+		});
+		
+		
+		
+		
+  }
+  
+  
+
+
+  
+function loadJson()
+{
+//alert(gCommision.Rates[0].Version)
+//$('#Page2').load('Page2.html', function() {
+  //alert('Load was performed.');
+//});
+
+//alert("1")
+
+//alert("aa")
+
+//	$.ajax({
+//  		url: 'test.json',
+//  		async: false,
+//  		dataType: 'json',
+//  		success: function (data){
+//			gdata = data;
+			setPage();
+
+
+//alert(gdata.SI[0].SI_Temp_trad_LA.data.length)
+			//writeSummary1_HLCP();
+			//writeSummary2_HLCP();
+			//writeRiderPage1_HLCP();
+			//writeSummary1(); //page1
+			//writeSummary2(); //page3
+			//writeI20R_1(); //page4_1
+			//writeI20R_2(); //page4_2
+			//writeI30R_1(); //page5_1
+			//writeI30R_2(); //page5_2
+			//writeI40R_1(); //page6_1
+			//writeI40R_2(); //page6_2
+			//writeID20R_1(); //page7_1
+			//writeID20R_2(); //page7_2
+			//writeID30R_1(); //page8_1
+			//writeID30R_2(); //page8_2
+			//writeID40R_1(); //page9_1
+			//writeID40R_2(); //page9_2
+			//writeIE20R_1(); //page10_1
+			//writeIE20R_2(); //page10_2
+			//writeIE30R_1(); //page11_1
+			//writeIE30R_2(); //page11_2
+			//writeSummary3(); //page12
+			//writeRiderPage1(); //page20
+			//writeRiderPage2(); //page21
+			//writeRiderPage3(); //page22
+			//writeRiderPage4(); //page22
+			//writeRiderPage5(); //page22
+			//writeRiderPage6(); //page22
+			//writeRiderPage7(); //page22
+			//writeRiderPage8(); //page22
+			
+			//writeRiderDescription_EN();
+			
+			
+			//$('#dateModified').html(gdata.SI[0].DateModified); //set printed on, heng might need to change this
+			
+			//alert(gdata.SI[0].SI_Temp_trad_LA.data.length)
+			
+			
+			
+			writeAttachingRider_1(); //page2
+			writeEstimateTotalPremium('BM'); //page3
+			writePremiumDuration('BM'); //page3
+			writeItem456_page3_page4()//page3 and page5
+			writeAttachingRider_2(); //page6
+			writeCancel('BM'); //page7
+			writePDS_C();
+			writePDS_HMM();
+			writePDS_HS();
+			writePDS_MG2();
+			writePDS_MG4();
+			
+			
+			
+			//alert(gdata.SI[0].Trad_Details.data[0].BasicSA)
+			$('.BasicSA').html(formatCurrency(gdata.SI[0].Trad_Details.data[0].BasicSA));
+}
+  
+  
+  
+  
+  
+
+  
+    function replaceChar(char){
+        var temp, returnVal;
+        if (char == "0")
+            returnVal = "-"
+        else if (char == "")
+            returnVal = "-"
+        else
+            returnVal = char;
+        return returnVal;
+    }
+    
+    function isIncomeRider(amt,rider){
+		//rider.replace(/^\s+|\s$/g,"")
+		//$.trim(rider)
+		var temp;
+		temp = $.trim(rider)
+		//alert(temp + "x")
+        if (temp == "HLA Cash Promise" || temp == "HLA Income Builder" || temp == "Income 20 Rider" || temp == "Income 30 Rider" || temp == "Income 40 Rider" || temp == "Income D-20 Rider" || temp == "Income D-30 Rider" || temp == "Income D-40 Rider" || temp == "Income E-20 Rider" || temp == "Income E-30 Rider"){
+        	return amt + " *";
+        }
+        else
+        	return amt + "&nbsp;&nbsp;";
+    }
+    
+  </script>
+  <head>
+  <body onload="onBodyLoad()">
+  
+<div id="header">
+  <img src="PDS/img/HLA.png"/>
+	<div class="welcome">
+  		Prepared By : <span id="agentName" class="agentName">{agentName}</span>
+  		<br/>Code : <span id="agentCode" class="agentCode">{agentCode}</span>
+  	</div>
+  	<div class="Content">Printed On : <span id="dateModified" class="dateModified">{DateModified}</span></div>
+  	<div class="hrule"></div>
+</div>
+<div class="main-content">
+<!--
+<div align="center" style="padding: 0px 0px 0px 0px">HLA Cash Promise</div>
+<div align="center" style="padding: 0px 0px 3px 0px;">Participating Endowment Plan with Guaranteed Yearly Income and Limited 6 Years Premium Payment Term&nbsp;&nbsp;&nbsp;<i>Pelan Penyertaan Endowmen dengan Pendapatan Tahunan Terjamin  dan Tempoh Pembayaran Premium Terhad kepada 6 Tahun</i></div>
+-->
+<table id="table-LA"> 
+<!--
+<tr>
+    <td style="text-align:left;padding: 3px 3px 3px 3px;border: 1px solid black;">Insured Lives<br/><i>Hayat-hayat yang Diinsuranskan</i></td>
+    <td style="text-align:left;padding: 3px 3px 3px 3px;border: 1px solid black;">Name<br/><i>Nama</i></td>
+    <td style="text-align:right;padding: 3px 3px 3px 3px;border: 1px solid black;">Age (Last Birthday)<br/><i>Umur (Harijadi Lepas)</i></td>
+    <td style="text-align:right;padding: 3px 3px 3px 3px;border: 1px solid black;">Gender<br/><i>Jantina</i></td>
+    <td style="text-align:right;padding: 3px 3px 3px 3px;">Smoker<br/><i>Perokok</i></td>
+  </tr>
+<tr>
+    <td style="text-align:left;padding: 3px 3px 3px 3px;border: 1px solid black;" id="LADesc" class="LADesc">{LADesc}</td>
+    <td style="text-align:left;padding: 3px 3px 3px 3px;border: 1px solid black;" id="LAName" class="LAName">{LANAME}</td>
+    <td style="text-align:right;padding: 3px 3px 3px 3px;border: 1px solid black;" id="LAAge" class="LAAge">{LAAge}</td>
+    <td style="text-align:right;padding: 3px 3px 3px 3px;border: 1px solid black;" id="LASex" class="LAAge">{LASex}</td>
+    <td style="text-align:right;padding: 3px 3px 3px 3px;border: 1px solid black;" id="LASmoker" class="LASmoker">{LASmoker}</td>
+</tr>
+-->
+<tr>
+	<td width="70%" bgcolor="#c0c0c0" style="text-align:left;padding: 3px 3px 3px 3px;border: 1px solid black;"><b>RISALAH PENDEDAHAN PRODUK</b></td>
+	<td width="30%" style="text-align:left;padding: 3px 3px 3px 3px;border: 1px solid black;"><b>Hong Leong Assurance Berhad</b></td>
+</tr>
+<tr>
+	<td valign="top" rowspan="2" style="text-align:left;padding: 3px 3px 3px 3px;border: 1px solid black;"><b>Baca Risalah Pendedahan Produk ini sebelum anda membuat keputusan untuk mengambil <i>HLA Cash Promise</i>. Pastikan anda juga membaca terma dan syarat am.</b></td>
+	<td style="text-align:left;padding: 3px 3px 3px 3px;border: 1px solid black;"><b>HLA Cash Promise</b></td>
+</tr>
+<tr>
+	<td style="text-align:left;padding: 3px 3px 3px 3px;border: 1px solid black;"><b><span id="PrintDate2" class="PrintDate2">{PrintDate}</span></b></td>
+</tr>
+</table>
+<!--520,430px-->
+
+
+
+<div style="width:100%;height:703px;background-color: #fff;">
+
+    <table cellspacing="3">
+	<tr>
+	    <td width="10"><b>1.</b></td>
+	    <td><b>Apakah produk ini?</b></td>
+	</tr>
+	<tr>
+	    <td>&nbsp;</td>
+	    <td>Produk ini merupakan pelan penyertaan endowmen 25 tahun dengan pembayaran Pendapatan Tahunan Terjamin. Pendapatan Tahunan Terjamin akan dibayar bermula dari akhir tahun polisi pertama sehingga<br/>
+		kematangan. Tempoh pembayaran premium untuk pelan ini terhad kepada 6 tahun sahaja.</td>
+	</tr>
+	<tr>
+	    <td><b>2.</b></td>
+	    <td><b>Apakah perlindungan / faedah yang disediakan?</b></td>
+	</tr>
+	<tr>
+	    <td>&nbsp;</td>
+	    <td>
+		<table width="100%" border="0" cellspacing="0" id="table2-page1">
+		    <tr>
+			<td width="20"style="padding: 0px 0px 5px 0px;"><b>A)</b></td>
+			<td colspan="2" style="padding: 0px 0px 5px 0px;"><u><b>Pelan Asas</b></u></td>
+		    </tr>
+		    <tr>
+			<td></td>
+			<td colspan="2" style="padding: 0px 0px 10px 0px;">
+			    Pendapatan Tahunan Terjamin bagi pelan ini adalah RM<span id="BasicSA3" class="BasicSA">{BasicSA3}</span> dan tempoh diinsuranskan ialah 25 tahun atau atas penamatan, yang mana berlaku dahulu.
+			</td>
+		    </tr>
+		    <tr>
+			<td></td>
+			<td width="10" style="padding: 0px 0px 0px 0px;"><b>I)</b></td>
+			<td style="padding: 0px 0px 0px 0px;"><u><b>Faedah Kematian</b></u></td>
+		    </tr>
+		    <tr>
+			<td></td>
+			<td></td>
+			<td style="padding: 0px 0px 10px 0px;">Jika Hayat Diinsuranskan meninggal dunia, faedah Kematian akan dibayar bersamaan dengan jumlah daripada yang berikut:<br/>
+			    (i)&nbsp;&nbsp;&nbsp;&nbsp;Faedah Kematian Terjamin seperti yang ditunjukkan dalam jadual di bawah:<br/>
+				    <table width="80%" style="border-collapse: collapse; margin-left: 20px" border="1">
+					<tr>
+					    <td align="center" width="20%"><b>Umur Kemasukan<br/>(Harijadi Lepas)</b></td>
+					    <td width="80%" style="padding: 0px 0px 0px 5px;"><b>Faedah Kematian Terjamin</b></td>
+					</tr>
+					<tr>
+					    <td align="center">0 sehingga 40</td>
+					    <td style="padding: 0px 0px 0px 3px;">100% daripada Pendapatan Tahunan Terjamin Belum Jelas + 12.50 kali Pendapatan Tahunan Terjamin</td>
+					</tr>
+					<tr>
+					    <td align="center">41 sehingga 50</td>
+					    <td style="padding: 0px 0px 0px 3px;">100% daripada Pendapatan Tahunan Terjamin Belum Jelas + 6.25 kali Pendapatan Tahunan Terjamin</td>
+					</tr>
+					<tr>
+					    <td align="center">51 sehingga 60</td>
+					    <td style="padding: 0px 0px 0px 3px;">100% daripada Pendapatan Tahunan Terjamin Belum Jelas + 5.50 kali Pendapatan Tahunan Terjamin</td>
+					</tr>
+					<tr>
+					    <td align="center">61 sehingga 63</td>
+					    <td style="padding: 0px 0px 0px 3px;">100% daripada Pendapatan Tahunan Terjamin Belum Jelas + 5.00 kali Pendapatan Tahunan Terjamin</td>
+					</tr>
+				    </table>
+				 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dalam apa jua kejadian, Faedah Kematian Terjamin tidak akan kurang daripada Faedah Matang Terjamin,<br/>	    
+			    (ii)&nbsp;&nbsp;&nbsp;&nbsp;Pendapatan Tahunan Terjamin Terkumpul (jika ada),<br/>
+			    (iii)&nbsp;&nbsp;&nbsp;Dividen Tunai Terkumpul (jika ada), dan<br/>
+			    (iv)&nbsp;&nbsp;&nbsp;Dividen Terminal Istimewa (jika ada)
+			</td>
+		    </tr>
+		    <tr>
+			<td></td>
+			<td width="10"><b>II)</b></td>
+			<td><u><b>Faedah Hilang Upaya Menyeluruh dan Kekal</b></u></td>
+		    </tr>
+		    <tr>
+			<td></td>
+			<td></td>
+			<td style="padding: 0px 0px 5px 0px;">
+			    Jika Hayat Diinsuranskan mengalami Hilang Upaya Menyeluruh dan Kekal sebelum mencapai umur 65 tahun dalam tempoh pembayaran premium (TPD), faedah TPD akan dibayar adalah 100% daripada<br/>
+			    Jumlah Premium Asas yang telah Dibayar sehingga tarikh genap tempoh premium sebelum tarikh kejadian yang mengakibatkan TPD. Di samping itu, semua premium asas masa depan yang perlu dibayar<br/>
+			    bermula dari tarikh genap tempoh premium serta-merta selepas tarikh kejadian yang mengakibatkan TPD akan dikecualikan. Semua faedah lain akan tetap tidak berubah selepas tuntutan TPD.
+			    <br/><br/>
+			    
+			    Had Faedah TPD setiap Hayat tidak berkenaan untuk pelan asas ini.<br/><br/>
+			    
+			    Nota: TPD merujuk kepada Hilang Upaya Menyeluruh dan Kekal sebelum mencapai umur 65 tahun dalam tempoh pembayaran premium. Definisi ini diguna pakai secara konsisten merentasi semua kolateral<br/>
+			    pemasaran bagi HLA Cash Promise.
+			</td>
+		    </tr>
+		    <tr>
+			<td></td>
+			<td width="10"><b>III)</b></td>
+			<td><u><b>Pendapatan Tahunan Terjamin</b></u></td>
+		    </tr>
+		    <tr>
+			<td></td>
+			<td></td>
+			<td style="padding: 0px 0px 5px 0px;">
+			Pelan ini membayar Pendapatan Tahunan Terjamin yang berjumlah RM<span id="BasicSA4" class="BasicSA">{BasicSA4}</span> bermula dari akhir tahun polisi pertama sehingga kematangan, termasuk kedua-dua tarikh.
+			</td>
+		    </tr>
+		    
+		    <tr>
+			<td></td>
+			<td width="10"><b>IV)</b></td>
+			<td><u><b>Faedah Matang</b></u></td>
+		    </tr>
+		    <tr>
+			<td></td>
+			<td></td>
+			<td>Polisi ini akan matang apabila Hayat Diinsuranskan masih hidup pada akhir tempoh polisi. Faedah Matang bersamaan dengan jumlah daripada yang berikut:</td>
+		    </tr>
+		    <tr>
+			<td></td>
+			<td></td>
+			<td>(i)&nbsp;&nbsp;&nbsp;&nbsp;Faedah Kematian Terjamin seperti yang ditunjukkan dalam jadual di bawah:<br/>
+			    <table width="35%" style="border-collapse: collapse; margin-left: 20px" border="1">
+				<tr>
+				    <td width="30%" align="center"><b>Umur Kemasukan<br/>(Harijadi Lepas)</b></td>
+				    <td width="70%" style="padding: 0px 0px 0px 5px;"><b>Faedah Matang Terjamin</b></td>
+				</tr>
+				<tr>
+				    <td align="center">0 sehingga 50</td>
+				    <td style="padding: 0px 0px 0px 5px;">12.50 kali Pendapatan Tahunan Terjamin</td>
+				</tr>
+				<tr>
+				    <td align="center">51 sehingga 60</td>
+				    <td style="padding: 0px 0px 0px 5px;">11.00 kali Pendapatan Tahunan Terjamin</td>
+				</tr>
+				<tr>
+				    <td align="center">61 sehingga 63</td>
+				    <td style="padding: 0px 0px 0px 5px;">10.00 kali Pendapatan Tahunan Terjamin</td>
+				</tr>
+			    </table>
+			    (ii)&nbsp;&nbsp;&nbsp;&nbsp;Pendapatan Tahunan Terjamin Terkumpul (jika ada),<br/>
+			    (iii)&nbsp;&nbsp;&nbsp;Dividen Tunai Terkumpul (jika ada), dan<br/>
+			    (iv)&nbsp;&nbsp;Dividen Terminal (jika ada)
+			</td>
+		    </tr>
+		</table>
+	    </td>
+	</tr>    
+    </table>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+<tr>
+<td width="75%" style="font-family:Arial;font-size:8px;font-weight:normal;padding: 5px 5px 5px 0px;">
+Risalah Pendedahan Produk ini mengandungi <span class="totalPages">{totalPages}</span> muka surat and setiap muka surat membentuk sebahagian daripada Risalah Pendedahan Produk. Bakal pemunya polisi adalah<br/>
+dinasihatkan untuk membaca dan memahami maklumat yang tercetak pada setiap muka surat.<br/>
+<b><span id="rptVersion" class="rptVersion">{rptVersion}</span></b><br/>
+Level 3, Tower B, PJ City Development, No. 15A Jalan 219, Seksyen 51A, 46100 Petaling Jaya, Selangor. Tel: 03-7650 1818 Fax: 03-7650 1991 Website: www.hla.com.my<br/>
+</td>
+<td width="9%" align="left" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:10px;">Page <span class="currentPage">1</span> of <span class="totalPages">56</span></td>
+<td width="16%" align="right" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Arial;font-size:12px;"><img src="PDS/img/barcode.png" style="vertical-align:text-top;padding: 0px 0px 0px 0px;" height="70%" height="70%"/><br/>Ref: <span id=SICode class="SICode">{SINo}</span></td>
+</tr>
+</table>
+	<div id="externalPages">
+<!--		
+		<div id="Page2" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>
+		<div id="Page3" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>
+		<div id="Page4" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>
+		<div id="Page5" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>
+		<div id="Page6" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>
+		<div id="Page7" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>
+		<div id="Page8" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>
+		<div id="Page9" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>
+		<div id="Page10" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>
+		<div id="Page11" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>
+		<div id="Page12" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>
+		<div id="Page13" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>
+		<div id="Page14" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>
+		<div id="Page15" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>
+	-->	
+	</div>
+</div>
+</body>
+
+</html>
+
+
+
+	<!--<div id="Page2" style="margin-top:6px;padding: 15px 0px 0px 0px;"></div>-->
+<!--	<div id="Page3" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>
+	<div id="Page4" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>
+	<div id="Page5" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>
+-->
+
+		<!--<div id="Page1" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>
+		<div id="Page2" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>-->
+
+
+		<!--<div id="Page1_1" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>-->
+		<!--<div id="Page2" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>
+		<div id="Page3" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>
+		<div id="Page4_1" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>
+		<div id="Page4_2" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>-->

@@ -175,7 +175,7 @@ NSString *ProceedStatus = @"";
     gregorianCalendar = Nil;
     components = Nil;
 	
-    [self setAndpopulateUsername];
+//    [self setAndpopulateUsername];
 	
 	
 	UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];

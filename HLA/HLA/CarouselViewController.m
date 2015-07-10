@@ -91,10 +91,20 @@ const int numberOfModule = 7;
     label.numberOfLines=0;
 //    label.lineBreakMode=UILineBreakModeWordWrap;
     label.lineBreakMode=NSLineBreakByWordWrapping;
-    label.text =[NSString stringWithFormat:@"App Version : %@ b%@",version, build];
+	
+	NSDate *todayDate = [NSDate date];
+	
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	[dateFormatter setDateFormat:@"dd/MM/yyyy"];
+	
+	NSString *LoginDate = [dateFormatter stringFromDate:[NSDate date]];
+	
+    label.text =[NSString stringWithFormat:@"Last Login : %@", LoginDate];
     [self.view addSubview:label];
+	
+	
     
-    UILabel  * labelbg = [[UILabel alloc] initWithFrame:CGRectMake(0, 670, 300, 50)];
+    UILabel  * labelbg = [[UILabel alloc] initWithFrame:CGRectMake(0, 670, 300, 100)];
     labelbg.backgroundColor = [UIColor grayColor];
     // label1.textAlignment = UITextAlignmentCenter; // UITextAlignmentCenter, UITextAlignmentLeft
     labelbg.alpha =0.3;
@@ -104,7 +114,7 @@ const int numberOfModule = 7;
     [self.view addSubview:labelbg];
 
     
-    NSString *id = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+//    NSString *id = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
     
     UILabel  * label1 = [[UILabel alloc] initWithFrame:CGRectMake(3, 700, 600, 50)];
     label1.backgroundColor = [UIColor clearColor];
@@ -113,8 +123,12 @@ const int numberOfModule = 7;
     label1.numberOfLines=0;
 //    label1.lineBreakMode=UILineBreakModeWordWrap;
     label1.lineBreakMode=NSLineBreakByWordWrapping;
-    label1.text =[NSString stringWithFormat:@"Ad Id : %@",id];
-    //[self.view addSubview:label1];
+	
+	NSDate *fiveDaysAgo = [todayDate dateByAddingTimeInterval:-5*24*60*60];
+	NSString *calDate = [dateFormatter stringFromDate:fiveDaysAgo];
+	
+    label1.text =[NSString stringWithFormat:@"Last Authenticate : %@", calDate];
+    [self.view addSubview:label1];
     
     UILabel  * label2 = [[UILabel alloc] initWithFrame:CGRectMake(3, 640, 600, 50)];
     label2.backgroundColor = [UIColor clearColor];

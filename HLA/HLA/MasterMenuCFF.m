@@ -284,7 +284,7 @@ int SecFEnable = 0;			//ENS Enable = 1, disable = 0
     self.myTableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ios-linen.png"]];
     self.myTableView.scrollEnabled = NO;
 	
-    ListOfSubMenu = [[NSMutableArray alloc] initWithObjects:@"Disclosure of\nIntermediary Status", @"Customer's Choice", @"Customer's Personal Data", @"Potential Areas for\nDiscussion", @"Preference", @"Financial Needs Analysis", @"Record of Advice", @"Declaration and\nAcknowledgement", @"Confirmation of Advice\nGiven to", nil ];
+    ListOfSubMenu = [[NSMutableArray alloc] initWithObjects:@"Disclosure of\nIntermediary Status", @"Customer's Choice", @"Customer's Personal Data", @"Potential Areas for\nDiscussion", @"Preference", @"Financial Needs Analysis", @"Record of Advice", @"Declaration and\nAcknowledgement", @"Confirmation of Advice\nGiven to", @"Protection Calculator", nil ];
     myTableView.rowHeight = 57;
     
     UINavigationItem *item = [[UINavigationItem alloc] initWithTitle:@""];

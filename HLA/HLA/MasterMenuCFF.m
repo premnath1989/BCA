@@ -59,6 +59,7 @@
 int firstLoad = 0;
 
 @synthesize DisclosureVC = _DisclosureVC;
+@synthesize BCAProtectionCalculator = _BCAProtectionCalculator;
 @synthesize CustomerVC = _CustomerVC;
 @synthesize CustomerDataVC = _CustomerDataVC;
 @synthesize PotentialVC = _PotentialVC;
@@ -1078,6 +1079,37 @@ int SecFEnable = 0;			//ENS Enable = 1, disable = 0
             self.ConfirmCFFVC = [secondStoryBoard instantiateViewControllerWithIdentifier:@"ConfirmationView"];
             [self addChildViewController:self.ConfirmCFFVC];
             [self.SecIView addSubview:self.ConfirmCFFVC.view];
+        }
+    }
+	
+	else if (indexPath.row == 9)     //bCAprotection
+	{
+        //firstLoad = 1;
+        self.RightView.hidden = FALSE;
+        self.SecBView.hidden = TRUE;
+        self.SecCView.hidden = TRUE;
+        self.SecDView.hidden = TRUE;
+        self.SecEView.hidden = TRUE;
+        self.SecFView.hidden = TRUE;
+        self.SecGView.hidden = TRUE;
+        self.SecHView.hidden = TRUE;
+        self.SecIView.hidden = TRUE;
+        
+        self.SecFViewTab.hidden = TRUE;
+        self.SecFViewProtection.hidden = TRUE;
+        self.SecFViewRetirement.hidden = TRUE;
+        self.SecFViewEducation.hidden = TRUE;
+        self.SecFViewSavings.hidden = TRUE;
+        
+        [[obj.CFFData objectForKey:@"Sections"] setValue:@"SecA" forKey:@"CurrentSection"];
+        
+        BOOL doesContain = [self.RightView.subviews containsObject:self.BCAProtectionCalculator.view];
+        if (!doesContain)
+		{
+            self.BCAProtectionCalculator = [secondStoryBoard instantiateViewControllerWithIdentifier:@"BCAView"];
+            [self addChildViewController:self.BCAProtectionCalculator];
+            [self.RightView addSubview:self.BCAProtectionCalculator.view];
+            
         }
     }
 }

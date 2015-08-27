@@ -1611,7 +1611,43 @@
 	label5.font = [UIFont fontWithName:@"TreBuchet MS" size:15];
 	[self.view addSubview:label5];
 	
-	[self DefaultPayment];
+	//[self DefaultPayment];
+	
+	
+	
+	
+	NSString *AnnualValue = [[[obj.eAppData objectForKey:@"SecB"] objectForKey:@"PREMIUM"] objectForKey:@"Annually"];
+	NSString *SemiValue = [[[obj.eAppData objectForKey:@"SecB"] objectForKey:@"PREMIUM"] objectForKey:@"SemiAnnually"];
+	NSString *QueaterlyValue = [[[obj.eAppData objectForKey:@"SecB"] objectForKey:@"PREMIUM"] objectForKey:@"Quarterly"];
+	NSString *MonthlyValue = [[[obj.eAppData objectForKey:@"SecB"] objectForKey:@"PREMIUM"] objectForKey:@"Monthly"];
+	
+	if ([AnnualValue isEqualToString:@"0"]||[SemiValue isEqualToString:@"0.00"])
+	{
+		[_paymentModeSC setEnabled:NO forSegmentAtIndex:0];
+		[[_paymentModeSC.subviews objectAtIndex:0] setAlpha:0.5];
+	}
+	
+	if ([SemiValue isEqualToString:@"0"]||[SemiValue isEqualToString:@"0.00"])
+	{
+		[_paymentModeSC setEnabled:NO forSegmentAtIndex:1];
+		[[_paymentModeSC.subviews objectAtIndex:2] setAlpha:0.5];
+	}
+	
+	if ([QueaterlyValue isEqualToString:@"0"]||[QueaterlyValue isEqualToString:@"0.00"])
+	{
+		[_paymentModeSC setEnabled:NO forSegmentAtIndex:2];
+		[[_paymentModeSC.subviews objectAtIndex:1] setAlpha:0.5];
+	}
+	
+	if ([MonthlyValue isEqualToString:@"0"]||[MonthlyValue isEqualToString:@"0.00"])
+	{
+		[_paymentModeSC setEnabled:NO forSegmentAtIndex:3];
+		[[_paymentModeSC.subviews objectAtIndex:0] setAlpha:0.5];
+	}
+	
+	
+	
+
 
 }
 

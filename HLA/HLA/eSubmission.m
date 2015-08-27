@@ -3597,7 +3597,6 @@
         if([RecurringPayment isEqualToString:@"05"])
         {
             
-            
             if([PTypeCode isEqualToString:@"1st Life Assured"])
             {
                 

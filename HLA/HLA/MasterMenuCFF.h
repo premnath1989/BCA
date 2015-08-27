@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 //#import "DisclosureStatus.h"
 #import "CustomerChoice.h"
+#import "TableCheckBox1.h"
 #import "CustomerPersonalData.h"
 #import "PotentialAreas.h"
 #import "Preference.h"
@@ -35,11 +36,11 @@
 
 @end
 
-@interface MasterMenuCFF : UIViewController<TableCheckBoxDelegate> {
+@interface MasterMenuCFF : UIViewController<TableCheckBoxDelegate,TableCheckBoxDelegate1> {
     
     NSIndexPath *selectedPath;
     NSIndexPath *previousPath;
-    
+    TableCheckBox1 *_BCAProtectionCalculator;
     TableCheckBox *_DisclosureVC;
     CustomerChoice *_CustomerVC;
     CustomerPersonalData *_CustomerDataVC;
@@ -110,6 +111,7 @@
 
 @property (retain, nonatomic) NSMutableArray *ListOfSubMenu;
 @property (nonatomic, retain) TableCheckBox *DisclosureVC;
+@property (nonatomic, retain) TableCheckBox1 *BCAProtectionCalculator;
 @property (nonatomic, retain) CustomerChoice *CustomerVC;
 @property (nonatomic, retain) CustomerPersonalData *CustomerDataVC;
 @property (nonatomic, retain) PotentialAreas *PotentialVC;

@@ -429,6 +429,7 @@
 		C36D82341AF9E2CE0070D070 /* Country2.m in Sources */ = {isa = PBXBuildFile; fileRef = C36D82331AF9E2CE0070D070 /* Country2.m */; };
 		C3872FC61A4017F1009BF93D /* GroupViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C3872FC21A4017F1009BF93D /* GroupViewVC.m */; };
 		C3872FC71A4017F1009BF93D /* ClientGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = C3872FC41A4017F1009BF93D /* ClientGroup.m */; };
+		C3A38A5B1B5DE40100F49863 /* TableCheckBox1.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A38A5A1B5DE40100F49863 /* TableCheckBox1.m */; };
 		C3A8D0FF1833AB3E00E65FC9 /* CustomAlertBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A8D0FE1833AB3E00E65FC9 /* CustomAlertBox.m */; };
 		C3A8D1081833AEB700E65FC9 /* LA1DetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A8D1011833AEB700E65FC9 /* LA1DetailsVC.m */; };
 		C3A8D1091833AEB700E65FC9 /* LA2DetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A8D1031833AEB700E65FC9 /* LA2DetailsVC.m */; };
@@ -1531,6 +1532,8 @@
 		C3872FC31A4017F1009BF93D /* GroupViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupViewVC.h; sourceTree = "<group>"; };
 		C3872FC41A4017F1009BF93D /* ClientGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientGroup.m; sourceTree = "<group>"; };
 		C3872FC51A4017F1009BF93D /* ClientGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientGroup.h; sourceTree = "<group>"; };
+		C3A38A591B5DE40100F49863 /* TableCheckBox1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableCheckBox1.h; path = HLA/TableCheckBox1.h; sourceTree = "<group>"; };
+		C3A38A5A1B5DE40100F49863 /* TableCheckBox1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableCheckBox1.m; path = HLA/TableCheckBox1.m; sourceTree = "<group>"; };
 		C3A8D0FD1833AB3E00E65FC9 /* CustomAlertBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertBox.h; sourceTree = "<group>"; };
 		C3A8D0FE1833AB3E00E65FC9 /* CustomAlertBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlertBox.m; sourceTree = "<group>"; };
 		C3A8D1001833AEB700E65FC9 /* LA1DetailsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LA1DetailsVC.h; sourceTree = "<group>"; };
@@ -3536,6 +3539,8 @@
 		C4E9D1851612C64900016053 = {
 			isa = PBXGroup;
 			children = (
+				C3A38A591B5DE40100F49863 /* TableCheckBox1.h */,
+				C3A38A5A1B5DE40100F49863 /* TableCheckBox1.m */,
 				29071F021A256811002F7FB1 /* alert_block */,
 				6A4B72AC19ECB3A800F4DE62 /* AdSupport.framework */,
 				428F84A619783E5C0016B7E8 /* libxml2.dylib */,
@@ -5042,6 +5047,7 @@
 				C36D82341AF9E2CE0070D070 /* Country2.m in Sources */,
 				FAEA35631B2A866E0069121E /* UpdateTableWithSIType.m in Sources */,
 				FAF965F91B393D1900122BCA /* UpdateACIRGST.m in Sources */,
+				C3A38A5B1B5DE40100F49863 /* TableCheckBox1.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

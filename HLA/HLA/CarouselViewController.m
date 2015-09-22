@@ -28,6 +28,7 @@
 #import "MaineApp.h"
 #import <AdSupport/ASIdentifierManager.h>
 #import "ClearData.h"
+#import "CalculatorViewController.h"
 
 const int numberOfModule = 7;
 
@@ -80,6 +81,11 @@ const int numberOfModule = 7;
     [exitBtn addTarget:self action:@selector(goToHome:) forControlEvents:UIControlEventTouchUpInside];
     [exitBtn setBackgroundImage:[UIImage imageNamed:@"house.png"] forState:UIControlStateNormal];
     exitBtn.frame = CGRectMake(980.1, 16.1, 27.0, 29.0);
+	
+	UIButton *protestion = [UIButton buttonWithType:UIButtonTypeCustom];
+    [protestion addTarget:self action:@selector(ProtectionCalculator) forControlEvents:UIControlEventTouchUpInside];
+    [protestion setBackgroundImage:[UIImage imageNamed:@"protection_Calculator_findv3.png"] forState:UIControlStateNormal];
+    protestion.frame = CGRectMake(480.1, 316.1, 130.0, 140.0);
     
     NSString *version= [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     NSString *build= [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
@@ -152,6 +158,7 @@ const int numberOfModule = 7;
     NSLog(@"What app is this %@" ,[SIUtilities WSLogin]);    
     
     [self.view addSubview:exitBtn];
+	[self.view addSubview:protestion];
     
     int width = 128;
     int height = 160;
@@ -192,6 +199,24 @@ const int numberOfModule = 7;
 		[self presentViewController:mainLogin animated:YES completion:nil];
     }
     
+}
+
+-(void)ProtectionCalculator
+{
+//	Login *mainLogin = [self.storyboard instantiateViewControllerWithIdentifier:@"Logout"];
+//	mainLogin.modalPresentationStyle = UIModalPresentationFullScreen;
+//	mainLogin.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+//	//            [self presentModalViewController:mainLogin animated:YES];
+//	[self presentViewController:mainLogin animated:YES completion:nil];
+	
+	
+	CalculatorViewController *controller = [[CalculatorViewController alloc]
+										 initWithNibName:@"CalculatorViewController"
+										 bundle:nil];
+	//controller.delegate = self;
+	//controller.modalPresentationStyle = UIModalPresentationPageSheet;
+	[self presentViewController:controller animated:YES completion:Nil];
+
 }
 
 -(NSString*) encodeToPercentEscapeString:(NSString *)string

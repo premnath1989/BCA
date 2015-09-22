@@ -26,6 +26,7 @@
 #import "StoreVarFirstTimeReg.h"
 #import "ColorHexCode.h"
 #import "MBProgressHUD.h"
+#import <AdSupport/ASIdentifierManager.h>
 
 @interface Login ()
 
@@ -59,6 +60,16 @@ NSString *ProceedStatus = @"";
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(forgotPassword:)];
     tapGesture.numberOfTapsRequired = 1;
     [lblForgotPwd addGestureRecognizer:tapGesture];
+	
+	
+	NSString *deviceId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+	
+	NSLog(@"devideId %@", [[[UIDevice currentDevice] identifierForVendor] UUIDString]);
+	
+	//txtPassword.text = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+	//txtPassword.enabled = FALSE;
+	//txtPassword.textColor = [UIColor grayColor];
+
     
     //[self isFirstTimeLogin];
 	
@@ -849,51 +860,104 @@ static NSString *labelVers;
 
 - (void) loginAction
 {
-    //[self loginSuccess];
 	
+	//http://192.168.2.107/AgentWebService/AgentMgmt.asmx/ValidateAgentAndDevice?strAgentID=&strDeviceID=
 	
+	NSString *deviceId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
 	
-	if ([txtUsername.text isEqualToString:@"prem"] &&[txtPassword.text isEqualToString:@"password123"])
-	{
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"User Account been disable,Please authenticate with the portal to enable" delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+	NSLog(@"devideId %@", [[[UIDevice currentDevice] identifierForVendor] UUIDString]);
+	
+   
+	NSString *post = [NSString stringWithFormat:@"strAgentID=%@&strPassword=%@&strDeviceID=%@",txtUsername.text,txtPassword.text,[[[UIDevice currentDevice] identifierForVendor] UUIDString]];
+	
+//	NSString *post = [NSString stringWithFormat:@"strAgentID=%@&strDeviceID=%@",@"cd",@"ds"];
+	
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%d",[postData length]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+	
+	NSString *url = [NSString stringWithFormat:@"http://192.168.2.129/AgentWebService/AgentMgmt.asmx/ValidateLogin"];
+    [request setURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    NSData *urlData;
+    NSURLResponse *response;
+	//D33D26AB-2319-4088-A7AD-E8A69F675F19
+    NSError *error;
+    urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    if(conn) {
+        NSLog(@"Connection Successful");
+    } else {
+        NSLog(@"Connection could not be made");
+    }
+    NSString *aStr = [[NSString alloc] initWithData:urlData encoding:NSUTF8StringEncoding];
+	
+	NSRange rangeValue1 = [aStr rangeOfString:@"True" options:NSCaseInsensitiveSearch];
+    NSRange rangeValue2 = [aStr rangeOfString:@"False" options:NSCaseInsensitiveSearch];
+
+
+	if (rangeValue1.length > 0)
+    {
+		[self loginSuccess];
+	}
+	if (rangeValue2.length > 0)
+    {
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Invalid Login" delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
-        [txtPassword becomeFirstResponder];
+        [txtUsername becomeFirstResponder];
         alert = Nil;
 
 	}
-	else if ([txtUsername.text isEqualToString:@"emi"] &&[txtPassword.text isEqualToString:@"password123"])
-	{
-		[self loginSuccess];
-		        
-	}
-	
-	else
-	{
-	  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Invalid Password. Please check your password" delegate:Nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
-	  [alert show];
-		
-	}
-	
+
 
 	
-    
+	
+
+//	if ([txtUsername.text isEqualToString:@"prem"] &&[txtPassword.text isEqualToString:@"password123"])
+//	{
+//		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"User Account been disable,Please authenticate with the portal to enable" delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        [alert show];
+//        
+//        [txtPassword becomeFirstResponder];
+//        alert = Nil;
+//
+//	}
+//	else if ([txtUsername.text isEqualToString:@"emi"] &&[txtPassword.text isEqualToString:@"password123"])
+//	{
+//		[self loginSuccess];
+//		        
+//	}
+//	
+//	else
+//	{
+//	  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Invalid Password. Please check your password" delegate:Nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
+//	  [alert show];
+//		
+//	}
+//	
+//
+//	
+//    
     if (txtUsername.text.length <= 0) {
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Username is required" delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
-        [txtPassword becomeFirstResponder];
+        [txtUsername becomeFirstResponder];
         alert = Nil;
         
     }
-    else if (txtPassword.text.length <=0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Password is required" delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-        
-        [txtPassword becomeFirstResponder];
-        alert = Nil;
-    }
+//    else if (txtPassword.text.length <=0) {
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Password is required" delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        [alert show];
+//        
+//        [txtPassword becomeFirstResponder];
+//        alert = Nil;
+//    }
     /*
 	 else if (![txtUsername.text isEqualToString:@"hla"]) {
 	 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Invalid Login ID." delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -902,115 +966,115 @@ static NSString *labelVers;
 	 [txtPassword becomeFirstResponder];
 	 alert = Nil;
 	 }*/
-    else if( [Login forSMPD_Acturial:txtPassword.text] )
-    {
-        [self openHome];
-    }
-    else if (isFirstDevice)
-    {
-        if ([[Reachability reachabilityWithHostname:@"www.hla.com.my"] currentReachabilityStatus] == NotReachable) {
-            // Show alert because no wifi or 3g is available..
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" "
-                                                            message:@"Error in connecting to Web service. Please check your internet connection"
-                                                           delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-            
-            alert = Nil;
-        }else
-        {
-            
-            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-            dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 5), ^{
-                
-                xmlType = XML_TYPE_VALIDATE_AGENT;
-                NSString *sBadAttempt = [NSString stringWithFormat:@"%d", [self getBadAttempts]];
-                NSString *strURL = [NSString stringWithFormat:@"%@eSubmissionWS/eSubmissionXMLService.asmx/"
-                                    "ValidateAgent?Input1=%@&Input2=%@&Input3=%@&Input4=%@",
-                                    [SIUtilities WSLogin],  txtUsername.text, txtPassword.text, [self getIPAddress], sBadAttempt];
-                NSLog(@"%@", strURL);
-                NSURL *url = [NSURL URLWithString:strURL];
-                NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:0 timeoutInterval:20];
-                
-                AFXMLRequestOperation *operation = [AFXMLRequestOperation XMLParserRequestOperationWithRequest:request
-                                                                                                       success:^(NSURLRequest *request, NSHTTPURLResponse *response, NSXMLParser *XMLParser) {
-                                                                                                           
-                                                                                                           XMLParser.delegate = self;
-                                                                                                           [XMLParser setShouldProcessNamespaces:YES];
-                                                                                                           [XMLParser parse];
-                                                                                                           
-                                                                                                       } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, NSXMLParser *XMLParser) {
-                                                                                                           [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                                                                                           NSLog(@"error in calling web service");
-                                                                                                           UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" "
-                                                                                                                                                           message:@"Error in connecting to Web service. Please check your internet connection"
-                                                                                                                                                          delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                                                                                                           [alert show];
-                                                                                                           
-                                                                                                           alert = Nil;
-                                                                                                       }];
-                [operation start];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [MBProgressHUD hideHUDForView:self.view animated:YES];
-                });
-            });
-        }
-		
-		
-    }
-    else {
-        
-        [self checkingFirstLogin];
-        NSLog(@"loginstatus:%d",statusLogin);
-        NSLog(@"indexNo:%d",indexNo);
-        NSLog(@"user:%@",agentID);
-        statusLogin = 0; //hardcoded as due to previous design that this was used to trigger the security questions.
-        if (statusLogin == 1 && indexNo != 0) {
-            
-			
-			SecurityQuestion *securityPage = [self.storyboard instantiateViewControllerWithIdentifier:@"SecurityQuestion"];
-			securityPage.userID = indexNo;
-			securityPage.FirstTimeLogin = 1;
-			securityPage.modalPresentationStyle = UIModalPresentationPageSheet;
-			securityPage.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-			[self presentModalViewController:securityPage animated:NO];
-			
-			securityPage = Nil;
-			
-			
-            scrollViewLogin = Nil;
-            activeField = Nil;
-			
-			
-            
-        } else if (statusLogin == 0 && indexNo != 0) {
-            
-			
-			
-            if ([[Reachability reachabilityWithHostname:@"www.hla.com.my"] currentReachabilityStatus] == NotReachable) {
-                [self doOfflineLoginCheck];
-            }else
-            {
-                [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-                    
-                    [self doOnlineLogin];
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [MBProgressHUD hideHUDForView:self.view animated:YES];
-                    });
-                });
-            }
-            
-            
-        }
-		else if (statusLogin == 2){
-			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Please Contact System Admin." delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-			[alert show];
-			
-			alert = Nil;
-		}
-		
-    }
+//    else if( [Login forSMPD_Acturial:txtPassword.text] )
+//    {
+//        [self openHome];
+//    }
+//    else if (isFirstDevice)
+//    {
+//        if ([[Reachability reachabilityWithHostname:@"www.hla.com.my"] currentReachabilityStatus] == NotReachable) {
+//            // Show alert because no wifi or 3g is available..
+//            [MBProgressHUD hideHUDForView:self.view animated:YES];
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" "
+//                                                            message:@"Error in connecting to Web service. Please check your internet connection"
+//                                                           delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//            [alert show];
+//            
+//            alert = Nil;
+//        }else
+//        {
+//            
+//            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//            dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 5), ^{
+//                
+//                xmlType = XML_TYPE_VALIDATE_AGENT;
+//                NSString *sBadAttempt = [NSString stringWithFormat:@"%d", [self getBadAttempts]];
+//                NSString *strURL = [NSString stringWithFormat:@"%@eSubmissionWS/eSubmissionXMLService.asmx/"
+//                                    "ValidateAgent?Input1=%@&Input2=%@&Input3=%@&Input4=%@",
+//                                    [SIUtilities WSLogin],  txtUsername.text, txtPassword.text, [self getIPAddress], sBadAttempt];
+//                NSLog(@"%@", strURL);
+//                NSURL *url = [NSURL URLWithString:strURL];
+//                NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:0 timeoutInterval:20];
+//                
+//                AFXMLRequestOperation *operation = [AFXMLRequestOperation XMLParserRequestOperationWithRequest:request
+//                                                                                                       success:^(NSURLRequest *request, NSHTTPURLResponse *response, NSXMLParser *XMLParser) {
+//                                                                                                           
+//                                                                                                           XMLParser.delegate = self;
+//                                                                                                           [XMLParser setShouldProcessNamespaces:YES];
+//                                                                                                           [XMLParser parse];
+//                                                                                                           
+//                                                                                                       } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, NSXMLParser *XMLParser) {
+//                                                                                                           [MBProgressHUD hideHUDForView:self.view animated:YES];
+//                                                                                                           NSLog(@"error in calling web service");
+//                                                                                                           UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" "
+//                                                                                                                                                           message:@"Error in connecting to Web service. Please check your internet connection"
+//                                                                                                                                                          delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//                                                                                                           [alert show];
+//                                                                                                           
+//                                                                                                           alert = Nil;
+//                                                                                                       }];
+//                [operation start];
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    [MBProgressHUD hideHUDForView:self.view animated:YES];
+//                });
+//            });
+//        }
+//		
+//		
+//    }
+//    else {
+//        
+//        [self checkingFirstLogin];
+//        NSLog(@"loginstatus:%d",statusLogin);
+//        NSLog(@"indexNo:%d",indexNo);
+//        NSLog(@"user:%@",agentID);
+//        statusLogin = 0; //hardcoded as due to previous design that this was used to trigger the security questions.
+//        if (statusLogin == 1 && indexNo != 0) {
+//            
+//			
+//			SecurityQuestion *securityPage = [self.storyboard instantiateViewControllerWithIdentifier:@"SecurityQuestion"];
+//			securityPage.userID = indexNo;
+//			securityPage.FirstTimeLogin = 1;
+//			securityPage.modalPresentationStyle = UIModalPresentationPageSheet;
+//			securityPage.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+//			[self presentModalViewController:securityPage animated:NO];
+//			
+//			securityPage = Nil;
+//			
+//			
+//            scrollViewLogin = Nil;
+//            activeField = Nil;
+//			
+//			
+//            
+//        } else if (statusLogin == 0 && indexNo != 0) {
+//            
+//			
+//			
+//            if ([[Reachability reachabilityWithHostname:@"www.hla.com.my"] currentReachabilityStatus] == NotReachable) {
+//                [self doOfflineLoginCheck];
+//            }else
+//            {
+//                [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//                dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+//                    
+//                    [self doOnlineLogin];
+//                    dispatch_async(dispatch_get_main_queue(), ^{
+//                        [MBProgressHUD hideHUDForView:self.view animated:YES];
+//                    });
+//                });
+//            }
+//            
+//            
+//        }
+//		else if (statusLogin == 2){
+//			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Please Contact System Admin." delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//			[alert show];
+//			
+//			alert = Nil;
+//		}
+//		
+//    }
 }
 
 //- (void) loginSuccess

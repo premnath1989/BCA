@@ -440,7 +440,7 @@
                     termCover = maxTerm - ageClient;
                 }else if ([planChoose isEqualToString:@"HLACP"]) {
                     termCover = maxTerm;
-                }else if ([planChoose isEqualToString:@"L100"]) {
+                }else if ([planChoose isEqualToString:@"BCALH"]) {
                     termCover = maxTerm - ageClient;
                 } else if ([planChoose isEqualToString:@"S100"]) {
                     if (ppo < 99) {

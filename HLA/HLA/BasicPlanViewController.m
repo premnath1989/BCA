@@ -2632,7 +2632,7 @@ bool WPTPD30RisDeleted = FALSE;
 
 -(int)ReturnPaymentTerm :(NSString *)aaPlanChosen {
     if ([aaPlanChosen isEqualToString:STR_L100]) {
-        return 100 - ageClient;
+        return MOPSegment.selectedSegmentIndex == 0 ? 1 : 5;
     } else if ([aaPlanChosen isEqualToString:STR_S100]) {
         return MOP;
     } else if ([aaPlanChosen isEqualToString:STR_HLAWP]) {
@@ -2647,7 +2647,7 @@ bool WPTPD30RisDeleted = FALSE;
     sqlite3_stmt *statement;
     if (sqlite3_open([databasePath UTF8String], &contactDB) == SQLITE_OK) {
         
-        [self getTermRule];
+        //[self getTermRule];
         NSString *querySQL = [NSString stringWithFormat:@"UPDATE Trad_Details SET PlanCode=\"%@\", PolicyTerm=\"%@\", BasicSA=\"%@\", PremiumPaymentOption=\"%d\", CashDividend=\"%@\", YearlyIncome=\"%@\", AdvanceYearlyIncome=\"%d\", UpdatedAt=%@, PartialAcc=\"%d\", PartialPayout=\"%d\" , QuotationLang=\"%@\" WHERE SINo=\"%@\"", planChoose, [self getTerm], yearlyIncomeField.text, [self ReturnPaymentTerm:planChoose], cashDividend, yearlyIncome,advanceYearlyIncome, @"datetime(\"now\", \"+8 hour\")",[parAccField.text intValue],[parPayoutField.text intValue], quotationLang, SINo];
 		
         if (sqlite3_prepare_v2(contactDB, [querySQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {

@@ -675,6 +675,7 @@
 		C4FCDDEB16395F290065D024 /* btn_setting_home.png in Resources */ = {isa = PBXBuildFile; fileRef = C4FCDDDF16395F290065D024 /* btn_setting_home.png */; };
 		C4FCDDEC16395F290065D024 /* btn_SI_home.png in Resources */ = {isa = PBXBuildFile; fileRef = C4FCDDE016395F290065D024 /* btn_SI_home.png */; };
 		CAB53D841A83526D00E65A46 /* *.c in Sources */ = {isa = PBXBuildFile; fileRef = CAB53D831A83526D00E65A46 /* *.c */; };
+		E0B63AE71BB8BAE000DC5E3F /* BCA_Rates.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E0B63AE61BB8BAE000DC5E3F /* BCA_Rates.sqlite */; };
 		EF059839161A8BD1004A9095 /* NewLAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF059837161A8BCF004A9095 /* NewLAViewController.m */; };
 		EF05983F161A8C85004A9095 /* ListingTbViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF05983D161A8C85004A9095 /* ListingTbViewController.m */; };
 		EF059842161A901A004A9095 /* PayorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF059840161A901A004A9095 /* PayorViewController.m */; };
@@ -1885,6 +1886,7 @@
 		C4FCDDDF16395F290065D024 /* btn_setting_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_setting_home.png; sourceTree = "<group>"; };
 		C4FCDDE016395F290065D024 /* btn_SI_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_SI_home.png; sourceTree = "<group>"; };
 		CAB53D831A83526D00E65A46 /* *.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "*.c"; sourceTree = "<group>"; };
+		E0B63AE61BB8BAE000DC5E3F /* BCA_Rates.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = BCA_Rates.sqlite; path = ../../../Downloads/BCA_Rates.sqlite; sourceTree = "<group>"; };
 		EF059837161A8BCF004A9095 /* NewLAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewLAViewController.m; sourceTree = "<group>"; };
 		EF059838161A8BD0004A9095 /* NewLAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewLAViewController.h; sourceTree = "<group>"; };
 		EF05983D161A8C85004A9095 /* ListingTbViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListingTbViewController.m; sourceTree = "<group>"; };
@@ -3984,6 +3986,7 @@
 		C4EB491A161537B100C7FC8C /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				E0B63AE61BB8BAE000DC5E3F /* BCA_Rates.sqlite */,
 				161EA6BB1B131A9E009AF454 /* hladb.sqlite.sql */,
 				420AC655181F83E200946C31 /* UL_Rates.sqlite */,
 				6A4ACBB817EA9EE30037C358 /* HLA_Rates.sqlite */,
@@ -4404,6 +4407,7 @@
 				C4FCDDE816395F290065D024 /* btn_prospect_home.png in Resources */,
 				C4FCDDEB16395F290065D024 /* btn_setting_home.png in Resources */,
 				C4FCDDEC16395F290065D024 /* btn_SI_home.png in Resources */,
+				E0B63AE71BB8BAE000DC5E3F /* BCA_Rates.sqlite in Resources */,
 				C486D9C7163E5319009F8F21 /* btn_exit.png in Resources */,
 				C486D9C9163E5319009F8F21 /* btn_newSI_off.png in Resources */,
 				C486D9CA163E5319009F8F21 /* btn_newSI_on.png in Resources */,

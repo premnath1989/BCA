@@ -676,6 +676,7 @@
 		C4FCDDEC16395F290065D024 /* btn_SI_home.png in Resources */ = {isa = PBXBuildFile; fileRef = C4FCDDE016395F290065D024 /* btn_SI_home.png */; };
 		CAB53D841A83526D00E65A46 /* *.c in Sources */ = {isa = PBXBuildFile; fileRef = CAB53D831A83526D00E65A46 /* *.c */; };
 		E02A2A361BB99A4E00993B2C /* BCA_Rates.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E02A2A351BB99A4E00993B2C /* BCA_Rates.sqlite */; };
+		E02A2A381BB99CE300993B2C /* hladb.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E02A2A371BB99CE300993B2C /* hladb.sqlite */; };
 		EF059839161A8BD1004A9095 /* NewLAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF059837161A8BCF004A9095 /* NewLAViewController.m */; };
 		EF05983F161A8C85004A9095 /* ListingTbViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF05983D161A8C85004A9095 /* ListingTbViewController.m */; };
 		EF059842161A901A004A9095 /* PayorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF059840161A901A004A9095 /* PayorViewController.m */; };
@@ -1887,6 +1888,7 @@
 		C4FCDDE016395F290065D024 /* btn_SI_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_SI_home.png; sourceTree = "<group>"; };
 		CAB53D831A83526D00E65A46 /* *.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "*.c"; sourceTree = "<group>"; };
 		E02A2A351BB99A4E00993B2C /* BCA_Rates.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = BCA_Rates.sqlite; sourceTree = "<group>"; };
+		E02A2A371BB99CE300993B2C /* hladb.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = hladb.sqlite; sourceTree = "<group>"; };
 		EF059837161A8BCF004A9095 /* NewLAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewLAViewController.m; sourceTree = "<group>"; };
 		EF059838161A8BD0004A9095 /* NewLAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewLAViewController.h; sourceTree = "<group>"; };
 		EF05983D161A8C85004A9095 /* ListingTbViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListingTbViewController.m; sourceTree = "<group>"; };
@@ -3986,6 +3988,7 @@
 		C4EB491A161537B100C7FC8C /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				E02A2A371BB99CE300993B2C /* hladb.sqlite */,
 				E02A2A351BB99A4E00993B2C /* BCA_Rates.sqlite */,
 				161EA6BB1B131A9E009AF454 /* hladb.sqlite.sql */,
 				420AC655181F83E200946C31 /* UL_Rates.sqlite */,
@@ -4629,6 +4632,7 @@
 				043FDB9A1A1AEEE6008EDC24 /* eAplicationv2.png in Resources */,
 				043FDB9B1A1AEEE6008EDC24 /* customer_fact_findv2.png in Resources */,
 				043FDB9C1A1AEEE6008EDC24 /* client_profilev2.png in Resources */,
+				E02A2A381BB99CE300993B2C /* hladb.sqlite in Resources */,
 				043FDBA21A1AEF14008EDC24 /* transparent_boxv3.png in Resources */,
 				043FDBA31A1AEF14008EDC24 /* sales_illustrationv3.png in Resources */,
 				043FDBA41A1AEF14008EDC24 /* eAplicationv3.png in Resources */,
@@ -5235,6 +5239,7 @@
 				PRODUCT_NAME = "iMobile Planner";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos6.1;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALID_ARCHS = "armv7 armv6";
 				WRAPPER_EXTENSION = app;
@@ -5280,6 +5285,7 @@
 				PRODUCT_NAME = "iMobile Planner";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos6.1;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALID_ARCHS = "armv7 armv6";
 				WRAPPER_EXTENSION = app;

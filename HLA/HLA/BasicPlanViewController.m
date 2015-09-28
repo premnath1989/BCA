@@ -68,8 +68,10 @@
 NSString* const STR_S100 = @"S100";
 NSString* const STR_HLACP = @"HLACP";
 NSString* const STR_HLAWP = @"HLAWP";
-NSString* const STR_L100 = @"L100";
+//NSString* const STR_L100 = @"L100";
+NSString* const STR_L100 = @"BCALH";
 NSString* const STR_HLAIB = @"HLAIB";
+
 
 const double annualRate = 1.0;
 const double semiAnnualRate = 0.5125;
@@ -119,6 +121,8 @@ bool WPTPD30RisDeleted = FALSE;
     termField.enabled = NO;
     healthLoadingView.alpha = 0;
     showHL = NO;
+    _quotationLangSegment.hidden = TRUE;
+    
     [self togglePlan];
     
     [self resetData];
@@ -342,7 +346,7 @@ bool WPTPD30RisDeleted = FALSE;
             if(planChoose != nil)
             {
                 minSALabel.text = [NSString stringWithFormat:@"Min: %d",minSA];
-                maxSALabel.text = [NSString stringWithFormat:@"Max: %d",maxSA];
+                maxSALabel.text = [NSString stringWithFormat:@"Max: %.0f",maxSA];
             }            
             break;
             
@@ -490,7 +494,9 @@ bool WPTPD30RisDeleted = FALSE;
     
     int val = [self scanForNumbersFromString:[MOPSegment titleForSegmentAtIndex:MOPSegment.selectedSegmentIndex]];
     MOPHLAIB = val;
-    appDelegate.isNeedPromptSaveMsg = YES;	
+    appDelegate.isNeedPromptSaveMsg = YES;
+    
+    MOP = val;
 }
 
 - (IBAction)incomeSegmentPressed:(id)sender
@@ -900,7 +906,7 @@ bool WPTPD30RisDeleted = FALSE;
     if (getTempHLTerm != 0) {
         tempHLTermField.text = [NSString stringWithFormat:@"%d",getTempHLTerm];		
     }
-    [self getPlanCodePenta];    
+    //[self getPlanCodePenta];
     [self getTermRule];
     [_delegate BasicSI:getSINo andAge:ageClient andOccpCode:OccpCode andCovered:termCover andBasicSA:yearlyIncomeField.text andBasicHL:HLField.text andBasicTempHL:tempHLField.text andMOP:MOP andPlanCode:planCode andAdvance:advanceYearlyIncome andBasicPlan:planChoose planName:(NSString *)btnPlan.titleLabel.text];
 }
@@ -1078,8 +1084,7 @@ bool WPTPD30RisDeleted = FALSE;
 }
 
 -(void)togglePlanL100:(AppDelegate*)zzz {    
-    _policyTermSeg.hidden = YES;
-    cashDivSgmntCP.hidden = YES;
+    
     labelFour.hidden = YES;
     labelFive.hidden = YES;
     labelSeven.hidden = YES;
@@ -1087,20 +1092,28 @@ bool WPTPD30RisDeleted = FALSE;
     labelParPayout.hidden = YES;
     labelPercent1.hidden = YES;
     labelPercent2.hidden = YES;
+    labelSix.hidden = YES;
+    labelPremiumPay.hidden = NO;
+    
+    _policyTermSeg.hidden = YES;
+    cashDivSgmntCP.hidden = YES;
     parPayoutField.hidden = YES;
     parAccField.hidden = YES;
-    MOPSegment.hidden = YES;
+    MOPSegment.hidden = NO;
     incomeSegment.hidden = YES;
     cashDividendSegment.hidden = YES;
     advanceIncomeSegment.hidden = YES;
-    labelSix.hidden = YES;
-    labelPremiumPay.hidden = YES;
-    btnPlan.titleLabel.text = @"Life100";
-    labelThree.text = @"Basic Sum Assured(RM)* :";
+
+    btnPlan.titleLabel.text = @"BCA Life Heritage";
+    labelThree.text = @"Basic Sum Assured :";
     planChoose = STR_L100;
     zzz.planChoose = planChoose;
     termField.hidden = NO;
-    [self.btnPlan setTitle:@"Life100" forState:UIControlStateNormal];
+    termField.text = [NSString stringWithFormat:@"%d", 100 - ageClient];
+    [self.btnPlan setTitle:@"BCA Life Heritage" forState:UIControlStateNormal];
+    
+    [MOPSegment setTitle:@"1" forSegmentAtIndex:0];
+    [MOPSegment setTitle:@"5" forSegmentAtIndex:1];
 }
 
 -(void)togglePlanS100:(AppDelegate *)zzz {
@@ -1257,7 +1270,7 @@ bool WPTPD30RisDeleted = FALSE;
 }
 
 -(void) togglePlanHLAWP:(AppDelegate *)del {
-    _policyTermSeg.hidden = NO;
+    _policyTermSeg.hidden = YES;
     cashDivSgmntCP.hidden = NO;
     labelPremiumPay.hidden = NO;
     labelPremiumPay.text = @"Premium Payment Option";
@@ -1284,17 +1297,15 @@ bool WPTPD30RisDeleted = FALSE;
     
     MOPHLACP = 6;
     advanceYearlyIncomeHLACP = 0;
-    btnPlan.titleLabel.text = @"HLA Wealth Plan";
+    btnPlan.titleLabel.text = @"BCA Life Heritage";
     planChoose = STR_HLAWP;
-    termField.hidden = YES;
+    termField.hidden = NO;
+    termField.text = [NSString stringWithFormat:@"%d", 100 - age];
     del.planChoose = planChoose;
     
-    [self.btnPlan setTitle:@"HLA Wealth Plan" forState:UIControlStateNormal];
+    [self.btnPlan setTitle:@"BCA Life Heritage" forState:UIControlStateNormal];
     
-    if (requestAge > 45 ) {
-        [_policyTermSeg setEnabled:NO forSegmentAtIndex:1];
-        [[_policyTermSeg.subviews objectAtIndex:0] setAlpha:0.5];
-    }
+
 }
 
 #pragma mark - calculation
@@ -2181,6 +2192,15 @@ bool WPTPD30RisDeleted = FALSE;
                 {
                     minSA = sqlite3_column_int(statement, 4);
                     termCover = expiryAge - ageClient;
+                    maxSA = sqlite3_column_double(statement, 5);
+                    
+                    if (MOP == 1) {
+                        [MOPSegment setSelectedSegmentIndex:0];
+                    }
+                    else{
+                        [MOPSegment setSelectedSegmentIndex:1];
+                    }
+                    
                 } else if ([planChoose isEqualToString:STR_S100]) {
                     
                     minSA = sqlite3_column_int(statement, 4);
@@ -2385,7 +2405,7 @@ bool WPTPD30RisDeleted = FALSE;
             {
                 [self updateLA];
                 
-                [self getPlanCodePenta];
+                //[self getPlanCodePenta];
 				
                 prevPlanChoose = planChoose;
                 
@@ -3846,7 +3866,7 @@ bool WPTPD30RisDeleted = FALSE;
             return FALSE;
         }
         else{
-            MOP = termCover;
+            MOP = [self scanForNumbersFromString:[MOPSegment titleForSegmentAtIndex:MOPSegment.selectedSegmentIndex]];
         }
         msgType = @"Basic Sum Assured";
         

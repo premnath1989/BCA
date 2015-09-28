@@ -6467,6 +6467,10 @@ int maxGycc = 0;
             querySQL = [NSString stringWithFormat: @"SELECT Rate FROM Trad_Sys_Basic_Prem_new WHERE PlanCode=\"%@\" AND FromAge=\"%d\" AND ToAge=\"%d\" and FromTerm <=\"%d\" AND ToTerm >= \"%d\" AND PremPayOpt=\"%d\" ",
                         getPlanChoose,fromAge,toAge,getTerm,getTerm,getMOP];
         }
+        else if([getPlanChoose isEqualToString:@"BCALH"])
+        {
+            querySQL = [NSString stringWithFormat: @"SELECT Rates FROM Basic_Prem WHERE trim(Gender) = '%@' AND EntryAge = '%d' AND Premium_Term = '%d'  ", sexStr, fromAge, getMOP ];
+        }
         
 //        NSLog(@"Rider getBasicSIRate: %@",querySQL);
         if (querySQL == NULL) {

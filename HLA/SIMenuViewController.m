@@ -621,11 +621,11 @@ int CurrentPath;
 {
 	if (![[self.EAPPorSI description] isEqualToString:@"eAPP"]) {
 		[ListOfSubMenu addObject:@"Quotation"];
-		[ListOfSubMenu addObject:@"   Export Quotation"];
-		[ListOfSubMenu addObject:@"Product Disclosure Sheet"];
-		[ListOfSubMenu addObject:@"   Export PDS"];
-        [ListOfSubMenu addObject:@"Underwriting Sum Assured"];
-//        [ListOfSubMenu addObject:@"Underwriting Summary"];
+		//[ListOfSubMenu addObject:@"   Export Quotation"];
+		//[ListOfSubMenu addObject:@"Product Disclosure Sheet"];
+		//[ListOfSubMenu addObject:@"   Export PDS"];
+        //[ListOfSubMenu addObject:@"Underwriting Sum Assured"];
+
 		[ListOfSubMenu addObject:@"Save As New"];
 	}
 	
@@ -1121,6 +1121,7 @@ int CurrentPath;
                     [self showQuotation];
                 }
             }
+            /*
             else if (CurrentPath == SIMENU_EXP_QUOTATION) {
                 if([self validateSaveAllWithoutPrompt] == TRUE) {
                     [self exportQuotation];
@@ -1141,6 +1142,7 @@ int CurrentPath;
                     [self showUnderwriting];
                 }
             }
+             */
             else if (CurrentPath == SIMENU_PDS_SAVE_AS) {
                 if([self validateSaveAllWithoutPrompt] == TRUE) {
                     appDel.isNeedPromptSaveMsg = NO;
@@ -3237,6 +3239,7 @@ int CurrentPath;
         }        
         else if (indexPath.row == SIMENU_RIDER)
         {
+            /*
             if ([getOccpCode isEqualToString:@"OCC01975"]) {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"There is no existing plan which can be offered to this occupation." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil,nil];
                 [alert show];
@@ -3336,7 +3339,8 @@ int CurrentPath;
                     [self hideSeparatorLine];
                     [myTableView reloadData];
                 }
-            }            
+            }    
+             */
         }        
         else if (indexPath.row == SIMENU_PREMIUM)
         {
@@ -3396,7 +3400,8 @@ int CurrentPath;
                     }                    
                 }            
             }
-        }		
+        }
+        /*
         else if (indexPath.row == SIMENU_EXP_QUOTATION)
         {
             if ([getBasicPlan isEqualToString:@"HLAWP"] && [self DisplayMsgGIRR] == TRUE) {
@@ -3499,6 +3504,7 @@ int CurrentPath;
                 }                
             }
         }
+         */
         else if (indexPath.row == SIMENU_PDS_SAVE_AS)
         {
 
@@ -5084,10 +5090,10 @@ int CurrentPath;
             } ;            
             break;            
         case SIMENU_RIDER:
-        case SIMENU_GST:
+        //case SIMENU_GST:
         case SIMENU_PREMIUM:
         case SIMENU_QUOTATION:
-        case SIMENU_PRODUCT_DISCLOSURE_SHEET:
+        //case SIMENU_PRODUCT_DISCLOSURE_SHEET:
         case SIMENU_PDS_SAVE_AS:
             return YES;
             break;

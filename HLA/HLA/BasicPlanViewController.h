@@ -170,7 +170,7 @@
 @property (nonatomic, assign,readwrite) int termCover;
 @property (nonatomic, assign,readwrite) int maxAge;
 @property (nonatomic, assign,readwrite) int minSA;
-@property (nonatomic, assign,readwrite) int maxSA;
+@property (nonatomic, assign,readwrite) double maxSA;
 @property (nonatomic,strong) NSString *planChoose;
 
 @property(nonatomic , retain) NSString *NamePP;

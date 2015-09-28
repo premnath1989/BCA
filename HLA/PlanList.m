@@ -26,10 +26,12 @@
     [super viewDidLoad];
 
 	if([TradOrEver isEqualToString:@"TRAD"]){
-		ListOfPlan = [[NSMutableArray alloc] initWithObjects:@"Secure100", @"HLA Wealth Plan", nil ];
-		ListOfCode = [[NSMutableArray alloc] initWithObjects:@"S100", @"HLAWP", nil ];
+		//ListOfPlan = [[NSMutableArray alloc] initWithObjects:@"Secure100", @"HLA Wealth Plan", nil ];
+		//ListOfCode = [[NSMutableArray alloc] initWithObjects:@"S100", @"HLAWP", nil ];
         //ListOfPlan = [[NSMutableArray alloc] initWithObjects:@"Life100", nil ];
-        //ListOfCode = [[NSMutableArray alloc] initWithObjects:@"L100", nil ];
+        //ListOfCode = [[NSMutableArray alloc] initWithObjects:@"L100", nil ];'
+        ListOfPlan = [[NSMutableArray alloc] initWithObjects:@"BCA Life Heritage", nil ];
+        ListOfCode = [[NSMutableArray alloc] initWithObjects:@"BCALH", nil ];
 	}
 	else{
 		ListOfPlan = [[NSMutableArray alloc] initWithObjects:@"HLA EverLife Plus", nil ];

@@ -29,6 +29,8 @@
 @property (nonatomic, retain) NSString *ErrorMsg;
 @property (nonatomic, assign) int indexNo;
 @property (weak, nonatomic) IBOutlet UIImageView *outletIconBG;
+- (IBAction)ButtonInfo:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *ButtonInfoLabel;
 
 
 - (IBAction)btnExit:(id)sender;

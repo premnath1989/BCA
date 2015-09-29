@@ -63,10 +63,10 @@ const int numberOfModule = 7;
 	//            [self presentModalViewController:mainLogin animated:YES];
 	[self presentViewController:mainLogin animated:YES completion:nil];
 	
-    outletCarousel.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundWithBox.png"]];
-    self.view.backgroundColor = [UIColor clearColor];
-    _myView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundWithBox.png"]];
-    self.view.backgroundColor = [UIColor clearColor];
+//    outletCarousel.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"BcaBackgroundFade.jpg"]];
+//    self.view.backgroundColor = [UIColor clearColor];
+//    _myView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"BcaBackgroundFade.jpg"]];
+//    self.view.backgroundColor = [UIColor clearColor];
     
     [outletNavBar setBackgroundImage:[UIImage imageNamed:@"NewHLAHeader.png"] forBarMetrics:UIBarMetricsDefault];
     outletBrochure.hidden = TRUE;
@@ -85,7 +85,16 @@ const int numberOfModule = 7;
 	UIButton *protestion = [UIButton buttonWithType:UIButtonTypeCustom];
     [protestion addTarget:self action:@selector(ProtectionCalculator) forControlEvents:UIControlEventTouchUpInside];
     [protestion setBackgroundImage:[UIImage imageNamed:@"protection_Calculator_findv3.png"] forState:UIControlStateNormal];
-    protestion.frame = CGRectMake(480.1, 316.1, 130.0, 140.0);
+    protestion.frame = CGRectMake(275.1, 356.1, 130.0, 155.0);
+	
+	UILabel  * labelbg1 = [[UILabel alloc] initWithFrame:CGRectMake(270, 350, 900, 160)];
+    labelbg1.backgroundColor = [UIColor grayColor];
+    // label1.textAlignment = UITextAlignmentCenter; // UITextAlignmentCenter, UITextAlignmentLeft
+    labelbg1.alpha =0.4;
+    labelbg1.numberOfLines=0;
+	//    labelbg.lineBreakMode=UILineBreakModeWordWrap;
+    labelbg1.lineBreakMode=NSLineBreakByWordWrapping;
+    [self.view addSubview:labelbg1];
     
     NSString *version= [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     NSString *build= [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
@@ -717,6 +726,23 @@ const int numberOfModule = 7;
     databasePath = Nil, dbpath = Nil, statement = Nil;
     dirPaths = Nil, docsDir = Nil, dateFormatter = Nil, dateString = Nil;    
     
+}
+
+- (IBAction)ButtonInfo:(id)sender
+{
+	SettingUserProfile * UserProfileView = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingUserProfile"];
+	UserProfileView.modalPresentationStyle = UIModalPresentationPageSheet;
+	UserProfileView.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+	UserProfileView.indexNo = self.indexNo;
+	UserProfileView.getLatest = @"Yes";
+	//            [self presentModalViewController:UserProfileView animated:YES];
+	[self presentViewController:UserProfileView animated:YES completion:nil];
+	
+	UserProfileView.view.superview.frame = CGRectMake(150, 50, 700, 748);
+	UserProfileView = nil;
+
+
+	
 }
 
 - (IBAction)btnExit:(id)sender {

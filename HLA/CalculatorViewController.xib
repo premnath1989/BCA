@@ -102,7 +102,7 @@
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<string key="NSHuggingPriority">{273, 250}</string>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-						<array class="NSMutableArray" key="IBUIItems">
+						<array key="IBUIItems">
 							<object class="IBUINavigationItem" id="819127033">
 								<reference key="IBUINavigationBar" ref="1015820577"/>
 								<string key="IBUITitle">Protection Calculator</string>

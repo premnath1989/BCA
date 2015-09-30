@@ -51,7 +51,7 @@ static NSString* DATE_FORMAT = @"yyyy-MM-dd";
     NSString *agentInfo;
     
     NSString *agentLogin;
-    NSString *agentCode;
+  //  NSString *agentCode;
     NSString *agentName;
     NSString *icNo;
     NSString *contractDate;

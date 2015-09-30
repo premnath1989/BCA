@@ -52,7 +52,7 @@
 	function loadJson()
 	{
 			setPage();
-			writeGST();
+			//writeGST();
 			
             setRiderText();
 			if(gdata.SI[0].SI_Temp_Trad_Details.data.length > 16){
@@ -101,17 +101,12 @@
 	      
                 if (row.Sex.substring(0,1) == 'M'){
 		  
-                	$('.LASex').html('Male');
+                	$('.LASex').html('1');
             	}
                 else{
-                	$('.LASex').html('Female');
+                	$('.LASex').html('2');
                 }
-                if (row.Smoker == 'Y'){
-                	$('.LASmoker').html('Yes');
-                }
-                else{
-                	$('.LASmoker').html('No');
-                }
+                
             }
             else if(result.length == 2 && row2.PTypeCode == 'LA'){ //got 2nd life assured
             	var row = result[0];
@@ -454,90 +449,121 @@
 	<div id="header">
     	<img src="SI/img/HLA.png"/>
 		<div class="welcome">
-			Code : <span id="agentCode" class="agentCode">{agentCode}</span>&nbsp;&nbsp;Prepared By : <span id="agentName" class="agentName">{agentName}</span>		  
+			Kecuali dinyatakan lain, ilustrasi ini bukan merupakan kontrak asuransi
   		</div>
-		<div class="Content">Printed On : <span id="dateModified" class="dateModified">{DateModified}</span></div>
+		<div class="Content"></div>
 		<div class="hrule"></div>
 	</div>
   	<div class="main-content">
-    <!--<div align="center" style="padding: 0px 0px 0px 0px">HLA Cash Promise</div>-->
-    	<div align="center" style="padding: 0px 0px 0px 0px" class="planName">{planName}</div>
-    <!--<div align="center" style="padding: 0px 0px 3px 0px;">Participating Endowment Plan with Guaranteed Yearly Income and Limited 6 Years Premium Payment Term&nbsp;&nbsp;&nbsp;</div>-->
-      	<div align="center" style="padding: 0px 0px 3px 0px;" class="planDesc">{planDesc}</div>
+    
       	<table id="table-LA"> 
 			<tr>
-				<!-- added width % to fix the size of name and life insured column to be longer @ Edwin 6-9-2013 -->
-				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; width: 21%;">Insured Live</td>
-				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; width: 55%;">Name</td>
-				<td style="text-align:right;padding: 0px 0px 0px 0px;border: 1px solid black; width: 8%;">Age (Last Birthday)</td>
-				<td style="text-align:right;padding: 0px 0px 0px 0px;border: 1px solid black; width: 8%;">Gender</td>
-				<td style="text-align:right;padding: 0px 0px 0px 0px; width: 8%;">Smoker</td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; width: 25%;">Nama Tertanggung :</td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; width: 25%;"><span class="LAName"></span></td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; width: 25%;">Jenis Kelamin :</td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; width: 25%;"><span class="LASex"></span></td>
 	  		</tr>
 			<tr>
-				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black;" id="LADesc" class="LADesc">{LADesc}</td>
-				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black;" id="LAName" class="LAName">{LANAME}</td>
-				<td style="text-align:right;padding: 0px 0px 0px 0px;border: 1px solid black;" id="LAAge" class="LAAge">{LAAge}</td>
-				<td style="text-align:right;padding: 0px 0px 0px 0px;border: 1px solid black;" id="LASex" class="LASex">{LASex}</td>
-				<td style="text-align:right;padding: 0px 0px 0px 0px;border: 1px solid black;" id="LASmoker" class="LASmoker">{LASmoker}</td>
-			</tr>
+				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; ">Usia Masuk</td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; "><span class="LAAge"></span></td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; ">Mata Uang</td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; ">Rupiah</td>
+	  		</tr>
+			<tr>
+				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; ">Pekerjaan</td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; "><span></span></td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; ">Masa Pembayaran</td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; "><span></span></td>
+	  		</tr>
+			<tr>
+				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; ">Frekuensi Pembayaran </td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; "><span></span></td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; "></td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; "></td>
+	  		</tr>
+			
 		</table>
+	
+	<table width="100%" style="border-collapse: collapse;" border="1">
+		<tr>
+		  <td style="width: 20%;text-align: center"><u>Jenis Asuransi</u></td>
+		  <td style="width:  20%;text-align: center"><u>Nama Produk</u></td>
+		  <td style="width: 20%;text-align: center"><u>Masa Pertanggungan</u></td>
+		  <td style="width:  20%;text-align: center"><u>Uang Pertanggungan</u></td>
+		  <td style="width: 20%;text-align: center"><u>Premi</u></td>
+		</tr>
+		<tr>
+		  <td >Asuransi Dasar</td>
+		  <td >BCA Life Heritage</td>
+		  <td >Hingga umur 99</td>
+		  <td >Uang Pertanggungan</td>
+		  <td >Premi</td>
+		</tr>
+		<tr>
+		  <td colspan="5">(Frekuensi Pembayaran, Mata Uang, Masa Pembayaran, Uang Pertanggungan dan Premi tersebut di atas adalah bagian dari SPAJ yang akan digunakan sebagai acuan dalam proses penerbitan polis)</td>
+		</tr>
+		
+	      </table>
+	
       	<!--520,430px-->    
       	<div style="width:100%;height:380px;background-color: #fff;vertical-align: top;">
-			<table id="table-data" class="table-main" >
-	  			<thead>
+			<table  >
+	  			
 	  				<tr>	    
-						<td colspan="6">&nbsp;</td>
-						<td colspan="6" id="dynamic" class="dynamic" style="text-align:left;padding-left:60px;"><b><u>Total Premium(RM)</u></b></td>
-						<!--<td colspan="10"><b><u>Bayaran Premium Asal (RM)</u></b></td>-->
-					</tr> 
+						<td>
+						  <b>Ringkasan Manfaat</b><br/>
+						  Untuk keperluan ilustrasi, penjelasan lengkap mengenai Manfaat Asuransi (termasuk syarat-syarat dan pengecualian-pengecualian) tercantum dalam polis, berlaku dan mengikat.
+						</td>
+					</tr>
+					<tr><td></td></tr>
 				  	<tr>
-						<th class="contentLeft">Basic Plan/ Rider</th>
-					  	<th class="contentMediumLeft">Plan Choice</th>
-					  	<th class="contentSmallLeft">Units</th>
-					  	<th class="contentRight">Initial Sum Assured/ Benefit Amount</th>
-					  	<th class="contentSmallRight">Coverage Period<br/>(Yrs)</th>
-					  	<th class="contentSmallRight">Payment Period<br/>(Yrs)</th>
-					  	<th class="contentSmallRight">Annual</th>
-					  	<th class="contentSmallRight">Semi-annual</th>
-					  	<th class="contentSmallRight">Quarterly</th>
-					  	<th class="contentSmallRight">Monthly</th>
-					  	<th class="contentSmallRight" id="hLoading" class="hLoading">HLoading<br/>(per 1k SA)</th>
-					  	<th class="contentSmallRight" id="occLoading" class="occLoading">OccLoading<br/>(per 1k SA)</th>
+						<td>
+						  <b>Manfaat Meninggal Dunia</b><br/>
+						  Jika Tertanggung meninggal dunia, Uang Pertanggungan BCA Life HERITAGE ditambah akumulasi Nilai Pertanggungan Tambahan (jika ada) akan dibayarkan oleh PT Asuransi Jiwa BCA (BCA Life)
+						</td>
+					</tr>
+					<tr><td></td></tr>
+				  	<tr>
+						<td>
+						  <b>Manfaat Akhir Pertanggungan</b><br/>
+						  Apabila Tertanggung hidup hingga akhir masa pertanggungan (usia 99 tahun),maka BCA Life akan membayarkan Uang Pertanggungan BCA Life HERITAGE ditambah akumulasi Nilai Pertanggungan Tambahan (jika ada)
+						</td>
+					</tr>
+					<tr><td></td></tr>
+				  	<tr>
+						<td>
+						  <b>Manfaat Terminal Illness</b><br/>
+						  Apabila Tertanggung didiagnosa oleh dokter menderita penyakit atau kondisi sakit yang mengakibatkan Tertanggung hanya dapat bertahan hidup dalam kurun waktu kurang dari 6 bulan, maka BCA Life akan
+						  membayarkan kepada Pemegang Polis sebesar 20% (dua puluh persen) dari Uang Pertanggungan atau maksimal Rp 3.000.000.000,- (tiga miliyar rupiah) per Tertanggung untuk seluruh polis yang diterbitkan oleh
+						  Penanggung. Selanjutnya Penanggung akan membayarkan sisa Uang Pertanggungan kepada Penerima Manfaat setelah Tertanggung Meninggal Dunia.
+						</td>
+					</tr>
+					<tr><td></td></tr>
+				  	<tr>
+						<td>
+						  <b>Nilai Pertanggungan Tambahan</b><br/>
+						  Adalah sejumlah manfaat yang akan dibayarkan dalam hal Tertanggung meninggal dunia, atau Tertanggung masih hidup sampai dengan akhir masa pertanggungan Polis yang besarnya tidak dijamin.
+						  Penanggung akan mengumumkan jumlah Nilai Pertanggungan Tambahan (jika ada) setiap tahunnya pada bulan berikutnya setelah ulang tahun Polis
+						</td>
 					</tr> 
-				</thead>
-				<tbody></tbody>
-				<tfoot></tfoot>
+				
+				
 			</table>
-			<div id="Page1withRiders" style="padding: 0px 0px 0px 0px;">
-				All riders listed above are optional and not compulsory to be sold with the basic plan.<br/>
-			</div>
-			<div id="Page1SubjectTo" style="padding: 0px 0px 0px 0px;">
-				<b>All applications are subject to underwriting approval.</b> The projected insurance coverage detailed above is merely for illustrative purposes and not meant to confirm actual insurance coverage. Actual insurance coverage is subject to Hong Leong Assurance's prior approval, policies, terms and conditions.</b><br/>
-			</div>
+			
 		</div>
-		<table style="border-collapse:separate;border:1px solid black;width:100%;">
-			<tr>
-				<td width="95%" align="left" style="font-family:Times New Roman;font-size:9.5px;font-weight:normal;">
-					<span style="text-align:center;width:500px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	  <b>HONG LEONG ASSURANCE BERHAD</b></span><br/>
-	  Hong Leong Assurance Berhad is a member of Perbadanan Insurans Deposit Malaysia (PIDM). As a member of PIDM, some of the benefits insured under the takaful certificates or insurance policies offered by Hong Leong Assurance Berhad are protected against loss of part or all of takaful or insurance benefits by PIDM, in the unlikely event of an insurer member failure. For further details of the protection limits and the scope of coverage, please obtain a PIDM information brochure from Hong Leong Assurance Berhad or visit PIDM website (www.pidm.gov.my) or call PIDM toll free line (1-800-88-1266).<br/>
-	  			</td>
-	  			<td width="5%" style="font-family:Times New Roman;font-size:9.5px;font-weight:normal;text-align:center"><img src="SI/img/PIDM.png"/></td>
-	  		</tr>
-	  	</table>
-	  	<table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+		
+	  	<table border="1" style="border-collapse:separate;border:0px solid black;width:100%;">
 	  		<tr>
-	  			<td width="75%" style="font-family:Times New Roman;font-size:9px;font-weight:normal;padding: 0px 0px 0px 0px;">
-	  				This sales illustration consists of <span class="totalPages">{totalPages}</span> pages and each page forms an integral part of the sales illustration. A prospective policy owner is advised to read and understand the information printed on each and every page.<br/>
-	  				<b><span id="rptVersion" class="rptVersion">{rptVersion}</span></b> <br/>
-	  				Level 3, Tower B, PJ City Development, No. 15A Jalan 219, Seksyen 51A, 46100 Petaling Jaya, Selangor. Tel: 03-7650 1818 Fax: 03-7650 1991 Website: www.hla.com.my<br/>
+	  			<td  style="font-family:Times New Roman;font-size:9px;font-weight:normal;padding: 0px 0px 0px 0px;">
+	  				Saya telah memahami dan menyetujui penjelasan yang diberikan atas ilustrasi manfaat asuransi yang diuraikan pada halaman ini.
 	  			</td>
-	  			<td width="9%" align="left" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Times New Roman;font-size:9px;">Page <span class="currentPage">1</span> of <span class="totalPages">56</span></td>
-	  			<td width="16%" align="right" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Times New Roman;font-size:9px;"></br>
-	  				<img src="SI/img/barcode.png" style="vertical-align:text-top;padding: 0px 0px 0px 0px;" height="70%" height="70%"/></br>Ref: <span id=SICode class="SICode">{SINo}</span>
-	  			</td>
+	  			
+	  		</tr>
+			<tr>
+			    <td></td>
+			</tr>
+			<tr>
+	  			<td  align="left" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Times New Roman;font-size:9px;">Tanda Tangan Calon Pemegang Polis</td>
 	  		</tr>
 	  	</table>
 	  	<div id="externalPages"></div>

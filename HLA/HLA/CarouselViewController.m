@@ -87,14 +87,14 @@ const int numberOfModule = 7;
     [protestion setBackgroundImage:[UIImage imageNamed:@"protection_Calculator_findv3.png"] forState:UIControlStateNormal];
     protestion.frame = CGRectMake(275.1, 356.1, 130.0, 155.0);
 	
-	UILabel  * labelbg1 = [[UILabel alloc] initWithFrame:CGRectMake(270, 350, 900, 160)];
-    labelbg1.backgroundColor = [UIColor grayColor];
-    // label1.textAlignment = UITextAlignmentCenter; // UITextAlignmentCenter, UITextAlignmentLeft
-    labelbg1.alpha =0.4;
-    labelbg1.numberOfLines=0;
-	//    labelbg.lineBreakMode=UILineBreakModeWordWrap;
-    labelbg1.lineBreakMode=NSLineBreakByWordWrapping;
-    [self.view addSubview:labelbg1];
+//	UILabel  * labelbg1 = [[UILabel alloc] initWithFrame:CGRectMake(270, 350, 900, 160)];
+//    labelbg1.backgroundColor = [UIColor grayColor];
+//    // label1.textAlignment = UITextAlignmentCenter; // UITextAlignmentCenter, UITextAlignmentLeft
+//    labelbg1.alpha =0.4;
+//    labelbg1.numberOfLines=0;
+//	//    labelbg.lineBreakMode=UILineBreakModeWordWrap;
+//    labelbg1.lineBreakMode=NSLineBreakByWordWrapping;
+//    [self.view addSubview:labelbg1];
     
     NSString *version= [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     NSString *build= [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];

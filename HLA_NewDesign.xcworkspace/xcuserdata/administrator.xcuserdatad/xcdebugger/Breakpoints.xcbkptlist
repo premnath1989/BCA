@@ -1209,8 +1209,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "1084"
          endingLineNumber = "1084"
-         landmarkName = "@implementation Login"
-         landmarkType = "3">
+         landmarkName = "-parseURL:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
@@ -1222,7 +1222,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "1146"
          endingLineNumber = "1146"
-         landmarkName = "-showDeviceInactive"
+         landmarkName = "-parseURL:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -1256,11 +1256,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "HLA/HLA/pendingVC.m"
-         timestampString = "464848513.883322"
+         timestampString = "465271501.357407"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1426"
-         endingLineNumber = "1426"
+         startingLineNumber = "1428"
+         endingLineNumber = "1428"
          landmarkName = "-loginAction"
          landmarkType = "5">
       </FileBreakpoint>

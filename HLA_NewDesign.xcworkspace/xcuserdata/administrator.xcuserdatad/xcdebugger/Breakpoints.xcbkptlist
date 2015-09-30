@@ -1209,8 +1209,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "1084"
          endingLineNumber = "1084"
-         landmarkName = "-parseURL:"
-         landmarkType = "5">
+         landmarkName = "@implementation Login"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
@@ -1222,7 +1222,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "1146"
          endingLineNumber = "1146"
-         landmarkName = "-parseURL:"
+         landmarkName = "-showDeviceInactive"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -1261,7 +1261,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "1426"
          endingLineNumber = "1426"
-         landmarkName = "-submitButtonClicked:"
+         landmarkName = "-loginAction"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint

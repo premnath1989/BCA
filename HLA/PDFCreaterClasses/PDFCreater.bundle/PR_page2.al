@@ -253,12 +253,12 @@
     <div style="position:absolute;left:310.45px;top:770.75px" class="cls_015"><span class="cls_015">##GSTExempted.No##</span><span class="cls_012"> No </span><span class="cls_007">/ Tidak</span></div>
 
 
-    <div style="position:absolute;left:28.85px;top:785.75px" class="cls_003"><span class="cls_012">Note :&nbsp;&nbsp;&nbsp;*1.&nbsp Any change in GST Registered status (registered or deregistered) must be communicated to HLA.</span></div>
-    
+    <div style="position:absolute;left:28.85px;top:785.75px" class="cls_003"><span class="cls_012">Note :&nbsp;&nbsp;&nbsp;*1.&nbsp Any change in GST Registered status (registered or deregistered) must be communicated to BCA.</span></div>
+
     <div style="position:absolute;left:51.85px;top:793.75px" class="cls_003"><span class="cls_012">**2.&nbsp Kindly submit the related certificates as mentioned in the First and Third Schedule of GST(Relief) Order 2014, if ticked as ‘Yes’.</span></div>
 
     
-    <div style="position:absolute;left:28.85px;top:801.75px" class="cls_003"><span class="cls_007">Nota :&nbsp;&nbsp;&nbsp;*1.&nbsp Sebarang perubahan dalam status pendaftaran GST (Berdaftar atau dibatalkan pendaftarannya) mesti disampaikan kepada HLA.</span></div>
+    <div style="position:absolute;left:28.85px;top:801.75px" class="cls_003"><span class="cls_007">Nota :&nbsp;&nbsp;&nbsp;*1.&nbsp Sebarang perubahan dalam status pendaftaran GST (Berdaftar atau dibatalkan pendaftarannya) mesti disampaikan kepada BCA.</span></div>
     
          
     <div style="position:absolute;left:51.75px;top:809.75px" class="cls_003"><span class="cls_007">**2.&nbsp Sila lampirkan sijil berkaitan seperti yang dinyatakan di dalam Jadual Pertama dan Ketiga Perintah Cukai Barang & Perkhidmatan (Pelepasan) 2014,<br>&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp; jika

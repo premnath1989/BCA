@@ -1399,7 +1399,9 @@
         [alert show];
         alert = Nil;
     } else {
-        [self loaadAppVersion];
+		
+		[self submitAfterSuccessFulllogin];
+       // [self loaadAppVersion];
     }
 }
 

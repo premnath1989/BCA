@@ -868,7 +868,8 @@ static NSString *labelVers;
 	NSLog(@"devideId %@", [[[UIDevice currentDevice] identifierForVendor] UUIDString]);
 	
    
-	NSString *post = [NSString stringWithFormat:@"strAgentID=%@&strPassword=%@&strDeviceID=%@",txtUsername.text,txtPassword.text,[[[UIDevice currentDevice] identifierForVendor] UUIDString]];
+//	NSString *post = [NSString stringWithFormat:@"strAgentID=%@&strPassword=%@&strDeviceID=%@",txtUsername.text,txtPassword.text, @"1AE92BBE-1B69-413E-982A-557CBA969D4B"];
+	NSString *post = [NSString stringWithFormat:@"strAgentID=%@&strPassword=%@&strDeviceID=%@",txtUsername.text,txtPassword.text, [[[UIDevice currentDevice] identifierForVendor] UUIDString]];
 	
 //	NSString *post = [NSString stringWithFormat:@"strAgentID=%@&strDeviceID=%@",@"cd",@"ds"];
 	
@@ -876,7 +877,7 @@ static NSString *labelVers;
     NSString *postLength = [NSString stringWithFormat:@"%d",[postData length]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
 	
-	NSString *url = [NSString stringWithFormat:@"http://192.168.2.129/AgentWebService/AgentMgmt.asmx/ValidateLogin"];
+	NSString *url = [NSString stringWithFormat:@"http://192.168.2.149/AgentWebService/AgentMgmt.asmx/ValidateLogin"];
     [request setURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
@@ -902,6 +903,8 @@ static NSString *labelVers;
 	if (rangeValue1.length > 0)
     {
 		[self loginSuccess];
+		
+		[self parseURL:aStr];
 	}
 	if (rangeValue2.length > 0)
     {
@@ -1076,6 +1079,100 @@ static NSString *labelVers;
 //		
 //    }
 }
+
+-(void)parseURL:(NSString *) urlStr
+{
+    NSMutableDictionary *queryStringDict = [ [NSMutableDictionary alloc] init];
+    NSArray *urlArr = [urlStr componentsSeparatedByString:@"|"];
+    
+    if (urlArr.count < 1) {
+        return;//should not reach here
+    }
+    
+    NSLog(@"parseURL: %@", urlStr);
+    
+//    for(NSString *keyPair in urlArr)
+//    {
+//        NSArray *pairedComp = [keyPair componentsSeparatedByString:@"="];
+//        NSString *key = [pairedComp objectAtIndex:0];
+//        NSString *value = [pairedComp objectAtIndex:1];
+//        
+//        [queryStringDict setObject:value forKey:key];
+//    }
+    
+	NSString* validity = [urlArr objectAtIndex:0];
+    NSString* agentCode_1 =  [urlArr objectAtIndex:1]; //[queryStringDict objectForKey:@"agentCode"];
+    NSString* agentName_1 = [urlArr objectAtIndex:2];
+    NSString* agentType_1 = [urlArr objectAtIndex:3];
+    NSString* immediateLeaderCode_1 = [urlArr objectAtIndex:4];
+    NSString* immediateLeaderName_1 = [urlArr objectAtIndex:5];
+    NSString* BusinessRegNumber_1 = [urlArr objectAtIndex:6];
+    NSString* agentEmail_1 = [urlArr objectAtIndex:7];
+    NSString* agentLoginId_1 = [urlArr objectAtIndex:8];
+    NSString* agentIcNo_1 = [urlArr objectAtIndex:9];
+    NSString* agentContractDate_1 = [urlArr objectAtIndex:10];
+    NSString* agentAddr1_1 = [urlArr objectAtIndex:11];
+    NSString* agentAddr2_1 = [urlArr objectAtIndex:12];
+    NSString* agentAddr3_1 = [urlArr objectAtIndex:13];
+    NSString* agentAddrPostcode_1 = [urlArr objectAtIndex:14];
+    NSString* agentContactNumber_1 = [urlArr objectAtIndex:15];
+    NSString* agentPassword_1 = [urlArr objectAtIndex:16];
+    //NSString* lastLogonDate = [queryStringDict objectForKey:@"lastLogonDate"];
+    //NSString* lastLogoutDate = [queryStringDict objectForKey:@"lastLogoutDate"];
+    NSString* agentStatus_1 = [urlArr objectAtIndex:17];
+    NSString* channel_1 = [urlArr objectAtIndex:18];
+    
+	NSLog(validity);
+	
+	
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:agentCode_1 forKey:KEY_AGENT_CODE];
+    [defaults synchronize];
+    
+    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docsDir = [dirPaths objectAtIndex:0];
+    NSString *databasePath1 = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"hladb.sqlite"]];
+    sqlite3_stmt *statement;
+    
+    if (sqlite3_open([databasePath1 UTF8String ], &contactDB) == SQLITE_OK)
+    {
+        NSString *querySQL;
+        BOOL newRec = FALSE;
+        
+        querySQL = [NSString stringWithFormat:
+                    @"select agentCode FROM agent_profile where agentCode = '%@' ", agentCode_1 ];
+        
+		
+		querySQL = [NSString stringWithFormat: @"UPDATE Agent_profile SET AgentName = \"%@\", AgentType = \"%@\", AgentContactNo = \"%@\", ImmediateLeaderCode = \"%@\", ImmediateLeaderName = \"%@\", BusinessRegNumber = \"%@\", AgentEmail = \"%@\", AgentLoginID = \"%@\", AgentICNo = \"%@\", "
+				 "AgentContractDate = \"%@\", AgentAddr1 = \"%@\", AgentAddr2 = \"%@\", AgentAddr3 = \"%@\", AgentAddr4 = \"%@\", AgentPortalLoginID = \"%@\", AgentPortalPassword = \"%@\", AgentContactNumber = \"%@\", AgentPassword = \"%@\", AgentStatus = \"%@\", Channel = \"%@\", AgentAddrPostcode = \"%@\", agentNRIC = \"%@\" WHERE  agentCode='%@'", agentName_1, agentType_1, agentContactNumber_1,immediateLeaderCode_1, immediateLeaderName_1,BusinessRegNumber_1, agentEmail_1, agentLoginId_1, agentIcNo_1, agentContractDate_1, agentAddr1_1, agentAddr2_1, agentAddr3_1, @"", agentLoginId_1, agentPassword_1, agentContactNumber_1, agentPassword_1, agentStatus_1, channel_1, agentAddrPostcode_1, agentIcNo_1, agentCode_1];
+        
+//        querySQL = [NSString stringWithFormat:
+//                    @"insert into Agent_profile (agentCode, AgentName, AgentType, AgentContactNo, ImmediateLeaderCode, ImmediateLeaderName, BusinessRegNumber, AgentEmail, AgentLoginID, AgentICNo, "
+//                    "AgentContractDate, AgentAddr1, AgentAddr2, AgentAddr3, AgentAddr4, AgentPortalLoginID, AgentPortalPassword, AgentContactNumber, AgentPassword, AgentStatus, Channel, AgentAddrPostcode, agentNRIC ) VALUES "
+//                    "('%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@', '%@', '%@') ",
+//                    agentCode_1, agentName_1, agentType_1, agentContactNumber_1,immediateLeaderCode_1, immediateLeaderName_1,BusinessRegNumber_1, agentEmail_1, agentLoginId_1, agentIcNo_1, agentContractDate_1, agentAddr1_1, agentAddr2_1, agentAddr3_1, @"", agentLoginId_1, agentPassword_1, agentContactNumber_1, agentPassword_1, agentStatus_1, channel_1, agentAddrPostcode_1, agentIcNo_1 ];
+		
+        if (sqlite3_prepare_v2(contactDB, [querySQL UTF8String], -1, &statement, NULL) == SQLITE_OK){
+            if (sqlite3_step(statement) == SQLITE_DONE){
+                
+            }
+            else{
+                NSLog(@"%@",[[NSString alloc] initWithUTF8String:sqlite3_errmsg(contactDB)]) ;
+            }
+            sqlite3_finalize(statement);
+        }
+        else{
+            NSLog(@"%@",[[NSString alloc] initWithUTF8String:sqlite3_errmsg(contactDB)]) ;
+        }
+        
+        sqlite3_close(contactDB);
+        querySQL = Nil;
+        
+    }
+    
+}
+
+
 
 //- (void) loginSuccess
 //{

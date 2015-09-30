@@ -28,7 +28,7 @@
 {
     [super viewDidLoad];
 	
-	NSString *urlString = @"http://www.hla.com.my/termsandconditions.aspx?action=policy";
+	NSString *urlString = @"https://www.bcalife.co.id/rekan";
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
     [_webView loadRequest:urlRequest];

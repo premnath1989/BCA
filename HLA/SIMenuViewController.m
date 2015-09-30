@@ -3389,7 +3389,7 @@ int CurrentPath;
             else
             {
                 if([self validateSaveAllWithoutPrompt] == TRUE) {
-                    if (([getBasicPlan isEqualToString:@"S100"] || [getBasicPlan isEqualToString:@"L100"]) && appDel.allowedToShowReport == FALSE) {
+                    if (([getBasicPlan isEqualToString:@"S100"] || [getBasicPlan isEqualToString:@"L100"] ) && appDel.allowedToShowReport == FALSE) {
                         NSString *dialogStr = @"Min modal premium requirement not met. Please increase sum assured for basic plan or rider(s)";
                         
                         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:dialogStr delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil ];
@@ -4389,6 +4389,7 @@ int CurrentPath;
         [self.myTableView selectRowAtIndexPath:previousPath animated:NO scrollPosition:UITableViewScrollPositionNone];
     }
     else{
+        /*
         if (![appDel.MhiMessage isEqualToString:@""] && appDel.MhiMessage != NULL  ) {
             NSString *RevisedSumAssured = appDel.MhiMessage;
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:[NSString stringWithFormat:@"%@ will be increase to RM%@ in accordance to MHI Guideline. The RSA for non-MHI rider(s) (if any) have been increased accordingly as well.",MHI_MSG_TYPE,RevisedSumAssured]
@@ -4397,7 +4398,8 @@ int CurrentPath;
             alert = Nil;
             RevisedSumAssured = Nil;
         }
- 
+ */
+        
         sqlite3_stmt *statement;
         BOOL cont = FALSE;
         if (sqlite3_open([databasePath UTF8String], &contactDB) == SQLITE_OK)
@@ -4450,11 +4452,11 @@ int CurrentPath;
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
                 BOOL showReport = false;
                 
-                if([getBasicPlan isEqualToString:@"S100"] || [getBasicPlan isEqualToString:@"HLAWP"] || [getBasicPlan isEqualToString:@"L100"])
+                if([getBasicPlan isEqualToString:@"S100"] || [getBasicPlan isEqualToString:@"HLAWP"] || [getBasicPlan isEqualToString:@"L100"] )
                 {
                     showReport = del.allowedToShowReport;
                 }
-                else if([getBasicPlan isEqualToString:@"HLACP" ])
+                else if([getBasicPlan isEqualToString:@"HLACP" ] || [getBasicPlan isEqualToString:@"BCALH"])
                 {
                     showReport = TRUE;
                 }
@@ -4464,7 +4466,7 @@ int CurrentPath;
                     ReportViewController *ReportPage;
                     CashPromiseViewController *CPReportPage;
                     
-                    if([getBasicPlan isEqualToString:@"S100"] || [getBasicPlan isEqualToString:@"HLAWP"] || [getBasicPlan isEqualToString:@"L100"])                    
+                    if([getBasicPlan isEqualToString:@"S100"] || [getBasicPlan isEqualToString:@"HLAWP"] || [getBasicPlan isEqualToString:@"L100"] || [getBasicPlan isEqualToString:@"BCALH"])
                     {
                         CPReportPage = [[CashPromiseViewController alloc] init ];
                         CPReportPage.SINo = getSINo;
@@ -4581,7 +4583,7 @@ int CurrentPath;
                             
                             
                         }
-                        else if([getBasicPlan isEqualToString:@"HLAIB" ]){
+                        else if([getBasicPlan isEqualToString:@"HLAIB" ] ){
                             [ReportPage dismissViewControllerAnimated:NO completion:Nil];
                         }
                         
@@ -4620,7 +4622,7 @@ int CurrentPath;
                             {
                                 path = [[NSBundle mainBundle] pathForResource:@"SI/eng_Page1" ofType:@"html"]; //changed for language switcher @edwin 4-9-2013
                             }
-                            else if([getBasicPlan isEqualToString:@"L100"])
+                            else if([getBasicPlan isEqualToString:@"L100"] || [getBasicPlan isEqualToString:@"BCALH"] )
                             {
                                 path = [[NSBundle mainBundle] pathForResource:@"SI/eng_L100_Page1" ofType:@"html"]; //changed for language switcher @edwin 4-9-2013
                             }

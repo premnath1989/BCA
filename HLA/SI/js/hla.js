@@ -225,7 +225,7 @@ function setPage() {
     
     
     $('.star').html(planDesc);
-    
+    /*
     $('.TotPremPaide').html(formatCurrency(gdata.SI[0].SI_Temp_Trad_Overall.data[0].TotPremPaid1));
     $('.TotPremPaidAll').html(formatCurrency(gdata.SI[0].SI_Temp_Trad_Overall.data[0].TotPremPaid2));
     $('.guaranteedMaturityValue').html(formatCurrency(gdata.SI[0].SI_Temp_Trad_Details.data[0].col2));
@@ -257,6 +257,10 @@ function setPage() {
                 $('.HLAWP_Page30').html('250%');
         }
     }
+    */
+    
+    $('.SICode').html(gdata.SI[0].SINo);
+    $('.totalPages').html(gdata.SI[0].TotalPages); 
     $.each(gdata.SI[0].SI_Temp_Pages.data, function(index, row) {
     	$("#" + row.PageDesc + " .currentPage").html(row.PageNum);
     });
@@ -572,7 +576,8 @@ function isIncomeRider(amt,rider){
 function writeSummary()
 {
 	writeSummary1_HLCP();
-	writeSummary2_HLCP();
+	
+	//writeSummary2_HLCP();
 }
 
 
@@ -1189,7 +1194,8 @@ function writeSummary1_HLCP() {
        			number = row.col2;
        			row.col2 = number | 0;       			
 				$('#table-Summary1 > tbody').append('<tr><td>' + row.col0_1 + '</td><td>' + row.col0_2 + '</td><td>' + formatCurrency(row.col1) + '</td><td>' +
-				CurrencyNoCents(row.col2) + '</td><td>' + CurrencyNoCents(row.col3) + '</td><td>' + CurrencyNoCents(row.col4) + '</td></tr>');
+				CurrencyNoCents(row.col2) + '</td><td>' + CurrencyNoCents(row.col3) + '</td><td>' + CurrencyNoCents(row.col4) + '</td><td>' + CurrencyNoCents(row.col5) + '</td><td>' +
+				CurrencyNoCents(row.col6) + '</td><td>' + CurrencyNoCents(row.col7) + '</td></tr>');
        		} else {
 				number = row.col2;
 				row.col2 = number | 0;
@@ -1199,193 +1205,7 @@ function writeSummary1_HLCP() {
         });
     }
     
-    //total premium paid
-    $('.TotPremPaid').html(formatCurrency(gdata.SI[0].SI_Temp_Trad.data[0].TotPremPaid));
-    $('.SurrenderValueHigh').html(formatCurrency(gdata.SI[0].SI_Temp_Trad.data[0].SurrenderValueHigh));
-    $('.SurrenderValueLow').html(formatCurrency(gdata.SI[0].SI_Temp_Trad.data[0].SurrenderValueLow));
-    $('.TotalYearlyIncome').html(formatCurrency(gdata.SI[0].SI_Temp_Trad.data[0].TotalYearlylncome));
-    //entire policy (including all riders)
-    $('.TotPremPaid1').html(formatCurrency(gdata.SI[0].SI_Temp_Trad_Overall.data[0].TotPremPaid1));
-    $('.SurrenderValueHigh1').html(formatCurrency(gdata.SI[0].SI_Temp_Trad_Overall.data[0].SurrenderValueHigh1));
-    $('.SurrenderValueLow1').html(formatCurrency(gdata.SI[0].SI_Temp_Trad_Overall.data[0].SurrenderValueLow1));
-    $('.TotalYearlyIncome1').html(formatCurrency(gdata.SI[0].SI_Temp_Trad_Overall.data[0].TotYearlyIncome1));
-    //advanced yearly income
-    if (parseInt(gdata.SI[0].Trad_Details.data[0].AdvanceYearlyIncome) == 0) { //Cash promise. Only 1 title        
-        if (gdata.SI[0].QuotationLang == "Malay") // added by Edwin for language switch 3-9-2013
-        {
-            if(gdata.SI[0].PlanCode=="HLACP")
-            {
-                $('.advanceYearlyIncome').html('Ilustrasi Pelan HLA Cash Promise');
-            }else
-            if(gdata.SI[0].PlanCode=="L100" || gdata.SI[0].PlanCode=="S100")
-            {
-                $('.advanceYearlyIncome').html('Illustrasi Pelan Asas');  
-            }else
-            if(gdata.SI[0].PlanCode=="HLAWP")
-            {
-                $('.advanceYearlyIncome').html('Illustrasi HLA Wealth Plan');  
-            }
-        } else //English
-        {
-            if(gdata.SI[0].PlanCode=="HLACP")
-            {
-                $('.advanceYearlyIncome').html('Illustration of HLA Cash Promise Plan');
-            }else
-            if(gdata.SI[0].PlanCode=="L100" || gdata.SI[0].PlanCode=="S100")
-            {
-                $('.advanceYearlyIncome').html('Illustration of Basic Plan');
-            }else
-            if(gdata.SI[0].PlanCode=="HLAWP")
-            {
-                $('.advanceYearlyIncome').html('Illustration of HLA Wealth Plan');
-            }
-        }
-    }
-    /*************defines column number***************/
-    var surrColumn = null;
-    var deathBenefitColumn = null;
-    var totalPremColumn = null;
-    if(gdata.SI[0].PlanCode=="HLACP")
-    {
-        surrColumn = '(6)';
-        deathBenefitColumn = '(7)';
-        totalPremColumn = '(8)';
-    }else
-    if(gdata.SI[0].PlanCode=="HLAWP")
-    {
-        surrColumn = '';
-        deathBenefitColumn = '';
-        totalPremColumn = '';
-    }
-    /*************************************************/
-        
-    $('.totalAnnualPremiumNumber').html(totalPremColumn);
-    
-    if(gdata.SI[0].PlanCode=="HLAWP")
-    {
-        if ($.trim(gdata.SI[0].Trad_Details.data[0].CashDividend) == 'ACC') 
-        {
-            if (gdata.SI[0].QuotationLang == "Malay") 
-            {
-                $('.paymentDesc').html(gdata.SI[0].SI_Temp_Trad.data[0].MCashPaymentD + '&nbsp;(Dividen Tunai Terkumpul)');
-            } else //English
-            {
-                $('.paymentDesc').html(gdata.SI[0].SI_Temp_Trad.data[0].CashPaymentD + '&nbsp;(Cash Dividend Accumulate)<br/>');
-            }
-            
-            if (parseInt(gdata.SI[0].Trad_Details.data[0].PartialPayout) == 100) { //CD : ACC GYI : payout
-                $('.totalSurrenderValue').html(surrColumn+'(4)=(2)+(8)+(9)');
-                $('.tpdBenefit').html(deathBenefitColumn+'(5)=(3)+(8)+(10)');
-                $('.totalSurrenderValueRider').html(surrColumn+'(5)=(3)+(8)+(9)');
-                $('.tpdBenefitRider').html(deathBenefitColumn+'(6)=(4)+(8)+(10)');
-                if (gdata.SI[0].QuotationLang == "Malay")
-                {
-                    $('.WBRidersFootNoteDesc').html("Termasuk Dividen Tunai Terkumpul.");
-                	$('.accumulationYearlyIncome_Input').html('Termasuk Dividen Tunai Terkumpul.');
-                }
-                else{
-                    $('.WBRidersFootNoteDesc').html("Inclusive of accumulated Cash Dividends.");  
-                	$('.accumulationYearlyIncome_Input').html('Inclusive of accumulated Cash Dividends.');  
-                }
-                 
-            } else {                                                              //CD : ACC GYI : ACC
-                $('.totalSurrenderValue').html(surrColumn+'(4)=(2)+(8)+(9)');
-                $('.tpdBenefit').html(deathBenefitColumn+'(5)=(3)+(8)+(10)');
-                $('.totalSurrenderValueRider').html(surrColumn+'(5)=(3)+(8)+(9)+(10)');
-                $('.tpdBenefitRider').html(deathBenefitColumn+'(6)=(4)+(8)+(9)+(11)');
-                if (gdata.SI[0].QuotationLang == "Malay"){
-                    $('.WBRidersFootNoteDesc').html("Termasuk Kupon Tunai Tahunan/ Bayaran Tunai Terkumpul dan Dividen Tunai Terkumpul.");
-                	$('.accumulationYearlyIncome_Input').html('Termasuk Kupon Tunai Tahunan/ Bayaran Tunai Terkumpul dan Dividen Tunai Terkumpul.');
-                }
-                else
-                {
-                    $('.WBRidersFootNoteDesc').html("Inclusive of accumulated Yearly Cash Coupons/Cash Payments and accumulated Cash Dividends.");
-                	$('.accumulationYearlyIncome_Input').html('Inclusive of accumulated Yearly Cash Coupons/Cash Payments and accumulated Cash Dividends');
-                }  
-            }
-        } else if (gdata.SI[0].Trad_Details.data[0].CashDividend == 'POF') {
-            
-            if (gdata.SI[0].QuotationLang == "Malay") 
-            {
-                $('.paymentDesc').html(gdata.SI[0].SI_Temp_Trad.data[0].MCashPaymentD + '&nbsp;(Dividen Tunai Dibayar)');
-            } else //English
-            {
-                $('.paymentDesc').html(gdata.SI[0].SI_Temp_Trad.data[0].CashPaymentD + '&nbsp;(Cash Dividend Payout)');
-            }
-            
-            if (parseInt(gdata.SI[0].Trad_Details.data[0].PartialPayout) == 100) { //CD : Payout GYI : Payout
-                $('.totalSurrenderValue').html(surrColumn+'(4)=(2)+(8)');
-                $('.tpdBenefit').html(deathBenefitColumn+'(5)=(3)+(9)');
-                $('.totalSurrenderValueRider').html(surrColumn+'(5)=(3)+(8)');
-                $('.tpdBenefitRider').html(deathBenefitColumn+'(6)=(4)+(9)');
-                $('.accumulationYearlyIncome').hide(); 
-                if (gdata.SI[0].QuotationLang == "Malay")
-                {
-                    $('.WBRidersFootNoteDesc').html("Termasuk Dividen Tunai Terkumpul;");
-                }
-                else{
-                    $('.WBRidersFootNoteDesc').html("Inclusive of accumulated Cash Dividends.");    
-                }
-
-            } else {                                                               //CD : Payout GYI : ACC
-                $('.totalSurrenderValue').html(surrColumn+'(4)=(2)+(8)');
-                $('.tpdBenefit').html(deathBenefitColumn+'(5)=(3)+(9)');
-                $('.totalSurrenderValueRider').html(surrColumn+'(5)=(3)+(8)+(9)');
-                $('.tpdBenefitRider').html(deathBenefitColumn+'(6)=(4)+(8)+(10)');  
-                if (gdata.SI[0].QuotationLang == "Malay"){
-                    $('.WBRidersFootNoteDesc').html("Termasuk Kupon Tunai Tahunan/ Bayaran Tunai Terkumpul.");
-                	$('.accumulationYearlyIncome_Input').html('Termasuk Kupon Tunai Tahunan/ Bayaran Tunai Terkumpul.'); 
-                }
-                else
-                {
-                    $('.WBRidersFootNoteDesc').html("Inclusive of accumulated Yearly Cash Coupons/Cash Payments. ");  
-                	$('.accumulationYearlyIncome_Input').html('Inclusive of accumulated Yearly Cash Coupons/Cash Payments');  
-                }     
-            }
-        }
-    } else {
-        if ($.trim(gdata.SI[0].Trad_Details.data[0].CashDividend) == 'ACC') //payment description
-        {
-            if (gdata.SI[0].QuotationLang == "Malay") // added by Edwin for language switch 3-9-2013
-            {
-                $('.paymentDesc').html(gdata.SI[0].SI_Temp_Trad.data[0].MCashPaymentD + '&nbsp;(Dividen Tunai Terkumpul)');
-            } else //English
-            {
-                $('.paymentDesc').html(gdata.SI[0].SI_Temp_Trad.data[0].CashPaymentD + '&nbsp;(Cash Dividend Accumulate)<br/>');
-            }
-            
-            if (parseInt(gdata.SI[0].Trad_Details.data[0].PartialPayout) == 100) {
-                $('.totalSurrenderValue').html(surrColumn+'=(3)+(10)+(11)');
-                $('.tpdBenefit').html(deathBenefitColumn+'=(4B)+(10)+(12)');
-                $('.accumulationYearlyIncome').hide(); //# description. Cash Promise
-            } else {
-                $('.totalSurrenderValue').html(surrColumn+'=(3)+(10)+(11)+(12)');
-                $('.tpdBenefit').html(deathBenefitColumn+'=(4B)+(10)+(11)+(13)');
-                $('.cashPayment1').html('#');
-                $('.cashPayment2').html('#');
-            }
-        } else if (gdata.SI[0].Trad_Details.data[0].CashDividend == 'POF') {
-            
-            if (gdata.SI[0].QuotationLang == "Malay") 
-            {
-                $('.paymentDesc').html(gdata.SI[0].SI_Temp_Trad.data[0].MCashPaymentD + '&nbsp;(Dividen Tunai Dibayar)');
-            } else //English
-            {
-                $('.paymentDesc').html(gdata.SI[0].SI_Temp_Trad.data[0].CashPaymentD + '&nbsp;(Cash Dividend Payout)');
-            }
-            
-            if (parseInt(gdata.SI[0].Trad_Details.data[0].PartialPayout) == 100) {
-                $('.totalSurrenderValue').html(surrColumn+'=(3)+(10)');
-                $('.tpdBenefit').html(deathBenefitColumn+'=(4B)+(11)');
-                $('.accumulationYearlyIncome').hide(); //# description. Cash Promise
-            } else {
-                $('.totalSurrenderValue').html(surrColumn+'=(3)+(10)+(11)');
-                $('.tpdBenefit').html(deathBenefitColumn+'=(4B)+(10)+(12)');
-                $('.cashPayment1').html('#');
-                $('.cashPayment2').html('#');
-            }
-        }
-    }    
+      
 }
 
 function writeSummary2_HLCP() {

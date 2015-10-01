@@ -65,7 +65,8 @@
 			if(result.length > 1){
             	var row2 = result[1];
 			}
-			
+		
+		
 			
             if(result.length == 1){
             	var row = result[0];
@@ -74,7 +75,7 @@
                 $('.LAAge').html(row.Age);
 		$('.OccpDesc').html(row.OccpDesc);
 	      
-	      if (row.MOP == '1'){
+		if (row.MOP == '1'){
                 	$('.MOP').html('Tunggal');
             	}
                 else{
@@ -228,30 +229,30 @@
 	</div>
   	<div class="main-content">
 	  <br/>
-      	<table id="table-LA"> 
+      	<table style="border-collapse:separate;border:0px solid black;width:100%;" > 
 			<tr>
-				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; width: 25%;">Nama Tertanggung :</td>
-				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; width: 25%;"><span class="LAName"></span></td>
-				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; width: 25%;">Jenis Kelamin :</td>
-				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; width: 25%;"><span class="LASex"></span></td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; width: 25%;">Nama Tertanggung :</td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; width: 25%;"><span class="LAName"></span></td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; width: 25%;">Jenis Kelamin :</td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; width: 25%;"><span class="LASex"></span></td>
 	  		</tr>
 			<tr>
-				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; ">Usia Masuk</td>
-				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; "><span class="LAAge"></span></td>
-				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; ">Mata Uang</td>
-				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; ">Rupiah</td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; ">Usia Masuk</td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; "><span class="LAAge"></span></td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; ">Mata Uang</td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; ">Rupiah</td>
 	  		</tr>
 			<tr>
-				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; ">Pekerjaan</td>
-				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; "><span class="OccpDesc"></span></td>
-				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; ">Masa Pembayaran</td>
-				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; ">Tahunan</td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; ">Pekerjaan</td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; "><span class="OccpDesc"></span></td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; ">Masa Pembayaran</td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; ">Tahunan</td>
 	  		</tr>
 			<tr>
-				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; ">Frekuensi Pembayaran </td>
-				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; "><span class="MOP"></span></td>
-				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; "></td>
-				<td style="text-align:left;padding: 0px 0px 0px 0px;border: 1px solid black; "></td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; ">Frekuensi Pembayaran </td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; "><span class="MOP"></span></td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; "></td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; "></td>
 	  		</tr>
 			
 		</table>
@@ -269,8 +270,8 @@
 		  <td style="text-align: center">Asuransi Dasar</td>
 		  <td style="text-align: center">BCA Life Heritage</td>
 		  <td style="text-align: center">Hingga umur 99</td>
-		  <td style="text-align: center">Uang Pertanggungan</td>
-		  <td style="text-align: center">Premi</td>
+		  <td style="text-align: center"><span class="BasicSA"></span></td>
+		  <td style="text-align: center"><span class="BasicPrem"></span></td>
 		</tr>
 		<tr>
 		  <td colspan="5">(Frekuensi Pembayaran, Mata Uang, Masa Pembayaran, Uang Pertanggungan dan Premi tersebut di atas adalah bagian dari SPAJ yang akan digunakan sebagai acuan dalam proses penerbitan polis)</td>

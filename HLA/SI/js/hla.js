@@ -259,6 +259,8 @@ function setPage() {
     }
     */
     
+    $('.BasicSA').html(CurrencyNoCents(gdata.SI[0].BasicSA));	
+    $('.BasicPrem').html(CurrencyNoCents(gdata.SI[0].SI_Store_Premium.data[0].PremiumWithoutHLoading));
     $('.SICode').html(gdata.SI[0].SINo);
     $('.totalPages').html(gdata.SI[0].TotalPages); 
     $.each(gdata.SI[0].SI_Temp_Pages.data, function(index, row) {

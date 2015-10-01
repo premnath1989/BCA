@@ -61,7 +61,7 @@ NSMutableArray *UpdateTradDetail, *gWaiverAnnual, *gWaiverSemiAnnual, *gWaiverQu
 	NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docsDir = [dirPaths objectAtIndex:0];
     databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"hladb.sqlite"]];
-    RatesDatabasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"HLA_Rates.sqlite"]];
+    RatesDatabasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"BCA_Rates.sqlite"]];
     
     UpdateTradDetail = [[NSMutableArray alloc] init ];
 	UpdateTradDetailTerm = [[NSMutableArray alloc] init ];
@@ -139,7 +139,7 @@ NSMutableArray *UpdateTradDetail, *gWaiverAnnual, *gWaiverSemiAnnual, *gWaiverQu
     
     [self InsertToSI_Temp_Trad_LA]; // for the front summary page
 	
-    [self InsertToSI_Temp_Trad_Details]; // for the front summary page figures
+    //[self InsertToSI_Temp_Trad_Details]; // for the front summary page figures
 	
     if([PDSorSI isEqualToString:@"SI"])
     {
@@ -151,7 +151,7 @@ NSMutableArray *UpdateTradDetail, *gWaiverAnnual, *gWaiverSemiAnnual, *gWaiverQu
         {
             [self InsertToSI_Temp_Trad_Basic_HLAWP];//you can cheat the whole world, but not yourself. be a grown man, be a responsible guy and stop giving empty promise
         }
-        else if([pPlanCode isEqualToString:@"L100"])
+        else if([pPlanCode isEqualToString:@"BCALH"])
         {
             [self InsertToSI_Temp_Trad_Basic_L100];
         }
@@ -167,7 +167,7 @@ NSMutableArray *UpdateTradDetail, *gWaiverAnnual, *gWaiverSemiAnnual, *gWaiverQu
             [self InsertToSI_Temp_Trad_Basic_HLAWP];
         }
     }
-    
+    /*
     [self InsertToSI_Temp_Trad_Rider];
     
     if([pPlanCode isEqualToString:@"HLAWP"])
@@ -188,22 +188,19 @@ NSMutableArray *UpdateTradDetail, *gWaiverAnnual, *gWaiverSemiAnnual, *gWaiverQu
     if([pPlanCode isEqualToString:@"HLAWP"] || [pPlanCode isEqualToString:@"S100"]) {
         [self Insert_Into_SI_temp_Benefit];
     }
-    
+    */
 	if ([PDSorSI isEqualToString:@"SI"]) {
 		NSString *siNo = @"";
 		NSString *databaseName = @"hladb.sqlite";
 		
 		self.db = [DBController sharedDatabaseController:databaseName];
 		
-		NSString *sqlStmt = [NSString stringWithFormat:@"SELECT SiNo FROM SI_Temp_Trad"];
-		_dataTable = [_db  ExecuteQuery:sqlStmt];
+		NSString *sqlStmt;
+
 		
-		NSArray* row = [_dataTable.rows objectAtIndex:0];
-		siNo = [row objectAtIndex:0];
 		
-		sqlStmt = [NSString stringWithFormat:@"SELECT RiderCode FROM Trad_Rider_Details Where SINo = '%@' ORDER BY Seq ASC, PTypeCode ASC, RiderCode ASC",siNo];
 		
-		_dataTable = [_db  ExecuteQuery:sqlStmt];
+		
 		int pageNum = 0;
 		int riderCount = 0;
 		int riderCountStart = 19; //rider html page number
@@ -228,13 +225,13 @@ NSMutableArray *UpdateTradDetail, *gWaiverAnnual, *gWaiverSemiAnnual, *gWaiverQu
         } else if([pPlanCode isEqualToString:@"S100"]) {
             [self buildSITempPagesS100:&pageNum desc:desc sqlStmt:&sqlStmt DBID:&DBID];
             
-        } else if([pPlanCode isEqualToString:@"L100"]) {
+        } else if([pPlanCode isEqualToString:@"L100"] || [pPlanCode isEqualToString:@"BCALH"]) {
             [self buildSITempPagesL100:&pageNum desc:desc sqlStmt:&sqlStmt DBID:&DBID];
             
         } else if ([pPlanCode isEqualToString:@"HLACP"]) {
             [self buildSITempPagesHLACP:&pageNum desc:desc sqlStmt:&sqlStmt DBID:&DBID];
         }
-        
+        /*
         for (row in _dataTable.rows)
         {
             if(![RiderViewController containsWealthGYIRiders:[row objectAtIndex:0]]){
@@ -301,7 +298,7 @@ NSMutableArray *UpdateTradDetail, *gWaiverAnnual, *gWaiverSemiAnnual, *gWaiverQu
             descRiderCountStart = 35;
             [self buildSITempPagesRiderBenefit:&pageNum description:desc descRiderCountStart:descRiderCountStart endPage1:@"Page40" endPage2:@"Page41" endPage3:@"Page42"];
         }
-        
+        */
         sqlStmt = Nil;
         dirPaths = Nil;
         docsDir = Nil;
@@ -580,7 +577,7 @@ NSMutableArray *UpdateTradDetail, *gWaiverAnnual, *gWaiverSemiAnnual, *gWaiverQu
     if (*DBID <= 0){
         NSLog(@"Error inserting data into database.");
     }
-    
+    /*
     numberOfItems = _dataTable.rows.count + 1; //1 is for basic plan
     
     if( numberOfItems > 13){
@@ -607,16 +604,16 @@ NSMutableArray *UpdateTradDetail, *gWaiverAnnual, *gWaiverSemiAnnual, *gWaiverQu
             numberOfItems = numberOfItems + 4;
         }
     }
-    
+    */
     (*pageNum)++;
-    *sqlStmt = [NSString stringWithFormat:@"INSERT INTO SI_Temp_Pages(htmlName, PageNum, PageDesc) VALUES ('L100_Page2.html',%d,'%@')",*pageNum,[desc stringByAppendingString:[NSString stringWithFormat:@"%d",*pageNum]]];
+    *sqlStmt = [NSString stringWithFormat:@"INSERT INTO SI_Temp_Pages(htmlName, PageNum, PageDesc) VALUES ('eng_L100_Page2.html',%d,'%@')",*pageNum,[desc stringByAppendingString:[NSString stringWithFormat:@"%d",*pageNum]]];
     *DBID = [_db ExecuteINSERT:*sqlStmt];
     if (*DBID <= 0){
         NSLog(@"Error inserting data into database.");
     }
     
     (*pageNum)++;
-    *sqlStmt = [NSString stringWithFormat:@"INSERT INTO SI_Temp_Pages(htmlName, PageNum, PageDesc) VALUES ('L100_Page2_2.html',%d,'%@')",*pageNum,[desc stringByAppendingString:[NSString stringWithFormat:@"%d",*pageNum]]];
+    *sqlStmt = [NSString stringWithFormat:@"INSERT INTO SI_Temp_Pages(htmlName, PageNum, PageDesc) VALUES ('eng_L100_Page3.html',%d,'%@')",*pageNum,[desc stringByAppendingString:[NSString stringWithFormat:@"%d",*pageNum]]];
     *DBID = [_db ExecuteINSERT:*sqlStmt];
     if (*DBID <= 0){
         NSLog(@"Error inserting data into database.");
@@ -1621,7 +1618,7 @@ NSMutableArray *UpdateTradDetail, *gWaiverAnnual, *gWaiverSemiAnnual, *gWaiverQu
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     
-    [self SetupRiderCode];
+    //[self SetupRiderCode];
     
     NSArray *paths2 = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docsPath2 = [paths2 objectAtIndex:0];
@@ -1647,11 +1644,11 @@ NSMutableArray *UpdateTradDetail, *gWaiverAnnual, *gWaiverSemiAnnual, *gWaiverQu
     NSString *_SINo;
     NSString *PlanName;
     NSString *PlanCode;
-    while([results next]) {
-        _SINo = [results stringForColumn:@"SINo"];
-        PlanCode = [results stringForColumn:@"PlanCode"];
-        PlanName = [results stringForColumn:@"PlanName"];
-    }
+
+        _SINo = SINo;
+        PlanCode = @"BCALH";
+        PlanName = @"";
+
     
     query = [NSString stringWithFormat:@"Select UpdatedAt,HL1KSA,TempHL1KSA from Trad_Details where SINo ='%@'",_SINo];
     results = [database executeQuery:query];
@@ -1699,15 +1696,7 @@ NSMutableArray *UpdateTradDetail, *gWaiverAnnual, *gWaiverSemiAnnual, *gWaiverQu
     }
     //SI Underwriting Pages ends
     
-    //SI Temp GST start
-//    else if (reportType == REPORT_GST) {
-    NSMutableArray* tempArr = [self reformatDataFromDatabase:database];
-    temp = [self buildTempSITradGSTUsing:database andArray:tempArr];
-    [content appendString:temp];
-    temp = nil;
-    tempArr = nil;
-    
-    //SI Temp GST end
+
     
     //SI Main components for Quotation start
     if(!isPDS)
@@ -1734,28 +1723,12 @@ NSMutableArray *UpdateTradDetail, *gWaiverAnnual, *gWaiverSemiAnnual, *gWaiverQu
     [self buildSITempTradLA:_SINo database:database withContent:&content];
     //SI_Temp_Trad_LA end
     
-    //SI_Temp_Trad_Details start
-    temp = [self buildTempSITradDetailsUsing:database];
-    [content appendString:temp];
-    
-    //SI_Temp_Trad_Details end
+
     
     //SI_Temp_Trad_Basic start
     temp = [self buildTempSITradBasicUsing:database];
     [content appendString:temp];
     
-    //SI_Temp_Trad_Basic end
-    [self buildSITempTrad:database withContent:&content];
-    //SI_Temp_Trad end
-    
-    [self buildSITradOverall:database withContent:&content];
-    //SI_Temp_Trad_Overall end
-    
-    [self buildTradDetails:_SINo database:database withContent:&content dateFormatter:dateFormatter];
-    //Trad_Details end
-    
-    [self buildSITempTradRider:database withContent:&content];
-    //SI_Temp_Trad_Rider end
     
     
     if([pPlanCode isEqualToString:@"HLAWP"])
@@ -1769,9 +1742,7 @@ NSMutableArray *UpdateTradDetail, *gWaiverAnnual, *gWaiverSemiAnnual, *gWaiverQu
         //SI_Temp_Trad_Summary end
     }
     
-    //Trad_Rider_Details start
-    [self buildTradRiderDetails:_SINo database:database withContent:&content];
-    //Trad_Rider_Details end
+
     
     //SI_Temp_Pages_PDS start
     totalRecords = [self buildSITempPagesPDS:database withContent:&content];
@@ -4651,54 +4622,98 @@ NSMutableArray *UpdateTradDetail, *gWaiverAnnual, *gWaiverSemiAnnual, *gWaiverQu
     
 }
 
-//For Life 100, Edwin @ 19-02-2014
+
 -(void)InsertToSI_Temp_Trad_Basic_L100
 {
     NSString *QuerySQL;
     sqlite3_stmt *statement;
-    NSMutableArray *SurrenderRatesL100 = [[NSMutableArray alloc] init ];
-    int maxPolYear=-1;
+    NSMutableArray *SurValueSingle = [[NSMutableArray alloc] init ];
+    NSMutableArray *SurValue5Pay = [[NSMutableArray alloc] init ];
     
     if (sqlite3_open([RatesDatabasePath UTF8String], &contactDB) == SQLITE_OK)
     {
-        QuerySQL = [NSString stringWithFormat: @"Select rate, polyear from trad_sys_Basic_csv where "
-                    " age = \"%d\" and plancode='%@' order by polyear", Age, pPlanCode];
-        
-        if(sqlite3_prepare_v2(contactDB, [QuerySQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
-            NSNumber *num;
-            while (sqlite3_step(statement) == SQLITE_ROW) {
-                num = [NSNumber numberWithFloat:sqlite3_column_double(statement, 0)];
-                [SurrenderRatesL100 addObject:num];
-                maxPolYear = sqlite3_column_int(statement, 1);
+        for (int i = 1; i < 100 - Age; i++) {
+            QuerySQL = [NSString stringWithFormat: @"Select rates from cash_SurValue_Single where "
+                        " age = \"%d\" and gender='%@' ", Age + i - 1, [sex substringToIndex:1]];
+            
+            if(sqlite3_prepare_v2(contactDB, [QuerySQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
+                
+                if(sqlite3_step(statement) == SQLITE_ROW) {
+                    
+                    [SurValueSingle addObject:[NSString stringWithFormat:@"%f", sqlite3_column_double(statement, 0) ]];
+                    
+                }
+                sqlite3_finalize(statement);
             }
-            sqlite3_finalize(statement);
+            
+            if (premiumPaymentOption == 5) {
+                QuerySQL = [NSString stringWithFormat: @"Select rates from cash_SurValue_5Pay where "
+                            " age = \"%d\" and gender='%@' AND year = '%d' ", Age + i - 1, [sex substringToIndex:1], i];
+                
+                if(sqlite3_prepare_v2(contactDB, [QuerySQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
+                    
+                    if(sqlite3_step(statement) == SQLITE_ROW) {
+                        
+                        [SurValue5Pay addObject:[NSString stringWithFormat:@"%f", sqlite3_column_double(statement, 0) ]];
+                        
+                    }
+                    sqlite3_finalize(statement);
+                }
+            }
+            
+            
         }
+        
         sqlite3_close(contactDB);
     }
     
     //----do the insertion of si_temp_trad_basic here---------------//
-    NSString *surrValue;
+
     int skipCount=1;
     int lifeAsAt=0;
     int seqNo=1;
     double totPremPaid = 0;
-    NSString *basicAnnualSA;
-    double deathBenefit;
-    int totalAnn;
+
+
     
-    double juv = 1.0;
-    double tempTotal;
-    for (int polYear=1; polYear<=maxPolYear; polYear++) {
+    double PenanggunganTambahanAcc = 0.00;
+    double PrevPenanggunganTambahanAcc = 0.00;
+    double PenanggunganTambahan = 0.00;
+    double NilaiTunaiTerjamin = 0.00;
+    double NilaiTunaiPerTanggunganTambahan = 0.00;
+    double TotalNilaiTunai = 0.00;
+    double TotalManfaat = 0.00;
+    double RB_Rate = 0.015;
+    double interest_Rate = 0.0225;
+    int RB_Factor = 0;
+    double tempBasicSA = BasicSA/1000;
+    
+    for (int polYear=1; polYear< 100 - Age; polYear++) {
         lifeAsAt = polYear + Age;
-        juv = [self getJuvenileRate:lifeAsAt];
+        //juv = [self getJuvenileRate:lifeAsAt];
+
+        if (premiumPaymentOption == 1) {
+            RB_Factor = polYear == 1 ? 0 : 1;
+        }
+        else{
+            RB_Factor = polYear < 3 ? 0 : 1;
+        }
         
-        basicAnnualSA = [aStrBasicSA objectAtIndex:(polYear-1)];
-        surrValue = [NSString stringWithFormat:@"%d", [self roundingDouble:[[SurrenderRatesL100 objectAtIndex:polYear-1] floatValue] * BasicSA/1000]]; //here haha
-        tempTotal = [self getL100TotalAnnualPremium:polYear basicAnnualSA:basicAnnualSA];
-        totalAnn = [self roundingDouble:tempTotal];
+        PenanggunganTambahan = RB_Factor * (tempBasicSA * RB_Rate) + (PrevPenanggunganTambahanAcc * interest_Rate);
+        PenanggunganTambahanAcc = PenanggunganTambahanAcc + PenanggunganTambahan;
+        PrevPenanggunganTambahanAcc = PenanggunganTambahanAcc;
+        TotalManfaat = tempBasicSA + PenanggunganTambahanAcc;
         
-        deathBenefit = BasicSA * juv;
-        totPremPaid = totPremPaid + tempTotal;
+        if (premiumPaymentOption == 1) {
+                NilaiTunaiTerjamin = [[SurValueSingle objectAtIndex:polYear -1] doubleValue] * tempBasicSA;
+        }
+        else{
+               NilaiTunaiTerjamin = [[SurValue5Pay objectAtIndex:polYear -1] doubleValue] * tempBasicSA;
+        }
+        
+        NilaiTunaiPerTanggunganTambahan = [[SurValueSingle objectAtIndex:polYear - 1] doubleValue] * tempBasicSA;
+        
+        TotalNilaiTunai = NilaiTunaiTerjamin + NilaiTunaiPerTanggunganTambahan;
         
         if(lifeAsAt<100) {
             if(polYear>20 && skipCount<5) {
@@ -4710,12 +4725,12 @@ NSMutableArray *UpdateTradDetail, *gWaiverAnnual, *gWaiverSemiAnnual, *gWaiverQu
         
         QuerySQL = [NSString stringWithFormat: @"Insert INTO SI_Temp_Trad_Basic "
                     "(\"SINO\", \"SeqNo\", \"DataType\",\"col0_1\",\"col0_2\", "
-                    "\"col1\",\"col2\", \"col3\",\"col4\" ) "
+                    "\"col1\",\"col2\", \"col3\",\"col4\",\"col5\", \"col6\",\"col7\" ) "
                     "VALUES ( "
                     " \"%@\",\"%d\",\"DATA\",\"%d\",\"%d\", "
-                    "\"%@\",\"%@\",\"%f\",\"%d\" )",
+                    "\"%.0f\",\"%.0f\",\"%.0f\",\"%.0f\",\"%.0f\",\"%.0f\",\"%.0f\" )",
                     SINo, seqNo, polYear, lifeAsAt,
-                    basicAnnualSA, surrValue, deathBenefit, totalAnn]; //here noob
+                    tempBasicSA,  PenanggunganTambahan, PenanggunganTambahanAcc, TotalManfaat, NilaiTunaiTerjamin, NilaiTunaiPerTanggunganTambahan, TotalNilaiTunai];
         
         if (sqlite3_open([databasePath UTF8String], &contactDB) == SQLITE_OK){
             if(sqlite3_prepare_v2(contactDB, [QuerySQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {

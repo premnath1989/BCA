@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0408F5A11BBCE6BD00C3F087 /* HLValueList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0408F5A01BBCE6BD00C3F087 /* HLValueList.m */; };
 		04328CC719EBC12B005E7D32 /* house.png in Resources */ = {isa = PBXBuildFile; fileRef = 04328CC619EBC12B005E7D32 /* house.png */; };
 		043FDB981A1AEEE6008EDC24 /* transparent_boxv2.png in Resources */ = {isa = PBXBuildFile; fileRef = 043FDB931A1AEEE6008EDC24 /* transparent_boxv2.png */; };
 		043FDB991A1AEEE6008EDC24 /* sales_illustrationv2.png in Resources */ = {isa = PBXBuildFile; fileRef = 043FDB941A1AEEE6008EDC24 /* sales_illustrationv2.png */; };
@@ -751,6 +752,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0408F59F1BBCE6BD00C3F087 /* HLValueList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLValueList.h; sourceTree = "<group>"; };
+		0408F5A01BBCE6BD00C3F087 /* HLValueList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLValueList.m; sourceTree = "<group>"; };
 		04328CC619EBC12B005E7D32 /* house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = house.png; sourceTree = "<group>"; };
 		043FDB931A1AEEE6008EDC24 /* transparent_boxv2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transparent_boxv2.png; sourceTree = "<group>"; };
 		043FDB941A1AEEE6008EDC24 /* sales_illustrationv2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sales_illustrationv2.png; sourceTree = "<group>"; };
@@ -3917,6 +3920,8 @@
 				6A4ACBBD17EA9F500037C358 /* Country.m */,
 				C36D82321AF9E2CD0070D070 /* Country2.h */,
 				C36D82331AF9E2CE0070D070 /* Country2.m */,
+				0408F59F1BBCE6BD00C3F087 /* HLValueList.h */,
+				0408F5A01BBCE6BD00C3F087 /* HLValueList.m */,
 			);
 			name = PopOver;
 			sourceTree = "<group>";
@@ -4988,6 +4993,7 @@
 				29D956A11888D5840063792C /* PendingVCCell.m in Sources */,
 				6A16C19F1889384300F7EFFA /* ProposalForm.m in Sources */,
 				6A16C1A318893C0E00F7EFFA /* NDHTMLtoPDF2.m in Sources */,
+				0408F5A11BBCE6BD00C3F087 /* HLValueList.m in Sources */,
 				6A0B175D188A36DE00931673 /* ApplicationAuthorization.m in Sources */,
 				6A0B175F188A36DE00931673 /* CAform.m in Sources */,
 				6A0B1761188A36DE00931673 /* FFform.m in Sources */,

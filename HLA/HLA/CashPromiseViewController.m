@@ -1863,6 +1863,8 @@ NSMutableArray *UpdateTradDetail, *gWaiverAnnual, *gWaiverSemiAnnual, *gWaiverQu
         [*content appendFormat:@"\"Age\":\"%@\",\n", [results stringForColumn:@"Age"]];
         [*content appendFormat:@"\"Sex\":\"%@\",\n", [results stringForColumn:@"Sex"]];
         [*content appendFormat:@"\"Smoker\":\"%@\",\n", [results stringForColumn:@"Smoker"]];
+        [*content appendFormat:@"\"OccpDesc\":\"%@\",\n", OccpDesc];
+        [*content appendFormat:@"\"MOP\":\"%d\",\n", premiumPaymentOption];
         [*content appendFormat:@"\"PTypeCode\":\"%@\"\n", [results stringForColumn:@"PTypeCode"]];
         if (currentRecord == totalRecords){ //last record
             [*content appendString:@"}\n"];
@@ -4648,14 +4650,15 @@ NSMutableArray *UpdateTradDetail, *gWaiverAnnual, *gWaiverSemiAnnual, *gWaiverQu
             
             if (premiumPaymentOption == 5) {
                 QuerySQL = [NSString stringWithFormat: @"Select rates from cash_SurValue_5Pay where "
-                            " age = \"%d\" and gender='%@' AND year = '%d' ", Age + i - 1, [sex substringToIndex:1], i];
+                            " age = \"%d\" and gender='%@' AND year = '%d' ", Age, [sex substringToIndex:1], i];
                 
                 if(sqlite3_prepare_v2(contactDB, [QuerySQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
                     
                     if(sqlite3_step(statement) == SQLITE_ROW) {
-                        
                         [SurValue5Pay addObject:[NSString stringWithFormat:@"%f", sqlite3_column_double(statement, 0) ]];
-                        
+                    }
+                    else{
+                        [SurValue5Pay addObject:@"0.00"];
                     }
                     sqlite3_finalize(statement);
                 }
@@ -4705,13 +4708,13 @@ NSMutableArray *UpdateTradDetail, *gWaiverAnnual, *gWaiverSemiAnnual, *gWaiverQu
         TotalManfaat = tempBasicSA + PenanggunganTambahanAcc;
         
         if (premiumPaymentOption == 1) {
-                NilaiTunaiTerjamin = [[SurValueSingle objectAtIndex:polYear -1] doubleValue] * tempBasicSA;
+                NilaiTunaiTerjamin = [[SurValueSingle objectAtIndex:polYear -1] doubleValue] * tempBasicSA/1000.00;
         }
         else{
-               NilaiTunaiTerjamin = [[SurValue5Pay objectAtIndex:polYear -1] doubleValue] * tempBasicSA;
+               NilaiTunaiTerjamin = [[SurValue5Pay objectAtIndex:polYear -1] doubleValue] * tempBasicSA/1000.00;
         }
         
-        NilaiTunaiPerTanggunganTambahan = [[SurValueSingle objectAtIndex:polYear - 1] doubleValue] * tempBasicSA;
+        NilaiTunaiPerTanggunganTambahan = [[SurValueSingle objectAtIndex:polYear - 1] doubleValue] * PenanggunganTambahanAcc/1000.00;
         
         TotalNilaiTunai = NilaiTunaiTerjamin + NilaiTunaiPerTanggunganTambahan;
         
@@ -10303,7 +10306,7 @@ NSMutableArray *UpdateTradDetail, *gWaiverAnnual, *gWaiverSemiAnnual, *gWaiverQu
     if (sqlite3_open([databasePath UTF8String], &contactDB) == SQLITE_OK){		
         QuerySQL = [ NSString stringWithFormat:@"select \"PolicyTerm\", \"BasicSA\", \"premiumPaymentOption\", \"CashDividend\",  "
                     "\"YearlyIncome\", \"AdvanceYearlyIncome\", \"HL1KSA\",\"sex\",\"Class\",\"OccLoading_TL\", \"HL1KSATerm\",\"TempHL1KSA\",\"TempHL1KSATerm\" "
-                    ", \"PartialAcc\", \"PartialPayout\", A.QuotationLang from Trad_Details as A, "
+                    ", \"PartialAcc\", \"PartialPayout\", A.QuotationLang, D.OccpDesc from Trad_Details as A, "
                     "Clt_Profile as B, trad_LaPayor as C, Adm_Occp_Loading_Penta as D where A.Sino = C.Sino AND C.custCode = B.custcode AND "
                     "D.OccpCode = B.OccpCode AND A.sino = \"%@\" AND \"seq\" = 1 ", SINo];
         
@@ -10324,6 +10327,7 @@ NSMutableArray *UpdateTradDetail, *gWaiverAnnual, *gWaiverSemiAnnual, *gWaiverQu
                 PartialAcc = sqlite3_column_int(statement, 13);
                 PartialPayout = sqlite3_column_int(statement, 14);
                 lang = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 15)];
+                OccpDesc = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 16)];
             }
             sqlite3_finalize(statement);
             

@@ -66,6 +66,7 @@
     NSMutableArray *OtherRiderPremWithoutHLoading;
     
     float gstValue;
+    NSString *OccpDesc;
 }
 
 @property (nonatomic,assign) int paymentOption;

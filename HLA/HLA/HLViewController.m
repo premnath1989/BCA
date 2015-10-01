@@ -17,6 +17,8 @@
 @synthesize getHL,getHLTerm,getTempHL,getTempHLTerm,termCover,ageClient,planChoose,SINo,requesteProposalStatus, EAPPorSI, outletDone;
 @synthesize outletEAPP, outletSpace, getMOP;
 @synthesize delegate = _delegate;
+@synthesize ValueList = _VaLueList;
+@synthesize planPopover = _planPopover;
 
 - (void)viewDidLoad
 {
@@ -38,6 +40,7 @@
 		Editable = YES;
 	}
 	
+    HLField.tag = 333;
     [HLField setDelegate:self];
     [HLTermField setDelegate:self];
     [TempHLField setDelegate:self];
@@ -51,9 +54,13 @@
 	tap.numberOfTapsRequired = 1;
 	
 	[self.view addGestureRecognizer:tap];
-	
-
-	
+	/*
+    self.ValueList = [[HLValueList alloc] init];
+    _VaLueList.delegate = self;
+    HLField.delegate = self;
+    
+    [HLField addTarget:self action:@selector(HLDropDown) forControlEvents:UIControlEventEditingDidBegin];
+	*/
 	outletEAPP.width = 0.01;
     outletSpace.width = 666;
 	
@@ -69,6 +76,9 @@
 			outletDone.enabled = FALSE;
 		}				
 	}
+    
+    [self DisableTextField:TempHLField];
+    [self DisableTextField:TempHLTermField];
 	    
     if([EAPPorSI isEqualToString:@"eAPP"]){
         [self disableFieldsForEapp];
@@ -100,6 +110,30 @@
 -(void)DisableTextField :(UITextField *)aaTextField{
 	aaTextField.backgroundColor = [UIColor lightGrayColor];
 	aaTextField.enabled = FALSE;
+}
+
+-(void)HLDropDown{
+    
+
+    
+    if (_VaLueList == nil) {
+        self.ValueList = [[HLValueList alloc] init];
+        _VaLueList.delegate = self;
+        self.planPopover = [[UIPopoverController alloc] initWithContentViewController:_VaLueList];
+    }
+    
+    CGRect rect = [HLField frame];
+    rect.origin.y = [HLField frame].origin.y + 30;
+    
+    [self.planPopover setPopoverContentSize:CGSizeMake(350.0f, 200.0f)];
+    [self.planPopover presentPopoverFromRect:rect  inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+
+}
+
+-(void)PopulateTextBox:(NSString *)Selected{
+    
+    HLField.text = Selected;
+    [self.planPopover dismissPopoverAnimated:YES];
 }
 
 -(void)loadHL
@@ -149,11 +183,16 @@
 {
 	[super viewDidDisappear:animated];
 }
+
+
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    
     [textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-    
+
+    if (textField.tag == 333) {
+        [self HLDropDown];
+    }
+
     return YES;
 }
 -(void)textFieldDidChange:(UITextField*)textField

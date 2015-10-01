@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <sqlite3.h>
 #import "AppDelegate.h"
+#import "HLValueList.h"
 
 @class HLViewController;
 @protocol HLViewControllerDelegate
@@ -16,12 +17,14 @@
 -(void)saveAll;
 @end
 
-@interface HLViewController : UIViewController <UITextFieldDelegate> {
+@interface HLViewController : UIViewController <UITextFieldDelegate, HLValueListDelegate> {
     NSString *databasePath;
     sqlite3 *contactDB;
     id <HLViewControllerDelegate> _delegate;
 	AppDelegate* appDelegate;
 	BOOL Editable;
+    UIPopoverController *_planPopover;
+    HLValueList *_VaLueList;
 }
 
 @property (nonatomic,strong) id <HLViewControllerDelegate> delegate;
@@ -54,6 +57,9 @@
 @property (nonatomic,assign,readwrite) int getHLTerm;
 @property (nonatomic,copy) NSString *getTempHL;
 @property (nonatomic,assign,readwrite) int getTempHLTerm;
+
+@property (nonatomic, retain) UIPopoverController *planPopover;
+@property (nonatomic, retain) HLValueList *ValueList;
 
 -(BOOL)validateSave;
 - (BOOL)updateHL;

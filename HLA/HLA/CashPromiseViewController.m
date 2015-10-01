@@ -1713,6 +1713,7 @@ NSMutableArray *UpdateTradDetail, *gWaiverAnnual, *gWaiverSemiAnnual, *gWaiverQu
         [content appendFormat:@"\"HL1KSA\":\"%d\",\n", HL1KSA];
         [content appendFormat:@"\"TempHL1KSA\":\"%f\",\n", TempHL1KSA];
         [content appendFormat:@"\"OCCPClass\":\"%@\",\n", OccpClass];
+        [content appendFormat:@"\"BasicSA\":\"%f\",\n", BasicSA ];
         
         [content appendFormat:@"\"TotalPages\":\"%d\",\n", TotalPages];
         [content appendFormat:@"\"QuotationLang\":\"%@\",\n", lang];
@@ -2897,6 +2898,7 @@ NSMutableArray *UpdateTradDetail, *gWaiverAnnual, *gWaiverSemiAnnual, *gWaiverQu
         [*content appendFormat:@"\"SemiAnnually\":\"%@\",\n", [results stringForColumn:@"SemiAnnually"]];
         [*content appendFormat:@"\"Quarterly\":\"%@\",\n", [results stringForColumn:@"Quarterly"]];
         [*content appendFormat:@"\"Monthly\":\"%@\",\n", [results stringForColumn:@"Monthly"]];
+        [*content appendFormat:@"\"PremiumWithoutHLoading\":\"%@\",\n", [results stringForColumn:@"PremiumWithoutHLoading"]];
         [*content appendFormat:@"\"FromAge\":\"%@\",\n", [results stringForColumn:@"FromAge"]];
         [*content appendFormat:@"\"ToAge\":\"%@\"\n", [results stringForColumn:@"ToAge"]];
         [*content appendString:@"}"];
@@ -4719,9 +4721,11 @@ NSMutableArray *UpdateTradDetail, *gWaiverAnnual, *gWaiverSemiAnnual, *gWaiverQu
         TotalNilaiTunai = NilaiTunaiTerjamin + NilaiTunaiPerTanggunganTambahan;
         
         if(lifeAsAt<100) {
-            if(polYear>20 && skipCount<5) {
-                skipCount++;
-                continue;
+            if(polYear>20 && skipCount<5   ) {
+                if (lifeAsAt != 100 - 1) {
+                    skipCount++;
+                    continue;
+                }
             }
         }
         skipCount = 1;

@@ -1180,7 +1180,24 @@ function writeSummary1_HLCP() {
     		CurrencyNoCents(row.col5) + '</td><td colspan="2">' + CurrencyNoCents(row.col6) + '</td><td colspan="2">' +
     		CurrencyNoCents(row.col7) + '</td><td colspan="2">' + formatCurrency(row.col11) + '</td></tr>');
     	});
-    }    
+    }
+	else if(gdata.SI[0].PlanCode=="BCALH") {
+       	
+		var number;       
+       	$.each(gdata.SI[0].SI_Temp_Trad_Basic.data, function(index, row) {
+       		if(index < 30) {
+       			number = row.col2;
+       			row.col2 = number | 0;       			
+				$('#table-Summary1 > tbody').append('<tr><td>' + row.col0_1 + '</td><td>' + row.col0_2 + '</td><td>' + formatCurrency(row.col1) + '</td><td>' +
+				CurrencyNoCents(row.col2) + '</td><td>' + CurrencyNoCents(row.col3) + '</td><td>' + CurrencyNoCents(row.col4) + '</td></tr>');
+       		} else {
+				number = row.col2;
+				row.col2 = number | 0;
+				$('#table-Summary1_2 > tbody').append('<tr><td>' + row.col0_1 + '</td><td>' + row.col0_2 + '</td><td>' + formatCurrency(row.col1) + '</td><td>' +
+				CurrencyNoCents(row.col2) + '</td><td>' + CurrencyNoCents(row.col3) + '</td><td>' + CurrencyNoCents(row.col4) + '</td></tr>'); 
+            }            
+        });
+    }
     
     //total premium paid
     $('.TotPremPaid').html(formatCurrency(gdata.SI[0].SI_Temp_Trad.data[0].TotPremPaid));

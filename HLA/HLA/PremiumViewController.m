@@ -735,6 +735,12 @@
     }
     
     sqlite3_stmt *statement;
+    /*
+    NSString *QuerySQL =  [ NSString stringWithFormat: @"INSERT INTO SI_Store_Premium (\"Type\",\"Annually\",\"SemiAnnually\", "
+                           " \"Quarterly\",\"Monthly\", 'SINO', 'PremiumWithoutHLoading') VALUES "
+                           " (\"B\", \"%@\", \"%@\", \"%@\", \"%@\", '%@', '%f') ", basicTotalA, basicTotalS, basicTotalQ, basicTotalM, SINo, BasicAnnually_];
+     */
+    
     NSString *QuerySQL =  [ NSString stringWithFormat: @"INSERT INTO SI_Store_Premium (\"Type\",\"Annually\",\"SemiAnnually\", "
                            " \"Quarterly\",\"Monthly\", 'SINO', 'PremiumWithoutHLoading') VALUES "
                            " (\"B\", \"%@\", \"%@\", \"%@\", \"%@\", '%@', '%f') ", basicTotalA, basicTotalS, basicTotalQ, basicTotalM, SINo, BasicAnnually_];

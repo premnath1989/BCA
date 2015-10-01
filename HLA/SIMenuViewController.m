@@ -85,7 +85,6 @@ int CurrentPath;
     [container setNavigationBarHidden:YES animated:NO];
     [container setViewControllers:[NSArray arrayWithObject:navController] animated:NO];
     
-	
 	[spinner_SI stopAnimating ];
 	[self.view setUserInteractionEnabled:YES];
 	[_FS Reset];
@@ -102,8 +101,9 @@ int CurrentPath;
 	selectedPath = previousPath;
 	spinner_SI = Nil;
 	
-//    [self presentModalViewController:container animated:YES]; // deprecated
+    //[self presentModalViewController:container animated:YES]; // deprecated
     [self presentViewController:container animated:YES completion:nil];
+    
     container = Nil;
 	controller= Nil;
 }
@@ -4583,8 +4583,8 @@ int CurrentPath;
                             
                             
                         }
-                        else if([getBasicPlan isEqualToString:@"HLAIB" ] ){
-                            [ReportPage dismissViewControllerAnimated:NO completion:Nil];
+                        else if([getBasicPlan isEqualToString:@"HLAIB" ] || [getBasicPlan isEqualToString:@"BCALH" ] ){
+                            [CPReportPage dismissViewControllerAnimated:NO completion:Nil];
                         }
                         
                         

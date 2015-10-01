@@ -59,6 +59,8 @@
     SIMenuViewController *_simenu;
     
     float gstValue;
+    
+    double BasicLoadingRate;
 }
 
 @property (nonatomic, assign) float gstValue;

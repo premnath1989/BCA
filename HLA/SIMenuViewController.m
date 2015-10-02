@@ -4622,7 +4622,7 @@ int CurrentPath;
                             {
                                 path = [[NSBundle mainBundle] pathForResource:@"SI/eng_Page1" ofType:@"html"]; //changed for language switcher @edwin 4-9-2013
                             }
-                            else if([getBasicPlan isEqualToString:@"L100"] || [getBasicPlan isEqualToString:@"BCALH"] )
+                            else if([getBasicPlan isEqualToString:@"L100"]  )
                             {
                                 path = [[NSBundle mainBundle] pathForResource:@"SI/eng_L100_Page1" ofType:@"html"]; //changed for language switcher @edwin 4-9-2013
                             }

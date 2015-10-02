@@ -9271,6 +9271,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="HLTermField" destination="09U-od-TJD" id="YXf-lZ-fAp"/>
                         <outlet property="TempHLField" destination="x52-w2-o8S" id="SAJ-1E-j8W"/>
                         <outlet property="TempHLTermField" destination="qS3-aA-lYY" id="ubI-aP-Yfs"/>
+                        <outlet property="TempHealthLoadg" destination="H0X-Lf-k4N" id="7EB-ej-STz"/>
+                        <outlet property="TempHealthLoadgTerm" destination="bEf-JD-hNl" id="noc-JP-a22"/>
                         <outlet property="headerTitle" destination="tO6-Bx-2Tj" id="2EA-qV-hz1"/>
                         <outlet property="myToolBar" destination="Z1C-Sq-b17" id="b8p-N5-jIx"/>
                         <outlet property="outletDone" destination="hUo-DA-nkp" id="LfT-S2-qmH"/>
@@ -13791,6 +13793,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="outlet" name="HLTermField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="TempHLField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="TempHLTermField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="TempHealthLoadg" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="TempHealthLoadgTerm" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="headerTitle" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="myToolBar" candidateClass="UIToolbar"/>
                 <relationship kind="outlet" name="outletDone" candidateClass="UIBarButtonItem"/>

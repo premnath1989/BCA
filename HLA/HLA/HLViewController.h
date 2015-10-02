@@ -38,6 +38,8 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *outletDone;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *outletEAPP;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *outletSpace;
+@property (weak, nonatomic) IBOutlet UILabel *TempHealthLoadg;
+@property (weak, nonatomic) IBOutlet UILabel *TempHealthLoadgTerm;
 
 - (IBAction)ActionEAPP:(id)sender;
 

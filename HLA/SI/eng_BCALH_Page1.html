@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link href="SI/css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="SI/js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="SI/js/hla.js"></script>
+  <script>
+  var gData;      
+  function onBodyLoad(){
+		$.ajaxSetup({ cache: false });		
+		$.ajax({
+  			url: 'SI.json',
+  			async: false,
+  			dataType: 'json',
+  			success: function (data) {
+  				gdata = data;
+  				  		
+				for(j=0;j<data.SI[0].SI_Temp_Pages.data.length;j++)
+				{
+					row = gdata.SI[0].SI_Temp_Pages.data[j];
+					if (row.PageDesc != "Page1")
+					{
+						if (row.PageDesc == "Page2")
+							htmlPages = '<div id="' + row.PageDesc + '" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>';
+						else
+							htmlPages = '<div id="' + row.PageDesc + '" style="margin-top:900px;padding: 15px 0px 0px 0px;"></div>';
+						$(htmlPages).appendTo('#externalPages');
+					}
+				}
+  		
+  		
+				for(j=0;j<data.SI[0].SI_Temp_Pages.data.length;j++)
+				{
+					row = gdata.SI[0].SI_Temp_Pages.data[j];
+						$.ajax({
+  							url: "SI/" + row.htmlName,
+  							async: false,
+  							dataType: 'html',
+  							success: function (data) {
+  								$("#" + row.PageDesc).html(data);
+  							}
+						});
+				}
+	
+		
+  				loadJson();
+  			}
+		});
+		
+  }
+  
+	function loadJson()
+	{
+	  
+	  
+			setPage();
+			//writeGST();
+			
+			writeSummary();
+			
+			//alert('11');
+			
+			var result = gdata.SI[0].SI_Temp_trad_LA.data;
+			
+			if(result.length > 1){
+            	var row2 = result[1];
+			}
+		
+		
+			
+            if(result.length == 1){
+            	var row = result[0];
+                $('.LADesc').html(row.LADesc);
+                $('.LAName').html(row.Name);
+                $('.LAAge').html(row.Age);
+		$('.OccpDesc').html(row.OccpDesc);
+	      
+		if (row.MOP == '1'){
+                	$('.MOP').html('Tunggal');
+            	}
+                else{
+                	$('.MOP').html('5 Tahun');
+                }
+	      
+                if (row.Sex.substring(0,1) == 'M'){
+                	$('.LASex').html('1');
+            	}
+                else{
+                	$('.LASex').html('2');
+                }
+                
+            }
+            else if(result.length == 2 && row2.PTypeCode == 'LA'){ //got 2nd life assured
+            	var row = result[0];
+                var row2 = result[1];
+                $('.LADesc').html(row.LADesc + '<br/>' + row2.LADesc + '<br/>');
+                $('.LAName').html(row.Name + '<br/>' + row2.Name)  ;
+                $('.LAAge').html(row.Age + '<br/>' + row2.Age);
+                if (row.Sex.substring(0,1) == 'M' && row2.Sex.substring(0,1) == 'M'){
+                	$('.LASex').html('Male' + '<br/>' + 'Male' );
+            	}
+                else if(row.Sex.substring(0,1) == 'M' && row2.Sex.substring(0,1) == 'F'){
+                	$('.LASex').html('Male' + '<br/>' + 'Female' );
+                }
+                else if(row.Sex.substring(0,1) == 'F' && row2.Sex.substring(0,1) == 'M'){
+                	$('.LASex').html('Female' + '<br/>' + 'Male' );
+                }
+                else{
+                	$('.LASex').html('Female' + '<br/>' + 'Female' );
+                }
+                                   
+                if (row.Smoker == 'Y' && row2.Smoker == 'Y' ){
+                	$('.LASmoker').html('Yes' + '<br/>' + 'Yes'  );
+                }
+                else if (row.Smoker == 'Y' && row2.Smoker == 'N' ){
+                	$('.LASmoker').html('Yes' + '<br/>' + 'No'  );
+                }
+                else if (row.Smoker == 'N' && row2.Smoker == 'Y' ){
+                	$('.LASmoker').html('No' + '<br/>' + 'Yes'  );
+                }
+                else{
+                	$('.LASmoker').html('No' + '<br/>' + 'No' );
+                }
+        	}
+            else{ // got payor
+            	var row = result[0];
+                var row2 = result[1];
+
+                $('.LADesc').html(row.LADesc + '<br/>' + row2.LADesc + '<br/>');
+                $('.LAName').html(row.Name + '<br/>' + row2.Name)  ;
+                $('.LAAge').html(row.Age + '<br/>' + row2.Age);
+                if (row.Sex.substring(0,1) == 'M' && row2.Sex.substring(0,1) == 'M'){
+                	$('.LASex').html('Male' + '<br/>' + 'Male' );
+                }
+                else if(row.Sex.substring(0,1) == 'M' && row2.Sex.substring(0,1) == 'F'){
+                	$('.LASex').html('Male' + '<br/>' + 'Female' );
+                }
+                else if(row.Sex.substring(0,1) == 'F' && row2.Sex.substring(0,1) == 'M'){
+                	$('.LASex').html('Female' + '<br/>' + 'Male' );
+                }
+		else if(row.Sex.substring(0, 1) == 'F' && row2.Sex.substring(0, 1) == 'F'){
+                	$('.LASex').html('Female' + '<br/>' + 'Female' );
+                }
+		else {
+		  if(row2.Sex.substring(0, 1) == 'F'){
+                	$('.LASex').html('' + '<br/>' + 'Female' );
+		  }
+		  else
+		  {
+		    $('.LASex').html('' + '<br/>' + 'Male' );
+		  }
+                }
+                                   
+            	if (row.Smoker == 'Y' && row2.Smoker == 'Y' ){
+                	$('.LASmoker').html('Yes' + '<br/>' + 'Yes'  );
+                }
+                else if (row.Smoker == 'Y' && row2.Smoker == 'N' ){
+                	$('.LASmoker').html('Yes' + '<br/>' + 'No'  );
+                }
+                else if (row.Smoker == 'N' && row2.Smoker == 'Y' ){
+                	$('.LASmoker').html('No' + '<br/>' + 'Yes'  );
+                }
+                else if (row.Smoker == 'N' && row2.Smoker == 'N' ){
+                	$('.LASmoker').html('No' + '<br/>' + 'No'  );
+                }
+                else{
+		  if(row2.Smoker == 'N'){
+		    $('.LASmoker').html('' + '<br/>' + 'No' );
+		  }
+		  else
+		  {
+		    $('.LASmoker').html('' + '<br/>' + 'yes' );
+		  }
+                }
+            }
+
+	}
+  
+	function replaceChar(char){
+		var temp, returnVal;
+		if (char == "0")
+			returnVal = "-"
+		else if (char == "")
+			returnVal = "-"
+		else
+			returnVal = char;
+		return returnVal;
+	}
+
+	function isIncomeRider(amt,rider){
+		//rider.replace(/^\s+|\s$/g,"")
+		//$.trim(rider)
+	
+		var temp;
+		temp = $.trim(rider)
+		//alert(temp + "x")
+	
+		if (temp == "HLA Cash Promise" || temp == "HLA Income Builder" || temp == "Income 20 Rider" || temp == "Income 30 Rider" || temp == "Income 40 Rider" || temp == "Income D-20 Rider" || temp == "Income D-30 Rider" || temp == "Income D-40 Rider" || temp == "Income E-20 Rider" || temp == "Income E-30 Rider"){
+  
+			return amt + " *";
+		}
+		else
+			return amt + "&nbsp;&nbsp;";
+	}
+
+  </script>
+  <head>
+<body onload="onBodyLoad()">
+	<div id="gstPage"></div>
+	<div id="header">
+	  
+	  <table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+	    <tr>
+	      <td style="width: 20%"><img src="SI/img/HLA.png" height="30px"/></td>
+	      <td style="width: 80%;text-align: center">
+		<table  style="border-collapse:separate;border:1px solid black;width:50%;">
+		  <tr>
+		    <td>
+		      Kecuali dinyatakan lain, ilustrasi ini bukan merupakan kontrak asuransi  
+		    </td>
+		  </tr>
+		  
+		</table>
+	      </td>
+	      
+	    </tr>
+	  </table>
+	  	
+	</div>
+  	<div class="main-content">
+	  <br/>
+      	<table style="border-collapse:separate;border:0px solid black;width:100%;" > 
+			<tr>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; width: 25%;">Nama Tertanggung :</td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; width: 25%;"><span class="LAName"></span></td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; width: 25%;">Jenis Kelamin :</td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; width: 25%;"><span class="LASex"></span></td>
+	  		</tr>
+			<tr>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; ">Usia Masuk</td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; "><span class="LAAge"></span></td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; ">Mata Uang</td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; ">Rupiah</td>
+	  		</tr>
+			<tr>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; ">Pekerjaan</td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; "><span class="OccpDesc"></span></td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; ">Masa Pembayaran</td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; ">Tahunan</td>
+	  		</tr>
+			<tr>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; ">Frekuensi Pembayaran </td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; "><span class="MOP"></span></td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; "></td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; "></td>
+	  		</tr>
+			
+		</table>
+	
+	<br/>
+	<table style="border-collapse:separate;border:1px solid black;width:100%;" >
+		<tr>
+		  <td style="width: 20%;text-align: center"><u>Jenis Asuransi</u></td>
+		  <td style="width:  20%;text-align: center"><u>Nama Produk</u></td>
+		  <td style="width: 20%;text-align: center"><u>Masa Pertanggungan</u></td>
+		  <td style="width:  20%;text-align: center"><u>Uang Pertanggungan</u></td>
+		  <td style="width: 20%;text-align: center"><u>Premi</u></td>
+		</tr>
+		<tr>
+		  <td style="text-align: center">Asuransi Dasar</td>
+		  <td style="text-align: center">BCA Life Heritage</td>
+		  <td style="text-align: center">Hingga umur 99</td>
+		  <td style="text-align: center"><span class="BasicSA"></span></td>
+		  <td style="text-align: center"><span class="BasicPrem"></span></td>
+		</tr>
+		<tr>
+		  <td colspan="5">(Frekuensi Pembayaran, Mata Uang, Masa Pembayaran, Uang Pertanggungan dan Premi tersebut di atas adalah bagian dari SPAJ yang akan digunakan sebagai acuan dalam proses penerbitan polis)</td>
+		</tr>
+		
+	      </table>
+	
+      	<!--520,430px-->    
+      	<div style="width:100%;height:380px;background-color: #fff;vertical-align: top;">
+		  <br/>
+			<table  >
+	  			
+	  				<tr>	    
+						<td>
+						  <b>Ringkasan Manfaat</b><br/>
+						  Untuk keperluan ilustrasi, penjelasan lengkap mengenai Manfaat Asuransi (termasuk syarat-syarat dan pengecualian-pengecualian) tercantum dalam polis, berlaku dan mengikat.
+						</td>
+					</tr>
+					<tr><td></td></tr>
+				  	<tr>
+						<td>
+						  <b>Manfaat Meninggal Dunia</b><br/>
+						  Jika Tertanggung meninggal dunia, Uang Pertanggungan BCA Life HERITAGE ditambah akumulasi Nilai Pertanggungan Tambahan (jika ada) akan dibayarkan oleh PT Asuransi Jiwa BCA (BCA Life)
+						</td>
+					</tr>
+					<tr><td></td></tr>
+				  	<tr>
+						<td>
+						  <b>Manfaat Akhir Pertanggungan</b><br/>
+						  Apabila Tertanggung hidup hingga akhir masa pertanggungan (usia 99 tahun),maka BCA Life akan membayarkan Uang Pertanggungan BCA Life HERITAGE ditambah akumulasi Nilai Pertanggungan Tambahan (jika ada)
+						</td>
+					</tr>
+					<tr><td></td></tr>
+				  	<tr>
+						<td>
+						  <b>Manfaat Terminal Illness</b><br/>
+						  Apabila Tertanggung didiagnosa oleh dokter menderita penyakit atau kondisi sakit yang mengakibatkan Tertanggung hanya dapat bertahan hidup dalam kurun waktu kurang dari 6 bulan, maka BCA Life akan
+						  membayarkan kepada Pemegang Polis sebesar 20% (dua puluh persen) dari Uang Pertanggungan atau maksimal Rp 3.000.000.000,- (tiga miliyar rupiah) per Tertanggung untuk seluruh polis yang diterbitkan oleh
+						  Penanggung. Selanjutnya Penanggung akan membayarkan sisa Uang Pertanggungan kepada Penerima Manfaat setelah Tertanggung Meninggal Dunia.
+						</td>
+					</tr>
+					<tr><td></td></tr>
+				  	<tr>
+						<td>
+						  <b>Nilai Pertanggungan Tambahan</b><br/>
+						  Adalah sejumlah manfaat yang akan dibayarkan dalam hal Tertanggung meninggal dunia, atau Tertanggung masih hidup sampai dengan akhir masa pertanggungan Polis yang besarnya tidak dijamin.
+						  Penanggung akan mengumumkan jumlah Nilai Pertanggungan Tambahan (jika ada) setiap tahunnya pada bulan berikutnya setelah ulang tahun Polis
+						</td>
+					</tr> 
+				
+			</table>
+			
+		</div>
+		
+	  	<table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+	  		<tr>
+	  			<td width="75%" style="font-family:Times New Roman;font-size:9px;font-weight:normal;padding: 0px 0px 0px 0px;">
+	  				
+	  			</td>
+	  			<td width="9%" align="left" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Times New Roman;font-size:9px;">Page <span class="currentPage">1</span> of <span class="totalPages">56</span></td>
+	  			<td width="16%" align="right" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Times New Roman;font-size:9px;"></br>
+	  				Ref: <span id=SICode class="SICode">{SINo}</span>
+	  			
+	  			
+	  		</tr>
+			
+	  	</table>
+	  	<div id="externalPages"></div>
+	</div>
+</body>
+
+</html>

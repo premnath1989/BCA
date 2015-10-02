@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/hla.js"></script>
+  <script>
+  var gData;
+  function onBodyLoad(){
+  		//writeSummary1();
+  }
+  
+    function replaceChar(char){
+        var temp, returnVal;
+        if (char == "0")
+            returnVal = "-"
+        else if (char == "")
+            returnVal = "-"
+        else
+            returnVal = char;
+        return returnVal;
+    }
+    
+    function isIncomeRider(amt,rider){
+		//rider.replace(/^\s+|\s$/g,"")
+		//$.trim(rider)
+		var temp;
+		temp = $.trim(rider)
+		//alert(temp + "x")
+        if (temp == "HLA Income Builder" || temp == "Income 20 Rider" || temp == "Income 30 Rider" || temp == "Income 40 Rider" || temp == "Income D-20 Rider" || temp == "Income D-30 Rider" || temp == "Income D-40 Rider" || temp == "Income E-20 Rider" || temp == "Income E-30 Rider"){
+        	return amt + " *";
+        }
+        else
+        	return amt + "&nbsp;&nbsp;";
+    }
+    
+  </script>
+</head>
+<!-- <body onload="onBodyLoad()">   -->
+<body>
+	<div id="header">
+	  <table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+	    <tr>
+	      <td style="width: 20%"><img src="SI/img/HLA.png" height="20px"/></td>
+	      <td style="width: 40%;text-align: center">
+		<table  style="border-collapse:separate;border:1px solid black;width:100%;">
+		  <tr>
+		    <td>
+		      Kecuali dinyatakan lain, ilustrasi ini bukan merupakan kontrak asuransi  
+		    </td>
+		  </tr>
+		  
+		</table>
+	      </td>
+	      <td style="width: 40%;text-align: right">BCA Life HERITAGE</td>
+	    </tr>
+	  </table>
+  	</div>
+  	<div class="main-content">
+		<!--520px-->
+		<div class="contentArea" style="height:600px;">
+			
+			<table id="table-Summary1">
+				<thead>
+					<tr>
+						<th colspan="9" class="contentSmall">Ilustrasi Manfaat Asuransi</th>
+					</tr>
+					<tr>
+					  <td colspan="3"></td>
+					  <td colspan="3" style="text-align: center">Death Benefit</td>
+					  <td colspan="3" style="text-align: center">Surrender Benefit</td>
+					</tr>
+					<tr>
+						<th  class="contentSmall" >Umur Polis ke-</th>
+						<th  class="contentSmall" >Usia Tertanggung</th>
+						<th  class="contentSmall">Uang Pertanggungan<br/>(Rp 000)</th>
+						<th  class="contentSmall">Nilai Pertanggungan Tambahan*<br/>(Rp 000)</th>
+						<th  class="contentSmall">Akumulasi Nilai Pertanggungan Tambahan*<br/>(Rp 000)</th>
+						<th  class="contentSmall">Total Manfaat Meninggal Dunia <br/>'(Rp 000)</th>
+						<th  class="contentSmall">Nilai Tunai Yang Dijamin <br/>(Rp 000)</th>
+						<th  class="contentSmall">Nilai Tunai dari Pertanggungan Tambahan* <br/>(Rp 000)</th>
+						<th  class="contentSmall">Total Nilai Tunai* <br/>(Rp 000)</th>
+					</tr>
+					<tr>
+						<th  class="contentSmall" >a</th>
+						<th  class="contentSmall" >b</th>
+						<th  class="contentSmall">c</th>
+						<th  class="contentSmall">d</th>
+						<th  class="contentSmall">e</th>
+						<th  class="contentSmall">f=(c+e)</th>
+						<th  class="contentSmall">f</th>
+						<th  class="contentSmall">g</th>
+						<th  class="contentSmall">h=(f+g)</th>
+					</tr>
+					
+				</thead>
+				<tbody>
+					<!--sql data here-->
+				</tbody>
+			</table>
+			 *Nilai Pertanggungan Tambahan beserta akumulasinya tidak dijamin
+		</div>
+		<table border="0" style="border-collapse:separate;border:0px solid black;width:100%;">
+	  		<tr>
+	  			<td width="75%" style="font-family:Times New Roman;font-size:9px;font-weight:normal;padding: 0px 0px 0px 0px;">
+	  				
+	  			</td>
+	  			<td width="9%" align="left" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Times New Roman;font-size:9px;">Page <span class="currentPage">1</span> of <span class="totalPages">56</span></td>
+	  			<td width="16%" align="right" valign="bottom" style="padding: 0px 0px 0px 0px;font-family:Times New Roman;font-size:9px;"></br>
+	  				Ref: <span id=SICode class="SICode">{SINo}</span>
+	  			
+	  			
+	  		</tr>
+			
+	  	</table>
+	</div>
+</body>
+</html>

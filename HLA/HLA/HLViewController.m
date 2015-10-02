@@ -41,8 +41,7 @@
 	}
 	
     HLField.tag = 333;
-    [HLField setDelegate:self];
-    [HLTermField setDelegate:self];
+
     [TempHLField setDelegate:self];
     [TempHLTermField setDelegate:self];
     [self loadHL];
@@ -65,8 +64,7 @@
     outletSpace.width = 666;
 	
 	if (Editable == NO) {
-		[self DisableTextField:HLField];
-		[self DisableTextField:HLTermField];
+
 		[self DisableTextField:TempHLField];
 		[self DisableTextField:TempHLTermField];
 		
@@ -132,7 +130,7 @@
 
 -(void)PopulateTextBox:(NSString *)Selected{
     
-    HLField.text = Selected;
+    [HLField setTitle:Selected forState:UIControlStateNormal];
     [self.planPopover dismissPopoverAnimated:YES];
 }
 
@@ -148,8 +146,8 @@
 }
 -(void)clearHLFields
 {
-    HLField.text = @"";
-    HLTermField.text = @"";
+    [HLField setTitle:@"" forState:UIControlStateNormal];
+    [HLTermField setTitle:@"" forState:UIControlStateNormal];
     TempHLField.text = @"";
     TempHLTermField.text = @"";
 }
@@ -235,11 +233,12 @@
         else {
             valueToDisplay = getHL;
         }
-        HLField.text = valueToDisplay;
+        //HLField.text = valueToDisplay;
+        [HLField setTitle:valueToDisplay forState:UIControlStateNormal];
     }
     
     if (getHLTerm != 0) {
-        HLTermField.text = [NSString stringWithFormat:@"%d",getHLTerm];
+        HLTermField.titleLabel.text = [NSString stringWithFormat:@"%d",getHLTerm];
     }
     
     if (getTempHL.length != 0) {
@@ -287,6 +286,7 @@
 	
 }
 
+
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (alertView.tag == 1001 && buttonIndex == 0) {
@@ -313,18 +313,18 @@
     NSCharacterSet *set = [[NSCharacterSet characterSetWithCharactersInString:@"0123456789."] invertedSet];
     NSCharacterSet *setTerm = [[NSCharacterSet characterSetWithCharactersInString:@"0123456789"] invertedSet];
     
-    NSRange rangeofDotHL = [HLField.text rangeOfString:@"."];
+    NSRange rangeofDotHL = [HLField.titleLabel.text rangeOfString:@"."];
     NSString *substringHL = @"";
     NSRange rangeofDotTempHL = [TempHLField.text rangeOfString:@"."];
     NSString *substringTempHL = @"";
     if (rangeofDotHL.location != NSNotFound) {
-        substringHL = [HLField.text substringFromIndex:rangeofDotHL.location ];
+        substringHL = [HLField.titleLabel.text substringFromIndex:rangeofDotHL.location ];
     }
     if (rangeofDotTempHL.location != NSNotFound) {
         substringTempHL = [TempHLField.text substringFromIndex:rangeofDotTempHL.location ];
     }
     
-    if ([HLField.text rangeOfCharacterFromSet:set].location != NSNotFound) {
+    if ([HLField.titleLabel.text rangeOfCharacterFromSet:set].location != NSNotFound) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Invalid input. Please enter numeric value (0-9) or dot(.) into Health input for (per 1k SA)." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil,nil];
         [alert show];
         [HLField becomeFirstResponder];
@@ -334,37 +334,37 @@
         [alert show];
         [HLField becomeFirstResponder];
     }
-    else if ([HLField.text intValue] >= 10000) {
+    else if ([HLField.titleLabel.text intValue] >= 10000) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Health Loading (Per 1k SA) cannot greater than or equal to 10000." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         [HLField becomeFirstResponder];
     }
-    else if ([HLField.text intValue] > 0 && HLTermField.text.length == 0) {
+    else if ([HLField.titleLabel.text intValue] > 0 && HLTermField.titleLabel.text.length == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Health Loading (per 1k SA) Term is required." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         [HLTermField becomeFirstResponder];
     }
-    else if ([HLTermField.text intValue] > 0 && HLField.text.length == 0) {
+    else if ([HLTermField.titleLabel.text intValue] > 0 && HLField.titleLabel.text.length == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Health Loading (per 1k SA) is required." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         [HLField becomeFirstResponder];
     }
-    else if ([HLTermField.text rangeOfCharacterFromSet:setTerm].location != NSNotFound) {
+    else if ([HLTermField.titleLabel.text rangeOfCharacterFromSet:setTerm].location != NSNotFound) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Invalid input. Please enter numeric value (0-9) into Health input for (per 1k SA) Term." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil,nil];
         [alert show];
         [HLTermField becomeFirstResponder];
     }
-    else if ([HLTermField.text intValue] > termCover &&  ![planChoose isEqualToString:@"HLACP" ] && ![planChoose isEqualToString:@"HLAWP" ]) {
+    else if ([HLTermField.titleLabel.text intValue] > termCover &&  ![planChoose isEqualToString:@"HLACP" ] && ![planChoose isEqualToString:@"HLAWP" ]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:[NSString stringWithFormat:@"Health Loading (per 1k SA) Term cannot be greater than %d",termCover] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         [HLTermField becomeFirstResponder];
     }
-    else if ([HLField.text intValue] == 0 && HLField.text.length != 0) {
+    else if ([HLField.titleLabel.text intValue] == 0 && HLField.titleLabel.text.length != 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Health Loading (per 1k SA) is required." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         [HLField becomeFirstResponder];
     }
-    else if ([HLTermField.text intValue] == 0 && HLTermField.text.length != 0) {
+    else if ([HLTermField.titleLabel.text intValue] == 0 && HLTermField.titleLabel.text.length != 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Health Loading (per 1k SA) Term is required." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         [HLTermField becomeFirstResponder];
@@ -417,7 +417,7 @@
         [alert show];
         [TempHLTermField becomeFirstResponder];
     }
-	else if ([HLTermField.text intValue] > 6 && [planChoose isEqualToString:@"HLACP"]) {
+	else if ([HLTermField.titleLabel.text intValue] > 6 && [planChoose isEqualToString:@"HLACP"]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Health Loading (per 1k SA) term cannot greater than 6" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         [HLTermField becomeFirstResponder];
@@ -427,7 +427,7 @@
         [alert show];
         [TempHLTermField becomeFirstResponder];
     }
-    else if ([HLTermField.text intValue] > getMOP && [self DifferentPaymentTerm:planChoose] == TRUE) {
+    else if ([HLTermField.titleLabel.text intValue] > getMOP && [self DifferentPaymentTerm:planChoose] == TRUE) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:[NSString stringWithFormat:@"Health Loading (per 1k SA) term cannot greater than %d ", getMOP  ] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         [HLTermField becomeFirstResponder];
@@ -505,13 +505,13 @@
     sqlite3_stmt *statement;
     if (sqlite3_open([databasePath UTF8String], &contactDB) == SQLITE_OK)
     {
-        NSString *querySQL = [NSString stringWithFormat:@"UPDATE Trad_Details SET HL1KSA=\"%@\", HL1KSATerm=\"%d\", TempHL1KSA=\"%@\", TempHL1KSATerm=\"%d\", UpdatedAt=%@ WHERE SINo=\"%@\"",  HLField.text, [HLTermField.text intValue], TempHLField.text, [TempHLTermField.text intValue], @"datetime(\"now\", \"+8 hour\")",SINo];
+        NSString *querySQL = [NSString stringWithFormat:@"UPDATE Trad_Details SET HL1KSA=\"%@\", HL1KSATerm=\"%d\", TempHL1KSA=\"%@\", TempHL1KSATerm=\"%d\", UpdatedAt=%@ WHERE SINo=\"%@\"",  HLField.titleLabel.text, [HLTermField.titleLabel.text intValue], TempHLField.text, [TempHLTermField.text intValue], @"datetime(\"now\", \"+8 hour\")",SINo];
         
         if (sqlite3_prepare_v2(contactDB, [querySQL UTF8String], -1, &statement, NULL) == SQLITE_OK)
         {
             if (sqlite3_step(statement) == SQLITE_DONE)
             {                
-                [_delegate HLInsert:HLField.text andBasicTempHL:TempHLField.text];
+                [_delegate HLInsert:HLField.titleLabel.text andBasicTempHL:TempHLField.text];
             }
             else
             {

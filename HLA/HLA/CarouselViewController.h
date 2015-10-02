@@ -31,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *outletIconBG;
 - (IBAction)ButtonInfo:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *ButtonInfoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *AgentName;
 
 
 - (IBAction)btnExit:(id)sender;

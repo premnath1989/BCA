@@ -38,6 +38,8 @@ id temp;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
+	[self viewExisting];
     
     self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg10.jpg"]];
     
@@ -65,6 +67,8 @@ id temp;
 	
 	txtAgencyPortalLogin.hidden = YES;
 	txtAgencyPortalPwd.hidden = YES;
+	
+	
 	
 }
 
@@ -652,90 +656,126 @@ id temp;
 
 -(void)viewExisting
 {
-    const char *dbpath = [databasePath UTF8String];
-    sqlite3_stmt *statement;
-    if (sqlite3_open(dbpath, &contactDB) == SQLITE_OK)
-    {
-        NSString *querySQL = [NSString stringWithFormat:@"SELECT IndexNo, AgentLoginID, AgentCode, AgentName, AgentContactNo, "
-							  "ImmediateLeaderCode, ImmediateLeaderName, BusinessRegNumber, AgentEmail, AgentICNo, "
-							  "AgentContractDate, AgentAddr1, AgentAddr2, AgentAddr3, AgentPortalLoginID, AgentPortalPassword "
-							  "FROM Agent_Profile WHERE IndexNo=\"%d\"",
-							  self.indexNo];
-        const char *query_stmt = [querySQL UTF8String];
-        
-        if (sqlite3_prepare_v2(contactDB, query_stmt, -1, &statement, NULL) == SQLITE_OK)
-        {
-            if (sqlite3_step(statement) == SQLITE_ROW)
-            {
-                username = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 1)];
-                
-                const char *code2 = (const char*)sqlite3_column_text(statement, 2);
-                code = code2 == NULL ? @"" : [[NSString alloc] initWithUTF8String:code2];
-                
-                const char *name2 = (const char*)sqlite3_column_text(statement, 3);
-                name = name2 == NULL ? @"" : [[NSString alloc] initWithUTF8String:name2];
-                
-                const char *contactNo2 = (const char*)sqlite3_column_text(statement, 4);
-                contactNo = contactNo2 == NULL ? @"" : [[NSString alloc] initWithUTF8String:contactNo2];
-                
-                const char *leaderCode2 = (const char*)sqlite3_column_text(statement, 5);
-                leaderCode = leaderCode2 == NULL ? @"" : [[NSString alloc] initWithUTF8String:leaderCode2];
-                
-                const char *leaderName2 = (const char*)sqlite3_column_text(statement, 6);
-                leaderName = leaderName2 == NULL ? @"" : [[NSString alloc] initWithUTF8String:leaderName2];
-                
-                const char *register2 = (const char*)sqlite3_column_text(statement, 7);
-                registerNo = register2 == NULL ? @"" : [[NSString alloc] initWithUTF8String:register2];
-                
-                const char *email2 = (const char*)sqlite3_column_text(statement, 8);
-                email = email2 == NULL ? @"" : [[NSString alloc] initWithUTF8String:email2];
-                
-                const char *ic = (const char*)sqlite3_column_text(statement, 9);
-                ICNo = ic == NULL ? @"" : [[NSString alloc] initWithUTF8String:ic];
-                
-                const char *date = (const char*)sqlite3_column_text(statement, 10);
-                contDate = date == NULL ? @"" : [[NSString alloc] initWithUTF8String:date];
-                
-                const char *add1 = (const char*)sqlite3_column_text(statement, 11);
-                Addr1 = add1 == NULL ? @"" : [[NSString alloc] initWithUTF8String:add1];
-                
-                const char *add2 = (const char*)sqlite3_column_text(statement, 12);
-                Addr2 = add2 == NULL ? @"" : [[NSString alloc] initWithUTF8String:add2];
-                
-                const char *add3 = (const char*)sqlite3_column_text(statement, 13);
-                Addr3 = add3 == NULL ? @"" : [[NSString alloc] initWithUTF8String:add3];
-                
-				const char *temp1 = (const char*)sqlite3_column_text(statement, 14);
-                AgentPortalLoginID = temp1 == NULL ? @"" : [[NSString alloc] initWithUTF8String:temp1];
-                
-				const char *temp2 = (const char*)sqlite3_column_text(statement, 15);
-                AgentPortalPassword = temp2 == NULL ? @"" : [[NSString alloc] initWithUTF8String:temp2];
-                
-				
-                txtAgentCode.text = code;
-                txtAgentName.text = name;
-                txtAgentContactNo.text = contactNo;
-                txtLeaderCode.text = leaderCode;
-                txtLeaderName.text = leaderName;
-                txtBixRegNo.text = registerNo;
-                txtEmail.text = email;
-                
-                txtICNo.text = ICNo;
-                [btnContractDate setTitle:contDate forState:UIControlStateNormal];
-                txtAddr1.text = Addr1;
-                txtAddr2.text = Addr2;
-                txtAddr3.text = Addr3;
-                txtAgencyPortalLogin.text = AgentPortalLoginID;
-				txtAgencyPortalPwd.text = AgentPortalPassword;
-                
-                
-            } else {
-                NSLog(@"Failed!");
-            }
-            sqlite3_finalize(statement);
-        }
-        sqlite3_close(contactDB);
+	
+	NSArray *paths2 = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docsPath2 = [paths2 objectAtIndex:0];
+    NSString *path2 = [docsPath2 stringByAppendingPathComponent:@"hladb.sqlite"];
+	
+	FMDatabase *database = [FMDatabase databaseWithPath:path2];
+    [database open];
+    FMResultSet *results;
+	
+    
+    results = [database executeQuery:@"select IndexNo, AgentLoginID, AgentCode, AgentName, AgentContactNo, "
+			   "ImmediateLeaderCode, ImmediateLeaderName, BusinessRegNumber, AgentEmail, AgentICNo, "
+			   "AgentContractDate, AgentAddr1, AgentAddr2, AgentAddr3, AgentPortalLoginID, AgentPortalPassword from Agent_profile"];
+	
+    while([results next]) {
+		// agentCode = [results stringForColumn:@"AgentCode"];
+		txtAgentCode.text = [results stringForColumn:@"AgentCode"];
+		txtAgentName.text = [results stringForColumn:@"AgentName"];
+		txtAgentContactNo.text = [results stringForColumn:@"AgentContactNo"];
+		txtLeaderCode.text = [results stringForColumn:@"ImmediateLeaderCode"];
+		txtLeaderName.text = [results stringForColumn:@"ImmediateLeaderName"];
+		txtBixRegNo.text = [results stringForColumn:@"BusinessRegNumber"];
+		txtEmail.text = [results stringForColumn:@"AgentEmail"];
+		
+		txtICNo.text = [results stringForColumn:@"AgentICNo"];
+		[btnContractDate setTitle:contDate forState:UIControlStateNormal];
+		txtAddr1.text = [results stringForColumn:@"AgentAddr1"];
+		txtAddr2.text = [results stringForColumn:@"AgentAddr2"];
+		txtAddr3.text = [results stringForColumn:@"AgentAddr3"];
+		txtAgencyPortalLogin.text = [results stringForColumn:@"AgentAddr3"];
+		txtAgencyPortalPwd.text = [results stringForColumn:@"AgentPortalPassword"];
+		
     }
+
+	
+	
+//    const char *dbpath = [databasePath UTF8String];
+//    sqlite3_stmt *statement;
+//    if (sqlite3_open(dbpath, &contactDB) == SQLITE_OK)
+//    {
+//        NSString *querySQL = [NSString stringWithFormat:@"SELECT IndexNo, AgentLoginID, AgentCode, AgentName, AgentContactNo, "
+//							  "ImmediateLeaderCode, ImmediateLeaderName, BusinessRegNumber, AgentEmail, AgentICNo, "
+//							  "AgentContractDate, AgentAddr1, AgentAddr2, AgentAddr3, AgentPortalLoginID, AgentPortalPassword "
+//							  "FROM Agent_Profile WHERE IndexNo=\"%d\"",
+//							  self.indexNo];
+//        const char *query_stmt = [querySQL UTF8String];
+//        
+//        if (sqlite3_prepare_v2(contactDB, query_stmt, -1, &statement, NULL) == SQLITE_OK)
+//        {
+//            if (sqlite3_step(statement) == SQLITE_ROW)
+//            {
+//                username = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 1)];
+//                
+//                const char *code2 = (const char*)sqlite3_column_text(statement, 2);
+//                code = code2 == NULL ? @"" : [[NSString alloc] initWithUTF8String:code2];
+//                
+//                const char *name2 = (const char*)sqlite3_column_text(statement, 3);
+//                name = name2 == NULL ? @"" : [[NSString alloc] initWithUTF8String:name2];
+//                
+//                const char *contactNo2 = (const char*)sqlite3_column_text(statement, 4);
+//                contactNo = contactNo2 == NULL ? @"" : [[NSString alloc] initWithUTF8String:contactNo2];
+//                
+//                const char *leaderCode2 = (const char*)sqlite3_column_text(statement, 5);
+//                leaderCode = leaderCode2 == NULL ? @"" : [[NSString alloc] initWithUTF8String:leaderCode2];
+//                
+//                const char *leaderName2 = (const char*)sqlite3_column_text(statement, 6);
+//                leaderName = leaderName2 == NULL ? @"" : [[NSString alloc] initWithUTF8String:leaderName2];
+//                
+//                const char *register2 = (const char*)sqlite3_column_text(statement, 7);
+//                registerNo = register2 == NULL ? @"" : [[NSString alloc] initWithUTF8String:register2];
+//                
+//                const char *email2 = (const char*)sqlite3_column_text(statement, 8);
+//                email = email2 == NULL ? @"" : [[NSString alloc] initWithUTF8String:email2];
+//                
+//                const char *ic = (const char*)sqlite3_column_text(statement, 9);
+//                ICNo = ic == NULL ? @"" : [[NSString alloc] initWithUTF8String:ic];
+//                
+//                const char *date = (const char*)sqlite3_column_text(statement, 10);
+//                contDate = date == NULL ? @"" : [[NSString alloc] initWithUTF8String:date];
+//                
+//                const char *add1 = (const char*)sqlite3_column_text(statement, 11);
+//                Addr1 = add1 == NULL ? @"" : [[NSString alloc] initWithUTF8String:add1];
+//                
+//                const char *add2 = (const char*)sqlite3_column_text(statement, 12);
+//                Addr2 = add2 == NULL ? @"" : [[NSString alloc] initWithUTF8String:add2];
+//                
+//                const char *add3 = (const char*)sqlite3_column_text(statement, 13);
+//                Addr3 = add3 == NULL ? @"" : [[NSString alloc] initWithUTF8String:add3];
+//                
+//				const char *temp1 = (const char*)sqlite3_column_text(statement, 14);
+//                AgentPortalLoginID = temp1 == NULL ? @"" : [[NSString alloc] initWithUTF8String:temp1];
+//                
+//				const char *temp2 = (const char*)sqlite3_column_text(statement, 15);
+//                AgentPortalPassword = temp2 == NULL ? @"" : [[NSString alloc] initWithUTF8String:temp2];
+//                
+//				
+//                txtAgentCode.text = code;
+//                txtAgentName.text = name;
+//                txtAgentContactNo.text = contactNo;
+//                txtLeaderCode.text = leaderCode;
+//                txtLeaderName.text = leaderName;
+//                txtBixRegNo.text = registerNo;
+//                txtEmail.text = email;
+//                
+//                txtICNo.text = ICNo;
+//                [btnContractDate setTitle:contDate forState:UIControlStateNormal];
+//                txtAddr1.text = Addr1;
+//                txtAddr2.text = Addr2;
+//                txtAddr3.text = Addr3;
+//                txtAgencyPortalLogin.text = AgentPortalLoginID;
+//				txtAgencyPortalPwd.text = AgentPortalPassword;
+//                
+//                
+//            } else {
+//                NSLog(@"Failed!");
+//            }
+//            sqlite3_finalize(statement);
+//        }
+//        sqlite3_close(contactDB);
+//    }
 }
 
 -(void)updateUserData

@@ -63,6 +63,31 @@ const int numberOfModule = 7;
 	//            [self presentModalViewController:mainLogin animated:YES];
 	[self presentViewController:mainLogin animated:YES completion:nil];
 	
+	NSArray *paths2 = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docsPath2 = [paths2 objectAtIndex:0];
+    NSString *path2 = [docsPath2 stringByAppendingPathComponent:@"hladb.sqlite"];
+    
+    //[self copyRatesJSONFromPath:docsPath2];
+	
+	NSString *AgentName1;
+
+	FMDatabase *database = [FMDatabase databaseWithPath:path2];
+    [database open];
+    FMResultSet *results;
+    NSString *query;
+    int totalRecords = 0;
+    
+    results = [database executeQuery:@"select AgentCode,AgentName from Agent_profile"];
+    NSString *agentCode;
+    NSString *agentName;
+    while([results next]) {
+       // agentCode = [results stringForColumn:@"AgentCode"];
+        AgentName1  = [results stringForColumn:@"AgentName"];
+    }
+	
+	_AgentName.text = AgentName1;
+
+	
 //    outletCarousel.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"BcaBackgroundFade.jpg"]];
 //    self.view.backgroundColor = [UIColor clearColor];
 //    _myView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"BcaBackgroundFade.jpg"]];

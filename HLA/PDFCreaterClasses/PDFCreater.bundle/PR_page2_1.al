@@ -4,12 +4,12 @@
     <div style="position:absolute;left:29.25px;top:459.25px" class="cls_012"><span class="cls_012">PART 3 . : DETAILS OF LIFE ASSURANCE APPLIED FOR </span><span class="cls_016">/</span><span class="cls_020"> </span><span class="cls_007">BAHAGIAN 3 . : BUTIR-BUTIR INSURANS HAYAT YANG DIPOHON</span></div>
     <div style="position:absolute;left:28.75px;top:475.15px" class="cls_003"><span class="cls_003">Basic Plan</span></div>
     <div style="position:absolute;left:201.55px;top:474.65px" class="cls_003"><span class="cls_003">Term (years)</span></div>
-    <div style="position:absolute;left:298.65px;top:475.05px" class="cls_003"><span class="cls_003">Sum Assured (RM)</span></div>
-    <div style="position:absolute;left:468.05px;top:475.25px" class="cls_003"><span class="cls_003">Modal Premium (RM)</span></div>
+    <div style="position:absolute;left:298.65px;top:475.05px" class="cls_003"><span class="cls_003">Sum Assured (Rp)</span></div>
+    <div style="position:absolute;left:468.05px;top:475.25px" class="cls_003"><span class="cls_003">Modal Premium (Rp)</span></div>
     <div style="position:absolute;left:28.75px;top:484.10px" class="cls_007"><span class="cls_007">Pelan Asas</span></div>
     <div style="position:absolute;left:201.55px;top:483.60px" class="cls_007"><span class="cls_007">Tempoh (tahun)</span></div>
-    <div style="position:absolute;left:298.65px;top:484.00px" class="cls_007"><span class="cls_007">Jumlah Diinsuranskan (RM)</span></div>
-    <div style="position:absolute;left:468.05px;top:484.20px" class="cls_007"><span class="cls_007">Premium Modal (RM)</span></div>
+    <div style="position:absolute;left:298.65px;top:484.00px" class="cls_007"><span class="cls_007">Jumlah Diinsuranskan (Rp)</span></div>
+    <div style="position:absolute;left:468.05px;top:484.20px" class="cls_007"><span class="cls_007">Premium Modal (Rp)</span></div>
     <div style="position:absolute;left:28.75px;top:497.40px" class="cls_003"><span class="cls_003">##basicPlan##</span></div>
     <div style="position:absolute;left:232.74px;top:497.45px" class="cls_003"><span class="cls_003">##term##</span></div>
     <div style="position:absolute;left:400.84px;top:497.45px" class="cls_003"><span class="cls_003">##sumassured##</span></div>

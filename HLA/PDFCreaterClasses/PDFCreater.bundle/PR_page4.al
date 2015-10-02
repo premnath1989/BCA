@@ -104,7 +104,7 @@
     <div style="position:absolute;left:33.75px;top:531.05px" class="cls_003"><span class="cls_012">6. Special Request (Optional) </span><span class="cls_007">/ Perintah Khas (Pilihan)</span></div>
     <div style="position:absolute;left:44.50px;top:541.95px" class="cls_015"><span class="cls_015">##part4.5.1##</span><span class="cls_012"> Policy Backdating </span><span class="cls_007">/ Mengebelakangkan Tarikh</span><span class="cls_003">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;##part4.5date##</span></div>
     <div style="position:absolute;left:317.75px;top:541.25px" class="cls_003"><span class="cls_012">DD/MM/YYYY /</span><span class="cls_007"> HH/BB/TTTT</span></div>
-    <div style="position:absolute;left:44.00px;top:557.95px" class="cls_015"><span class="cls_015">##part4.5.2##</span><span class="cls_012"> Conversion : Sum Assured RM </span><span class="cls_007">/ Konversi : Jumlah Diinsuranskan RM</span><span class="cls_003">##part4.5sum##</span></div>
+    <div style="position:absolute;left:44.00px;top:557.95px" class="cls_015"><span class="cls_015">##part4.5.2##</span><span class="cls_012"> Conversion : Sum Assured Rp </span><span class="cls_007">/ Konversi : Jumlah Diinsuranskan Rp</span><span class="cls_003">##part4.5sum##</span></div>
     <div style="position:absolute;left:55.00px;top:573.15px" class="cls_003"><span class="cls_012">from policy no. </span><span class="cls_007">/ dari no. polisi</span><span class="cls_003">##part4.5policyno## </span></div>
     -->
     
@@ -130,7 +130,7 @@
     <div style="position:absolute;left:41.31px;top:509.90px" class="cls_007"><span class="cls_007">Nama Suami/Bapa/lbu (Jika suri rumah atau pelajar):</span></div>
     <div style="position:absolute;left:33.25px;top:525.75px" class="cls_003"><span class="cls_012">2. Husband/Father/Mother's Yearly Income</span></div>
     <div style="position:absolute;left:41.31px;top:534.70px" class="cls_007"><span class="cls_007">Pendapatan Tahunan Suami/Bapa/lbu:</span></div>
-    <div style="position:absolute;left:260.75px;top:531.95px" class="cls_003"><span class="cls_012">RM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;##yearlyIncome##</span></div>
+    <div style="position:absolute;left:260.75px;top:531.95px" class="cls_003"><span class="cls_012">Rp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;##yearlyIncome##</span></div>
     <div style="position:absolute;left:33.25px;top:549.95px" class="cls_003"><span class="cls_012">3. Occupation of Husband/Father/Mother </span><span class="cls_007">/ Pekerjaan Suami/Bapa/lbu:</span></div>
     <div style="position:absolute;left:288.25px;top:549.95px" class="cls_003"><span class="cls_003">##addques.occupation##</span></div>
 

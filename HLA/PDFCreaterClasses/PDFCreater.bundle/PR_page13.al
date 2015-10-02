@@ -11,7 +11,7 @@
     <div style="position:absolute;left:41.31px;top:59.90px" class="cls_007"><span class="cls_007">Nama Suami/Bapa/lbu (Jika suri rumah atau pelajar):</span></div>
     <div style="position:absolute;left:33.25px;top:75.75px" class="cls_003"><span class="cls_012">2. Husband/Parent's Yearly Income</span></div>
     <div style="position:absolute;left:41.31px;top:84.70px" class="cls_007"><span class="cls_007">Pendapatan Tahunan Suami/Bapa/lbu:</span></div>
-    <div style="position:absolute;left:260.75px;top:81.95px" class="cls_003"><span class="cls_012">RM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;##yearlyIncome##</span></div>
+    <div style="position:absolute;left:260.75px;top:81.95px" class="cls_003"><span class="cls_012">Rp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;##yearlyIncome##</span></div>
     <div style="position:absolute;left:33.25px;top:99.95px" class="cls_003"><span class="cls_012">3. Occupation of Husband/Parent </span><span class="cls_007">/ Pekerjaan Suami/Bapa/lbu:</span><span class="cls_003">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;##addques.occupation##</span></div>
     <div style="position:absolute;left:33.25px;top:116.55px" class="cls_003"><span class="cls_012">4. Is Husband/Father/Mother insured? </span><span class="cls_007">/ Adakah Suami/Bapa/lbu diinsuranskan?</span></div>
     <div style="position:absolute;left:334.05px;top:114.75px" class="cls_015"><span class="cls_015">##addques.insured.Yes##</span><span class="cls_012"> Yes </span><span class="cls_007">/ Ya</span><span class="cls_015">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;##addques.insured.No##</span><span class="cls_012"> No </span><span class="cls_007">/ Tidak</span></div>

@@ -91,8 +91,8 @@
     
         
     
-    <div style="position:absolute;left:33.75px;top:350.90px" class="cls_003"><span class="cls_012">For premium > RM10,000, please select one option:</span></div>
-    <div style="position:absolute;left:33.75px;top:360.90px" class="cls_007"><span class="cls_007">Untuk premium > RM10,000, sila tandakan salah satu:</span></div>
+    <div style="position:absolute;left:33.75px;top:350.90px" class="cls_003"><span class="cls_012">For premium > Rp10,000, please select one option:</span></div>
+    <div style="position:absolute;left:33.75px;top:360.90px" class="cls_007"><span class="cls_007">Untuk premium > Rp10,000, sila tandakan salah satu:</span></div>
     
     
     <div style="position:absolute;left:33.75px;top:370.90px" class="cls_015"><span class="cls_015">##debit.upon.submission##</span></div>
@@ -119,7 +119,7 @@
     <div style="position:absolute;left:327.75px;top:203.25px" class="cls_003"><span class="cls_012">DD/MM/YYYY /</span><span class="cls_007"> HH/BB/TTTT</span></div>
 
     <div style="position:absolute;left:41.75px;top:217.95px" class="cls_015"><span class="cls_015">##part4.5.2##</span></div>
-    <div style="position:absolute;left:54.50px;top:219.95px" class="cls_015"><span class="cls_012">Conversion : Sum Assured RM </span><span class="cls_007">/ Konversi : Jumlah Diinsuranskan RM</span><span class="cls_003">##part4.5sum##</span></div>
+    <div style="position:absolute;left:54.50px;top:219.95px" class="cls_015"><span class="cls_012">Conversion : Sum Assured Rp </span><span class="cls_007">/ Konversi : Jumlah Diinsuranskan Rp</span><span class="cls_003">##part4.5sum##</span></div>
 
     <div style="position:absolute;left:54.50px;top:228.15px" class="cls_003"><span class="cls_012">from policy no. </span><span class="cls_007">/ dari no. polisi</span><span class="cls_003">##part4.5policyno## </span></div>
     
@@ -248,8 +248,8 @@
         <div style="position:absolute;left:382.25px;top:283.05px" class="cls_003"><span class="cls_012">Cardholder’s relationship with Policy Owner</span></div>
     <div style="position:absolute;left:382.25px;top:303.05px" class="cls_003"><span class="cls_003">##relationship##</span></div>
     <div style="position:absolute;left:382.25px;top:292.00px" class="cls_007"><span class="cls_007">Hubungan pemegang Kad dengan Pemunya Polisi:</span></div>
-    <div style="position:absolute;left:382.25px;top:320.75px" class="cls_003"><span class="cls_012">For premium > RM10,000, please select one option:</span></div>
-    <div style="position:absolute;left:382.25px;top:329.70px" class="cls_007"><span class="cls_007">Untuk premium > RM10,000, sila tandakan salah satu:</span></div>
+    <div style="position:absolute;left:382.25px;top:320.75px" class="cls_003"><span class="cls_012">For premium > Rp10,000, please select one option:</span></div>
+    <div style="position:absolute;left:382.25px;top:329.70px" class="cls_007"><span class="cls_007">Untuk premium > Rp10,000, sila tandakan salah satu:</span></div>
     <div style="position:absolute;left:382.25px;top:340.25px" class="cls_015"><span class="cls_015">##debit.upon.submission##</span></div>
     <div style="position:absolute;left:396.15px;top:341.95px" class="cls_003"><span class="cls_012">Debit upon submission</span></div>
     <div style="position:absolute;left:396.15px;top:350.90px" class="cls_007"><span class="cls_007">Potongan dari tarikh penerimaan</span></div>

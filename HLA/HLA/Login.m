@@ -877,7 +877,7 @@ static NSString *labelVers;
     NSString *postLength = [NSString stringWithFormat:@"%d",[postData length]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
 	
-	NSString *url = [NSString stringWithFormat:@"http://192.168.2.149/AgentWebService/AgentMgmt.asmx/ValidateLogin"];
+	NSString *url = [NSString stringWithFormat:@"http://192.168.2.137/AgentWebService/AgentMgmt.asmx/ValidateLogin"];
     [request setURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];

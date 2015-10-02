@@ -9255,26 +9255,23 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="HLButtonFunc:" destination="9la-zq-eSK" eventType="touchUpInside" id="CeZ-Vv-LqW"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yV6-Ta-Qxb">
-                                <rect key="frame" x="443" y="130" width="218" height="31"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="VgR-oM-xS9">
+                                <rect key="frame" x="442" y="132" width="217" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="HLField" destination="XoT-ky-4Jg" id="zfH-Hy-ySk"/>
-                        <outlet property="HLTermField" destination="yV6-Ta-Qxb" id="6jo-Bc-8Iu"/>
+                        <outlet property="HLTermField" destination="VgR-oM-xS9" id="IcW-Q1-4s3"/>
                         <outlet property="TempHLField" destination="x52-w2-o8S" id="SAJ-1E-j8W"/>
                         <outlet property="TempHLTermField" destination="qS3-aA-lYY" id="ubI-aP-Yfs"/>
                         <outlet property="TempHealthLoadg" destination="H0X-Lf-k4N" id="7EB-ej-STz"/>
@@ -13794,6 +13791,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HLViewController.h"/>
             <relationships>
                 <relationship kind="action" name="ActionEAPP:"/>
+                <relationship kind="action" name="HLButtonFunc:"/>
                 <relationship kind="action" name="doSave:"/>
                 <relationship kind="outlet" name="HLField" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="HLTermField" candidateClass="UIButton"/>

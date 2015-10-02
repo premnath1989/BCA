@@ -30,7 +30,8 @@
 @property (nonatomic,strong) id <HLViewControllerDelegate> delegate;
 
 @property (strong, nonatomic) IBOutlet UIButton *HLField;
-@property (strong, nonatomic) IBOutlet UIButton *HLTermField;
+- (IBAction)HLButtonFunc:(id)sender;
+@property (strong, nonatomic) IBOutlet UITextField *HLTermField;
 @property (strong, nonatomic) IBOutlet UITextField *TempHLField;
 @property (strong, nonatomic) IBOutlet UITextField *TempHLTermField;
 @property (strong, nonatomic) IBOutlet UIToolbar *myToolBar;

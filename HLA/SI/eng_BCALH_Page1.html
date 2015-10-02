@@ -66,7 +66,15 @@
             	var row2 = result[1];
 			}
 		
-		
+		if (gdata.SI[0].ModeOfPayment == 'L'){
+                	$('.ModeOfPayment').html('Sekaligus');
+            	}
+                else if (gdata.SI[0].ModeOfPayment == 'Y'){
+                	$('.ModeOfPayment').html('Tahunan');
+                }
+		else if (gdata.SI[0].ModeOfPayment == 'M'){
+                	$('.ModeOfPayment').html('Bulanan');
+                }
 			
             if(result.length == 1){
             	var row = result[0];
@@ -81,6 +89,8 @@
                 else{
                 	$('.MOP').html('5 Tahun');
                 }
+	      
+		
 	      
                 if (row.Sex.substring(0,1) == 'M'){
                 	$('.LASex').html('1');
@@ -246,7 +256,7 @@
 				<td style="text-align:left;padding: 0px 0px 0px 0px; ">Pekerjaan</td>
 				<td style="text-align:left;padding: 0px 0px 0px 0px; "><span class="OccpDesc"></span></td>
 				<td style="text-align:left;padding: 0px 0px 0px 0px; ">Masa Pembayaran</td>
-				<td style="text-align:left;padding: 0px 0px 0px 0px; ">Tahunan</td>
+				<td style="text-align:left;padding: 0px 0px 0px 0px; "><span class="ModeOfPayment"></span></td>
 	  		</tr>
 			<tr>
 				<td style="text-align:left;padding: 0px 0px 0px 0px; ">Frekuensi Pembayaran </td>

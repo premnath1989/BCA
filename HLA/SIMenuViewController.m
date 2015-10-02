@@ -4626,6 +4626,10 @@ int CurrentPath;
                             {
                                 path = [[NSBundle mainBundle] pathForResource:@"SI/eng_L100_Page1" ofType:@"html"]; //changed for language switcher @edwin 4-9-2013
                             }
+                            else if([getBasicPlan isEqualToString:@"BCALH"] )
+                            {
+                                path = [[NSBundle mainBundle] pathForResource:@"SI/eng_BCALH_Page1" ofType:@"html"]; //changed for language switcher @edwin 4-9-2013
+                            }
                         }
                         
                         NSURL *pathURL = [NSURL fileURLWithPath:path];

@@ -479,7 +479,16 @@ bool WPTPD30RisDeleted = FALSE;
     [scanner scanCharactersFromSet:numbers intoString:&numberString];
     
     //result
-    int num = [numberString integerValue];
+    
+    int num;
+    if ([strData isEqualToString:@"Single"]) {
+        num = 1;
+    }
+    else{
+        num = 5;
+    }
+    
+    
     return num;
 }
 
@@ -550,12 +559,15 @@ bool WPTPD30RisDeleted = FALSE;
     
     if (advanceIncomeSegment.selectedSegmentIndex == 0) {
         advanceYearlyIncomeHLAIB = 60;
+        ModeOfPayment = @"L";
     }
     else if (advanceIncomeSegment.selectedSegmentIndex == 1) {
         advanceYearlyIncomeHLAIB = 75;
+        ModeOfPayment = @"Y";
     }
     else if (advanceIncomeSegment.selectedSegmentIndex == 2) {
         advanceYearlyIncomeHLAIB = 0;
+        ModeOfPayment = @"M";
     }
     NSLog(@"advance:%d",advanceYearlyIncomeHLAIB);
     appDelegate.isNeedPromptSaveMsg = YES;
@@ -742,7 +754,7 @@ bool WPTPD30RisDeleted = FALSE;
         else if ([cashDividendHLAIB isEqualToString:@"POF"]) {
             cashDividendSegment.selectedSegmentIndex = 1;
         }
-        
+        /*
         //--handle advance segment
         if (ageClient > 65) {
             if (advanceYearlyIncome != 0) {
@@ -806,6 +818,18 @@ bool WPTPD30RisDeleted = FALSE;
                 advanceIncomeSegment.selectedSegmentIndex = 2;
             }
         }
+        */
+
+        if ([ModeOfPayment isEqualToString:@"L"]) {
+            advanceIncomeSegment.selectedSegmentIndex = 0;
+        }
+        else if ([ModeOfPayment isEqualToString:@"Y"]) {
+            advanceIncomeSegment.selectedSegmentIndex = 1;
+        }
+        else if ([ModeOfPayment isEqualToString:@"M"]) {
+            advanceIncomeSegment.selectedSegmentIndex = 2;
+        }
+        
         //--end--
     }
     else if ([planChoose isEqualToString:STR_HLACP])
@@ -1087,7 +1111,8 @@ bool WPTPD30RisDeleted = FALSE;
     
     labelFour.hidden = YES;
     labelFive.hidden = YES;
-    labelSeven.hidden = YES;
+    labelSeven.hidden = NO;
+    labelSeven.text = @"Mode of Payment :";
     labelParAcc.hidden = YES;
     labelParPayout.hidden = YES;
     labelPercent1.hidden = YES;
@@ -1102,7 +1127,7 @@ bool WPTPD30RisDeleted = FALSE;
     MOPSegment.hidden = NO;
     incomeSegment.hidden = YES;
     cashDividendSegment.hidden = YES;
-    advanceIncomeSegment.hidden = YES;
+    advanceIncomeSegment.hidden = NO;
 
     btnPlan.titleLabel.text = @"BCA Life Heritage";
     labelThree.text = @"Basic Sum Assured :";
@@ -1112,8 +1137,12 @@ bool WPTPD30RisDeleted = FALSE;
     termField.text = [NSString stringWithFormat:@"%d", 100 - ageClient];
     [self.btnPlan setTitle:@"BCA Life Heritage" forState:UIControlStateNormal];
     
-    [MOPSegment setTitle:@"1" forSegmentAtIndex:0];
-    [MOPSegment setTitle:@"5" forSegmentAtIndex:1];
+    [MOPSegment setTitle:@"Single" forSegmentAtIndex:0];
+    [MOPSegment setTitle:@"Five" forSegmentAtIndex:1];
+    
+    [advanceIncomeSegment setTitle:@"Sekaligus" forSegmentAtIndex:0];
+    [advanceIncomeSegment setTitle:@"Tahunan" forSegmentAtIndex:1];
+    [advanceIncomeSegment setTitle:@"Bulanan" forSegmentAtIndex:2];
 }
 
 -(void)togglePlanS100:(AppDelegate *)zzz {
@@ -2297,6 +2326,7 @@ bool WPTPD30RisDeleted = FALSE;
                 
                 yearlyIncome = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 6)];
                 advanceYearlyIncome = sqlite3_column_int(statement, 7);
+                ModeOfPayment = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 7)];
                 
                 const char *getHL2 = (const char*)sqlite3_column_text(statement, 8);
                 getHL = getHL2 == NULL ? nil : [[NSString alloc] initWithUTF8String:getHL2];
@@ -2394,10 +2424,10 @@ bool WPTPD30RisDeleted = FALSE;
                                @"INSERT INTO Trad_Details (SINo,  PlanCode, PTypeCode, Seq, PolicyTerm, BasicSA, "
 							   "PremiumPaymentOption, CashDividend, YearlyIncome, AdvanceYearlyIncome, HL1KSA, HL1KSATerm, "
 							   "TempHL1KSA, TempHL1KSATerm, CreatedAt,UpdatedAt,PartialAcc,PartialPayout, QuotationLang, SIVersion, SIStatus) "
-							   "VALUES (\"%@\", \"%@\", \"LA\", \"1\", \"%@\", \"%@\", \"%d\", \"%@\", \"%@\", \"%d\", \"%@\", "
+							   "VALUES (\"%@\", \"%@\", \"LA\", \"1\", \"%@\", \"%@\", \"%d\", \"%@\", \"%@\", \"%@\", \"%@\", "
 							   "\"%d\", \"%@\", \"%d\", %@ , %@,%d,%d, \"%@\", '%@', '%@')",
 							   SINo, planChoose, [self getTerm], yearlyIncomeField.text, MOP, cashDividend, yearlyIncome,
-							   advanceYearlyIncome, HLField.text, [HLTermField.text intValue], tempHLField.text,
+							   ModeOfPayment, HLField.text, [HLTermField.text intValue], tempHLField.text,
 							   [tempHLTermField.text intValue], @"datetime(\"now\", \"+8 hour\")",@"datetime(\"now\", \"+8 hour\")",
 							   [parAccField.text intValue],[parPayoutField.text intValue], quotationLang, AppsVersion, @"INVALID"];
         if(sqlite3_prepare_v2(contactDB, [insertSQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
@@ -2648,7 +2678,7 @@ bool WPTPD30RisDeleted = FALSE;
     if (sqlite3_open([databasePath UTF8String], &contactDB) == SQLITE_OK) {
         
         //[self getTermRule];
-        NSString *querySQL = [NSString stringWithFormat:@"UPDATE Trad_Details SET PlanCode=\"%@\", PolicyTerm=\"%@\", BasicSA=\"%@\", PremiumPaymentOption=\"%d\", CashDividend=\"%@\", YearlyIncome=\"%@\", AdvanceYearlyIncome=\"%d\", UpdatedAt=%@, PartialAcc=\"%d\", PartialPayout=\"%d\" , QuotationLang=\"%@\" WHERE SINo=\"%@\"", planChoose, [self getTerm], yearlyIncomeField.text, [self ReturnPaymentTerm:planChoose], cashDividend, yearlyIncome,advanceYearlyIncome, @"datetime(\"now\", \"+8 hour\")",[parAccField.text intValue],[parPayoutField.text intValue], quotationLang, SINo];
+        NSString *querySQL = [NSString stringWithFormat:@"UPDATE Trad_Details SET PlanCode=\"%@\", PolicyTerm=\"%@\", BasicSA=\"%@\", PremiumPaymentOption=\"%d\", CashDividend=\"%@\", YearlyIncome=\"%@\", AdvanceYearlyIncome=\"%@\", UpdatedAt=%@, PartialAcc=\"%d\", PartialPayout=\"%d\" , QuotationLang=\"%@\" WHERE SINo=\"%@\"", planChoose, [self getTerm], yearlyIncomeField.text, [self ReturnPaymentTerm:planChoose], cashDividend, yearlyIncome,ModeOfPayment, @"datetime(\"now\", \"+8 hour\")",[parAccField.text intValue],[parPayoutField.text intValue], quotationLang, SINo];
 		
         if (sqlite3_prepare_v2(contactDB, [querySQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
             if (sqlite3_step(statement) == SQLITE_DONE) {

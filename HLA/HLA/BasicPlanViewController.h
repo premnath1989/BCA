@@ -51,6 +51,8 @@
     
     BOOL planChanged;
     
+    NSString *ModeOfPayment;
+    
     NSString *prevPlanChoose;
     NSString *planHSPII;
     NSString *OccpCat;

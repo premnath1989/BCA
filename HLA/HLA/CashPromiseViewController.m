@@ -1650,15 +1650,17 @@ NSMutableArray *UpdateTradDetail, *gWaiverAnnual, *gWaiverSemiAnnual, *gWaiverQu
         PlanName = @"";
 
     
-    query = [NSString stringWithFormat:@"Select UpdatedAt,HL1KSA,TempHL1KSA from Trad_Details where SINo ='%@'",_SINo];
+    query = [NSString stringWithFormat:@"Select UpdatedAt,HL1KSA,TempHL1KSA, advanceYearlyIncome from Trad_Details where SINo ='%@'",_SINo];
     results = [database executeQuery:query];
     NSString *UpdatedAt;
+    NSString *ModeOfPayment;
     int HL1KSA = 0.0;
     double TempHL1KSA = 0;
     if ([results next]) {
         UpdatedAt = [results stringForColumnIndex:0];
         HL1KSA = [results intForColumnIndex:1];
         TempHL1KSA = [results doubleForColumnIndex:2];
+        ModeOfPayment = [results stringForColumnIndex:3];
     }
     
     int TotalPages = 0;
@@ -1714,7 +1716,7 @@ NSMutableArray *UpdateTradDetail, *gWaiverAnnual, *gWaiverSemiAnnual, *gWaiverQu
         [content appendFormat:@"\"TempHL1KSA\":\"%f\",\n", TempHL1KSA];
         [content appendFormat:@"\"OCCPClass\":\"%@\",\n", OccpClass];
         [content appendFormat:@"\"BasicSA\":\"%f\",\n", BasicSA ];
-        
+        [content appendFormat:@"\"ModeOfPayment\":\"%@\",\n", ModeOfPayment];
         [content appendFormat:@"\"TotalPages\":\"%d\",\n", TotalPages];
         [content appendFormat:@"\"QuotationLang\":\"%@\",\n", lang];
     }

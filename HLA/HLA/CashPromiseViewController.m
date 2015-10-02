@@ -572,7 +572,7 @@ NSMutableArray *UpdateTradDetail, *gWaiverAnnual, *gWaiverSemiAnnual, *gWaiverQu
 {
     int numberOfItems;
     (*pageNum)++;
-    *sqlStmt = [NSString stringWithFormat:@"INSERT INTO SI_Temp_Pages(htmlName, PageNum, PageDesc) VALUES ('L100_Page1.html',%d,'%@')",*pageNum,[desc stringByAppendingString:[NSString stringWithFormat:@"%d",*pageNum]]];    
+    *sqlStmt = [NSString stringWithFormat:@"INSERT INTO SI_Temp_Pages(htmlName, PageNum, PageDesc) VALUES ('BCALH_Page1.html',%d,'%@')",*pageNum,[desc stringByAppendingString:[NSString stringWithFormat:@"%d",*pageNum]]];
     *DBID = [_db ExecuteINSERT:*sqlStmt];
     if (*DBID <= 0){
         NSLog(@"Error inserting data into database.");
@@ -606,14 +606,14 @@ NSMutableArray *UpdateTradDetail, *gWaiverAnnual, *gWaiverSemiAnnual, *gWaiverQu
     }
     */
     (*pageNum)++;
-    *sqlStmt = [NSString stringWithFormat:@"INSERT INTO SI_Temp_Pages(htmlName, PageNum, PageDesc) VALUES ('eng_L100_Page2.html',%d,'%@')",*pageNum,[desc stringByAppendingString:[NSString stringWithFormat:@"%d",*pageNum]]];
+    *sqlStmt = [NSString stringWithFormat:@"INSERT INTO SI_Temp_Pages(htmlName, PageNum, PageDesc) VALUES ('eng_BCALH_Page2.html',%d,'%@')",*pageNum,[desc stringByAppendingString:[NSString stringWithFormat:@"%d",*pageNum]]];
     *DBID = [_db ExecuteINSERT:*sqlStmt];
     if (*DBID <= 0){
         NSLog(@"Error inserting data into database.");
     }
     
     (*pageNum)++;
-    *sqlStmt = [NSString stringWithFormat:@"INSERT INTO SI_Temp_Pages(htmlName, PageNum, PageDesc) VALUES ('eng_L100_Page3.html',%d,'%@')",*pageNum,[desc stringByAppendingString:[NSString stringWithFormat:@"%d",*pageNum]]];
+    *sqlStmt = [NSString stringWithFormat:@"INSERT INTO SI_Temp_Pages(htmlName, PageNum, PageDesc) VALUES ('eng_BCALH_Page3.html',%d,'%@')",*pageNum,[desc stringByAppendingString:[NSString stringWithFormat:@"%d",*pageNum]]];
     *DBID = [_db ExecuteINSERT:*sqlStmt];
     if (*DBID <= 0){
         NSLog(@"Error inserting data into database.");

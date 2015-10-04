@@ -63,7 +63,7 @@
     annFac = 1;
     halfFac = 0.5125;
     qtrFac = 0.2625;
-    monthFac = 0.0875;
+    monthFac = 0.1;
     
     getAge = self.requestAge;
     getOccpClass = self.requestOccpClass;
@@ -107,7 +107,7 @@
         }
     }
     [self preparedHTMLTable];
-    
+    /*
     if ((getMOP == 9 && [getBasicSA intValue] < 1000 && getAge >= 66 && getAge <= 70)||
         (getMOP == 9 && [getBasicSA intValue] >= 1000 && getAge >= 68 && getAge <= 70)||
         (getMOP == 12 && [getBasicSA intValue] < 1000 && getAge >= 59 && getAge <= 70)||
@@ -116,7 +116,7 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Please note that the Guaranteed Benefit payout for selected plan maybe lesser than total premium outlay." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil,nil];
         [alert show];
     }
-    
+    */
     doGenerate.hidden = TRUE;
     
     if([EAPPorSI isEqualToString:@"eAPP"]){
@@ -227,11 +227,11 @@
     "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
     "</tr>"
     "<tr>"
-    "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Occupation Loading</font></td>"
-    "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
-    "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
-    "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
-    "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
+    "<td style='height:35px;padding: 5px 5px 5px 5px;display: none'><font face='TreBuchet MS' size='3'>Occupation Loading</font></td>"
+    "<td align='right' style='display: none'><font face='TreBuchet MS' size='3'>%@</font></td>"
+    "<td align='right' style='display: none'><font face='TreBuchet MS' size='3'>%@</font></td>"
+    "<td align='right' style='display: none'><font face='TreBuchet MS' size='3'>%@</font></td>"
+    "<td align='right' style='display: none'><font face='TreBuchet MS' size='3'>%@</font></td>"
     "</tr>"
     "<tr>"
     "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Health Loading</font></td>"
@@ -241,11 +241,11 @@
     "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
     "</tr>"
     "<tr>"
-    "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>%@</font></td>"
-    "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
-    "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
-    "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
-    "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
+    "<td style='height:35px;padding: 5px 5px 5px 5px;display: none'><font face='TreBuchet MS' size='3'>%@</font></td>"
+    "<td align='right' style='display: none'><font face='TreBuchet MS' size='3'>%@</font></td>"
+    "<td align='right' style='display: none'><font face='TreBuchet MS' size='3'>%@</font></td>"
+    "<td align='right' style='display: none'><font face='TreBuchet MS' size='3'>%@</font></td>"
+    "<td align='right' style='display: none'><font face='TreBuchet MS' size='3'>%@</font></td>"
     "</tr>"
     "<tr>"
     "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Sub-Total</font></td>"
@@ -412,10 +412,69 @@
         
         NSString *htmlString = [htmlBasic stringByAppendingString:htmlTail];
         NSURL *baseURL = [NSURL URLWithString:@""];
+        
+        NSString *tempMOP;
+        NSString *tempPrem;
+        NSString *tempHL;
+        NSString *total;
+        
+        
+        
+        if ([ModeOfPayment isEqualToString:@"L"]) {
+            tempMOP = @"Lump Sum";
+            tempPrem = BasicAnnually;
+            tempHL = BasicHLAnnually;
+            total = basicTotalA;
+        }
+        else if ([ModeOfPayment isEqualToString:@"Y"]) {
+            tempMOP = @"Annually";
+            tempPrem = BasicAnnually;
+            tempHL = BasicHLAnnually;
+            total = basicTotalA;
+        }
+        else if ([ModeOfPayment isEqualToString:@"M"]) {
+            tempMOP = @"Monthly";
+            
+            if (getMOP == 1) {
+                tempPrem = BasicAnnually;
+                tempHL = BasicHLAnnually;
+                total = basicTotalA;
+            }
+            else{
+                tempPrem = BasicMonthly;
+                tempHL = BasicHLMonthly;
+                total = basicTotalM;
+
+            }
+        }
+        
+        
+        
+        NSString *newHtml = [NSString stringWithFormat: @"<html>"
+        "<body style=\"background-image:url(%@)\">"
+        "<br><br><br>"
+        "<table border='1' width='30%%' align='center' style='border-collapse:collapse; border-color:gray;'> "
+        "<tr>"
+        "<td width='32%%' align='center' style='height:45px; background-color:#4F81BD;'>&nbsp;</td>"
+        "<td width='17%%' align='center' style='height:45px; background-color:#4F81BD;'><font face='TreBuchet MS' size='4'>%@</font></td>"
+        "</tr>"
+        "<tr>"
+        "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Basic Plan</font></td>"
+        "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
+        "</tr>"
+        "<tr>"
+        "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Health Loading</font></td>"
+        "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
+        "</tr>"
+        "<tr>"
+        "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Sub-Total</font></td>"
+        "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
+        "</tr>", url, tempMOP, tempPrem, tempHL, total];
+        
 		self.WebView.backgroundColor = [UIColor clearColor];
 		self.WebView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg10.jpg"]];
         [self.WebView setOpaque:NO];
-        [WebView loadHTMLString:htmlString baseURL:baseURL];
+        [WebView loadHTMLString:newHtml baseURL:baseURL];
     }
 }
 
@@ -580,6 +639,8 @@
     double pseudoBasicQuarterly = 0;
     double pseudoBasicMonthly = 0;
     
+    [self getModeOfPayment];
+    
     if ([getBasicPlan isEqualToString:@"HLAWP"])
     {
         _BasicAnnually = (BasicSA) * annFac;
@@ -591,7 +652,7 @@
         _BasicAnnually = basicRate * (BasicSA/1000) * annFac;
         _BasicHalfYear = basicRate * (BasicSA/1000) * halfFac;
         _BasicQuarterly = basicRate * (BasicSA/1000) * qtrFac;
-        _BasicMonthly = basicRate * (BasicSA/1000) * monthFac;   
+        _BasicMonthly = basicRate * (BasicSA/1000) * (getMOP == 5 ? monthFac : 1);
     }
     
     BasicAnnually = [formatter stringFromNumber:[NSNumber numberWithDouble:_BasicAnnually]];
@@ -744,6 +805,22 @@
     NSString *QuerySQL =  [ NSString stringWithFormat: @"INSERT INTO SI_Store_Premium (\"Type\",\"Annually\",\"SemiAnnually\", "
                            " \"Quarterly\",\"Monthly\", 'SINO', 'PremiumWithoutHLoading') VALUES "
                            " (\"B\", \"%@\", \"%@\", \"%@\", \"%@\", '%@', '%f') ", basicTotalA, basicTotalS, basicTotalQ, basicTotalM, SINo, BasicAnnually_];
+    
+    
+    if ([ModeOfPayment isEqualToString:@"M"] && getMOP == 5 ) {
+        
+        QuerySQL =  [ NSString stringWithFormat: @"INSERT INTO SI_Store_Premium (\"Type\",\"Annually\",\"SemiAnnually\", "
+                                   " \"Quarterly\",\"Monthly\", 'SINO', 'PremiumWithoutHLoading') VALUES "
+                                   " (\"B\", \"%@\", \"%@\", \"%@\", \"%@\", '%@', '%f') ", basicTotalA, basicTotalS, basicTotalQ, basicTotalM, SINo, BasicMonthly_];
+        
+    }
+    else{
+        QuerySQL =  [ NSString stringWithFormat: @"INSERT INTO SI_Store_Premium (\"Type\",\"Annually\",\"SemiAnnually\", "
+                     " \"Quarterly\",\"Monthly\", 'SINO', 'PremiumWithoutHLoading') VALUES "
+                     " (\"B\", \"%@\", \"%@\", \"%@\", \"%@\", '%@', '%f') ", basicTotalA, basicTotalS, basicTotalQ, basicTotalM, SINo, BasicAnnually_];
+        
+    }
+    
     
     if (sqlite3_open([databasePath UTF8String], &contactDB) == SQLITE_OK)
     {
@@ -3525,6 +3602,28 @@
         sqlite3_close(contactDB);
     }
 }
+
+-(void)getModeOfPayment
+{
+    sqlite3_stmt *statement;
+    if (sqlite3_open([databasePath UTF8String], &contactDB) == SQLITE_OK)
+    {
+        NSString *querySQL = [NSString stringWithFormat:
+                              @"SELECT AdvanceYearlyIncome FROM Trad_Details WHERE sino = '%@'", SINo];
+        
+        if (sqlite3_prepare_v2(contactDB, [querySQL UTF8String], -1, &statement, NULL) == SQLITE_OK)
+        {
+            if (sqlite3_step(statement) == SQLITE_ROW)
+            {
+                ModeOfPayment =  [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 0)];
+                
+            }
+            sqlite3_finalize(statement);
+        }
+        sqlite3_close(contactDB);
+    }
+}
+
 
 -(void)getOccLoad
 {

@@ -60,6 +60,7 @@
     
     float gstValue;
     
+    NSString *ModeOfPayment;
     double BasicLoadingRate;
 }
 

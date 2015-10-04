@@ -142,6 +142,11 @@
     if (getHLTerm > 0 || getTempHLTerm > 0) {
         [self getExistingView];
     }
+    else{
+        [HLField setTitle:@"0" forState:UIControlStateNormal];
+
+        HLTermField.text = [NSString stringWithFormat:@"0"];
+    }
 	
 }
 -(void)clearHLFields
@@ -356,16 +361,6 @@
     }
     else if ([HLTermField.text intValue] > termCover &&  ![planChoose isEqualToString:@"HLACP" ] && ![planChoose isEqualToString:@"HLAWP" ]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:[NSString stringWithFormat:@"Health Loading (per 1k SA) Term cannot be greater than %d",termCover] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-        [HLTermField becomeFirstResponder];
-    }
-    else if ([HLField.titleLabel.text intValue] == 0 && HLField.titleLabel.text.length != 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Health Loading (per 1k SA) is required." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-        [HLField becomeFirstResponder];
-    }
-    else if ([HLTermField.text intValue] == 0 && HLTermField.text.length != 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Health Loading (per 1k SA) Term is required." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         [HLTermField becomeFirstResponder];
     }

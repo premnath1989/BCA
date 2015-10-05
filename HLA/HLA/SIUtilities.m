@@ -748,6 +748,7 @@ static sqlite3 *contactDB = nil;
     return YES;
 }
 
+
 //added by Edwin 13-02-2014
 +(void)upgradeRatesDB:(NSString *)ratesPath
 {
@@ -758,7 +759,7 @@ static sqlite3 *contactDB = nil;
     success = [fileManager fileExistsAtPath:ratesPath];
     
     if (!success) {
-        NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"HLA_Rates.sqlite"];
+        NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"BCA_Rates.sqlite"];
         success = [fileManager copyItemAtPath:defaultDBPath toPath:ratesPath error:&error];
         if (!success) {
             NSAssert1(0, @"Failed to create writable database file with message '%@'.", [error localizedDescription]);
@@ -768,37 +769,7 @@ static sqlite3 *contactDB = nil;
     }
     else{
         
-        BOOL newRatesTableExist = [self isNewTradRatesTableExist:ratesPath];
-        
-        //newRatesTableExist = false; //rapid development as required by HLA, this will slow down the opening of the app also what HLA wants (Y) <-- did by edwin
-        
-        if(!newRatesTableExist) //doesnt exist will proceed
-        {
-            BOOL exist;
-            NSFileManager *fileManager = [NSFileManager defaultManager];
-            NSError *error;
-            
-            exist = [fileManager fileExistsAtPath:ratesPath];
-            if (exist)
-            {
-                NSLog(@"rates db exist");
-                [fileManager removeItemAtPath:ratesPath error:NULL];
-            }
-            
-            NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"HLA_Rates.sqlite"];
-            //defaultDBPath = [[NSBundle mainBundle] pathForResource:@"HLA_Rates" ofType:@".SQLite"];
-            //NSLog(defaultDBPath);
-            BOOL copySuccess = [fileManager copyItemAtPath:defaultDBPath toPath:ratesPath error:&error];
-            
-            if(copySuccess)
-            {
-                NSLog(@"Success copy rates_db");
-            }else
-            {
-                NSLog(@"Fail to copy rates_db");
-            }
-        }
-    }
+          }
     
 	fileManager = Nil;
     error = Nil;

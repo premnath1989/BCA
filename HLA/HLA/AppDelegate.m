@@ -32,7 +32,8 @@ NSString * const NSURLIsExcludedFromBackupKey =@"NSURLIsExcludedFromBackupKey";
     NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docsDir = [dirPaths objectAtIndex:0];
     databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"hladb.sqlite"]];
-    NSString *ratesPath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"HLA_Rates.sqlite"]];
+    //NSString *ratesPath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"HLA_Rates.sqlite"]];
+    NSString *ratesPath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"BCA_Rates.sqlite"]];
     
     NSLog(@"%@",databasePath);
     
@@ -118,6 +119,7 @@ NSString * const NSURLIsExcludedFromBackupKey =@"NSURLIsExcludedFromBackupKey";
     
     
     [SIUtilities makeDBCopy:databasePath];
+    [SIUtilities makeDBCopy:ratesPath];
     
 	[SIUtilities checkDBCountry:databasePath];
     [SIUtilities addColumnTable:@"Agent_Profile" column:@"AgentICNo" type:@"INTEGER" dbpath:databasePath];

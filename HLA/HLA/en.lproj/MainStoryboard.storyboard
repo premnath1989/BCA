@@ -4634,7 +4634,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         </connections>
                                     </button>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" id="Il7-aF-k8N">
-                                        <rect key="frame" x="374" y="228" width="287" height="44"/>
+                                        <rect key="frame" x="374" y="180" width="287" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <segments>
                                             <segment title="Accumulate"/>
@@ -13099,6 +13099,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="action" name="cashDividendSegmentPressed:"/>
                 <relationship kind="action" name="doSavePlan:"/>
                 <relationship kind="action" name="incomeSegmentPressed:"/>
+                <relationship kind="action" name="policyTermSegPressed:"/>
                 <relationship kind="action" name="quotationLangSegmentPressed:"/>
                 <relationship kind="outlet" name="HLField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="HLTermField" candidateClass="UITextField"/>

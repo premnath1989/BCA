@@ -1153,12 +1153,12 @@ bool WPTPD30RisDeleted = FALSE;
     termField.text = [NSString stringWithFormat:@"%d", 100 - ageClient];
     [self.btnPlan setTitle:@"BCA Life Heritage" forState:UIControlStateNormal];
     
-    [MOPSegment setTitle:@"Single Payment" forSegmentAtIndex:0];
-    [MOPSegment setTitle:@"5 payment" forSegmentAtIndex:1];
+    [MOPSegment setTitle:@" Single Payment " forSegmentAtIndex:0];
+    [MOPSegment setTitle:@" 5 payment " forSegmentAtIndex:1];
     
-    [advanceIncomeSegment setTitle:@"Lump Sum" forSegmentAtIndex:0];
-    [advanceIncomeSegment setTitle:@"Annually" forSegmentAtIndex:1];
-    [advanceIncomeSegment setTitle:@"Monthly" forSegmentAtIndex:2];
+    [advanceIncomeSegment setTitle:@" Lump Sum " forSegmentAtIndex:0];
+    [advanceIncomeSegment setTitle:@" Annually " forSegmentAtIndex:1];
+    [advanceIncomeSegment setTitle:@" Monthly " forSegmentAtIndex:2];
 
 }
 

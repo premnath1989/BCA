@@ -1138,7 +1138,7 @@ bool WPTPD30RisDeleted = FALSE;
     [self.btnPlan setTitle:@"BCA Life Heritage" forState:UIControlStateNormal];
     
     [MOPSegment setTitle:@"Single" forSegmentAtIndex:0];
-    [MOPSegment setTitle:@"Five" forSegmentAtIndex:1];
+    [MOPSegment setTitle:@"5" forSegmentAtIndex:1];
     
     [advanceIncomeSegment setTitle:@"Sekaligus" forSegmentAtIndex:0];
     [advanceIncomeSegment setTitle:@"Tahunan" forSegmentAtIndex:1];

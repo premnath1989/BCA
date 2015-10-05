@@ -112,7 +112,7 @@
 
 -(void)HLDropDown{
     
-
+//premmnathhhh
     
     if (_VaLueList == nil) {
         self.ValueList = [[HLValueList alloc] init];
@@ -121,9 +121,9 @@
     }
     
     CGRect rect = [HLField frame];
-    rect.origin.y = [HLField frame].origin.y + 30;
+    rect.origin.y = [HLField frame].origin.y + 10;
     
-    [self.planPopover setPopoverContentSize:CGSizeMake(350.0f, 200.0f)];
+    [self.planPopover setPopoverContentSize:CGSizeMake(150.0f, 200.0f)];
     [self.planPopover presentPopoverFromRect:rect  inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 
 }

@@ -70,6 +70,8 @@
     if (cell==nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
+	
+	cell.textLabel.textAlignment = NSTextAlignmentCenter;
 
     cell.textLabel.text = [item objectAtIndex:indexPath.row];
     

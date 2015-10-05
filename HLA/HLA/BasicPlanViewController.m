@@ -135,7 +135,9 @@ bool WPTPD30RisDeleted = FALSE;
 			
         }
     } else {
+        ModeOfPayment = @"M";
         MOPHLAIB = 0;
+        MOP = 5;
     }
     
     if (PayorIndexNo != 0) {
@@ -886,6 +888,20 @@ bool WPTPD30RisDeleted = FALSE;
             }
         }
         MOPSegment.selectedSegmentIndex = i;
+        
+        
+    }
+    else if ([planChoose isEqualToString:STR_L100]) {
+        if ([ModeOfPayment isEqualToString:@"L"]) {
+            [advanceIncomeSegment setSelectedSegmentIndex:0];
+        }
+        else if ([ModeOfPayment isEqualToString:@"Y"]) {
+            [advanceIncomeSegment setSelectedSegmentIndex:1];
+        }
+        else if ([ModeOfPayment isEqualToString:@"M"]) {
+            [advanceIncomeSegment setSelectedSegmentIndex:2];
+        }
+        
     }
     
     if (getHL.length != 0) {
@@ -1143,6 +1159,7 @@ bool WPTPD30RisDeleted = FALSE;
     [advanceIncomeSegment setTitle:@"Sekaligus" forSegmentAtIndex:0];
     [advanceIncomeSegment setTitle:@"Tahunan" forSegmentAtIndex:1];
     [advanceIncomeSegment setTitle:@"Bulanan" forSegmentAtIndex:2];
+
 }
 
 -(void)togglePlanS100:(AppDelegate *)zzz {

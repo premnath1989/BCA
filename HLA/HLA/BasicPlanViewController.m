@@ -2679,7 +2679,8 @@ bool WPTPD30RisDeleted = FALSE;
 
 -(int)ReturnPaymentTerm :(NSString *)aaPlanChosen {
     if ([aaPlanChosen isEqualToString:STR_L100]) {
-        return MOPSegment.selectedSegmentIndex == 0 ? 1 : 5;
+        MOP = MOPSegment.selectedSegmentIndex == 0 ? 1 : 5;
+        return MOP;
     } else if ([aaPlanChosen isEqualToString:STR_S100]) {
         return MOP;
     } else if ([aaPlanChosen isEqualToString:STR_HLAWP]) {
@@ -2701,7 +2702,7 @@ bool WPTPD30RisDeleted = FALSE;
             if (sqlite3_step(statement) == SQLITE_DONE) {
                 prevPlanChoose = planChoose;
 //                NSLog(@"BasicPlan update!  %@",querySQL);
-                [self getPlanCodePenta];
+                //[self getPlanCodePenta];
                 
                 if([planChoose isEqualToString:STR_HLAWP]) {
                     termCover = policyTermSegInt;
@@ -2781,8 +2782,8 @@ bool WPTPD30RisDeleted = FALSE;
         }
     }
 
-    [self getListingRider];
-    
+    //[self getListingRider];
+    /*
     if ([LRiderCode indexOfObject:@"WPTPD30R"] != NSNotFound ||
         [LRiderCode indexOfObject:@"WPTPD50R"] != NSNotFound ||
         [LRiderCode indexOfObject:@"LCPR"] != NSNotFound ||
@@ -2830,6 +2831,9 @@ bool WPTPD30RisDeleted = FALSE;
     } else {
         return NO;
     }
+    */
+    
+    return YES;
 }
 
 -(void)checkExistRider

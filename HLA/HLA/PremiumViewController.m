@@ -413,37 +413,46 @@
         NSString *htmlString = [htmlBasic stringByAppendingString:htmlTail];
         NSURL *baseURL = [NSURL URLWithString:@""];
         
-        NSString *tempMOP;
-        NSString *tempPrem;
-        NSString *tempHL;
-        NSString *total;
+        NSString *tempMOP1;
+        NSString *tempPrem1;
+        NSString *tempHL1;
+        NSString *total1;
+
+        NSString *tempMOP2;
+        NSString *tempPrem2;
+        NSString *tempHL2;
+        NSString *total2;
         
+        NSString *tempMOP3;
+        NSString *tempPrem3;
+        NSString *tempHL3;
+        NSString *total3;
         
         
         if ([ModeOfPayment isEqualToString:@"L"]) {
-            tempMOP = @"Lump Sum";
-            tempPrem = BasicAnnually;
-            tempHL = BasicHLAnnually;
-            total = basicTotalA;
+            tempMOP1 = @"Lump Sum";
+            tempPrem1 = BasicAnnually;
+            tempHL1 = BasicHLAnnually;
+            total1 = basicTotalA;
         }
         else if ([ModeOfPayment isEqualToString:@"Y"]) {
-            tempMOP = @"Annually";
-            tempPrem = BasicAnnually;
-            tempHL = BasicHLAnnually;
-            total = basicTotalA;
+            tempMOP2 = @"Annually";
+            tempPrem2 = BasicAnnually;
+            tempHL2 = BasicHLAnnually;
+            total2 = basicTotalA;
         }
         else if ([ModeOfPayment isEqualToString:@"M"]) {
-            tempMOP = @"Monthly";
+            tempMOP3 = @"Monthly";
             
             if (getMOP == 1) {
-                tempPrem = BasicAnnually;
-                tempHL = BasicHLAnnually;
-                total = basicTotalA;
+                tempPrem3 = BasicAnnually;
+                tempHL3 = BasicHLAnnually;
+                total3 = basicTotalA;
             }
             else{
-                tempPrem = BasicMonthly;
-                tempHL = BasicHLMonthly;
-                total = basicTotalM;
+                tempPrem3 = BasicMonthly;
+                tempHL3 = BasicHLMonthly;
+                total3 = basicTotalM;
 
             }
         }
@@ -451,25 +460,33 @@
         
         
         NSString *newHtml = [NSString stringWithFormat: @"<html>"
-        "<body style=\"background-image:url(%@)\">"
-        "<br><br><br>"
-        "<table border='1' width='30%%' align='center' style='border-collapse:collapse; border-color:gray;'> "
-        "<tr>"
-        "<td width='32%%' align='center' style='height:45px; background-color:#4F81BD;'>&nbsp;</td>"
-        "<td width='17%%' align='center' style='height:45px; background-color:#4F81BD;'><font face='TreBuchet MS' size='4'>%@</font></td>"
-        "</tr>"
-        "<tr>"
-        "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Basic Plan</font></td>"
-        "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
-        "</tr>"
-        "<tr>"
-        "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Health Loading</font></td>"
-        "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
-        "</tr>"
-        "<tr>"
-        "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Sub-Total</font></td>"
-        "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
-        "</tr>", url, tempMOP, tempPrem, tempHL, total];
+                             "<body style=\"background-image:url(%@)\">"
+                             "<br><br><br>"
+                             "<table border='1' width='30%%' align='center' style='border-collapse:collapse; border-color:gray;'> "
+                             "<tr>"
+                             "<td width='25%%' align='center' style='height:45px; background-color:#4F81BD;'>&nbsp;</td>"
+                             "<td width='25%%' align='center' style='height:45px; background-color:#4F81BD;'><font face='TreBuchet MS' size='4'>%@</font></td>"
+                             "<td width='25%%' align='center' style='height:45px; background-color:#4F81BD;'><font face='TreBuchet MS' size='4'>%@</font></td>"
+                             "<td width='25%%' align='center' style='height:45px; background-color:#4F81BD;'><font face='TreBuchet MS' size='4'>%@</font></td>"
+                             "</tr>"
+                             "<tr>"
+                             "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Basic Plan</font></td>"
+                             "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
+                             "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
+                             "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
+                             "</tr>"
+                             "<tr>"
+                             "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Health Loading</font></td>"
+                             "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
+                             "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
+                             "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
+                             "</tr>"
+                             "<tr>"
+                             "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Sub-Total</font></td>"
+                             "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
+                             "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
+                             "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
+                             "</tr>", url, tempMOP1,tempMOP2,tempMOP3, tempPrem1,tempPrem2,tempPrem3, tempHL1,tempHL2,tempHL3, total1,total2,total3];
         
 		self.WebView.backgroundColor = [UIColor clearColor];
 		self.WebView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg10.jpg"]];

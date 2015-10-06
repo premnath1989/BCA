@@ -1135,7 +1135,7 @@ function writeSummary1_HLCP() {
     if(gdata.SI[0].PlanCode=="HLACP")
     {
         $.each(gdata.SI[0].SI_Temp_Trad_Basic.data, function(index, row) {
-        	$('#table-Summary1 > tbody').append('<tr><td>' + row.col0_1 + '</td><td>' + row.col0_2 + '</td><td>' + formatCurrency(row.col1) + '</td><td>' +
+        	$('#table-Summary1 > tbody').append('<tr><td>' + row.col0_1 + '</td><td>' + row.col0_2 + '</td><td>' + CurrencyNoCents(row.col1) + '</td><td>' +
         	formatCurrency(row.col2) + '</td><td>' + formatCurrency(row.col22) + '</td><td>' + formatCurrency(row.col23) + '</td><td>' + CurrencyNoCents(row.col3) + '</td><td>' + 
         	CurrencyNoCents(row.col4) + '</td><td>' + CurrencyNoCents(row.col5) + '</td><td>' + CurrencyNoCents(row.col6) + '</td><td>' + CurrencyNoCents(row.col7) + '</td><td>' +
         	CurrencyNoCents(row.col8) + '</td><td>' + CurrencyNoCents(row.col9) + '</td><td>' + CurrencyNoCents(row.col10) + '</td><td>' + formatCurrency(row.col11) + '</td></tr>');

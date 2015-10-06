@@ -427,21 +427,23 @@
         NSString *tempPrem3;
         NSString *tempHL3;
         NSString *total3;
+
+        
+        NSString *color1;
+        NSString *color2;
+        NSString *color3;
         
         
-        if ([ModeOfPayment isEqualToString:@"L"]) {
             tempMOP1 = @"Lump Sum";
             tempPrem1 = BasicAnnually;
             tempHL1 = BasicHLAnnually;
             total1 = basicTotalA;
-        }
-        else if ([ModeOfPayment isEqualToString:@"Y"]) {
+        
             tempMOP2 = @"Annually";
             tempPrem2 = BasicAnnually;
             tempHL2 = BasicHLAnnually;
             total2 = basicTotalA;
-        }
-        else if ([ModeOfPayment isEqualToString:@"M"]) {
+        
             tempMOP3 = @"Monthly";
             
             if (getMOP == 1) {
@@ -455,6 +457,17 @@
                 total3 = basicTotalM;
 
             }
+        
+        
+        
+        if ([ModeOfPayment isEqualToString:@"L"]) {
+            color1 = @"#FFFF00";
+        }
+        else if ([ModeOfPayment isEqualToString:@"Y"]) {
+            color2 = @"#FFFF00";
+        }
+        else if ([ModeOfPayment isEqualToString:@"M"]) {
+            color3 = @"#FFFF00";
         }
         
         
@@ -462,7 +475,7 @@
         NSString *newHtml = [NSString stringWithFormat: @"<html>"
                              "<body style=\"background-image:url(%@)\">"
                              "<br><br><br>"
-                             "<table border='1' width='30%%' align='center' style='border-collapse:collapse; border-color:gray;'> "
+                             "<table border='1' width='70%%' align='center' style='border-collapse:collapse; border-color:gray;'> "
                              "<tr>"
                              "<td width='25%%' align='center' style='height:45px; background-color:#4F81BD;'>&nbsp;</td>"
                              "<td width='25%%' align='center' style='height:45px; background-color:#4F81BD;'><font face='TreBuchet MS' size='4'>%@</font></td>"
@@ -471,22 +484,23 @@
                              "</tr>"
                              "<tr>"
                              "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Basic Plan</font></td>"
-                             "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
-                             "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
-                             "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
+                             "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+                             "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+                             "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
                              "</tr>"
                              "<tr>"
                              "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Health Loading</font></td>"
-                             "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
-                             "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
-                             "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
+                             "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+                             "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+                             "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
                              "</tr>"
                              "<tr>"
                              "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Sub-Total</font></td>"
-                             "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
-                             "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
-                             "<td align='right'><font face='TreBuchet MS' size='3'>%@</font></td>"
-                             "</tr>", url, tempMOP1,tempMOP2,tempMOP3, tempPrem1,tempPrem2,tempPrem3, tempHL1,tempHL2,tempHL3, total1,total2,total3];
+                             "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+                             "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+                             "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+                             "</tr>", url, tempMOP1, tempMOP2, tempMOP3, color1, tempPrem1, color2, tempPrem2, color3, tempPrem3, color1, tempHL1, color2, tempHL2, color3, tempHL3,
+                             color1, total1, color2, total2, color3, total3];
         
 		self.WebView.backgroundColor = [UIColor clearColor];
 		self.WebView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg10.jpg"]];

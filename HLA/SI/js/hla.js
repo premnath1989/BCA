@@ -1195,7 +1195,7 @@ function writeSummary1_HLCP() {
        		if(index < 30) {
        			number = row.col2;
        			row.col2 = number | 0;       			
-				$('#table-Summary1 > tbody').append('<tr><td>' + row.col0_1 + '</td><td>' + row.col0_2 + '</td><td>' + formatCurrency(row.col1) + '</td><td>' +
+				$('#table-Summary1 > tbody').append('<tr><td>' + row.col0_1 + '</td><td>' + row.col0_2 + '</td><td>' + CurrencyNoCents(row.col1) + '</td><td>' +
 				CurrencyNoCents(row.col2) + '</td><td>' + CurrencyNoCents(row.col3) + '</td><td>' + CurrencyNoCents(row.col4) + '</td><td>' + CurrencyNoCents(row.col5) + '</td><td>' +
 				CurrencyNoCents(row.col6) + '</td><td>' + CurrencyNoCents(row.col7) + '</td></tr>');
        		} else {

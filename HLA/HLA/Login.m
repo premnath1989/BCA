@@ -877,7 +877,7 @@ static NSString *labelVers;
     NSString *postLength = [NSString stringWithFormat:@"%d",[postData length]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
 	
-	NSString *url = [NSString stringWithFormat:@"http://192.168.2.137/AgentWebService/AgentMgmt.asmx/ValidateLogin"];
+	NSString *url = [NSString stringWithFormat:@"http://192.168.2.140/AgentWebService/AgentMgmt.asmx/ValidateLogin"];
     [request setURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
@@ -1122,7 +1122,7 @@ static NSString *labelVers;
     NSString* agentStatus_1 = [urlArr objectAtIndex:17];
     NSString* channel_1 = [urlArr objectAtIndex:18];
     
-	NSLog(validity);
+	NSLog(@"");
 	
 	
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -1139,18 +1139,27 @@ static NSString *labelVers;
         NSString *querySQL;
         BOOL newRec = FALSE;
         
-        querySQL = [NSString stringWithFormat:
-                    @"select agentCode FROM agent_profile where agentCode = '%@' ", agentCode_1 ];
-        
+        NSString *CheckSql = [NSString stringWithFormat:
+							  @"select * FROM agent_profile"];
 		
-		querySQL = [NSString stringWithFormat: @"UPDATE Agent_profile SET AgentName = \"%@\", AgentType = \"%@\", AgentContactNo = \"%@\", ImmediateLeaderCode = \"%@\", ImmediateLeaderName = \"%@\", BusinessRegNumber = \"%@\", AgentEmail = \"%@\", AgentLoginID = \"%@\", AgentICNo = \"%@\", "
-				 "AgentContractDate = \"%@\", AgentAddr1 = \"%@\", AgentAddr2 = \"%@\", AgentAddr3 = \"%@\", AgentAddr4 = \"%@\", AgentPortalLoginID = \"%@\", AgentPortalPassword = \"%@\", AgentContactNumber = \"%@\", AgentPassword = \"%@\", AgentStatus = \"%@\", Channel = \"%@\", AgentAddrPostcode = \"%@\", agentNRIC = \"%@\" WHERE  agentCode='%@'", agentName_1, agentType_1, agentContactNumber_1,immediateLeaderCode_1, immediateLeaderName_1,BusinessRegNumber_1, agentEmail_1, agentLoginId_1, agentIcNo_1, agentContractDate_1, agentAddr1_1, agentAddr2_1, agentAddr3_1, @"", agentLoginId_1, agentPassword_1, agentContactNumber_1, agentPassword_1, agentStatus_1, channel_1, agentAddrPostcode_1, agentIcNo_1, agentCode_1];
+		
+		FMDatabase *db = [FMDatabase databaseWithPath:databasePath1];
+		[db open];
+		
+        FMResultSet *results;
+		results = [db executeQuery:CheckSql];
+		
+		while ([results next]) {
+			[db executeUpdate:@"DELETE FROM agent_profile"];
+		}
+		[db close];
+		
+		querySQL = [NSString stringWithFormat:
+					@"insert into Agent_profile (agentCode, AgentName, AgentType, AgentContactNo, ImmediateLeaderCode, ImmediateLeaderName, BusinessRegNumber, AgentEmail, AgentLoginID, AgentICNo, "
+					"AgentContractDate, AgentAddr1, AgentAddr2, AgentAddr3, AgentAddr4, AgentPortalLoginID, AgentPortalPassword, AgentContactNumber, AgentPassword, AgentStatus, Channel, AgentAddrPostcode, agentNRIC ) VALUES "
+					"('%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@', '%@', '%@') ",
+					agentCode_1, agentName_1, agentType_1, agentContactNumber_1,immediateLeaderCode_1, immediateLeaderName_1,BusinessRegNumber_1, agentEmail_1, agentLoginId_1, agentIcNo_1, agentContractDate_1, agentAddr1_1, agentAddr2_1, agentAddr3_1, @"", agentLoginId_1, agentPassword_1, agentContactNumber_1, agentPassword_1, agentStatus_1, channel_1, agentAddrPostcode_1, agentIcNo_1 ];
         
-//        querySQL = [NSString stringWithFormat:
-//                    @"insert into Agent_profile (agentCode, AgentName, AgentType, AgentContactNo, ImmediateLeaderCode, ImmediateLeaderName, BusinessRegNumber, AgentEmail, AgentLoginID, AgentICNo, "
-//                    "AgentContractDate, AgentAddr1, AgentAddr2, AgentAddr3, AgentAddr4, AgentPortalLoginID, AgentPortalPassword, AgentContactNumber, AgentPassword, AgentStatus, Channel, AgentAddrPostcode, agentNRIC ) VALUES "
-//                    "('%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@', '%@', '%@') ",
-//                    agentCode_1, agentName_1, agentType_1, agentContactNumber_1,immediateLeaderCode_1, immediateLeaderName_1,BusinessRegNumber_1, agentEmail_1, agentLoginId_1, agentIcNo_1, agentContractDate_1, agentAddr1_1, agentAddr2_1, agentAddr3_1, @"", agentLoginId_1, agentPassword_1, agentContactNumber_1, agentPassword_1, agentStatus_1, channel_1, agentAddrPostcode_1, agentIcNo_1 ];
 		
         if (sqlite3_prepare_v2(contactDB, [querySQL UTF8String], -1, &statement, NULL) == SQLITE_OK){
             if (sqlite3_step(statement) == SQLITE_DONE){

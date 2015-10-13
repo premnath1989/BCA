@@ -13,6 +13,7 @@
 @end
 
 @implementation CalculatorViewController
+@synthesize ProspectViewController = _ProspectViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,6 +30,10 @@
 	
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleBordered target:self action:@selector(btnDone:)];
     // Do any additional setup after loading the view from its nib.
+	
+	_BCALifeBtn.enabled = YES;
+	
+	_BCALifeBtn.hidden = TRUE;
 	
 	
 }
@@ -73,6 +78,36 @@
 
 - (IBAction)Calculate:(id)sender
 {
+	int Gend = 0;
+	int Smoke = 0;
+	
+	if (self.GenderSegment.selectedSegmentIndex == 0)
+    {
+		Gend = 4;
+    }
+	else if(self.GenderSegment.selectedSegmentIndex ==1)
+	{
+		Gend = 2;
+	}
+	else
+	{
+		Gend = 0;
+	}
+	
+	if (self.SmokingSegment.selectedSegmentIndex == 0)
+    {
+		Smoke = 10;
+    }
+	else if(self.SmokingSegment.selectedSegmentIndex ==1)
+	{
+		Smoke = 0;
+	}
+	else
+	{
+		Smoke = 0;
+	}
+
+
 	
 	int age;
 	age =[_Age.text intValue];
@@ -82,19 +117,19 @@
 	[_Age setText:[NSString stringWithFormat:@"%i",age]];
 
 	
-	NSString *stringElementAttach_Disability65 = [NSString stringWithFormat:@"%@ %@",[NSString stringWithFormat:@"%i",age+10],@"%"];
+	NSString *stringElementAttach_Disability65 = [NSString stringWithFormat:@"%@ %@",[NSString stringWithFormat:@"%i",age+10+Gend+Smoke],@"%"];
 	[_disabilityPercent setText:stringElementAttach_Disability65];
 	int disabilityINT = [_disabilityPercent.text intValue];
 	
-	NSString *stringElementAttach_CriticalIlness65 = [NSString stringWithFormat:@"%@ %@",[NSString stringWithFormat:@"%i",age+16],@"%"];
+	NSString *stringElementAttach_CriticalIlness65 = [NSString stringWithFormat:@"%@ %@",[NSString stringWithFormat:@"%i",age+16+Gend+Smoke],@"%"];
 	[_CriticalPercent setText:stringElementAttach_CriticalIlness65];
 	int CriticalINT = [_CriticalPercent.text intValue];
 	
-	NSString *stringElementAttach_dying65 = [NSString stringWithFormat:@"%@ %@",[NSString stringWithFormat:@"%i",age+19],@"%"];
+	NSString *stringElementAttach_dying65 = [NSString stringWithFormat:@"%@ %@",[NSString stringWithFormat:@"%i",age+19+Gend+Smoke],@"%"];
 	[_Dying65Percent setText:stringElementAttach_dying65];
 	int Dying65INT = [_Dying65Percent.text intValue];
 	
-	NSString *stringElementAttach_Probability = [NSString stringWithFormat:@"%@ %@",[NSString stringWithFormat:@"%i",age+14],@"%"];
+	NSString *stringElementAttach_Probability = [NSString stringWithFormat:@"%@ %@",[NSString stringWithFormat:@"%i",age+14+Gend],@"%"];
 	[_ProbabilityPercent setText:stringElementAttach_Probability];
 	int ProbabilityINT = [_ProbabilityPercent.text intValue];
 	
@@ -114,6 +149,10 @@
 //	_CriticalPercent.text =@"25";
 //	_disabilityPercent.text =@"25";
 	
+	_BCALifeBtn.enabled = YES;
+	
+	_BCALifeBtn.hidden = NO;
+	
 
 
 }
@@ -121,6 +160,16 @@
 - (IBAction)CloseView:(id)sender
 {
 	[self dismissModalViewControllerAnimated:YES];
+	
+}
+
+- (IBAction)BCALife:(id)sender
+{
+	[self dismissModalViewControllerAnimated:YES];
+	
+
+
+	
 	
 }
 @end

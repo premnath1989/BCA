@@ -7,15 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProspectViewController.h"
 
-@interface CalculatorViewController : UIViewController
+@interface CalculatorViewController : UIViewController <ProspectViewControllerDelegate>
+{
+	ProspectViewController *ProspectViewController;
+	
+}
 - (IBAction)CloseView:(id)sender;
+- (IBAction)BCALife:(id)sender;
+@property (nonatomic, retain) ProspectViewController *ProspectViewController;
+@property (weak, nonatomic) IBOutlet UIButton *BCALifeBtn;
 @property (weak, nonatomic) IBOutlet UISlider *SliderAge;
 @property (weak, nonatomic) IBOutlet UILabel *Age;
 @property (weak, nonatomic) IBOutlet UISlider *Disability65;
 @property (weak, nonatomic) IBOutlet UISlider *Criticalillness65;
 @property (weak, nonatomic) IBOutlet UISlider *Dying65label;
 @property (weak, nonatomic) IBOutlet UISlider *probability65label;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *GenderSegment;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *SmokingSegment;
 
 
 

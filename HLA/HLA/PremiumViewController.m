@@ -461,13 +461,13 @@
         
         
         if ([ModeOfPayment isEqualToString:@"L"]) {
-            color1 = @"#FFFF00";
+            color1 = @"#D3D3D3";
         }
         else if ([ModeOfPayment isEqualToString:@"Y"]) {
-            color2 = @"#FFFF00";
+            color2 = @"#D3D3D3";
         }
         else if ([ModeOfPayment isEqualToString:@"M"]) {
-            color3 = @"#FFFF00";
+            color3 = @"#D3D3D3";
         }
         
         

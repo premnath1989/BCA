@@ -66,6 +66,16 @@ const int numberOfModule = 7;
 	NSArray *paths2 = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docsPath2 = [paths2 objectAtIndex:0];
     NSString *path2 = [docsPath2 stringByAppendingPathComponent:@"hladb.sqlite"];
+	
+	UILabel *UDID=[[UILabel alloc]initWithFrame:CGRectMake(690, 690, 320,50)];
+	UDID.backgroundColor =[UIColor clearColor];
+	UDID.textAlignment = UITextAlignmentCenter;
+//    UDID.textColor = [CustomColor colorWithHexString:@"FFFFFF"];
+//    UDID.backgroundColor =[CustomColor colorWithHexString:@"4F81BD"];
+    UDID.font=[UIFont boldSystemFontOfSize:15];
+    UDID.text=[[[UIDevice currentDevice] identifierForVendor] UUIDString];//[NSString stringWithFormat:@"Time Remaining"];
+    [self.view addSubview:UDID];
+
     
     //[self copyRatesJSONFromPath:docsPath2];
 	

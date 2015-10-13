@@ -422,13 +422,15 @@ id temp;
 - (IBAction)btnSave:(id)sender { //no longer using
     [self.view endEditing:TRUE];
     [self resignFirstResponder];
-    [self updateUserData ];
+	[self dismissModalViewControllerAnimated:YES ];
+  //  [self updateUserData ];
 }
 
 - (IBAction)btnDone:(id)sender {
     [self.view endEditing:TRUE];
     [self resignFirstResponder];
-    [self updateUserData ];
+	[self dismissModalViewControllerAnimated:YES ];
+   // [self updateUserData ];
 	//[self CheckAgentPortal];
 }
 

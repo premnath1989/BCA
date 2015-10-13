@@ -1294,6 +1294,316 @@
     [operation1 start];
 }
 
+- (void)submitAfterSuccessFulllogin2
+{
+	 HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+    HUD.labelText = @"Please wait while we processing your request.";
+    HUD.detailsLabelText = @"( If it takes more than 5 minutes, please exit the application and try again. )";
+    [HUD show:YES];
+	
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *documentsDirectory = [paths objectAtIndex:0];
+	
+	NSString *strDoc = @"";
+	NSString *strFolder = @"Folder";
+	NSString *strSource = @"IPPS";
+	
+	int count = 0;
+	//	count = count + 1;
+	
+	for (NSIndexPath *path in selectedRecords) {
+		NSMutableDictionary *recordDic = [[NSMutableDictionary alloc] init];
+		NSMutableArray *selectedItems = [[NSMutableArray alloc] init];
+		
+		
+		
+		if (isSearching) {
+			[recordDic setObject:[self.ClientNameSearch objectAtIndex:path.row] forKey:@"name"];
+			[recordDic setObject:[self.IDNoSearch objectAtIndex:path.row] forKey:@"IDNo"];
+			[recordDic setObject:[self.SINoSearch objectAtIndex:path.row] forKey:@"SINo"];
+			[recordDic setObject:[self.ProposalNoSearch objectAtIndex:path.row] forKey:@"ProposalNo"];
+			//			[recordDic setObject:@"RN150915115319761" forKey:@"ProposalNo"];
+			[recordDic setObject:[self.LastUpdatedSearch objectAtIndex:path.row] forKey:@"LastUpdated"];
+			[recordDic setObject:[self.SIVersionSearch objectAtIndex:path.row] forKey:@"SIVersion"];
+			[recordDic setObject:[self.eAppVersionMSearch objectAtIndex:path.row] forKey:@"eAppVersion"];
+		} else {
+			[recordDic setObject:[self.ClientName objectAtIndex:path.row] forKey:@"name"];
+			[recordDic setObject:[self.IDNo objectAtIndex:path.row] forKey:@"IDNo"];
+			[recordDic setObject:[self.SINo objectAtIndex:path.row] forKey:@"SINo"];
+			[recordDic setObject:[self.ProposalNo objectAtIndex:path.row] forKey:@"ProposalNo"];
+			//			[recordDic setObject:@"RN150915115319761" forKey:@"ProposalNo"];
+			[recordDic setObject:[self.LastUpdated objectAtIndex:path.row] forKey:@"LastUpdated"];
+			[recordDic setObject:[self.SIVersion objectAtIndex:path.row] forKey:@"SIVersion"];
+			[recordDic setObject:[self.eAppVersionM objectAtIndex:path.row] forKey:@"eAppVersion"];
+		}
+		
+		// This variable is for ID file count to be included into complete.xml
+		int ID_count = 0;
+		
+		
+		
+		//////////   checking for forms and xml on e Proposal
+		NSString *pr =  [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Forms/%@_PR.pdf", [recordDic objectForKey:@"ProposalNo"]]];
+		
+		if ([[NSFileManager defaultManager] fileExistsAtPath:pr]) {
+			[selectedItems addObject:pr];
+		}
+		
+		NSString *sp =  [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Forms/%@_SP_1.pdf", [recordDic objectForKey:@"ProposalNo"]]];
+		
+		if ([[NSFileManager defaultManager] fileExistsAtPath:sp]) {
+			[selectedItems addObject:sp];
+		}
+		
+		NSString *si =  [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Forms/%@_SI.pdf", [recordDic objectForKey:@"ProposalNo"]]];
+		
+		if ([[NSFileManager defaultManager] fileExistsAtPath:si]) {
+			[selectedItems addObject:si];
+		}
+		
+		NSString *id1 =  [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Forms/%@_ID_LA1.pdf", [recordDic objectForKey:@"ProposalNo"]]];
+		
+		if ([[NSFileManager defaultManager] fileExistsAtPath:id1]) {
+			[selectedItems addObject:id1];
+			ID_count = ID_count + 1;
+		}
+		
+		NSString *id2 =  [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Forms/%@_ID_LA2.pdf", [recordDic objectForKey:@"ProposalNo"]]];
+		
+		if ([[NSFileManager defaultManager] fileExistsAtPath:id2]) {
+			[selectedItems addObject:id2];
+			ID_count = ID_count + 1;
+		}
+		
+		NSString *id3 =  [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Forms/%@_ID_PO.pdf", [recordDic objectForKey:@"ProposalNo"]]];
+		
+		if ([[NSFileManager defaultManager] fileExistsAtPath:id3]) {
+			[selectedItems addObject:id3];
+			ID_count = ID_count + 1;
+		}
+		
+		NSString *id4 =  [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Forms/%@_ID_CO.pdf", [recordDic objectForKey:@"ProposalNo"]]];
+		
+		if ([[NSFileManager defaultManager] fileExistsAtPath:id4]) {
+			[selectedItems addObject:id4];
+			ID_count = ID_count + 1;
+		}
+		
+		NSString *id5 =  [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Forms/%@_ID_TR1.pdf", [recordDic objectForKey:@"ProposalNo"]]];
+		
+		if ([[NSFileManager defaultManager] fileExistsAtPath:id5]) {
+			[selectedItems addObject:id5];
+			ID_count = ID_count + 1;
+		}
+		
+		NSString *id6 =  [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Forms/%@_ID_TR2.pdf", [recordDic objectForKey:@"ProposalNo"]]];
+		
+		if ([[NSFileManager defaultManager] fileExistsAtPath:id6]) {
+			[selectedItems addObject:id6];
+			ID_count = ID_count + 1;
+		}
+		
+		NSString *id7 =  [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Forms/%@_ID_GD.pdf", [recordDic objectForKey:@"ProposalNo"]]];
+		
+		if ([[NSFileManager defaultManager] fileExistsAtPath:id7]) {
+			[selectedItems addObject:id7];
+			ID_count = ID_count + 1;
+		}
+		
+		NSString *id8 =  [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Forms/%@_ID_CFP.pdf", [recordDic objectForKey:@"ProposalNo"]]];
+		
+		if ([[NSFileManager defaultManager] fileExistsAtPath:id8]) {
+			[selectedItems addObject:id8];
+			ID_count = ID_count + 1;
+		}
+		
+		NSString *id9 =  [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Forms/%@_ID_CRP.pdf", [recordDic objectForKey:@"ProposalNo"]]];
+		
+		if ([[NSFileManager defaultManager] fileExistsAtPath:id9]) {
+			[selectedItems addObject:id9];
+			ID_count = ID_count + 1;
+		}
+		
+		NSString *ff =  [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Forms/%@_FF.pdf", [recordDic objectForKey:@"ProposalNo"]]];
+		
+		if ([[NSFileManager defaultManager] fileExistsAtPath:ff]) {
+			[selectedItems addObject:ff];
+		}
+		
+		NSString *ca =  [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Forms/%@_CA.pdf", [recordDic objectForKey:@"ProposalNo"]]];
+		
+		if ([[NSFileManager defaultManager] fileExistsAtPath:ca]) {
+			[selectedItems addObject:ca];
+		}
+		
+		NSString *au =  [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Forms/%@_AU.pdf", [recordDic objectForKey:@"ProposalNo"]]];
+		
+		if ([[NSFileManager defaultManager] fileExistsAtPath:au]) {
+			[selectedItems addObject:au];
+		}
+		
+		NSString *sixml =  [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"SIXML/%@_SI.xml", [recordDic objectForKey:@"ProposalNo"]]];
+		
+		if ([[NSFileManager defaultManager] fileExistsAtPath:sixml]) {
+			[selectedItems addObject:sixml];
+		}
+		
+		NSString *prxml =  [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"ProposalXML/%@_PR.xml", [recordDic objectForKey:@"ProposalNo"]]];
+		
+		if ([[NSFileManager defaultManager] fileExistsAtPath:prxml]) {
+			[selectedItems addObject:prxml];
+		}
+		 // generating COMPLETE.XML
+		NSString *agentCode1 = [self.AgentCode objectAtIndex:path.row];
+		
+		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+		NSString *docsPath = [paths objectAtIndex:0];
+		NSString *path1 = [docsPath stringByAppendingPathComponent:@"hladb.sqlite"];
+		
+		FMDatabase *db = [FMDatabase databaseWithPath:path1];
+		[db open];
+		
+		NSString *eProposalNo = [recordDic objectForKey:@"ProposalNo"];
+		NSString *POOtherIDType;
+		NSString *selectPO = [NSString stringWithFormat:@"SELECT LAOtherIDType FROM eProposal_LA_Details WHERE eProposalNo = '%@' AND POFlag = 'Y'", eProposalNo];
+		int cffindicator;
+		FMResultSet *results;
+		results = [db executeQuery:selectPO];
+		
+		while ([results next]) {
+			POOtherIDType = [results objectForColumnName:@"LAOtherIDType"];
+		}
+		
+		//ecffinfo
+		if ([POOtherIDType isEqualToString:@"CR"]) {
+			cffindicator = 0;
+		} else {
+			cffindicator = 1;
+		}
+		
+		NSString *completeString = [NSString stringWithFormat:@"%@;%d;%d;%d;%d;", agentCode1, 0, cffindicator, 0, ID_count]; //A0030269;0;1;0;
+		
+		[completeString writeToFile:[documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Forms/%@_Complete.xml",eProposalNo]] atomically:YES encoding:NSUTF8StringEncoding error:nil];
+		
+		// generating COMPLETE.XML - END
+		
+		NSString *cmpxml =  [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Forms/%@_Complete.xml", [recordDic objectForKey:@"ProposalNo"]]];
+		
+		if ([[NSFileManager defaultManager] fileExistsAtPath:cmpxml]) {
+			[selectedItems addObject:cmpxml];
+		}
+		
+		
+		
+		//		int count = 0;
+		
+		for (int i = 0; i < [selectedItems count]; i++) {
+			//			count = count + 1;
+			//convert to byte
+			NSData *data = [[NSData alloc] initWithContentsOfFile:[selectedItems objectAtIndex:i]];
+			// using base64StringFromData method, we are able to convert data to string
+			NSString *strBinary = [NSString base64StringFromData:data length:[data length]];
+			// log the base64 encoded string
+			
+			NSString *docpath = [selectedItems objectAtIndex:i];
+			NSArray *split = [docpath componentsSeparatedByString:@"/"];
+			
+			NSString *docname = [split objectAtIndex:[split count] - 1];
+			
+			
+			//Remove this code if want completeXML with proposal NO
+			NSArray *SplitB = [docname componentsSeparatedByString:@"_"];
+			NSString *docCheck = [SplitB objectAtIndex:[SplitB count] - 1];
+			if ([docCheck isEqualToString:@"Complete.xml"]) {
+				docname = @"Complete.xml";
+			}
+			
+			strDoc = docname;
+			NSLog(@"doc name %@", strDoc);
+			
+			//webservices
+			
+			NSString *strXML3 = [NSString stringWithFormat:@"<?xml version='1.0' encoding='utf-8'?><soap:Envelope xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'><soap:Body><SaveDocument xmlns='http://tempuri.org/'><strBinary>%@</strBinary><strDocName>%@</strDocName><strFolder>%@</strFolder><strSource>%@</strSource></SaveDocument></soap:Body></soap:Envelope>", strBinary, strDoc, strFolder, strSource];
+			NSURL *url = [NSURL URLWithString:@"http://192.168.0.140/AgentWebService/AgentMgmt.asmx?wsdl"];
+			NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+			[request addValue:@"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+			[request addValue:@"http://tempuri.org/SaveDocument" forHTTPHeaderField:@"SOAPAction"];
+			NSString *msgLenght = [NSString stringWithFormat:@"%d", [strXML3 length]];
+			[request addValue:msgLenght forHTTPHeaderField:@"Content-Length"];
+			[request setHTTPMethod:@"POST"];
+			[request setHTTPBody:[strXML3 dataUsingEncoding:NSUTF8StringEncoding]];
+			
+			NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+			NSData *urlData;
+			NSURLResponse *response;
+			
+			NSError *error;
+			urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+			if(conn) {
+				NSLog(@"Connection Successful");
+			} else {
+				NSLog(@"Connection could not be made");
+			}
+			
+			
+			NSString *replyString = [[NSString alloc] initWithBytes:[urlData bytes] length:[urlData length] encoding: NSASCIIStringEncoding];
+			
+			NSLog(replyString);
+			
+			//end Web service send file
+			NSLog(@"count: %d, %d", i, [selectedItems count]);
+			
+			if (i == [selectedItems count]-1) {
+				
+				NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+				NSString *docsDir = [dirPaths objectAtIndex:0];
+				databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"hladb.sqlite"]];
+				sqlite3_stmt *statement;
+				
+				NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+				NSDate *currDate = [NSDate date];
+				[dateFormatter setDateFormat:@"dd/MM/yyyy HH:mm:ss"];
+				NSString *dateString = [dateFormatter stringFromDate:currDate];
+				
+				if (sqlite3_open([databasePath UTF8String], &updateDB) == SQLITE_OK) {
+					NSString *updatetSQL = [NSString stringWithFormat:@"update eApp_Listing SET Status='4', SubmitDate = '%@' WHERE ProposalNo='%@'", dateString, [recordDic objectForKey:@"ProposalNo"]];
+					
+					if (sqlite3_prepare_v2(updateDB, [updatetSQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
+						if (sqlite3_step(statement) == SQLITE_DONE) {
+							NSLog(@"Update eapplisting status success!");
+							
+							self.loginOuterView.hidden = YES;
+							
+							UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Proposal(s) has been submitted successfully." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+							alert.tag = 10;
+							[alert show];
+							alert = Nil;
+							
+							[self deleteencFiles];
+							[self reloadAfterSubmission];
+						} else {
+							NSLog(@"Update eapplisting status fail!");
+						}
+						
+						sqlite3_finalize(statement);
+					}
+					
+					sqlite3_close(updateDB);
+					[self ReloadTableData];
+				}
+				
+			}
+			
+			
+		}
+	}
+	
+	[MBProgressHUD hideHUDForView:self.view animated:YES];
+	[HUD hide:YES afterDelay:1];
+}
+
+
 - (void)deleteencFiles {
     NSError *error = nil;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -1400,7 +1710,7 @@
         alert = Nil;
     } else {
 		
-		[self submitAfterSuccessFulllogin];
+		[self submitAfterSuccessFulllogin2];
        // [self loaadAppVersion];
     }
 }
@@ -1474,7 +1784,7 @@
                             [XMLParser parse];
 
                             if ([SuccessString isEqualToString:@""]) {
-                                [self submitAfterSuccessFulllogin];
+                                [self submitAfterSuccessFulllogin2];
                             } else {
                                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:SuccessString delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                                 [alert show];

@@ -867,6 +867,8 @@ static NSString *labelVers;
 	
 	NSLog(@"devideId %@", [[[UIDevice currentDevice] identifierForVendor] UUIDString]);
 	
+//	txtUsername.text= @"emi";
+//	txtPassword.text = @"password";
    
 //	NSString *post = [NSString stringWithFormat:@"strAgentID=%@&strPassword=%@&strDeviceID=%@",txtUsername.text,txtPassword.text, @"1AE92BBE-1B69-413E-982A-557CBA969D4B"];
 	NSString *post = [NSString stringWithFormat:@"strAgentID=%@&strPassword=%@&strDeviceID=%@",txtUsername.text,txtPassword.text, [[[UIDevice currentDevice] identifierForVendor] UUIDString]];
@@ -877,7 +879,7 @@ static NSString *labelVers;
     NSString *postLength = [NSString stringWithFormat:@"%d",[postData length]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
 	
-	NSString *url = [NSString stringWithFormat:@"http://192.168.2.140/AgentWebService/AgentMgmt.asmx/ValidateLogin"];
+	NSString *url = [NSString stringWithFormat:@"http://192.168.0.140/AgentWebService/AgentMgmt.asmx/ValidateLogin"];
     [request setURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
@@ -1457,73 +1459,80 @@ static NSString *labelVers;
 
 - (IBAction)btnReset:(id)sender
 {
-    const char *dbpath = [databasePath UTF8String];
-    sqlite3_stmt *statement;
-    sqlite3_stmt *statement2;
-    sqlite3_stmt *statement3;
-    
-    if (sqlite3_open(dbpath, &contactDB) == SQLITE_OK)
-    {
-        //NSString *querySQL = [NSString stringWithFormat:@"UPDATE User_Profile SET firstLogin = 1, agentPassword = \"password\" "];
-        /*NSString *querySQL = [NSString stringWithFormat:@"UPDATE Agent_profile SET firstLogin = null, agentPassword = \"password\" "];
-        
-        const char *query_stmt = [querySQL UTF8String];
-        if (sqlite3_prepare_v2(contactDB, query_stmt, -1, &statement, NULL) == SQLITE_OK)
-        {
-            if (sqlite3_step(statement) == SQLITE_DONE)
-            {*/
-                NSString *querySQL2 = [NSString stringWithFormat:@"DELETE from SecurityQuestion_Input "];
-                if (sqlite3_prepare_v2(contactDB, [querySQL2 UTF8String], -1, &statement2, NULL) == SQLITE_OK)
-                {
-                    if (sqlite3_step(statement2) == SQLITE_DONE){
-                        
-                        NSString *querySQL3 = [NSString stringWithFormat:@"UPDATE Agent_Profile SET AgentCode = \"\", AgentName = \"\", "
-                                               " AgentContactNo = \"\", ImmediateLeaderCode = \"\", ImmediateLeaderName = \"\", BusinessRegNumber = \"\", "
-                                               " AgentEmail = \"\", AgentPassword = \"\" , firstLogin = null "];
-                        if (sqlite3_prepare_v2(contactDB, [querySQL3 UTF8String], -1, &statement3, NULL) == SQLITE_OK)
-                        {
-                            if (sqlite3_step(statement3) == SQLITE_DONE){
-                                
-                                [self resetFirstDevice];
-                                [self IsFirstDevice];
-                                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" "
-                                                                                message:@"System has been restored to first time login mode" delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                                [alert show];
-                                
-                            }
-                            
-                            sqlite3_finalize(statement3);
-                        }
-                        
-                    }
-                    sqlite3_finalize(statement2);
-                    
-                }
-                sqlite3_close(contactDB);
-        /*
-            } else {
-                NSLog(@"reset error");
-            }
-            sqlite3_finalize(statement);
-        }
-        sqlite3_close(contactDB);*/
-    }
-    
-	/*
-	 
-	 if(_delegate != Nil){
-	 [(ViewController *)_delegate setSss:1 ];
-	 [self dismissModalViewControllerAnimated:NO];
-	 [_delegate Dismiss:@""];
-	 }
-	 */
 	
-	AgentPortalLogin *agentPortalLogin = [self.storyboard instantiateViewControllerWithIdentifier:@"agentPortalLogin"];
-	agentPortalLogin.modalPresentationStyle = UIModalPresentationPageSheet;
-	agentPortalLogin.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
 	
-	[self presentViewController:agentPortalLogin animated:YES completion:nil];
-	agentPortalLogin.view.superview.frame = CGRectMake(150, 50, 700, 600);
+	[self loginSuccess];
+	
+	
+	
+	
+//    const char *dbpath = [databasePath UTF8String];
+//    sqlite3_stmt *statement;
+//    sqlite3_stmt *statement2;
+//    sqlite3_stmt *statement3;
+//    
+//    if (sqlite3_open(dbpath, &contactDB) == SQLITE_OK)
+//    {
+//        //NSString *querySQL = [NSString stringWithFormat:@"UPDATE User_Profile SET firstLogin = 1, agentPassword = \"password\" "];
+//        /*NSString *querySQL = [NSString stringWithFormat:@"UPDATE Agent_profile SET firstLogin = null, agentPassword = \"password\" "];
+//        
+//        const char *query_stmt = [querySQL UTF8String];
+//        if (sqlite3_prepare_v2(contactDB, query_stmt, -1, &statement, NULL) == SQLITE_OK)
+//        {
+//            if (sqlite3_step(statement) == SQLITE_DONE)
+//            {*/
+//                NSString *querySQL2 = [NSString stringWithFormat:@"DELETE from SecurityQuestion_Input "];
+//                if (sqlite3_prepare_v2(contactDB, [querySQL2 UTF8String], -1, &statement2, NULL) == SQLITE_OK)
+//                {
+//                    if (sqlite3_step(statement2) == SQLITE_DONE){
+//                        
+//                        NSString *querySQL3 = [NSString stringWithFormat:@"UPDATE Agent_Profile SET AgentCode = \"\", AgentName = \"\", "
+//                                               " AgentContactNo = \"\", ImmediateLeaderCode = \"\", ImmediateLeaderName = \"\", BusinessRegNumber = \"\", "
+//                                               " AgentEmail = \"\", AgentPassword = \"\" , firstLogin = null "];
+//                        if (sqlite3_prepare_v2(contactDB, [querySQL3 UTF8String], -1, &statement3, NULL) == SQLITE_OK)
+//                        {
+//                            if (sqlite3_step(statement3) == SQLITE_DONE){
+//                                
+//                                [self resetFirstDevice];
+//                                [self IsFirstDevice];
+//                                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" "
+//                                                                                message:@"System has been restored to first time login mode" delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//                                [alert show];
+//                                
+//                            }
+//                            
+//                            sqlite3_finalize(statement3);
+//                        }
+//                        
+//                    }
+//                    sqlite3_finalize(statement2);
+//                    
+//                }
+//                sqlite3_close(contactDB);
+//        /*
+//            } else {
+//                NSLog(@"reset error");
+//            }
+//            sqlite3_finalize(statement);
+//        }
+//        sqlite3_close(contactDB);*/
+//    }
+//    
+//	/*
+//	 
+//	 if(_delegate != Nil){
+//	 [(ViewController *)_delegate setSss:1 ];
+//	 [self dismissModalViewControllerAnimated:NO];
+//	 [_delegate Dismiss:@""];
+//	 }
+//	 */
+//	
+//	AgentPortalLogin *agentPortalLogin = [self.storyboard instantiateViewControllerWithIdentifier:@"agentPortalLogin"];
+//	agentPortalLogin.modalPresentationStyle = UIModalPresentationPageSheet;
+//	agentPortalLogin.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+//	
+//	[self presentViewController:agentPortalLogin animated:YES completion:nil];
+//	agentPortalLogin.view.superview.frame = CGRectMake(150, 50, 700, 600);
 	
 }
 

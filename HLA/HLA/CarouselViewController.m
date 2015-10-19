@@ -57,11 +57,11 @@ const int numberOfModule = 7;
 {
     [super viewDidLoad];
 	
-	Login *mainLogin = [self.storyboard instantiateViewControllerWithIdentifier:@"Login"];
-	mainLogin.modalPresentationStyle = UIModalPresentationFullScreen;
-	mainLogin.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-	//            [self presentModalViewController:mainLogin animated:YES];
-	[self presentViewController:mainLogin animated:YES completion:nil];
+//	Login *mainLogin = [self.storyboard instantiateViewControllerWithIdentifier:@"Login"];
+//	mainLogin.modalPresentationStyle = UIModalPresentationFullScreen;
+//	mainLogin.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+//	//            [self presentModalViewController:mainLogin animated:YES];
+//	[self presentViewController:mainLogin animated:YES completion:nil];
 	
 	NSArray *paths2 = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docsPath2 = [paths2 objectAtIndex:0];

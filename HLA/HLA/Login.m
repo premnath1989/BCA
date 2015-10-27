@@ -27,6 +27,8 @@
 #import "ColorHexCode.h"
 #import "MBProgressHUD.h"
 #import <AdSupport/ASIdentifierManager.h>
+#import "Reachability.h"
+#import <SystemConfiguration/SystemConfiguration.h>
 
 @interface Login ()
 
@@ -863,23 +865,31 @@ static NSString *labelVers;
 {
     NSString *todaysDate = [self getTodayDate];
     NSString *lastSyncDate = [self getLastSyncDate];
+	int dayRem = 0;
     
     NSLog(@"lastSyncDate %@", lastSyncDate);
     if( lastSyncDate == nil )
     {
         lastSyncDate = todaysDate;
     }
-    
-    int dateDifference = [self dateDiffrenceFromDate:todaysDate second:lastSyncDate];
-    
-    if(dateDifference<0)
-    {
-        dateDifference = dateDifference * -1;
-    }
 	
-	lblLastLogin.text = lastSyncDate;
 	
-	int dayRem= 7-dateDifference;
+    if (lastSyncDate !=(NSString *)[NSNull null]) {
+		int dateDifference = [self dateDiffrenceFromDate:todaysDate second:lastSyncDate];
+		
+		if(dateDifference<0)
+		{
+			dateDifference = dateDifference * -1;
+		}
+		
+		lblLastLogin.text = lastSyncDate;
+		
+		dayRem = 7-dateDifference;
+	}
+	else {
+		lblLastLogin.text = @"";
+	}
+	
 	if (dayRem<0) {
 		lblTimeRemaining.textColor = [UIColor redColor];
 		lblTimeRemaining.text = [NSString stringWithFormat:@"0 days"];
@@ -888,16 +898,13 @@ static NSString *labelVers;
 		lblTimeRemaining.textColor = [UIColor blackColor];
 		lblTimeRemaining.text = [NSString stringWithFormat:@"%d days", dayRem];
 	}
-	
-	
-	
 }
 
 - (void) loginAction
 {
 	
-	txtUsername.text= @"emi";
-	txtPassword.text = @"password";
+//	txtUsername.text= @"emi";
+//	txtPassword.text = @"password";
 	
 	if (txtUsername.text.length <= 0) {
         
@@ -909,12 +916,25 @@ static NSString *labelVers;
         
     }
 	
+	if (![self IsConnected]) {
+		// not connected
+		NSLog(@"got");
+	} else {
+		// connected, do some internet stuff
+		NSLog(@"nogot");
+	}
+	
+	
+	
 	
 	//http://192.168.2.107/AgentWebService/AgentMgmt.asmx/ValidateAgentAndDevice?strAgentID=&strDeviceID=
 	
 	NSString *deviceId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
 	
 	NSLog(@"devideId %@", [[[UIDevice currentDevice] identifierForVendor] UUIDString]);
+	
+	
+	
 	
 	
    
@@ -1334,7 +1354,7 @@ static NSString *labelVers;
     NSString *lastSyncDate = [self getLastSyncDate];
     
     NSLog(@"lastSyncDate %@", lastSyncDate);
-    if( lastSyncDate == nil )
+    if (lastSyncDate !=(NSString *)[NSNull null] || [lastSyncDate isEqualToString:@""])
     {
         lastSyncDate = todaysDate;
     }
@@ -1356,7 +1376,22 @@ static NSString *labelVers;
         alert = Nil;
     }else
     {
-		[self loginSuccess];
+		
+		if ([self OfflineLogin]) {
+			[self loginSuccess];	
+		}
+		else {
+			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Invalid Login" delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+			[alert show];
+			
+			[txtUsername becomeFirstResponder];
+			alert = Nil;
+		}
+		
+		
+		
+		
+		
 //        NSString *storedAgentStatus = [self getStoredAgentStatus];
         
 //        if([storedAgentStatus isEqualToString:@"Y"])
@@ -2084,23 +2119,58 @@ static NSString *labelVers;
 	while ([result1 next]) {
 		LastLogonDate = [result1 objectForColumnName:@"LastLogonDate"];
 		
-		NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-		NSDateFormatter *dateFormatter2 = [[NSDateFormatter alloc] init];
-		[dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-		[dateFormatter2 setDateFormat:@"dd/MM/yyyy"];
+		if (LastLogonDate !=(NSString *)[NSNull null]) {
+			
+			NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+			NSDateFormatter *dateFormatter2 = [[NSDateFormatter alloc] init];
+			[dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+			[dateFormatter2 setDateFormat:@"dd/MM/yyyy"];
+			
+			NSDate *date = [dateFormatter dateFromString: LastLogonDate];
+			dateFormatter = [[NSDateFormatter alloc] init];
+			
+			LastLogonDate = [dateFormatter2 stringFromDate:date];
+		}
+		else {
+			LastLogonDate = @"";
+		}
 		
-		NSDate *date = [dateFormatter dateFromString: LastLogonDate];
-		dateFormatter = [[NSDateFormatter alloc] init];
-
-		LastLogonDate = [dateFormatter2 stringFromDate:date];
 	}
-	
-
 	
 	[db close]; 
 
 	return LastLogonDate;
 
+}
+
+-(BOOL) OfflineLogin
+{
+	BOOL successLog = FALSE;
+	
+	NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *docsDir = [dirPaths objectAtIndex:0];
+	NSString *dbPath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"hladb.sqlite"]];
+	FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
+	
+	[db open];
+	NSString *AgentName;
+	NSString *AgentPassword;
+	
+	FMResultSet *result1 = [db executeQuery:@"select AgentName, AgentPassword from Agent_profile"];
+	
+	while ([result1 next]) {
+		AgentName = [[result1 objectForColumnName:@"AgentName"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+		AgentPassword = [[result1 objectForColumnName:@"AgentPassword"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+		
+		if ([txtUsername.text isEqualToString:AgentName] && [txtPassword.text isEqualToString:AgentPassword]) {
+			successLog = TRUE;
+		}
+	}
+	
+	[db close];
+	
+	return successLog;
+	
 }
 
 -(NSString*) getTodayDateInStr
@@ -2183,6 +2253,13 @@ static NSString *labelVers;
     // Release any retained subviews of the main view.
     databasePath = Nil;
     RatesDatabasePath = Nil;
+}
+
+- (BOOL)IsConnected
+{
+    Reachability *reachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [reachability currentReachabilityStatus];
+    return networkStatus != NotReachable;
 }
 
 

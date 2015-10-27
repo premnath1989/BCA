@@ -43,7 +43,7 @@ NSString *ProceedStatus = @"";
 @synthesize labelUpdated,labelVersion,outletLogin,agentPortalLoginID,agentPortalPassword;
 @synthesize delegate = _delegate;
 @synthesize previousElementName, agentCode;
-@synthesize elementName, msg;
+@synthesize elementName, msg, lblLastLogin, lblTimeRemaining;
 
 - (void)viewDidLoad
 {
@@ -65,6 +65,7 @@ NSString *ProceedStatus = @"";
 	NSString *deviceId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
 	
 	NSLog(@"devideId %@", [[[UIDevice currentDevice] identifierForVendor] UUIDString]);
+	[self ShowLoginDate];
 	
 	//txtPassword.text = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
 	//txtPassword.enabled = FALSE;
@@ -858,8 +859,56 @@ static NSString *labelVers;
     
 }
 
+- (void) ShowLoginDate
+{
+    NSString *todaysDate = [self getTodayDate];
+    NSString *lastSyncDate = [self getLastSyncDate];
+    
+    NSLog(@"lastSyncDate %@", lastSyncDate);
+    if( lastSyncDate == nil )
+    {
+        lastSyncDate = todaysDate;
+    }
+    
+    int dateDifference = [self dateDiffrenceFromDate:todaysDate second:lastSyncDate];
+    
+    if(dateDifference<0)
+    {
+        dateDifference = dateDifference * -1;
+    }
+	
+	lblLastLogin.text = lastSyncDate;
+	
+	int dayRem= 7-dateDifference;
+	if (dayRem<0) {
+		lblTimeRemaining.textColor = [UIColor redColor];
+		lblTimeRemaining.text = [NSString stringWithFormat:@"0 days"];
+	}
+	else {
+		lblTimeRemaining.textColor = [UIColor blackColor];
+		lblTimeRemaining.text = [NSString stringWithFormat:@"%d days", dayRem];
+	}
+	
+	
+	
+}
+
 - (void) loginAction
 {
+	
+	txtUsername.text= @"emi";
+	txtPassword.text = @"password";
+	
+	if (txtUsername.text.length <= 0) {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Username is required" delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+        [txtUsername becomeFirstResponder];
+        alert = Nil;
+        
+    }
+	
 	
 	//http://192.168.2.107/AgentWebService/AgentMgmt.asmx/ValidateAgentAndDevice?strAgentID=&strDeviceID=
 	
@@ -867,8 +916,7 @@ static NSString *labelVers;
 	
 	NSLog(@"devideId %@", [[[UIDevice currentDevice] identifierForVendor] UUIDString]);
 	
-//	txtUsername.text= @"emi";
-//	txtPassword.text = @"password";
+	
    
 //	NSString *post = [NSString stringWithFormat:@"strAgentID=%@&strPassword=%@&strDeviceID=%@",txtUsername.text,txtPassword.text, @"1AE92BBE-1B69-413E-982A-557CBA969D4B"];
 	NSString *post = [NSString stringWithFormat:@"strAgentID=%@&strPassword=%@&strDeviceID=%@",txtUsername.text,txtPassword.text, [[[UIDevice currentDevice] identifierForVendor] UUIDString]];
@@ -891,36 +939,48 @@ static NSString *labelVers;
 	//D33D26AB-2319-4088-A7AD-E8A69F675F19
     NSError *error;
     urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+	
+	BOOL hasConn;
     if(conn) {
+		hasConn = TRUE;
         NSLog(@"Connection Successful");
     } else {
         NSLog(@"Connection could not be made");
+		hasConn = FALSE;
     }
-    NSString *aStr = [[NSString alloc] initWithData:urlData encoding:NSUTF8StringEncoding];
 	
-	NSRange rangeValue1 = [aStr rangeOfString:@"True" options:NSCaseInsensitiveSearch];
-    NSRange rangeValue2 = [aStr rangeOfString:@"False" options:NSCaseInsensitiveSearch];
-
-
-	if (rangeValue1.length > 0)
-    {
-		[self loginSuccess];
+	if (hasConn) {
+		NSString *aStr = [[NSString alloc] initWithData:urlData encoding:NSUTF8StringEncoding];
 		
-		[self parseURL:aStr];
+		NSRange rangeValue1 = [aStr rangeOfString:@"True" options:NSCaseInsensitiveSearch];
+		NSRange rangeValue2 = [aStr rangeOfString:@"False" options:NSCaseInsensitiveSearch];
+		
+		if (aStr == nil || [aStr isEqualToString:@""]) {
+			NSLog(@"no conn");
+			[self doOfflineLoginCheck];
+		}
+		if (rangeValue1.length > 0)
+		{
+			[self loginSuccess];
+			
+			[self parseURL:aStr];
+		}
+		if (rangeValue2.length > 0)
+		{
+			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Invalid Login" delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+			[alert show];
+			
+			[txtUsername becomeFirstResponder];
+			alert = Nil;
+		}
 	}
-	if (rangeValue2.length > 0)
-    {
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Invalid Login" delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-        
-        [txtUsername becomeFirstResponder];
-        alert = Nil;
-
+	else {
+	
+		[self doOfflineLoginCheck];
+	
 	}
-
-
 	
-	
+
 
 //	if ([txtUsername.text isEqualToString:@"prem"] &&[txtPassword.text isEqualToString:@"password123"])
 //	{
@@ -947,15 +1007,7 @@ static NSString *labelVers;
 //
 //	
 //    
-    if (txtUsername.text.length <= 0) {
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Username is required" delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-        
-        [txtUsername becomeFirstResponder];
-        alert = Nil;
-        
-    }
+    
 //    else if (txtPassword.text.length <=0) {
 //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Password is required" delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
 //        [alert show];
@@ -1158,9 +1210,9 @@ static NSString *labelVers;
 		
 		querySQL = [NSString stringWithFormat:
 					@"insert into Agent_profile (agentCode, AgentName, AgentType, AgentContactNo, ImmediateLeaderCode, ImmediateLeaderName, BusinessRegNumber, AgentEmail, AgentLoginID, AgentICNo, "
-					"AgentContractDate, AgentAddr1, AgentAddr2, AgentAddr3, AgentAddr4, AgentPortalLoginID, AgentPortalPassword, AgentContactNumber, AgentPassword, AgentStatus, Channel, AgentAddrPostcode, agentNRIC ) VALUES "
-					"('%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@', '%@', '%@') ",
-					agentCode_1, agentName_1, agentType_1, agentContactNumber_1,immediateLeaderCode_1, immediateLeaderName_1,BusinessRegNumber_1, agentEmail_1, agentLoginId_1, agentIcNo_1, agentContractDate_1, agentAddr1_1, agentAddr2_1, agentAddr3_1, @"", agentLoginId_1, agentPassword_1, agentContactNumber_1, agentPassword_1, agentStatus_1, channel_1, agentAddrPostcode_1, agentIcNo_1 ];
+					"AgentContractDate, AgentAddr1, AgentAddr2, AgentAddr3, AgentAddr4, AgentPortalLoginID, AgentPortalPassword, AgentContactNumber, AgentPassword, AgentStatus, Channel, AgentAddrPostcode, agentNRIC, LastLogonDate) VALUES "
+					"('%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@', '%@', '%@', %@) ",
+					agentCode_1, agentName_1, agentType_1, agentContactNumber_1,immediateLeaderCode_1, immediateLeaderName_1,BusinessRegNumber_1, agentEmail_1, agentLoginId_1, agentIcNo_1, agentContractDate_1, agentAddr1_1, agentAddr2_1, agentAddr3_1, @"", agentLoginId_1, agentPassword_1, agentContactNumber_1, agentPassword_1, agentStatus_1, channel_1, agentAddrPostcode_1, agentIcNo_1, @"datetime(\"now\", \"+8 hour\")" ];
         
 		
         if (sqlite3_prepare_v2(contactDB, [querySQL UTF8String], -1, &statement, NULL) == SQLITE_OK){
@@ -1294,10 +1346,10 @@ static NSString *labelVers;
         dateDifference = dateDifference * -1;
     }
     //dateDifference = 20;
-    if(dateDifference > 30)
+    if(dateDifference > 7)
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" "
-														message:@"You have not login with an internet connection for the past 30 days. Please connect to internet to login to iM-Solutions."
+														message:@"You have not login with an internet connection for the past 7 days. Please connect to internet to login."
 													   delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
@@ -1305,21 +1357,21 @@ static NSString *labelVers;
     }else
     {
 		[self loginSuccess];
-        NSString *storedAgentStatus = [self getStoredAgentStatus];
+//        NSString *storedAgentStatus = [self getStoredAgentStatus];
         
-        if([storedAgentStatus isEqualToString:@"Y"])
-        {
-            [self loginSuccess];
-        }else
-			if([storedAgentStatus isEqualToString:@"N"])
-			{
-				UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" "
-																message:@"Your login is voided, please check with AASD or if your account is active, please login again with an active internet connection."
-															   delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-				[alert show];
-				
-				alert = Nil;
-			}
+//        if([storedAgentStatus isEqualToString:@"Y"])
+//        {
+//            [self loginSuccess];
+//        }else
+//			if([storedAgentStatus isEqualToString:@"N"])
+//			{
+//				UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" "
+//																message:@"Your login is voided, please check with AASD or if your account is active, please login again with an active internet connection."
+//															   delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//				[alert show];
+//				
+//				alert = Nil;
+//			}
 		
     }
 }
@@ -2015,9 +2067,40 @@ static NSString *labelVers;
 
 -(NSString *) getLastSyncDate
 {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    return [defaults stringForKey:KEY_LAST_SYNC_DATE];
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    
+//    return [defaults stringForKey:KEY_LAST_SYNC_DATE];
+	
+	NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *docsDir = [dirPaths objectAtIndex:0];
+	NSString *dbPath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"hladb.sqlite"]];
+	FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
+	
+	[db open];
+	
+	FMResultSet *result1 = [db executeQuery:@"select LastLogonDate from Agent_profile"];
+	
+	NSString *LastLogonDate = @"";
+	while ([result1 next]) {
+		LastLogonDate = [result1 objectForColumnName:@"LastLogonDate"];
+		
+		NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+		NSDateFormatter *dateFormatter2 = [[NSDateFormatter alloc] init];
+		[dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+		[dateFormatter2 setDateFormat:@"dd/MM/yyyy"];
+		
+		NSDate *date = [dateFormatter dateFromString: LastLogonDate];
+		dateFormatter = [[NSDateFormatter alloc] init];
+
+		LastLogonDate = [dateFormatter2 stringFromDate:date];
+	}
+	
+
+	
+	[db close]; 
+
+	return LastLogonDate;
+
 }
 
 -(NSString*) getTodayDateInStr

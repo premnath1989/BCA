@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="13F1112" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="Gn2-qc-1Vc">
     <dependencies>
+        <development version="4600" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
@@ -209,7 +210,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Cmh-hN-UBq">
-                                <rect key="frame" x="-9" y="8" width="1024" height="748"/>
+                                <rect key="frame" x="-12" y="8" width="1024" height="748"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="R62-ds-gqi">
@@ -251,7 +252,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Reset">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -261,6 +262,34 @@
                                             <action selector="btnReset:" destination="Gn2-qc-1Vc" eventType="touchUpInside" id="LaC-WB-zbW"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Last Login:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aJ7-Ka-koS">
+                                        <rect key="frame" x="20" y="681" width="100" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Time remaining to sync with server:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0vU-f5-g6L">
+                                        <rect key="frame" x="22" y="711" width="276" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="dd/MM/yyyy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4Cp-ee-pAw">
+                                        <rect key="frame" x="112" y="681" width="100" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="XX days" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yZJ-O9-4hM">
+                                        <rect key="frame" x="299" y="711" width="100" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -270,6 +299,8 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="lblForgotPwd" destination="JDY-eF-v7K" id="dze-JZ-7eD"/>
+                        <outlet property="lblLastLogin" destination="4Cp-ee-pAw" id="Apq-6O-m3d"/>
+                        <outlet property="lblTimeRemaining" destination="yZJ-O9-4hM" id="oQC-u6-Hkh"/>
                         <outlet property="outletLogin" destination="R62-ds-gqi" id="VmM-yw-dhm"/>
                         <outlet property="outletReset" destination="tB3-85-hmU" id="HGV-8R-Ue1"/>
                         <outlet property="scrollViewLogin" destination="Cmh-hN-UBq" id="XZU-Dt-lef"/>
@@ -392,7 +423,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Button" image="Profile128.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -407,7 +438,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Button" image="ChgPwd_128.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -422,7 +453,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Button" image="SecurityQuestion128.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -2331,7 +2362,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Add / View">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -2451,27 +2482,6 @@
                                     <!--2012-10-04 12:55:06 +0000-->
                                 </date>
                                 <locale key="locale" localeIdentifier="en_US"/>
-                                <timeZone key="timeZone" name="America/Los_Angeles">
-                                    <data key="data">
-VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
-y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
-5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
-8n/BkPNvwKD0X6OQ9U+ioPY/hZD3L4Sg+CiiEPkPZqD6CIQQ+viDIPvoZhD82GUg/chIEP64RyD/qCoQ
-AJgpIAGIDBACeAsgA3EokARhJ6AFUQqQBkEJoAcw7JAHjUOgCRDOkAmtvyAK8LCQC+CvoAzZzRANwJGg
-DrmvEA+priAQmZEQEYmQIBJ5cxATaXIgFFlVEBVJVCAWOTcQFyk2IBgiU5AZCRggGgI1kBryNKAb4heQ
-HNIWoB3B+ZAesfigH6HbkCB2KyAhgb2QIlYNICNq2hAkNe8gJUq8ECYV0SAnKp4QJ/7toCkKgBAp3s+g
-KupiECu+saAs036QLZ6ToC6zYJAvfnWgMJNCkDFnkiAycySQM0d0IDRTBpA1J1YgNjLokDcHOCA4HAUQ
-OOcaIDn75xA6xvwgO9vJEDywGKA9u6sQPo/6oD+bjRBAb9ygQYSpkEJPvqBDZIuQRC+goEVEbZBF89Mg
-Ry2KEEfTtSBJDWwQSbOXIErtThBLnLOgTNZqkE18laBOtkyQT1x3oFCWLpBRPFmgUnYQkFMcO6BUVfKQ
-VPwdoFY11JBW5TogWB7xEFjFHCBZ/tMQWqT+IFvetRBchOAgXb6XEF5kwiBfnnkQYE3eoGGHlZBiLcCg
-Y2d3kGQNoqBlR1mQZe2EoGcnO5BnzWagaQcdkGmtSKBq5v+Qa5ZlIGzQHBBtdkcgbq/+EG9WKSBwj+AQ
-cTYLIHJvwhBzFe0gdE+kEHT/CaB2OMCQdt7roHgYopB4vs2gefiEkHqer6B72GaQfH6RoH24SJB+XnOg
-f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
-AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
-AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
-AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
-</data>
-                                </timeZone>
                                 <connections>
                                     <action selector="ActionDate:" destination="8l3-7E-LNn" eventType="valueChanged" id="GiO-BN-jR9"/>
                                 </connections>
@@ -2481,7 +2491,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Done">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -2672,7 +2682,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Close">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -3760,11 +3770,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ymy-Te-DVl">
-                                        <rect key="frame" x="839.5" y="735" width="113" height="32"/>
+                                        <rect key="frame" x="840" y="735" width="113" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Add / View">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -5089,7 +5099,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Save Riders">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -5438,27 +5448,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <!--2012-09-25 05:12:23 +0000-->
                                 </date>
                                 <locale key="locale" localeIdentifier="en_US"/>
-                                <timeZone key="timeZone" name="America/Los_Angeles">
-                                    <data key="data">
-VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
-y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
-5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
-8n/BkPNvwKD0X6OQ9U+ioPY/hZD3L4Sg+CiiEPkPZqD6CIQQ+viDIPvoZhD82GUg/chIEP64RyD/qCoQ
-AJgpIAGIDBACeAsgA3EokARhJ6AFUQqQBkEJoAcw7JAHjUOgCRDOkAmtvyAK8LCQC+CvoAzZzRANwJGg
-DrmvEA+priAQmZEQEYmQIBJ5cxATaXIgFFlVEBVJVCAWOTcQFyk2IBgiU5AZCRggGgI1kBryNKAb4heQ
-HNIWoB3B+ZAesfigH6HbkCB2KyAhgb2QIlYNICNq2hAkNe8gJUq8ECYV0SAnKp4QJ/7toCkKgBAp3s+g
-KupiECu+saAs036QLZ6ToC6zYJAvfnWgMJNCkDFnkiAycySQM0d0IDRTBpA1J1YgNjLokDcHOCA4HAUQ
-OOcaIDn75xA6xvwgO9vJEDywGKA9u6sQPo/6oD+bjRBAb9ygQYSpkEJPvqBDZIuQRC+goEVEbZBF89Mg
-Ry2KEEfTtSBJDWwQSbOXIErtThBLnLOgTNZqkE18laBOtkyQT1x3oFCWLpBRPFmgUnYQkFMcO6BUVfKQ
-VPwdoFY11JBW5TogWB7xEFjFHCBZ/tMQWqT+IFvetRBchOAgXb6XEF5kwiBfnnkQYE3eoGGHlZBiLcCg
-Y2d3kGQNoqBlR1mQZe2EoGcnO5BnzWagaQcdkGmtSKBq5v+Qa5ZlIGzQHBBtdkcgbq/+EG9WKSBwj+AQ
-cTYLIHJvwhBzFe0gdE+kEHT/CaB2OMCQdt7roHgYopB4vs2gefiEkHqer6B72GaQfH6RoH24SJB+XnOg
-f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
-AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
-AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
-AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
-</data>
-                                </timeZone>
                                 <connections>
                                     <action selector="dateChange:" destination="dl3-D2-B3c" eventType="valueChanged" id="hiD-em-0U3"/>
                                 </connections>
@@ -6112,7 +6101,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Reset Funds">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -6707,7 +6696,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="14"/>
                                 <state key="normal" title="Button">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -6722,7 +6711,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="14"/>
                                 <state key="normal" title="Button">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -6737,7 +6726,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="14"/>
                                 <state key="normal" title="Button">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -6752,7 +6741,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="14"/>
                                 <state key="normal" title="Button">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -6803,7 +6792,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Please Select">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -7132,7 +7121,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Delete">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -7154,7 +7143,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Edit">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -7185,7 +7174,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </connections>
                             </scrollView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RTz-2S-S4S">
-                                <rect key="frame" x="25" y="65" width="0.0" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -7816,7 +7804,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -7831,7 +7819,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -8123,7 +8111,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -8146,7 +8134,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -8185,7 +8173,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
                                         <state key="normal" title="Refresh Comm Date">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -8265,7 +8253,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -8509,7 +8497,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -8554,7 +8542,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -8949,7 +8937,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -9249,7 +9237,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -10050,7 +10038,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Next">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -10853,7 +10841,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
                                         <state key="normal">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -11096,7 +11084,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
                                         <state key="normal">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -13032,1441 +13020,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="setting_btnB.png" width="42" height="40"/>
         <image name="transparent_boxv2.png" width="555" height="180"/>
     </resources>
-    <classes>
-        <class className="AgentPortalLogin" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AgentPortalLogin.h"/>
-            <relationships>
-                <relationship kind="action" name="btnLogin:"/>
-                <relationship kind="outlet" name="btnNext" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="txtAgentPortalId" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAgentPortalPassword" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="AgentProfile" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AgentProfile.h"/>
-            <relationships>
-                <relationship kind="outlet" name="agentCode" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="agentName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="btnCancel" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="btnConfirm" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="btnSave" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="contractDate" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="icNo" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="leaderCode" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="leaderName" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="BasicAccountViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BasicAccountViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="ACtionBasic:"/>
-                <relationship kind="action" name="ActionDone:"/>
-                <relationship kind="action" name="ActionEAPP:"/>
-                <relationship kind="action" name="ActionLanguage:"/>
-                <relationship kind="action" name="ActionPremium:"/>
-                <relationship kind="outlet" name="Label1" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="label2" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelComm" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelFor" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="myScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="outletBasic" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletDone" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletEAPP" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletLanguage" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="outletSpace" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="segPremium" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="txtBUMP" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtBasicPremium" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtBasicSA" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtCommFrom" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtFor" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtGrayRTUP" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtPolicyTerm" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtPremiumPayable" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtRTUP" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtTotalBAPremium" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="BasicPlanViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BasicPlanViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="ActionEAPP:"/>
-                <relationship kind="action" name="MOPSegmentPressed:"/>
-                <relationship kind="action" name="advanceIncomeSegmentPressed:"/>
-                <relationship kind="action" name="btnPlanPressed:"/>
-                <relationship kind="action" name="btnShowHealthLoadingPressed:"/>
-                <relationship kind="action" name="cashDivSgmntCPPressed:"/>
-                <relationship kind="action" name="cashDividendSegmentPressed:"/>
-                <relationship kind="action" name="doSavePlan:"/>
-                <relationship kind="action" name="incomeSegmentPressed:"/>
-                <relationship kind="action" name="quotationLangSegmentPressed:"/>
-                <relationship kind="outlet" name="HLField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="HLTermField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="MOPSegment" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="advanceIncomeSegment" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="btnHealthLoading" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnPlan" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="cashDivSgmntCP" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="cashDividendSegment" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="headerTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="healthLoadingView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="incomeSegment" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="labelAddHL" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelFive" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelFour" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelParAcc" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelParPayout" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelPercent1" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelPercent2" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelPremiumPay" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelSeven" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelSix" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelThree" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="maxSALabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="minSALabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="myScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="myToolBar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="outletDone" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletEAPP" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletSpace" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="parAccField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="parPayoutField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="policyTermSeg" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="quotationLangSegment" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="tempHLField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="tempHLTermField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="termField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="yearlyIncomeField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="BrowserViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BrowserViewController.h"/>
-        </class>
-        <class className="CFFTabBarController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CFFTabBarController.h"/>
-        </class>
-        <class className="CarouselViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CarouselViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="ButtonInfo:"/>
-                <relationship kind="action" name="btnExit:"/>
-                <relationship kind="action" name="doBrochureBtn:"/>
-                <relationship kind="action" name="doClientProfileBtn:"/>
-                <relationship kind="action" name="doSalesIllustrationBtn:"/>
-                <relationship kind="action" name="doSettingsBtn:"/>
-                <relationship kind="action" name="doeAppBtn:"/>
-                <relationship kind="action" name="doeCFFBtn:"/>
-                <relationship kind="action" name="selectBrochure:"/>
-                <relationship kind="action" name="selectCFF:"/>
-                <relationship kind="action" name="selectClientProfile:"/>
-                <relationship kind="action" name="selectEApp:"/>
-                <relationship kind="action" name="selectSalesIllustration:"/>
-                <relationship kind="action" name="selectSettings:"/>
-                <relationship kind="outlet" name="AgentName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ButtonInfoLabel" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="CPBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="doBrochure" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="doClientProfile" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="doEApp" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="doSI" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="doSIBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="doSettings" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="doeCFF" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="myView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="outletBrochure" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletCarousel" candidateClass="iCarousel"/>
-                <relationship kind="outlet" name="outletClientProfile" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletCustomerFF" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletEAPP" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletExit" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletIconBG" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="outletNavBar" candidateClass="UINavigationBar"/>
-                <relationship kind="outlet" name="outletSI" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletSetting" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="selectSI" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="ChangePassword" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChangePassword.h"/>
-            <relationships>
-                <relationship kind="action" name="btnCancel:"/>
-                <relationship kind="action" name="btnChange:"/>
-                <relationship kind="action" name="btnDone:"/>
-                <relationship kind="action" name="btnTips:"/>
-                <relationship kind="outlet" name="lblMsg" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblTips" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="outletSave" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletTips" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="txtConfirmPwd" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtNewPwd" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOldPwd" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="ChangePasswordReg" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChangePasswordReg.h"/>
-            <relationships>
-                <relationship kind="action" name="btnBack:"/>
-                <relationship kind="action" name="btnCancel:"/>
-                <relationship kind="action" name="btnChange:"/>
-                <relationship kind="action" name="btnDone:"/>
-                <relationship kind="action" name="btnTips:"/>
-                <relationship kind="outlet" name="lblMsg" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblTips" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="outletSave" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletTips" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="txtConfirmPwd" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtNewPwd" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="ClientTabBarController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ClientTabBarController.h"/>
-        </class>
-        <class className="CustomView" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomView.h"/>
-            <relationships>
-                <relationship kind="action" name="ActionBtn1:"/>
-                <relationship kind="action" name="ActionBtn2:"/>
-                <relationship kind="action" name="ActionBtn3:"/>
-                <relationship kind="action" name="ActionBtn4:"/>
-                <relationship kind="outlet" name="lblMsg" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="outletBtn1" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletBtn2" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletBtn3" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletBtn4" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="CustomerProfile" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomerProfile.h"/>
-            <relationships>
-                <relationship kind="action" name="PerformReset:"/>
-                <relationship kind="action" name="PerformSearch:"/>
-                <relationship kind="action" name="addNewCFF:"/>
-                <relationship kind="action" name="addNewCFFNew:"/>
-                <relationship kind="action" name="doBtnStatus:"/>
-                <relationship kind="action" name="doCancel:"/>
-                <relationship kind="action" name="doDelete:"/>
-                <relationship kind="action" name="doEdit:"/>
-                <relationship kind="action" name="doReset:"/>
-                <relationship kind="action" name="doSearch:"/>
-                <relationship kind="outlet" name="btnStatus" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="cancelBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="deleteBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="deleteEditBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="doSearchBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="idNoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="idTypeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lastUpdateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="statusLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="txtIdNo" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtIdType" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtName" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="DateViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DateViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="dateChange:"/>
-                <relationship kind="action" name="donePressed:"/>
-                <relationship kind="outlet" name="datePickerView" candidateClass="UIDatePicker"/>
-            </relationships>
-        </class>
-        <class className="EditProspect" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditProspect.h"/>
-            <relationships>
-                <relationship kind="action" name="ActionExempted:"/>
-                <relationship kind="action" name="ActionGender:"/>
-                <relationship kind="action" name="ActionHomeCountry:"/>
-                <relationship kind="action" name="ActionOfficeCountry:"/>
-                <relationship kind="action" name="ActionRigDate:"/>
-                <relationship kind="action" name="ActionRigPerson:"/>
-                <relationship kind="action" name="ActionSmoker:"/>
-                <relationship kind="action" name="ActionforRegDate:"/>
-                <relationship kind="action" name="ViewGroup:"/>
-                <relationship kind="action" name="actionCountryOfBirth:"/>
-                <relationship kind="action" name="actionGrouping:"/>
-                <relationship kind="action" name="actionMaritalStatus:"/>
-                <relationship kind="action" name="actionNationality:"/>
-                <relationship kind="action" name="actionRace:"/>
-                <relationship kind="action" name="actionReligion:"/>
-                <relationship kind="action" name="addNewGroup:"/>
-                <relationship kind="action" name="btnDOB:"/>
-                <relationship kind="action" name="btnDelete:"/>
-                <relationship kind="action" name="btnGroup:"/>
-                <relationship kind="action" name="btnOccup:"/>
-                <relationship kind="action" name="btnOtherIDType:"/>
-                <relationship kind="action" name="btnTitle:"/>
-                <relationship kind="action" name="isForeign:"/>
-                <relationship kind="outlet" name="AddGroup" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="BtnCountryOfBirth" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="OtherIDType" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="SegIsGrouping" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="ViewGroup" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnForeignHome" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnForeignOffice" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnHomeCountry" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnOfficeCountry" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnregDate" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="lblOfficeAddr" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblPostCode" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="myScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="outletDOB" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletDelete" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletGroup" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletMaritalStatus" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletNationality" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletOccup" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletRace" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletReligion" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletRigDOB" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletTitle" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="segGender" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="segRigExempted" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="segRigPerson" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="segSmoker" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="txtAnnIncome" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtBussinessType" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtClass" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtContact1" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtContact2" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtContact3" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtContact4" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtDOB" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtEmail" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtExactDuties" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="txtHomeAddr1" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomeAddr2" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomeAddr3" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomeCountry" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomePostCode" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomeState" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomeTown" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtIDType" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOfficeAddr1" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOfficeAddr2" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOfficeAddr3" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOfficeCountry" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOfficePostCode" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOfficeState" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOfficeTown" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOtherIDType" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtPrefix1" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtPrefix2" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtPrefix3" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtPrefix4" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtRemark" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="txtRigDate" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtRigNO" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtrFullName" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="EditProspect_OLD" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditProspect_OLD.h"/>
-            <relationships>
-                <relationship kind="action" name="ActionGender:"/>
-                <relationship kind="action" name="btnCancel:"/>
-                <relationship kind="action" name="btnContact2:"/>
-                <relationship kind="action" name="btnContact3:"/>
-                <relationship kind="action" name="btnContact4:"/>
-                <relationship kind="action" name="btnContact5:"/>
-                <relationship kind="action" name="btnContactType1:"/>
-                <relationship kind="action" name="btnDOB:"/>
-                <relationship kind="action" name="btnDelete:"/>
-                <relationship kind="action" name="btnOccup:"/>
-                <relationship kind="action" name="btnSave:"/>
-                <relationship kind="outlet" name="lblOfficeAddr" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblPostCode" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="myScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="outletDOB" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletDelete" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletDone" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletOccup" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletType1" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletType2" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletType3" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletType4" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletType5" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="segGender" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="txtContact1" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtContact2" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtContact3" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtContact4" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtContact5" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtEmail" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtExactDuties" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomeAddr1" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomeAddr2" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomeAddr3" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomeCountry" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomePostCode" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomeState" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomeTown" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOfficeAddr2" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOfficeAddr3" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOfficeCountry" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOfficePostCode" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOfficeState" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOfficeTown" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOfiiceAddr1" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtPreferredName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtPrefix1" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtPrefix2" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtPrefix3" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtPrefix4" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtPrefix5" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtRemark" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="txtrFullName" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="EverFundMaturityViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EverFundMaturityViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="ACtionDone:"/>
-                <relationship kind="action" name="ACtionFund:"/>
-                <relationship kind="action" name="ActionAdd:"/>
-                <relationship kind="action" name="ActionDelete:"/>
-                <relationship kind="action" name="ActionEAPP:"/>
-                <relationship kind="action" name="ActionEdit:"/>
-                <relationship kind="action" name="ActionOptions:"/>
-                <relationship kind="outlet" name="OutletSave" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="collectionView" candidateClass="UICollectionView"/>
-                <relationship kind="outlet" name="myScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="outletDelete" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletDone" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletEAPP" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletEdit" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletFund" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletOptions" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="outletSpace" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletTableLabel" candidateClass="UIView"/>
-                <relationship kind="outlet" name="txt2025" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txt2028" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txt2030" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txt2035" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtCashFund" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtDanaFund" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtPercentageReinvest" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtSecureFund" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtVenture6666" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtVenture7777" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtVenture8888" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtVenture9999" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtVentureBlueChip" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtVentureDana" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtVentureFlexi" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtVentureGrowth" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtVentureIncome" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtVentureManaged" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="EverHLoadingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EverHLoadingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="ActionDone:"/>
-                <relationship kind="action" name="ActionEAPP:"/>
-                <relationship kind="action" name="ActionMedical:"/>
-                <relationship kind="outlet" name="outletDone" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletEAPP" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletMedical" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="outletSpace" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="txtHLoad" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHLoadPctTerm" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHloadPct" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHloadTerm" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="EverLAViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EverLAViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="ActionCommDate:"/>
-                <relationship kind="action" name="ActionDOB:"/>
-                <relationship kind="action" name="ActionDone:"/>
-                <relationship kind="action" name="ActionEAPP:"/>
-                <relationship kind="action" name="ActionEnable:"/>
-                <relationship kind="action" name="ActionMaritalStatus:"/>
-                <relationship kind="action" name="ActionOccpDesc:"/>
-                <relationship kind="action" name="ActionProspect:"/>
-                <relationship kind="action" name="ActionRefresh:"/>
-                <relationship kind="action" name="ActionSmoker:"/>
-                <relationship kind="outlet" name="btnCommDate" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnDOB" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnEnable" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnOccpDesc" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnProspect" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnRefresh" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="headerTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="myScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="myToolBar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="outletDone" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletEAPP" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletSpace" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="segGender" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="segSmoker" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="segStatus" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="statusLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="txtALB" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtCPA" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtCommDate" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtDOB" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOccpLoad" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtPA" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="EverPayorViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EverPayorViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="ACtionSmoker:"/>
-                <relationship kind="action" name="ActionDOB:"/>
-                <relationship kind="action" name="ActionDelete:"/>
-                <relationship kind="action" name="ActionDone:"/>
-                <relationship kind="action" name="ActionEAPP:"/>
-                <relationship kind="action" name="ActionEnable:"/>
-                <relationship kind="action" name="ActionGender:"/>
-                <relationship kind="action" name="ActionOccpDesc:"/>
-                <relationship kind="action" name="ActionProspect:"/>
-                <relationship kind="outlet" name="btnDOB" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnEnable" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnOccpDesc" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnProspect" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletDOB" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="outletDelete" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletDone" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletEAPP" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletGender" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="outletSmoker" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="outletSpace" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="txtALB" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtCPA" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOccpDesc" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOccpLoad" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtPA" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="EverRiderViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EverRiderViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="ActionAddRider:"/>
-                <relationship kind="action" name="ActionCheckBox1:"/>
-                <relationship kind="action" name="ActionCheckbox2:"/>
-                <relationship kind="action" name="ActionDeductible:"/>
-                <relationship kind="action" name="ActionDelete:"/>
-                <relationship kind="action" name="ActionEAPP:"/>
-                <relationship kind="action" name="ActionEdit:"/>
-                <relationship kind="action" name="ActionOccLoading:"/>
-                <relationship kind="action" name="ActionPersonType:"/>
-                <relationship kind="action" name="ActionPlan:"/>
-                <relationship kind="action" name="ActionReinvest:"/>
-                <relationship kind="action" name="ActionRider:"/>
-                <relationship kind="action" name="ActionSave:"/>
-                <relationship kind="action" name="ActionSegBottomLeft:"/>
-                <relationship kind="action" name="ActionSegBottomRight:"/>
-                <relationship kind="outlet" name="ActionRiderPlan" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="OutletAddRider" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="lbl1" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lbl2" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lbl3" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lbl4" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lbl5" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lbl6" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lbl7" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lbl8" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblHLP" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblHLPTerm" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblMax" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblMin" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblRegular1" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblRegular2" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblRegularTerm" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblRegularTerm2" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblTable1" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblTable10" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblTable11" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblTable2" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblTable3" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblTable4" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblTable5" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblTable6" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblTable7" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblTable8" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblTable9" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="myScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="outletCheckBox1" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletCheckBox2" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletDeductible" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletDelete" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletDone" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletEAPP" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletEdit" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletOccLoading" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletPersonType" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletReinvest" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="outletRider" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletRiderPlan" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletSegBottomLeft" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="outletSegBottomRight" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="outletSpace" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="txtGYIFrom" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHL" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHLP" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHLPTerm" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHLTerm" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOccpLoad" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtPaymentTerm" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtRRTUP" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtRRTUPTerm" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtReinvestment" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtRiderPremium" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtRiderTerm" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtSumAssured" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="EverSecondLAViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EverSecondLAViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="ActionDOB:"/>
-                <relationship kind="action" name="ActionDelete:"/>
-                <relationship kind="action" name="ActionEAPP:"/>
-                <relationship kind="action" name="ActionEnable:"/>
-                <relationship kind="action" name="ActionGender:"/>
-                <relationship kind="action" name="ActionOccpDesc:"/>
-                <relationship kind="action" name="ActionProspect:"/>
-                <relationship kind="action" name="ActionSmoker:"/>
-                <relationship kind="action" name="btnDone:"/>
-                <relationship kind="outlet" name="btnDOB" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnEnable" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnOccpDesc" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnProspect" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletDelete" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletDone" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletEAPP" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletGender" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="outletSmoker" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="outletSpace" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="txtALB" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtCPA" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtDOB" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOccpDesc" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOccpLoad" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtPA" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="EverSeriesMasterViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EverSeriesMasterViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="RightView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="EverSpecialViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EverSpecialViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="ActionDone:"/>
-                <relationship kind="action" name="ActionEAPP:"/>
-                <relationship kind="action" name="ActionReduce:"/>
-                <relationship kind="action" name="ActionWithdrawal:"/>
-                <relationship kind="outlet" name="lblReduceAt" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblReduceTo" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="outletDone" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletEAPP" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletReduce" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="outletSpace" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletWithdrawal" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="txtAmount" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtInterval" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtReduceAt" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtReduceTo" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtStartFrom" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtStartTo" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="FSVerticalTabBarController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FSVerticalTabBarController.h"/>
-        </class>
-        <class className="FirstTimeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstTimeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="ActionCancel:"/>
-                <relationship kind="action" name="btnNext:"/>
-                <relationship kind="action" name="btnSave:"/>
-                <relationship kind="action" name="btnTips:"/>
-                <relationship kind="outlet" name="btnCancel" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="lblPasswordTips" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="myScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="outletSave" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletTips" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="txtConfirmPassword" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtNewPassword" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOldPassword" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="ForgotPwd" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ForgotPwd.h"/>
-            <relationships>
-                <relationship kind="action" name="btnCancel:"/>
-                <relationship kind="action" name="btnRetrieve:"/>
-                <relationship kind="outlet" name="lblSelectQues" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblStatusOne" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblStatusTwo" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="txtAnswer" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAnswer1" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAnswer2" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAnswer3" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtQues1" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtQues2" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtQues3" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="FundAllocationViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FundAllocationViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="ActionAge:"/>
-                <relationship kind="action" name="ActionDone:"/>
-                <relationship kind="action" name="ActionEAPP:"/>
-                <relationship kind="action" name="ActionReset:"/>
-                <relationship kind="action" name="ActionSustain:"/>
-                <relationship kind="outlet" name="myScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="outletAge" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="outletDone" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletEAPP" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletReset" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletSpace" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletSustain" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="txt2023" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txt2025" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txt2028" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txt2030" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txt2035" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAge" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtCashFund" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtDanaFund" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtExpireCashFund" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtExpireDanaFund" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtExpireSecureFund" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtExpireVenture6666" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtExpireVenture7777" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtExpireVenture8888" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtExpireVenture9999" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtExpireVentureBlueChip" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtExpireVentureDana" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtExpireVentureFlexi" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtExpireVentureGrowth" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtExpireVentureIncome" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtExpireVentureManaged" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtSecureFund" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtVenture6666" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtVenture7777" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtVenture8888" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtVenture9999" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtVentureBlueChip" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtVentureDana" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtVentureFlexi" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtVentureGrowth" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtVentureIncome" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtVentureManaged" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="GroupListing" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GroupListing.h"/>
-            <relationships>
-                <relationship kind="action" name="addNew:"/>
-                <relationship kind="action" name="deletePressed:"/>
-                <relationship kind="action" name="editPressed:"/>
-                <relationship kind="action" name="reset:"/>
-                <relationship kind="action" name="search:"/>
-                <relationship kind="outlet" name="deleteBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="editBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="groupLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="memberLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="txtName" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="HLViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HLViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="ActionEAPP:"/>
-                <relationship kind="action" name="HLButtonFunc:"/>
-                <relationship kind="action" name="doSave:"/>
-                <relationship kind="outlet" name="HLField" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="HLTermField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="TempHLField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="TempHLTermField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="TempHealthLoadg" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="TempHealthLoadgTerm" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="headerTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="myToolBar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="outletDone" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletEAPP" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletSpace" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="Login" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/Login.h"/>
-            <relationships>
-                <relationship kind="action" name="btnLogin:"/>
-                <relationship kind="action" name="btnReset:"/>
-                <relationship kind="outlet" name="labelUpdated" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelVersion" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblForgotPwd" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="outletLogin" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletReset" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="scrollViewLogin" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="txtPassword" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtUsername" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="Logout" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/Logout.h"/>
-        </class>
-        <class className="MainClient" superclassName="ClientTabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainClient.h"/>
-        </class>
-        <class className="MainCustomer" superclassName="CFFTabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainCustomer.h"/>
-        </class>
-        <class className="MainScreen" superclassName="FSVerticalTabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainScreen.h"/>
-        </class>
-        <class className="NewLAViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewLAViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="ActionEAPP:"/>
-                <relationship kind="action" name="btnCommDatePressed:"/>
-                <relationship kind="action" name="btnDOBPressed:"/>
-                <relationship kind="action" name="btnOccpPressed:"/>
-                <relationship kind="action" name="doSaveLA:"/>
-                <relationship kind="action" name="enableFields:"/>
-                <relationship kind="action" name="selectProspect:"/>
-                <relationship kind="action" name="sexSegmentPressed:"/>
-                <relationship kind="action" name="smokerSegmentPressed:"/>
-                <relationship kind="outlet" name="LAAgeField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="LACPAField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="LANameField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="LAOccLoadingField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="LAPAField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="OutletSpace" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="btnCommDate" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnDOB" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnEnabled" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnOccp" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnProspect" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnToEAPP" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="headerTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="myScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="myToolBar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="outletDone" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="sexSegment" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="smokerSegment" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="statusLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="PasswordTips" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PasswordTips.h"/>
-            <relationships>
-                <relationship kind="action" name="BarButtonClose:"/>
-            </relationships>
-        </class>
-        <class className="PayorViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PayorViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="ActionEAPP:"/>
-                <relationship kind="action" name="btnDOBPressed:"/>
-                <relationship kind="action" name="btnOccpPressed:"/>
-                <relationship kind="action" name="doDelete:"/>
-                <relationship kind="action" name="doSave:"/>
-                <relationship kind="action" name="doSelectProspect:"/>
-                <relationship kind="action" name="enableFields:"/>
-                <relationship kind="action" name="sexSegmentChange:"/>
-                <relationship kind="action" name="smokerSegmentChange:"/>
-                <relationship kind="outlet" name="CPAField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="DOBField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="OccpField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="PAField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="ageField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="btnDOB" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnOccp" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="deleteBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="headerTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="myToolBar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="nameField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="occpLoadField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="outletDone" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletEAPP" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletProspect" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletQQ" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletSpace" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="sexSegment" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="smokerSegment" candidateClass="UISegmentedControl"/>
-            </relationships>
-        </class>
-        <class className="PremiumViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PremiumViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="ActionEAPP:"/>
-                <relationship kind="action" name="btnGenerate:"/>
-                <relationship kind="outlet" name="WebView" candidateClass="UIWebView"/>
-                <relationship kind="outlet" name="doGenerate" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="headerTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblMessage" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="myToolBar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="outletEAPP" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="ProspectListing" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProspectListing.h"/>
-            <relationships>
-                <relationship kind="action" name="ActionGroup:"/>
-                <relationship kind="action" name="btnAddNew:"/>
-                <relationship kind="action" name="btnSortBy:"/>
-                <relationship kind="action" name="deletePressed:"/>
-                <relationship kind="action" name="editPressed:"/>
-                <relationship kind="action" name="resetPressed:"/>
-                <relationship kind="action" name="searchPressed:"/>
-                <relationship kind="action" name="segOrderBy:"/>
-                <relationship kind="outlet" name="btnGroup" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnSortBy" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="clientNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="deleteBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="editBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="groupLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="idNoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="idTypeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="nametxt" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="outletOrder" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="txtIDTypeNo" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="ProspectListing_OLD" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProspectListing_OLD.h"/>
-            <relationships>
-                <relationship kind="action" name="btnAddNew:"/>
-                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
-            </relationships>
-        </class>
-        <class className="ProspectViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProspectViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="ActionExempted:"/>
-                <relationship kind="action" name="ActionGender:"/>
-                <relationship kind="action" name="ActionIsGrouping:"/>
-                <relationship kind="action" name="ActionRigperson:"/>
-                <relationship kind="action" name="ActionSmoker:"/>
-                <relationship kind="action" name="ActionforRegDate:"/>
-                <relationship kind="action" name="ActionforRegistrationDate:"/>
-                <relationship kind="action" name="ActionforRigdate:"/>
-                <relationship kind="action" name="ActionforregistrationDte:"/>
-                <relationship kind="action" name="ViewGroup:"/>
-                <relationship kind="action" name="actionCountryOfBirth:"/>
-                <relationship kind="action" name="actionForRegistrationDate:"/>
-                <relationship kind="action" name="actionHomeCountry:"/>
-                <relationship kind="action" name="actionMaritalStatus:"/>
-                <relationship kind="action" name="actionNationality:"/>
-                <relationship kind="action" name="actionOfficeCountry:"/>
-                <relationship kind="action" name="actionRace:"/>
-                <relationship kind="action" name="actionReligion:"/>
-                <relationship kind="action" name="addNewGroup:"/>
-                <relationship kind="action" name="btnDOB:"/>
-                <relationship kind="action" name="btnGroup:"/>
-                <relationship kind="action" name="btnOccup:"/>
-                <relationship kind="action" name="btnOtherIDType:"/>
-                <relationship kind="action" name="btnTitle:"/>
-                <relationship kind="action" name="isForeign:"/>
-                <relationship kind="outlet" name="OtherIDType" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnAddGroup" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnCoutryOfBirth" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnForeignHome" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnForeignOffice" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnHomeCountry" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnOfficeCountry" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnOtherIdType" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnRegDate" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnRegistnDate" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnTitle" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnViewGroup" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnregDare" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="lblOfficeAddr" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblPostCode" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="myScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="outletDOB" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletGroup" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletMaritalStatus" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletNationality" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletOccup" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletRace" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletReligion" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletRigDate" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletTitle" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="segGender" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="segIsGrouping" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="segRigExempted" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="segRigPerson" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="segSmoker" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="txtAnnIncome" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtBussinessType" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtClass" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtContact1" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtContact2" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtContact3" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtContact4" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtDOB" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtEmail" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtExactDuties" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="txtFullName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomeAddr1" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomeAddr2" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomeAddr3" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomeCountry" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomePostCode" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomeState" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomeTown" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtIDType" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOfficeAddr1" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOfficeAddr2" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOfficeAddr3" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOfficeCountry" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOfficePostcode" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOfficeState" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOfficeTown" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOtherIDType" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtPrefix1" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtPrefix2" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtPrefix3" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtPrefix4" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtRemark" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="txtRigDate" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtRigNO" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="ProspectViewController_OLD" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProspectViewController_OLD.h"/>
-            <relationships>
-                <relationship kind="action" name="ActionCancel:"/>
-                <relationship kind="action" name="ActionGender:"/>
-                <relationship kind="action" name="btnContact1:"/>
-                <relationship kind="action" name="btnContact2:"/>
-                <relationship kind="action" name="btnContact3:"/>
-                <relationship kind="action" name="btnContact4:"/>
-                <relationship kind="action" name="btnContact5:"/>
-                <relationship kind="action" name="btnDOB:"/>
-                <relationship kind="action" name="btnOccup:"/>
-                <relationship kind="action" name="btnSave:"/>
-                <relationship kind="outlet" name="btnCancel" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="lblOfficeAddr" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblPostCode" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="myScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="outletDOB" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletDone" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletOccup" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletType1" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletType2" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletType3" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletType4" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletType5" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="segGender" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="txtContact1" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtContact2" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtContact3" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtContact4" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtContact5" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtEmail" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtExactDuties" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtFullName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomeAddr1" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomeAddr2" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomeAddr3" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomeCountry" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomePostCode" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomeState" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomeTown" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOfficeAddr1" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOfficeAddr2" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOfficeAddr3" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOfficeCountry" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOfficePostcode" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOfficeState" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtOfficeTown" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtPreferredName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtPrefix1" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtPrefix2" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtPrefix3" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtPrefix4" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtPrefix5" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtRemark" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="ReportViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ReportViewController.h"/>
-        </class>
-        <class className="RiderViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RiderViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="ActionEAPP:"/>
-                <relationship kind="action" name="btnAddRiderPressed:"/>
-                <relationship kind="action" name="btnPTypePressed:"/>
-                <relationship kind="action" name="btnSaveRiderPressed:"/>
-                <relationship kind="action" name="deducBtnPressed:"/>
-                <relationship kind="action" name="deletePressed:"/>
-                <relationship kind="action" name="doSaveRider:"/>
-                <relationship kind="action" name="editPressed:"/>
-                <relationship kind="action" name="planBtnPressed:"/>
-                <relationship kind="outlet" name="HLField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="HLLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="HLTField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="HLTLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="btnAddRider" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnPType" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="classField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="cpaField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="cpaLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="deducBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="deleteBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="editBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="headerTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="maxDisplayLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="minDisplayLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="myScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="myToolBar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="occpField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="occpLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="outletDone" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletEAPP" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletSaveRider" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="outletSpace" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="planBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="planLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="sumField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="sumLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="tempHLField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="tempHLLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="tempHLTField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="tempHLTLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="termField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="termLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleClass" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleHL100" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleHL1K" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleHLP" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleHLPTerm" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleLoad" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleRidCode" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleSA" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleTerm" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleUnit" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="unitField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="unitLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="SIDate" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SIDate.h"/>
-            <relationships>
-                <relationship kind="action" name="ActionDate:"/>
-                <relationship kind="action" name="btnClose:"/>
-                <relationship kind="action" name="btnDone:"/>
-                <relationship kind="outlet" name="outletDate" candidateClass="UIDatePicker"/>
-            </relationships>
-        </class>
-        <class className="SIListing" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SIListing.h"/>
-            <relationships>
-                <relationship kind="action" name="btnAddNewSI:"/>
-                <relationship kind="action" name="btnDateFrom:"/>
-                <relationship kind="action" name="btnDateTo:"/>
-                <relationship kind="action" name="btnDelete:"/>
-                <relationship kind="action" name="btnDone:"/>
-                <relationship kind="action" name="btnEdit:"/>
-                <relationship kind="action" name="btnReset:"/>
-                <relationship kind="action" name="btnSearch:"/>
-                <relationship kind="action" name="btnSortBy:"/>
-                <relationship kind="action" name="segOrderBy:"/>
-                <relationship kind="outlet" name="btnSortBy" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="lblBasicSA" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblDateCreated" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblPlan" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblSINO" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="outletDateFrom" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletDateTo" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletDelete" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletDone" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletEdit" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletGender" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="txtLAName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtSINO" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="SIMenuViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SIMenuViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="RightView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="SecondLAViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SecondLAViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="ActionEAPP:"/>
-                <relationship kind="action" name="btnDOBPressed:"/>
-                <relationship kind="action" name="btnOccpPressed:"/>
-                <relationship kind="action" name="doDelete:"/>
-                <relationship kind="action" name="doSave:"/>
-                <relationship kind="action" name="doSelectProspect:"/>
-                <relationship kind="action" name="enableFields:"/>
-                <relationship kind="action" name="sexSegmentChange:"/>
-                <relationship kind="action" name="smokerSegmentChange:"/>
-                <relationship kind="outlet" name="CPAField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="DOBField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="OccpField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="OccpLoadField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="PAField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="ageField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="btnDOB" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnOccp" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="deleteBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="headerTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="myToolBar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="nameField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="outletDone" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletEAPP" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletProspect" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletQQ" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletSpace" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="sexSegment" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="smokerSegment" candidateClass="UISegmentedControl"/>
-            </relationships>
-        </class>
-        <class className="SecurityQuestion" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SecurityQuestion.h"/>
-            <relationships>
-                <relationship kind="action" name="btnCancel:"/>
-                <relationship kind="action" name="btnQues1:"/>
-                <relationship kind="action" name="btnQues2:"/>
-                <relationship kind="action" name="btnQues3:"/>
-                <relationship kind="action" name="btnSave:"/>
-                <relationship kind="outlet" name="lblQuesOne" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblQuesTwo" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblQuestThree" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="outletCancel" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletQues1" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletQues2" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletQues3" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletSave" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="txtAnswerQ1" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAnswerQ2" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAnswerQ3" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="SettingSecurityQuestion" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingSecurityQuestion.h"/>
-            <relationships>
-                <relationship kind="action" name="ActionClose:"/>
-                <relationship kind="action" name="btnQues1:"/>
-                <relationship kind="action" name="btnQues2:"/>
-                <relationship kind="action" name="btnQues3:"/>
-                <relationship kind="action" name="doSave:"/>
-                <relationship kind="outlet" name="ScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="btnClose" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationItem"/>
-                <relationship kind="outlet" name="outletQues1" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletQues2" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletQues3" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="txtAnswer1" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAnswer2" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAnswer3" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="SettingSecurityQuestion2" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingSecurityQuestion2.h"/>
-            <relationships>
-                <relationship kind="action" name="ActionClose:"/>
-                <relationship kind="action" name="btnQues1:"/>
-                <relationship kind="action" name="btnQues2:"/>
-                <relationship kind="action" name="btnQues3:"/>
-                <relationship kind="action" name="doSave:"/>
-                <relationship kind="outlet" name="ScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="btnClose" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationItem"/>
-                <relationship kind="outlet" name="outletQues1" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletQues2" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="outletQues3" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="txtAnswer1" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAnswer2" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAnswer3" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="SettingUserProfile" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingUserProfile.h"/>
-            <relationships>
-                <relationship kind="action" name="btnClose:"/>
-                <relationship kind="action" name="btnContractDatePressed:"/>
-                <relationship kind="action" name="btnDone:"/>
-                <relationship kind="action" name="btnSave:"/>
-                <relationship kind="outlet" name="btnContractDate" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="lblAgentLoginID" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="myScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="outletSave" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="txtAddr1" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAddr2" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAddr3" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAgencyPortalLogin" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAgencyPortalPwd" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAgentCode" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAgentContactNo" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAgentName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtBixRegNo" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtEmail" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtICNo" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtLeaderCode" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtLeaderName" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="SettingUserProfileReg" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingUserProfileReg.h"/>
-            <relationships>
-                <relationship kind="action" name="btnBack:"/>
-                <relationship kind="action" name="btnClose:"/>
-                <relationship kind="action" name="btnContractDatePressed:"/>
-                <relationship kind="action" name="btnDone:"/>
-                <relationship kind="action" name="btnSave:"/>
-                <relationship kind="outlet" name="btnContractDate" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="lblAgentLoginID" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="myScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="outletSave" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="txtAddr1" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAddr2" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAddr3" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAgencyPortalLogin" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAgencyPortalPwd" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAgentCode" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAgentContactNo" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAgentId" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAgentName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtBixRegNo" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtContractDate" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtEmail" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomeCountry" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomePostCode" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomeState" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomeTown" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtICNo" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtLeaderCode" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtLeaderName" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="SettingUserProfileReg2" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingUserProfileReg2.h"/>
-            <relationships>
-                <relationship kind="action" name="btnBack:"/>
-                <relationship kind="action" name="btnClose:"/>
-                <relationship kind="action" name="btnContractDatePressed:"/>
-                <relationship kind="action" name="btnDone:"/>
-                <relationship kind="action" name="btnSave:"/>
-                <relationship kind="outlet" name="btnContractDate" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="lblAgentLoginID" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="myScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="outletSave" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="txtAddr1" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAddr2" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAddr3" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAgencyPortalLogin" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAgencyPortalPwd" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAgentCode" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAgentContactNo" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAgentId" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAgentName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtBixRegNo" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtContractDate" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtEmail" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomeCountry" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomePostCode" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomeState" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtHomeTown" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtICNo" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtLeaderCode" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtLeaderName" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="URLSchemaHandler" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/URLSchemaHandler.h"/>
-        </class>
-        <class className="UserProfile" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserProfile.h"/>
-            <relationships>
-                <relationship kind="action" name="btnCancel:"/>
-                <relationship kind="action" name="btnContractDatePressed:"/>
-                <relationship kind="action" name="btnSave:"/>
-                <relationship kind="outlet" name="ScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="btnContractDate" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="lblAgentLoginID" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblStatus" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="outletCancel" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="outletSave" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="txtAddr1" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAddr2" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAddr3" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAgencyPortalLogin" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAgencyPortalPwd" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAgentCode" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAgentContactNo" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtAgentName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtBizRegNo" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtEmail" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtICNo" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtLeaderCode" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtLeaderName" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="demo" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/demo.h"/>
-            <relationships>
-                <relationship kind="action" name="ActionClose:"/>
-                <relationship kind="outlet" name="webview" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="eBrochureListingViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/eBrochureListingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="btnClose:"/>
-            </relationships>
-        </class>
-        <class className="eBrochureViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/eBrochureViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="outletWebview" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="iCarousel" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/iCarousel.h"/>
-            <relationships>
-                <relationship kind="outlet" name="dataSource"/>
-                <relationship kind="outlet" name="delegate"/>
-            </relationships>
-        </class>
-        <class className="setting" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/setting.h"/>
-            <relationships>
-                <relationship kind="action" name="ActionProfile:"/>
-                <relationship kind="action" name="ActionPwd:"/>
-                <relationship kind="action" name="ActionSecurity:"/>
-                <relationship kind="action" name="btnClose:"/>
-                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation" orientation="landscapeRight"/>

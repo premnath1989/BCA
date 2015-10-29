@@ -21,7 +21,7 @@
 
 #define NUMBERS_ONLY @"0123456789"
 #define NUMBERS_MONEY @"0123456789."
-#define CHARACTER_LIMIT_PC_F 12
+#define CHARACTER_LIMIT_PC_F 16
 #define CHARACTER_LIMIT_FULLNAME 70
 #define CHARACTER_LIMIT_OtherID 30
 #define CHARACTER_LIMIT_Bussiness 60
@@ -135,9 +135,7 @@ bool RegDatehandling;
     
     [super viewDidLoad];
 	
-	
-	
-	
+
 	UDGroup = [NSUserDefaults standardUserDefaults];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -1519,10 +1517,13 @@ bool RegDatehandling;
     
 }
 
+
 -(void)OtheriDDidChange:(id) sender
 {
     [self OtherIDValidation];
 }
+
+
 
 -(void)NewICDidChange:(id) sender
 {
@@ -1603,16 +1604,6 @@ bool RegDatehandling;
         
     }else if (txtIDType.text.length > 0 && txtIDType.text.length < 12) {
         
-        /*rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"New IC No must be 12 digits characters." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-         rrr.tag = 1002;
-         [rrr show];
-         rrr = nil;
-         */
-        // txtIDType.text = @"";
-        
-        
-        
-        
         if([OtherIDType.titleLabel.text isEqualToString:@"PASSPORT"])
         {
             companyCase = NO;
@@ -1667,20 +1658,14 @@ bool RegDatehandling;
         
         // return;
     }
-    else if(txtIDType.text.length == 12)
+    else if(txtIDType.text.length == 16)
     {
         BOOL valid;
         NSCharacterSet *alphaNums = [NSCharacterSet decimalDigitCharacterSet];
         NSCharacterSet *inStringSet = [NSCharacterSet characterSetWithCharactersInString:[txtIDType.text stringByReplacingOccurrencesOfString:@" " withString:@""]];
         valid = [alphaNums isSupersetOfSet:inStringSet];
         if (!valid) {
-            
-            
-            /*  rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"New IC No must be in numeric" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-             
-             rrr.tag = 1002;
-             [rrr show];
-             */
+
             txtIDType.text = @"";
             if([OtherIDType.titleLabel.text isEqualToString:@"PASSPORT"])
             {
@@ -1692,24 +1677,30 @@ bool RegDatehandling;
         }
         else {
             
-            NSString *last = [txtIDType.text substringFromIndex:[txtIDType.text length] -1];
-            NSCharacterSet *oddSet = [NSCharacterSet characterSetWithCharactersInString:@"13579"];
+            NSString *strDate = [txtIDType.text substringWithRange:NSMakeRange(6, 2)];
+			NSString *strMonth = [txtIDType.text substringWithRange:NSMakeRange(8, 2)];
+			NSString *strYear = [txtIDType.text substringWithRange:NSMakeRange(10, 2)];
+			NSString *strGender;
+			
+			int intDate = [strDate integerValue];
+			if (intDate > 40 && intDate < 72) {
+				strGender = @"F";
+				gender = @"FEMALE";
+				segGender.selectedSegmentIndex = 1;
+				intDate = intDate - 40;
+				if (intDate <10)
+					strDate = [NSString stringWithFormat:@"0%d", intDate];
+				else
+					strDate = [NSString stringWithFormat:@"%d", intDate];
+			}
+			else if (intDate > 0 && intDate < 31) {
+				strGender = @"M";
+				segGender.selectedSegmentIndex = 0;
+				gender = @"MALE";
+			}
+			segGender.enabled = FALSE;
             
-            if ([last rangeOfCharacterFromSet:oddSet].location != NSNotFound) {
-                NSLog(@"MALE");
-                segGender.selectedSegmentIndex = 0;
-                gender = @"MALE";
-            } else {
-                NSLog(@"FEMALE");
-                segGender.selectedSegmentIndex = 1;
-                gender = @"FEMALE";
-            }
-            segGender.enabled = FALSE;
-            //get the DOB value from ic entered
-            NSString *strDate = [txtIDType.text substringWithRange:NSMakeRange(4, 2)];
-            NSString *strMonth = [txtIDType.text substringWithRange:NSMakeRange(2, 2)];
-            NSString *strYear = [txtIDType.text substringWithRange:NSMakeRange(0, 2)];
-            
+		
             //get value for year whether 20XX or 19XX
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
             [dateFormatter setDateFormat:@"yyyy"];
@@ -1832,7 +1823,6 @@ bool RegDatehandling;
                 txtDOB.backgroundColor = [CustomColor colorWithHexString:@"EEEEEE"];
             }
             
-            last = nil, oddSet = nil;
             strDate = nil, strMonth = nil, strYear = nil, currentYear = nil, strCurrentYear = nil;
             dateFormatter = Nil, strDOB = nil, strDOB2 = nil, d = Nil, d2 = Nil;
         }
@@ -1841,12 +1831,11 @@ bool RegDatehandling;
     }
     
     //  [txtIDType removeTarget:self action:@selector(NewICDidChange:) forControlEvents:UIControlEventEditingDidEnd];
-    
+	
     [self IDValidation];
     
     self.navigationItem.rightBarButtonItem.enabled = TRUE;
-    
-    
+
     
     
 }
@@ -5062,7 +5051,7 @@ bool RegDatehandling;
 	[ClientProfile setObject:@"" forKey:@"TabBar1"];
 	clickDone = 2; //to allow prompt same id checking, can use any number as long not 1
 	
-	if ([textFields trimWhiteSpaces:txtIDType.text].length == 12) {
+	if ([textFields trimWhiteSpaces:txtIDType.text].length == 16) {
 		if (![self IDValidation]) {
 			[ClientProfile setObject:@"NO" forKey:@"TabBar"];
 			return FALSE;
@@ -5868,7 +5857,7 @@ bool RegDatehandling;
             else if([txtIDType.text isEqualToString:@""] || (txtIDType.text.length == 0) ){
                 
                 
-                rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"New IC No is required." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"NIK No is required." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 rrr.tag = 1002;
                 [rrr show];
                 txtIDType.text = @"";
@@ -5882,9 +5871,9 @@ bool RegDatehandling;
             
             
             
-            else  if (txtIDType.text.length != 12) {
+            else  if (txtIDType.text.length != 16) {
                 
-                rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"New IC No must be 12 digits characters." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"NIK No must be 16 digits characters." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 rrr.tag = 1002;
                 [rrr show];
                 rrr=nil;
@@ -5903,7 +5892,7 @@ bool RegDatehandling;
                 if (!valid) {
                     
                     rrr = [[UIAlertView alloc] initWithTitle:@" "
-                                                     message:@"New IC No must be numeric" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                                                     message:@"NIK No must be numeric" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                     rrr.tag = 1002;
                     [rrr show];
                     rrr = nil;
@@ -5911,14 +5900,14 @@ bool RegDatehandling;
                     return false;
                 }
                 
-                if (txtIDType.text.length != 12) {
+                if (txtIDType.text.length != 16) {
                     
                     
                     
                     
                     
                     rrr = [[UIAlertView alloc] initWithTitle:@" "
-                                                     message:@"New IC No must be 12 digits characters." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                                                     message:@"NIK No must be 16 digits characters." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                     rrr.tag = 1002;
                     [rrr show];
                     rrr = nil;
@@ -5934,21 +5923,43 @@ bool RegDatehandling;
             NSString *last = [txtIDType.text substringFromIndex:[txtIDType.text length] -1];
             NSCharacterSet *oddSet = [NSCharacterSet characterSetWithCharactersInString:@"13579"];
             
-            if ([last rangeOfCharacterFromSet:oddSet].location != NSNotFound) {
-                
-                segGender.selectedSegmentIndex = 0;
-                gender = @"MALE";
-            } else {
-                
-                segGender.selectedSegmentIndex = 1;
-                gender = @"FEMALE";
-            }
-            
-            //CHECK DAY / MONTH / YEAR START
-            //get the DOB value from ic entered
-            NSString *strDate = [txtIDType.text substringWithRange:NSMakeRange(4, 2)];
-            NSString *strMonth = [txtIDType.text substringWithRange:NSMakeRange(2, 2)];
-            NSString *strYear = [txtIDType.text substringWithRange:NSMakeRange(0, 2)];
+//            if ([last rangeOfCharacterFromSet:oddSet].location != NSNotFound) {
+//                
+//                segGender.selectedSegmentIndex = 0;
+//                gender = @"MALE";
+//            } else {
+//                
+//                segGender.selectedSegmentIndex = 1;
+//                gender = @"FEMALE";
+//            }
+//            
+//            //CHECK DAY / MONTH / YEAR START
+//            //get the DOB value from ic entered
+//            NSString *strDate = [txtIDType.text substringWithRange:NSMakeRange(4, 2)];
+//            NSString *strMonth = [txtIDType.text substringWithRange:NSMakeRange(2, 2)];
+//            NSString *strYear = [txtIDType.text substringWithRange:NSMakeRange(0, 2)];
+			
+			
+			NSString *strDate = [txtIDType.text substringWithRange:NSMakeRange(6, 2)];
+			NSString *strMonth = [txtIDType.text substringWithRange:NSMakeRange(8, 2)];
+			NSString *strYear = [txtIDType.text substringWithRange:NSMakeRange(10, 2)];
+			NSString *strGender;
+			
+			int intDate = [strDate integerValue];
+			if (intDate > 40 && intDate < 72) {
+				strGender = @"F";
+				gender = @"FEMALE";
+				intDate = intDate - 40;
+				if (intDate <10)
+					strDate = [NSString stringWithFormat:@"0%d", intDate];
+				else
+					strDate = [NSString stringWithFormat:@"%d", intDate];
+			}
+			else if (intDate > 0 && intDate < 31) {
+				strGender = @"M";
+//				segGender.selectedSegmentIndex = 0;
+				gender = @"MALE";
+			}
             
             //get value for year whether 20XX or 19XX
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -5986,7 +5997,7 @@ bool RegDatehandling;
             
             if ([d compare:d2] == NSOrderedAscending) {
                 
-                rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"New IC No not valid." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
+                rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"NIK No not valid." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
                 rrr.tag = 1002;
                 [rrr show];
                 
@@ -6002,7 +6013,7 @@ bool RegDatehandling;
             }
             else if ([strMonth intValue] > 12 || [strMonth intValue] < 1) {
                 
-                rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"New IC month must be between 1 and 12." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
+                rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"NIK month must be between 1 and 12." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
                 rrr.tag = 1002;
                 [rrr show];
                 
@@ -6019,7 +6030,7 @@ bool RegDatehandling;
             else if([strDate intValue] < 1 || [strDate intValue] > 31)
             {
                 
-                rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"New IC day must be between 1 and 31." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
+                rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"NIK day must be between 1 and 31 or between 41 and 71" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
                 rrr.tag = 1002;
                 [rrr show];
                 [ClientProfile setObject:@"NO" forKey:@"TabBar"];
@@ -6029,7 +6040,7 @@ bool RegDatehandling;
             else if (([strMonth isEqualToString:@"01"] || [strMonth isEqualToString:@"03"] || [strMonth isEqualToString:@"05"] || [strMonth isEqualToString:@"07"] || [strMonth isEqualToString:@"08"] || [strMonth isEqualToString:@"10"] || [strMonth isEqualToString:@"12"]) && [strDate intValue] > 31) {
                 
                 
-                rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"New IC No not valid." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
+                rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"NIK No not valid." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
                 rrr.tag = 1002;
                 [rrr show];
                 
@@ -6048,7 +6059,7 @@ bool RegDatehandling;
             else if (([strMonth isEqualToString:@"04"] || [strMonth isEqualToString:@"06"] || [strMonth isEqualToString:@"09"] || [strMonth isEqualToString:@"11"]) && [strDate intValue] > 30) {
                 
                 
-                rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"New IC No not valid." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
+                rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"NIK no not valid." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
                 rrr.tag = 1002;
                 [rrr show];
                 
@@ -6097,12 +6108,12 @@ bool RegDatehandling;
             
         }
         
-        else if(![otherIDTypeTrim isEqualToString:@"- SELECT -"]  && (txtIDType.text.length > 0 && txtIDType.text.length<12) )
+        else if(![otherIDTypeTrim isEqualToString:@"- SELECT -"]  && (txtIDType.text.length > 0 && txtIDType.text.length<16) )
         {
             
-            if (txtIDType.text.length != 12) {
+            if (txtIDType.text.length != 16) {
                 
-                rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"New IC No must be 12 digits characters." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"NIK No must be 16 digits characters." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 rrr.tag = 1002;
                 [rrr show];
                 rrr=nil;
@@ -6122,8 +6133,8 @@ bool RegDatehandling;
         
         txtIDType.text = [txtIDType.text stringByReplacingOccurrencesOfString:@" " withString:@""];
         
-        if (txtIDType.text.length > 0 && txtIDType.text.length < 12) {
-            rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"New IC No must be 12 digits characters." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        if (txtIDType.text.length > 0 && txtIDType.text.length < 16) {
+            rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"NIK No must be 16 digits characters." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             rrr.tag = 1002;
             [rrr show];
             rrr = nil;
@@ -6131,7 +6142,7 @@ bool RegDatehandling;
             [ClientProfile setObject:@"NO" forKey:@"TabBar"];
             return false;
         }
-        else if(txtIDType.text.length == 12)
+        else if(txtIDType.text.length == 16)
         {
             BOOL valid;
             NSCharacterSet *alphaNums = [NSCharacterSet decimalDigitCharacterSet];
@@ -6140,7 +6151,7 @@ bool RegDatehandling;
             if (!valid) {
                 
                 
-                rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"New IC No must be in numeric" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"NIK No must be in numeric" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 
                 rrr.tag = 1002;
                 [rrr show];
@@ -6152,10 +6163,23 @@ bool RegDatehandling;
                 
                 
                 //get the DOB value from ic entered
-                NSString *strDate = [txtIDType.text substringWithRange:NSMakeRange(4, 2)];
-                NSString *strMonth = [txtIDType.text substringWithRange:NSMakeRange(2, 2)];
-                NSString *strYear = [txtIDType.text substringWithRange:NSMakeRange(0, 2)];
+                NSString *strDate = [txtIDType.text substringWithRange:NSMakeRange(6, 2)];
+                NSString *strMonth = [txtIDType.text substringWithRange:NSMakeRange(8, 2)];
+                NSString *strYear = [txtIDType.text substringWithRange:NSMakeRange(10, 2)];
                 
+				
+				int intDate = [strDate integerValue];
+				if (intDate > 40 && intDate < 72) {
+					intDate = intDate - 40;
+					if (intDate <10)
+						strDate = [NSString stringWithFormat:@"0%d", intDate];
+					else
+						strDate = [NSString stringWithFormat:@"%d", intDate];
+				}
+				else if (intDate > 0 && intDate < 31) {
+
+				}
+				
                 //get value for year whether 20XX or 19XX
                 NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
                 [dateFormatter setDateFormat:@"yyyy"];
@@ -6192,7 +6216,7 @@ bool RegDatehandling;
                 
                 if ([d compare:d2] == NSOrderedAscending) {
                     
-                    rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"New IC No not valid." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
+                    rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"NIK No not valid." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
                     rrr.tag = 1002;
                     [rrr show];
                     [ClientProfile setObject:@"NO" forKey:@"TabBar"];
@@ -6201,7 +6225,7 @@ bool RegDatehandling;
                 }
                 else if ([strMonth intValue] > 12 || [strMonth intValue] < 1) {
                     
-                    rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"New IC month must be between 1 and 12." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
+                    rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"NIK month must be between 1 and 12." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
                     rrr.tag = 1002;
                     [rrr show];
                     [ClientProfile setObject:@"NO" forKey:@"TabBar"];
@@ -6210,7 +6234,7 @@ bool RegDatehandling;
                 else if([strDate intValue] < 1 || [strDate intValue] > 31)
                 {
                     
-                    rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"New IC day must be between 1 and 31." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
+                    rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"NIK day must be between 1 and 31 or 41 and 71" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
                     rrr.tag = 1002;
                     [rrr show];
                     [ClientProfile setObject:@"NO" forKey:@"TabBar"];
@@ -6220,7 +6244,7 @@ bool RegDatehandling;
                 else if (([strMonth isEqualToString:@"01"] || [strMonth isEqualToString:@"03"] || [strMonth isEqualToString:@"05"] || [strMonth isEqualToString:@"07"] || [strMonth isEqualToString:@"08"] || [strMonth isEqualToString:@"10"] || [strMonth isEqualToString:@"12"]) && [strDate intValue] > 31) {
                     
                     
-                    rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"New IC No not valid." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
+                    rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"NIK No not valid." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
                     rrr.tag = 1002;
                     [rrr show];
                     [ClientProfile setObject:@"NO" forKey:@"TabBar"];
@@ -6231,7 +6255,7 @@ bool RegDatehandling;
                 else if (([strMonth isEqualToString:@"04"] || [strMonth isEqualToString:@"06"] || [strMonth isEqualToString:@"09"] || [strMonth isEqualToString:@"11"]) && [strDate intValue] > 30) {
                     
                     
-                    rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"New IC No not valid." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
+                    rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"NIK No not valid." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
                     rrr.tag = 1002;
                     [rrr show];
                     [ClientProfile setObject:@"NO" forKey:@"TabBar"];
@@ -8534,6 +8558,51 @@ bool RegDatehandling;
 	}
     
     
+}
+
+-(void) NIK_checking {
+	
+	//	Nomor Induk Kependudukan
+	//	Indonesia number indentification checking
+	//	16digit 
+	//	31-02-01-44-03-91-0312
+	//	31: kode provinsi.
+	//	02: Kode kota/kabupaten
+	//	01: Kode kecamatan
+	//	44: Tanggal lahir. Kode laki-laki: 01-31. perempuan: tanggal lahir ditambah 40, 41-71. Jadi kalau kamu seorang perempuan yang lahir tanggal 12 maka kodenya adalah 40 + 12 yaitu 52.
+	//	03: bulan
+	//	91: Tahun lahir
+	//	0312: Nomor komputerisasi
+	
+
+//	NSString *otherIDType = [OtherIDType.titleLabel.text stringByTrimmingCharactersInSet:
+//							 [NSCharacterSet whitespaceCharacterSet]];
+//	NSString *input = [txtOtherIDType.text lowercaseString];
+//	NSString *str_otherid;
+	
+	NSString *NIK_Str = @"3102011403910312";
+	
+	NSString *strDate = [NIK_Str substringWithRange:NSMakeRange(6, 2)];
+	NSString *strMonth = [NIK_Str substringWithRange:NSMakeRange(8, 2)];
+	NSString *strYear = [NIK_Str substringWithRange:NSMakeRange(10, 2)];
+	NSString *strGender;
+	
+	int intDate = [strDate integerValue];
+	if (intDate > 40 && intDate < 72) {
+		strGender = @"F";
+		intDate = intDate - 40;
+		if (intDate <10)  
+			strDate = [NSString stringWithFormat:@"0%d", intDate];
+		else
+			strDate = [NSString stringWithFormat:@"%d", intDate];
+	}
+	else if (intDate > 0 && intDate < 31) {
+		strGender = @"M";
+	}
+	
+	NSLog(@"DOB %@/%@/%@", strDate, strMonth, strYear);
+	NSLog(@"Gender: %@", strGender);
+	
 }
 
 

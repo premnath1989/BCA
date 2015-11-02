@@ -38,6 +38,7 @@
 		04B15E0C19DA8D0900FF7039 /* Customer_Fact_Find@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B15E0319DA8D0900FF7039 /* Customer_Fact_Find@2x.png */; };
 		04B15E0D19DA8D0900FF7039 /* Client_Profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B15E0419DA8D0900FF7039 /* Client_Profile@2x.png */; };
 		04B15E0E19DA8D0900FF7039 /* Bachground.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B15E0519DA8D0900FF7039 /* Bachground.png */; };
+		04D214081BE768E000067C9D /* BCAUL_Rates.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 04D214071BE768E000067C9D /* BCAUL_Rates.sqlite */; };
 		2900CABC19931BBC0003B4F7 /* eAppStatusListforSubmitted.m in Sources */ = {isa = PBXBuildFile; fileRef = 2900CABB19931BBC0003B4F7 /* eAppStatusListforSubmitted.m */; };
 		29071F071A256811002F7FB1 /* RIButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 29071F041A256811002F7FB1 /* RIButtonItem.m */; };
 		29071F081A256811002F7FB1 /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 29071F061A256811002F7FB1 /* UIAlertView+Blocks.m */; };
@@ -793,6 +794,7 @@
 		04B15E0319DA8D0900FF7039 /* Customer_Fact_Find@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Customer_Fact_Find@2x.png"; sourceTree = "<group>"; };
 		04B15E0419DA8D0900FF7039 /* Client_Profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Client_Profile@2x.png"; sourceTree = "<group>"; };
 		04B15E0519DA8D0900FF7039 /* Bachground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bachground.png; sourceTree = "<group>"; };
+		04D214071BE768E000067C9D /* BCAUL_Rates.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = BCAUL_Rates.sqlite; sourceTree = "<group>"; };
 		161EA6BB1B131A9E009AF454 /* hladb.sqlite.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hladb.sqlite.sql; path = database/src/hladb.sqlite.sql; sourceTree = "<group>"; };
 		2900CABA19931BBC0003B4F7 /* eAppStatusListforSubmitted.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eAppStatusListforSubmitted.h; sourceTree = "<group>"; };
 		2900CABB19931BBC0003B4F7 /* eAppStatusListforSubmitted.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eAppStatusListforSubmitted.m; sourceTree = "<group>"; };
@@ -4021,6 +4023,7 @@
 		C4EB491A161537B100C7FC8C /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				04D214071BE768E000067C9D /* BCAUL_Rates.sqlite */,
 				E02A2A371BB99CE300993B2C /* hladb.sqlite */,
 				E02A2A351BB99A4E00993B2C /* BCA_Rates.sqlite */,
 				161EA6BB1B131A9E009AF454 /* hladb.sqlite.sql */,
@@ -4464,6 +4467,7 @@
 				C4F5355B166EF649004DBF94 /* Propsect2.jpg in Resources */,
 				C4F5355D166EF649004DBF94 /* SI.jpg in Resources */,
 				C4F5355F166F3BF0004DBF94 /* icon_settings.png in Resources */,
+				04D214081BE768E000067C9D /* BCAUL_Rates.sqlite in Resources */,
 				C4E5A470168AAA89007848CE /* ChgPwd_24.png in Resources */,
 				C4E5A471168AAA89007848CE /* ChgPwd_32.png in Resources */,
 				C4E5A472168AAA89007848CE /* ChgPwd_48.png in Resources */,

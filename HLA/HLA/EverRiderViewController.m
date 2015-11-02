@@ -5198,183 +5198,36 @@ NSString *FirstLAOccuCode;
 	//NSLog(@"dasdas  %@ %@ %@ %d", pTypeSex, getSex, pTypeCode, PTypeSeq);
 	
 	sex = [sex substringToIndex:1];
-	if ([riderCode isEqualToString:@"DCA"]||[riderCode isEqualToString:@"DHI"]||[riderCode isEqualToString:@"MR"]||
-		[riderCode isEqualToString:@"PA"] || [riderCode isEqualToString:@"TPDMLA"]||[riderCode isEqualToString:@"WI"])
+	if ([riderCode isEqualToString:@"BLIFECIAC"])
 	{
-		[self getRiderRateSexClassAge:riderCode Sex:sex Class:getOccpClass Age:age];
+        [self getPrem:@"BLIFE_CI_ACC" Query:[NSString stringWithFormat:@"Select MS, MNS, FS, FNS From BLIFE_CI_ACC where term = '%d' and age = '%d' ",  ridTerm, age]];
 	}
-	else if ([riderCode isEqualToString:@"ACIR"]) {
-		[self getRiderRateSexTermAgeSmoker:riderCode Sex:sex Term:ridTerm Age:age Smoker:getSmoker];
+    else if ([riderCode isEqualToString:@"BLIFECIAD"])
+	{
+        [self getPrem:@"BLIFE_CI_Add" Query:[NSString stringWithFormat:@"Select MS, MNS, FS, FNS From BLIFE_CI_Add where term = '%d' and age = '%d' ",  ridTerm, age]];
 	}
-	else if ([riderCode isEqualToString:@"CIWP"]||[riderCode isEqualToString:@"LCWP"] || [riderCode isEqualToString:@"PR"] ||
-			 [riderCode isEqualToString:@"TPDWP"] ) {
-		if (WaiverRiderTerm == 0) {
-			[self getRiderRateSexPremTermAge:riderCode Sex:sex Prem:aaPaymentTerm Term:ridTerm Age:age];
-		}
-		else{
-			[self getRiderRateSexPremTermAge:riderCode Sex:sex Prem:[ NSString stringWithFormat:@"%d", WaiverRiderTerm ] Term:WaiverRiderTerm Age:age];
-		}
-		
+    else if ([riderCode isEqualToString:@"BLIFEPAA1"])
+	{
+        [self getPrem:@"BLIFE_PA_Death" Query:[NSString stringWithFormat:@"Select MS, MNS, FS, FNS From BLIFE_PA_Death where term = '%d' and age = '%d' ",  ridTerm, age]];
 	}
-	else if ([riderCode isEqualToString:@"HMM"]) {
-		[self getRiderRateTypeSexClassAgeDed:riderCode Type:aaRiderPlan
-										 Sex:sex Class:getOccpClass Age:age Deduc:aaRiderDeduc];
+    else if ([riderCode isEqualToString:@"BLIFEPAAB"])
+	{
+        [self getPrem:@"BLIFE_PA_Death_Disable" Query:[NSString stringWithFormat:@"Select MS, MNS, FS, FNS From BLIFE_PA_Death_Disable where term = '%d' and age = '%d' ",  ridTerm, age]];
 	}
-	else if ([riderCode isEqualToString:@"MG_IV"]) {
-		[self getRiderRateTypeAgeSexClass:riderCode Type:aaRiderPlan Sex:sex Class:getOccpClass Age:age];
+    else if ([riderCode isEqualToString:@"BLIFEWVRT1"])
+	{
+        [self getPrem:@"BLIFE_Hospital_CashPlan" Query:[NSString stringWithFormat:@"Select MS, MNS, FS, FNS From BLIFE_Hospital_CashPlan where term = '%d' and age = '%d' ",  ridTerm, age]];
 	}
-	else if ([riderCode isEqualToString:@"LSR"] || [riderCode isEqualToString:@"CIRD"] ) {
-		[self getRiderRateSexAge:riderCode Sex:sex Age:age];
-	}
-	else if ([riderCode isEqualToString:@"RRTUO"] || [riderCode isEqualToString:@"MCFR"]) {
-		riderRate = aaRiderSA;
-	}
-	else if ([riderCode isEqualToString:@"ECAR60"]) {
-		[self getRiderRatePremTermAge:riderCode Prem:aaPaymentTerm Term:ridTerm Age:age];
-	}
-	else if ([riderCode isEqualToString:@"ECAR"]) {
-		[self getRiderRateGYITermAge:riderCode GYIStartFrom:@"1" Term:ridTerm Age:age];
-	}
-	else if ([riderCode isEqualToString:@"ECAR6"]){
-		[self getRiderRateGYITermAge:riderCode GYIStartFrom:aaGYIFrom Term:ridTerm Age:age];
-	}
-    else if ([riderCode isEqualToString:@"TSR"]){
-		//[self getRiderRateGYITermAge:riderCode GYIStartFrom:txtGYIFrom.text Term:ridTerm Age:age];
-        if ([aaTSRPaymentChoice isEqualToString:@"Up to age 60"]) {
-            [self getTSRPrem:pTypeAge PPTerm:[aaTSRPaymentTerm intValue] Term:ridTerm LimitedOrFullPay:@"Limited" Gender:sex];
-            [self getTSROccScale:age PPTerm:[aaTSRPaymentTerm intValue] Term:ridTerm];
+    else if ([riderCode isEqualToString:@"BLIFEHNS1"])
+	{
+        if ([sex isEqualToString:@"MALE"]) {
+                [self getPrem:@"BLIFE_Hosp_Sur_Male" Query:[NSString stringWithFormat:@"Select MS, MNS, FS, FNS From BLIFE_Hosp_Sur_Male where term = '%d' and age = '%d' ",  ridTerm, age]];
         }
-        else {
-            [self getTSRPrem:pTypeAge PPTerm:[aaTSRPaymentTerm intValue] Term:ridTerm LimitedOrFullPay:@"FullPay" Gender:sex];
+        else{
+                [self getPrem:@"BLIFE_Hosp_Sur_Female" Query:[NSString stringWithFormat:@"Select MS, MNS, FS, FNS From BLIFE_Hosp_Sur_Female where term = '%d' and age = '%d' ",  ridTerm, age]];
         }
-    
 	}
-    else if ([riderCode isEqualToString:@"TSER"]){
-		[self getTSERPrem:pTypeAge PPTerm:[aaPaymentTerm intValue] Term:ridTerm Gender:sex];
-        [self getTSEROccScale:age PPTerm:[aaPaymentTerm intValue] Term:ridTerm];
-	}
-    else if ([riderCode isEqualToString:@"TPDYLA"]){
-		[self getPrem:@"ES_TPDYLA_Prem" Query:[NSString stringWithFormat:@"Select Rate From ES_TPDYLA_Prem where Sex = '%@' and smoker = '%@' and age = '%d' and term = '%d' ", sex, getSmoker, age, ridTerm]];
-	}
-    else if ([riderCode isEqualToString:@"CCR"]){
-		[self getPrem:@"ES_CCR_Prem" Query:[NSString stringWithFormat:@"Select premium From ES_CCR_Prem where gender = '%@' and smoker = '%@' and age = '%d' and PolicyTerm = '%d' ", sex, getSmoker, age, ridTerm]];
-        [self getPrem2:@"ES_CCR_Prem" Query:[NSString stringWithFormat:@"Select premium From ES_CCR_Prem where gender = '%@' and smoker = '%@' and age = '%d' and PolicyTerm = '%d' ", sex, getSmoker, age + 5,
-                                             ridTerm - 5]];
-        [self getPrem3:@"ES_CCR_Prem" Query:[NSString stringWithFormat:@"Select premium From ES_CCR_Prem where gender = '%@' and smoker = '%@' and age = '%d' and PolicyTerm = '%d' ", sex, getSmoker, age + 15,
-                                             ridTerm -15 ]];
-	}
-    else if ([riderCode isEqualToString:@"TCCR"]){
-		[self getPrem:@"ES_TCCR_Prem" Query:[NSString stringWithFormat:@"Select premium From ES_TCCR_Prem where gender = '%@' and smoker = '%@' and age = '%d' and PolicyTerm = '%d' ", sex, getSmoker, age, ridTerm]];
-        [self getPrem2:@"ES_TCCR_Prem" Query:[NSString stringWithFormat:@"Select premium From ES_TCCR_Prem where gender = '%@' and smoker = '%@' and age = '%d' and PolicyTerm = '%d' ", sex, getSmoker, age + 5,
-                                             ridTerm - 5]];
-        [self getPrem3:@"ES_TCCR_Prem" Query:[NSString stringWithFormat:@"Select premium From ES_TCCR_Prem where gender = '%@' and smoker = '%@' and age = '%d' and PolicyTerm = '%d' ", sex, getSmoker, age + 15,
-                                             ridTerm -15 ]];
-	}
-    else if ([riderCode isEqualToString:@"JCCR"]){
-		[self getPrem:@"ES_JCCR_Prem" Query:[NSString stringWithFormat:@"Select premium From ES_JCCR_Prem where gender = '%@' and age = '%d' and PolicyTerm = '%d' ", sex, age, ridTerm]];
-        [self getPrem2:@"ES_JCCR_Prem" Query:[NSString stringWithFormat:@"Select premium From ES_JCCR_Prem where gender = '%@' and age = '%d' and PolicyTerm = '%d' ", sex, 16, ridTerm - (16 - age)  ]];
-        [self getPrem3:@"ES_JCCR_Prem" Query:[NSString stringWithFormat:@"Select premium From ES_JCCR_Prem where gender = '%@' and age = '%d' and PolicyTerm = '%d' ", sex, 30, ridTerm - (30 - age) ]];
-	}
-    else if ([riderCode isEqualToString:@"MDSR1"] || [riderCode isEqualToString:@"MDSR2"] ){
-
-        /*
-		[self getPrem:@"ES_MDSR_Prem" Query:[NSString stringWithFormat:@"Select prem From ES_MDSR_Prem where sex = '%@' and age = '%d' and class = '%d' AND "
-                                             "PreRetDed = '%@' AND PostRetDed = '%@' AND plan = '%@' ",
-                                             sex, age, getOccpClass, deductible, strDeductiblePostRetirement, planOption  ]];
-        [self getPrem2:@"ES_MDSR_Prem" Query:[NSString stringWithFormat:@"Select prem From ES_MDSR_Prem where sex = '%@' and age = '%d' and class = '%d' AND "
-                                              "PreRetDed = '%@' AND ifnull(PostRetDed, '(null)') = '%@' AND plan = '%@' ",
-                                              sex, 60, getOccpClass, deductible, strDeductiblePostRetirement, planOption  ]];
-        [self getPrem3:@"ES_MDSR_Prem" Query:[NSString stringWithFormat:@"Select prem From ES_MDSR_Prem where sex = '%@' and age = '%d' and class = '%d' AND "
-                                              "PreRetDed = '%@' AND ifnull(PostRetDed, '(null)') = '%@' AND plan = '%@' ",
-                                              sex, 80, getOccpClass, deductible, strDeductiblePostRetirement, planOption  ]];
-         */
-        
-        if ([deductible isEqualToString:@""] && [strDeductiblePostRetirement isEqualToString:@""]) {
-            [self getPrem:@"ES_MDSR_Prem" Query:[NSString stringWithFormat:@"Select prem From ES_MDSR_Prem where sex = '%@' and age = '%d' and class = '%d' AND "
-                                                 "PreRetDed IS NULL AND PostRetDed IS NULL AND plan = '%@' ",
-                                                 sex, age, getOccpClass, planOption  ]];
-            [self getPrem2:@"ES_MDSR_Prem" Query:[NSString stringWithFormat:@"Select prem From ES_MDSR_Prem where sex = '%@' and age = '%d' and class = '%d' AND "
-                                                  "PreRetDed IS NULL AND PostRetDed IS NULL AND plan = '%@' ",
-                                                  sex, 60, getOccpClass, planOption  ]];
-            [self getPrem3:@"ES_MDSR_Prem" Query:[NSString stringWithFormat:@"Select prem From ES_MDSR_Prem where sex = '%@' and age = '%d' and class = '%d' AND "
-                                                  "PreRetDed IS NULL AND PostRetDed IS NULL AND plan = '%@' ",
-                                                  sex, 80, getOccpClass,  planOption  ]];
-        }
-        else if ([deductible isEqualToString:@""] && ![strDeductiblePostRetirement isEqualToString:@""]) {
-            [self getPrem:@"ES_MDSR_Prem" Query:[NSString stringWithFormat:@"Select prem From ES_MDSR_Prem where sex = '%@' and age = '%d' and class = '%d' AND "
-                                                 "PreRetDed IS NULL AND PostRetDed = '%@' AND plan = '%@' ",
-                                                 sex, age, getOccpClass,  strDeductiblePostRetirement, planOption  ]];
-            [self getPrem2:@"ES_MDSR_Prem" Query:[NSString stringWithFormat:@"Select prem From ES_MDSR_Prem where sex = '%@' and age = '%d' and class = '%d' AND "
-                                                  "PreRetDed IS NULL AND PostRetDed = '%@' AND plan = '%@' ",
-                                                  sex, 60, getOccpClass,  strDeductiblePostRetirement, planOption  ]];
-            [self getPrem3:@"ES_MDSR_Prem" Query:[NSString stringWithFormat:@"Select prem From ES_MDSR_Prem where sex = '%@' and age = '%d' and class = '%d' AND "
-                                                  "PreRetDed IS NULL AND PostRetDed = '%@' AND plan = '%@' ",
-                                                  sex, 80, getOccpClass,  strDeductiblePostRetirement, planOption  ]];
-            
-        }
-        else if (![deductible isEqualToString:@""] && [strDeductiblePostRetirement isEqualToString:@""]) {
-            [self getPrem:@"ES_MDSR_Prem" Query:[NSString stringWithFormat:@"Select prem From ES_MDSR_Prem where sex = '%@' and age = '%d' and class = '%d' AND "
-                                                 "PreRetDed = '%@' AND PostRetDed IS NULL AND plan = '%@' ",
-                                                 sex, age, getOccpClass, deductible, planOption  ]];
-            [self getPrem2:@"ES_MDSR_Prem" Query:[NSString stringWithFormat:@"Select prem From ES_MDSR_Prem where sex = '%@' and age = '%d' and class = '%d' AND "
-                                                  "PreRetDed = '%@' AND PostRetDed IS NULL  AND plan = '%@' ",
-                                                  sex, 60, getOccpClass, deductible,  planOption  ]];
-            [self getPrem3:@"ES_MDSR_Prem" Query:[NSString stringWithFormat:@"Select prem From ES_MDSR_Prem where sex = '%@' and age = '%d' and class = '%d' AND "
-                                                  "PreRetDed = '%@' AND PostRetDed IS NULL  AND plan = '%@' ",
-                                                  sex, 80, getOccpClass, deductible,  planOption  ]];
-            
-        }
-        else if (![deductible isEqualToString:@""] && ![strDeductiblePostRetirement isEqualToString:@""]) {
-            [self getPrem:@"ES_MDSR_Prem" Query:[NSString stringWithFormat:@"Select prem From ES_MDSR_Prem where sex = '%@' and age = '%d' and class = '%d' AND "
-                                                 "PreRetDed = '%@' AND PostRetDed = '%@' AND plan = '%@' ",
-                                                 sex, age, getOccpClass, deductible, strDeductiblePostRetirement, planOption  ]];
-            [self getPrem2:@"ES_MDSR_Prem" Query:[NSString stringWithFormat:@"Select prem From ES_MDSR_Prem where sex = '%@' and age = '%d' and class = '%d' AND "
-                                                  "PreRetDed = '%@' AND PostRetDed = '%@' AND plan = '%@' ",
-                                                  sex, 60, getOccpClass, deductible, strDeductiblePostRetirement, planOption  ]];
-            [self getPrem3:@"ES_MDSR_Prem" Query:[NSString stringWithFormat:@"Select prem From ES_MDSR_Prem where sex = '%@' and age = '%d' and class = '%d' AND "
-                                                  "PreRetDed = '%@' AND PostRetDed = '%@' AND plan = '%@' ",
-                                                  sex, 80, getOccpClass, deductible, strDeductiblePostRetirement, planOption  ]];
-            
-        }
-
-
-	}
-    else if ([riderCode isEqualToString:@"MDSR1-ALW"] || [riderCode isEqualToString:@"MDSR2-ALW"]){
-		[self getPrem:@"ES_MDSR_Prem" Query:[NSString stringWithFormat:@"Select prem From ES_MDSR_ALW_Prem where sex = '%@' and age = '%d' and Term = '%d' and class = '%d' AND "
-                                             " plan = '%@' ", sex, age, ridTerm, getOccpClass, planOption  ]];
-        [self getPrem2:@"ES_MDSR_Prem" Query:[NSString stringWithFormat:@"Select prem From ES_MDSR_ALW_Prem where sex = '%@' and age = '%d' and Term = '%d' and class = '%d' AND "
-                                             " plan = '%@' ", sex, 60, ridTerm , getOccpClass, planOption  ]];
-        [self getPrem3:@"ES_MDSR_Prem" Query:[NSString stringWithFormat:@"Select prem From ES_MDSR_ALW_Prem where sex = '%@' and age = '%d' and Term = '%d' and class = '%d' AND "
-                                             " plan = '%@' ", sex, 80, ridTerm , getOccpClass, planOption  ]];
-	}
-    else if ([riderCode isEqualToString:@"MDSR1-OT"] || [riderCode isEqualToString:@"MDSR2-OT"]){
-		[self getPrem:@"ES_MDSR_Prem" Query:[NSString stringWithFormat:@"Select prem From ES_MDSR_OT_Prem where sex = '%@' and age = '%d' and Term = '%d' and class = '%d' ",
-                                             sex, age, ridTerm, getOccpClass  ]];
-        [self getPrem2:@"ES_MDSR_Prem" Query:[NSString stringWithFormat:@"Select prem From ES_MDSR_OT_Prem where sex = '%@' and age = '%d' and Term = '%d' and class = '%d' ",
-                                             sex, 60, ridTerm , getOccpClass  ]];
-        [self getPrem3:@"ES_MDSR_Prem" Query:[NSString stringWithFormat:@"Select prem From ES_MDSR_OT_Prem where sex = '%@' and age = '%d' and Term = '%d' and class = '%d' ",
-                                             sex, 80, ridTerm , getOccpClass  ]];
-	}
-    else if ([riderCode isEqualToString:@"MSR"]){
-		[self getPrem:@"ES_MSR_Prem" Query:[NSString stringWithFormat:@"Select premium From ES_MSR_Prem where age = '%d' ", age]];
-        [self getPrem2:@"ES_MSR_Prem" Query:[NSString stringWithFormat:@"Select premium From ES_MSR_Prem where age = '%d' ", age + 5 ]];
-        [self getPrem3:@"ES_MSR_Prem" Query:[NSString stringWithFormat:@"Select premium From ES_MSR_Prem where age = '%d' ", age + 15 ]];
-	}
-    else if ([riderCode isEqualToString:@"LDYR"]){
-		[self getPrem:@"ES_LDYR_Prem" Query:[NSString stringWithFormat:@"Select premium From ES_LDYR_Prem where age = '%d' ", age]];
-        [self getPrem2:@"ES_LDYR_Prem" Query:[NSString stringWithFormat:@"Select premium From ES_LDYR_Prem where age = '%d' ", age + 5 ]];
-        [self getPrem3:@"ES_LDYR_Prem" Query:[NSString stringWithFormat:@"Select premium From ES_LDYR_Prem where age = '%d' ", age + 15 ]];
-	}
-    else if ([riderCode isEqualToString:@"HCIR"]){
-		[self getPrem:@"ES_HCIR_Prem" Query:[NSString stringWithFormat:@"Select premium From ES_HCIR_Prem where age = '%d' AND policyTerm = '%d' ", age, ridTerm]];
-	}
-    else if ([riderCode isEqualToString:@"LDYR-PCB"]){
-        [self getPrem:@"LDYR-PCB" Query:[NSString stringWithFormat:@"Select premium From ES_LDYR_PCB_Prem where age = '%d' ", age]];
-	}
-    else if ([riderCode isEqualToString:@"LDYR-BBB"]){
-        [self getPrem:@"LDYR-BBB" Query:[NSString stringWithFormat:@"Select premium From ES_LDYR_BBB_Prem where age = '%d' ", age]];
-	}
-	else{
+    else{
 		riderRate = 0.00;
 	}
 	

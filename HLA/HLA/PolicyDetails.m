@@ -1687,11 +1687,11 @@
 -(void)DefaultPayment {
 	
 	//Set default value:
-	_firstTimePaymentLbl.text = @"Cash / Cheque";
+	_firstTimePaymentLbl.text = @"Cheque";
 	_firstTimePaymentLbl.enabled = false;
 	_btnFirstPaymentPO.enabled = false;
 	
-	_recurPaymentLbl.text = @"Cash / Cheque";
+	_recurPaymentLbl.text = @"Cheque";
 	_recurPaymentLbl.enabled = false;
 	_btnRecurPaymentPO.enabled = false;
 	
@@ -2004,7 +2004,7 @@
 			label3.text = BPolicyTerm;
 			
 			// Sum Assured
-			CGRect frame5=CGRectMake(380 ,0, 100, 50);
+			CGRect frame5=CGRectMake(380 ,0, 120, 50);
 			UILabel *label5=[[UILabel alloc]init];
 			label5.frame=frame5;
 			label5.textAlignment = UITextAlignmentLeft;

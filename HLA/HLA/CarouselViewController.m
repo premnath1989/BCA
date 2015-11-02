@@ -29,6 +29,8 @@
 #import <AdSupport/ASIdentifierManager.h>
 #import "ClearData.h"
 #import "CalculatorViewController.h"
+#import "SalesActivityViewController.h"
+#import "ContactViewController.h"
 
 const int numberOfModule = 7;
 
@@ -254,9 +256,16 @@ const int numberOfModule = 7;
 //	[self presentViewController:mainLogin animated:YES completion:nil];
 	
 	
-	CalculatorViewController *controller = [[CalculatorViewController alloc]
-										 initWithNibName:@"CalculatorViewController"
-										 bundle:nil];
+//	CalculatorViewController *controller = [[CalculatorViewController alloc]
+//										 initWithNibName:@"CalculatorViewController"
+//										 bundle:nil];
+//	//controller.delegate = self;
+//	//controller.modalPresentationStyle = UIModalPresentationPageSheet;
+//	[self presentViewController:controller animated:YES completion:Nil];
+	
+	ContactViewController *controller = [[ContactViewController alloc]
+											initWithNibName:@"ContactViewController"
+											bundle:nil];
 	//controller.delegate = self;
 	//controller.modalPresentationStyle = UIModalPresentationPageSheet;
 	[self presentViewController:controller animated:YES completion:Nil];

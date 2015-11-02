@@ -434,6 +434,14 @@
 		C37D84E71BA7F0DE006CB6DD /* bca_life.png in Resources */ = {isa = PBXBuildFile; fileRef = C37D84E61BA7F0DD006CB6DD /* bca_life.png */; };
 		C3872FC61A4017F1009BF93D /* GroupViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C3872FC21A4017F1009BF93D /* GroupViewVC.m */; };
 		C3872FC71A4017F1009BF93D /* ClientGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = C3872FC41A4017F1009BF93D /* ClientGroup.m */; };
+		C39B6C271BE1AD8C00F54926 /* SalesActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C39B6C251BE1AD8C00F54926 /* SalesActivityViewController.m */; };
+		C39B6C281BE1AD8C00F54926 /* SalesActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C39B6C261BE1AD8C00F54926 /* SalesActivityViewController.xib */; };
+		C39B6C2D1BE1B1A600F54926 /* Report.png in Resources */ = {isa = PBXBuildFile; fileRef = C39B6C291BE1B1A600F54926 /* Report.png */; };
+		C39B6C2E1BE1B1A600F54926 /* home_note.png in Resources */ = {isa = PBXBuildFile; fileRef = C39B6C2A1BE1B1A600F54926 /* home_note.png */; };
+		C39B6C2F1BE1B1A600F54926 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = C39B6C2B1BE1B1A600F54926 /* list.png */; };
+		C39B6C301BE1B1A600F54926 /* addressbook.png in Resources */ = {isa = PBXBuildFile; fileRef = C39B6C2C1BE1B1A600F54926 /* addressbook.png */; };
+		C39B6C341BE1C9AA00F54926 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C39B6C321BE1C9AA00F54926 /* ContactViewController.m */; };
+		C39B6C351BE1C9AA00F54926 /* ContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C39B6C331BE1C9AA00F54926 /* ContactViewController.xib */; };
 		C3A38A5B1B5DE40100F49863 /* TableCheckBox1.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A38A5A1B5DE40100F49863 /* TableCheckBox1.m */; };
 		C3A623421BB1297D00E774A9 /* BcaBackgroundFade.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3A623411BB1297D00E774A9 /* BcaBackgroundFade.jpg */; };
 		C3A623441BB1445F00E774A9 /* BCA3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3A623431BB1445F00E774A9 /* BCA3.jpg */; };
@@ -1549,6 +1557,16 @@
 		C3872FC31A4017F1009BF93D /* GroupViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupViewVC.h; sourceTree = "<group>"; };
 		C3872FC41A4017F1009BF93D /* ClientGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientGroup.m; sourceTree = "<group>"; };
 		C3872FC51A4017F1009BF93D /* ClientGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientGroup.h; sourceTree = "<group>"; };
+		C39B6C241BE1AD8C00F54926 /* SalesActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalesActivityViewController.h; sourceTree = "<group>"; };
+		C39B6C251BE1AD8C00F54926 /* SalesActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalesActivityViewController.m; sourceTree = "<group>"; };
+		C39B6C261BE1AD8C00F54926 /* SalesActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SalesActivityViewController.xib; sourceTree = "<group>"; };
+		C39B6C291BE1B1A600F54926 /* Report.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Report.png; sourceTree = "<group>"; };
+		C39B6C2A1BE1B1A600F54926 /* home_note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_note.png; sourceTree = "<group>"; };
+		C39B6C2B1BE1B1A600F54926 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
+		C39B6C2C1BE1B1A600F54926 /* addressbook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addressbook.png; sourceTree = "<group>"; };
+		C39B6C311BE1C9AA00F54926 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
+		C39B6C321BE1C9AA00F54926 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
+		C39B6C331BE1C9AA00F54926 /* ContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactViewController.xib; sourceTree = "<group>"; };
 		C3A38A591B5DE40100F49863 /* TableCheckBox1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableCheckBox1.h; path = HLA/TableCheckBox1.h; sourceTree = "<group>"; };
 		C3A38A5A1B5DE40100F49863 /* TableCheckBox1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableCheckBox1.m; path = HLA/TableCheckBox1.m; sourceTree = "<group>"; };
 		C3A623411BB1297D00E774A9 /* BcaBackgroundFade.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BcaBackgroundFade.jpg; sourceTree = "<group>"; };
@@ -3561,6 +3579,16 @@
 		C4E9D1851612C64900016053 = {
 			isa = PBXGroup;
 			children = (
+				C39B6C311BE1C9AA00F54926 /* ContactViewController.h */,
+				C39B6C321BE1C9AA00F54926 /* ContactViewController.m */,
+				C39B6C331BE1C9AA00F54926 /* ContactViewController.xib */,
+				C39B6C291BE1B1A600F54926 /* Report.png */,
+				C39B6C2A1BE1B1A600F54926 /* home_note.png */,
+				C39B6C2B1BE1B1A600F54926 /* list.png */,
+				C39B6C2C1BE1B1A600F54926 /* addressbook.png */,
+				C39B6C241BE1AD8C00F54926 /* SalesActivityViewController.h */,
+				C39B6C251BE1AD8C00F54926 /* SalesActivityViewController.m */,
+				C39B6C261BE1AD8C00F54926 /* SalesActivityViewController.xib */,
 				C3B1A5FF1BABBFF800EDBC39 /* BcaBackground.jpg */,
 				C3A623431BB1445F00E774A9 /* BCA3.jpg */,
 				C3A623411BB1297D00E774A9 /* BcaBackgroundFade.jpg */,
@@ -4656,6 +4684,12 @@
 				C324E0A11BAFA3BE00229893 /* CalculatorViewController.xib in Resources */,
 				C3A623421BB1297D00E774A9 /* BcaBackgroundFade.jpg in Resources */,
 				C3A623441BB1445F00E774A9 /* BCA3.jpg in Resources */,
+				C39B6C281BE1AD8C00F54926 /* SalesActivityViewController.xib in Resources */,
+				C39B6C2D1BE1B1A600F54926 /* Report.png in Resources */,
+				C39B6C2E1BE1B1A600F54926 /* home_note.png in Resources */,
+				C39B6C2F1BE1B1A600F54926 /* list.png in Resources */,
+				C39B6C301BE1B1A600F54926 /* addressbook.png in Resources */,
+				C39B6C351BE1C9AA00F54926 /* ContactViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5092,6 +5126,8 @@
 				FAF965F91B393D1900122BCA /* UpdateACIRGST.m in Sources */,
 				C3A38A5B1B5DE40100F49863 /* TableCheckBox1.m in Sources */,
 				C324E0A01BAFA3BE00229893 /* CalculatorViewController.m in Sources */,
+				C39B6C271BE1AD8C00F54926 /* SalesActivityViewController.m in Sources */,
+				C39B6C341BE1C9AA00F54926 /* ContactViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

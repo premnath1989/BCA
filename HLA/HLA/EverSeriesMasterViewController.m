@@ -2233,7 +2233,7 @@ double BasicMinSA, tempRevisedBasicPrem, tempSumPremBasic;
 {
     if (PlanEmpty && added)
     {
-		[ListOfSubMenu removeObject:@"Fund Allocation and Others"];
+		[ListOfSubMenu removeObject:@"Fund Allocation"];
         [ListOfSubMenu removeObject:@"Rider"];
 		[ListOfSubMenu removeObject:@"Health Loading"];
 		[ListOfSubMenu removeObject:@"Special Options"];
@@ -2246,7 +2246,7 @@ double BasicMinSA, tempRevisedBasicPrem, tempSumPremBasic;
     }
     else if (!PlanEmpty && !added) {
 		if ([getbasicSA doubleValue] != 0.00  ) {
-			[ListOfSubMenu addObject:@"Fund Allocation and Others"];
+			[ListOfSubMenu addObject:@"Fund Allocation"];
 			[ListOfSubMenu addObject:@"Rider"];
 			[ListOfSubMenu addObject:@"Health Loading"];
 			[ListOfSubMenu addObject:@"Special Options"];
@@ -2818,7 +2818,7 @@ double BasicMinSA, tempRevisedBasicPrem, tempSumPremBasic;
 
 -(void)RemoveTab{
 
-	[ListOfSubMenu removeObject:@"Fund Allocation and Others"];
+	[ListOfSubMenu removeObject:@"Fund Allocation"];
 	[ListOfSubMenu removeObject:@"Rider"];
 	[ListOfSubMenu removeObject:@"Health Loading"];
 	[ListOfSubMenu removeObject:@"Special Options"];

@@ -428,11 +428,7 @@ double BasicMinSA, tempRevisedBasicPrem, tempSumPremBasic;
 		}
 		
 	}
-	else if (previousPath.row == EVERSIMENU_FUND_MATURITY_OPTIONS) { //Fund maturity option
 
-			bContinue = TRUE;
-		
-	}
 	
 	if (bContinue == TRUE) {
 		NSIndexPath *myIP = [NSIndexPath indexPathForRow:EVERSIMENU_PAYOR inSection:0]; //to cater for payor case
@@ -756,37 +752,6 @@ double BasicMinSA, tempRevisedBasicPrem, tempSumPremBasic;
 				}
 				
 			}
-			else if (indexPath.row == EVERSIMENU_FUND_MATURITY_OPTIONS){ //Fund Maturity Options
-				if ([getOccpCode isEqualToString:@"OCC01975"]) {
-					UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" "
-																	message:@"There is no existing plan which can be offered to this occupation." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil,nil];
-					[alert show];
-					alert = Nil;
-					
-				}
-				else if (getAge > 70 ) {
-					UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Age Last Birthday must be less than or equal to 70 for this product."
-																   delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil,nil];
-					[alert show];
-					alert = Nil;
-				}
-				else{
-					self.EverFundMaturity = [self.storyboard instantiateViewControllerWithIdentifier:@"EverFundMaturity"];
-					_EverFundMaturity.delegate = self;
-					
-					self.EverFundMaturity.SINo = getSINo;
-					self.EverFundMaturity.requesteProposalStatus = eProposalStatus;
-					self.EverFundMaturity.EAPPorSI = [self.EAPPorSI description];
-					self.EverFundMaturity.PlanCode = getPlanCode;
-					self.EverFundMaturity.BasicTerm = [NSString stringWithFormat:@"%d", getTerm];
-					
-					[self addChildViewController:self.EverFundMaturity];
-					[self.RightView addSubview:self.EverFundMaturity.view];
-					previousPath = selectedPath;
-					blocked = NO;
-					
-				}
-			}
 			else if (indexPath.row == EVERSIMENU_QUOTATION){ //Quotation
 
 				PDSorSI = @"SI";
@@ -1086,103 +1051,8 @@ double BasicMinSA, tempRevisedBasicPrem, tempSumPremBasic;
 				
 				
 			}
-			else if (indexPath.row == EVERSIMENU_EXP_QUOTATION){ // Exp Quotation
-                
-				PDSorSI = @"SI";
-				/*
-                 if([self GlobalValidation] == TRUE){
-                 //[self GenerateQuotation];
-                 
-                 }
-                 */
-				
-				tagExp = 10091;
-                
-                if (getAge > 70 ) {
-					UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Age Last Birthday must be less than or equal to 70 for this product."
-																   delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil,nil];
-					[alert show];
-					[self.myTableView selectRowAtIndexPath:previousPath animated:NO scrollPosition:UITableViewScrollPositionNone];
-					alert = Nil;
-				}
-                else{
-                    if (PromptOnce > 0) {
-                        /*
-                         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Please select your preferred SI language" delegate:self cancelButtonTitle:@"English" otherButtonTitles:@"BM", nil];
-                         alert.tag = 10091;
-                         [alert show];
-                         */
-                        [self GlobalValidation];
-                    }
-                    else{
-                        if([self PromptMsg] == FALSE){
-                            /*
-                             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Please select your preferred SI language" delegate:self cancelButtonTitle:@"English" otherButtonTitles:@"BM", nil];
-                             alert.tag = 10091;
-                             [alert show];
-                             */
-                            [self GlobalValidation];
-                        }
-                        else{
-                            
-                        }
-                        
-                    }
-                }
-				
-				
-			}
 			
-			else if (indexPath.row == EVERSIMENU_PRODUCT_DISCLOSURE_SHEET){
-				PDSorSI = @"PDS";
-				/*
-				UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Please select your preferred PDS language" delegate:self cancelButtonTitle:@"English" otherButtonTitles:@"BM", nil];
-				alert.tag = 1008;
-				[alert show];
-				 */
-				
-				tagExp = 1008;
-				
-                if (getAge > 70 ) {
-					UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Age Last Birthday must be less than or equal to 70 for this product."
-																   delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil,nil];
-					[alert show];
-					[self.myTableView selectRowAtIndexPath:previousPath animated:NO scrollPosition:UITableViewScrollPositionNone];
-					alert = Nil;
-				}
-                else{
-                        [self GlobalValidation];
-                }
-                
-				
-					
-				
-			}
-			else if (indexPath.row == EVERSIMENU_EXP_PDS){
-				PDSorSI = @"PDS";
-				/*
-				UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Please select your preferred PDS language" delegate:self cancelButtonTitle:@"English" otherButtonTitles:@"BM", nil];
-                alert.tag = 10081;
-                [alert show];
-				*/
-				
-				tagExp = 10081;
-				
-                if (getAge > 70 ) {
-					UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Age Last Birthday must be less than or equal to 70 for this product."
-																   delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil,nil];
-					[alert show];
-					[self.myTableView selectRowAtIndexPath:previousPath animated:NO scrollPosition:UITableViewScrollPositionNone];
-					alert = Nil;
-				}
-                else{
-                    [self GlobalValidation];
-                }
-                
-
-					
-			}
-			else if (indexPath.row == EVERSIMENU_SAVE_AS){
+            else if (indexPath.row == EVERSIMENU_SAVE_AS){
 
 				
                 if (getAge > 70 ) {
@@ -2367,12 +2237,8 @@ double BasicMinSA, tempRevisedBasicPrem, tempSumPremBasic;
         [ListOfSubMenu removeObject:@"Rider"];
 		[ListOfSubMenu removeObject:@"Health Loading"];
 		[ListOfSubMenu removeObject:@"Special Options"];
-		[ListOfSubMenu removeObject:@"Fund Maturity Options"];
 		if (![[self.EAPPorSI description] isEqualToString:@"eAPP"]) {
 			[ListOfSubMenu removeObject:@"Quotation"];
-			[ListOfSubMenu removeObject:@"  Export Quotation"];
-			[ListOfSubMenu removeObject:@"Product Disclosure Sheet"];
-			[ListOfSubMenu removeObject:@"  Export PDS"];
 			[ListOfSubMenu removeObject:@"Save As"];
 		}
 		
@@ -2384,15 +2250,8 @@ double BasicMinSA, tempRevisedBasicPrem, tempSumPremBasic;
 			[ListOfSubMenu addObject:@"Rider"];
 			[ListOfSubMenu addObject:@"Health Loading"];
 			[ListOfSubMenu addObject:@"Special Options"];
-			[ListOfSubMenu addObject:@"Fund Maturity Options"];
 			if (![[self.EAPPorSI description] isEqualToString:@"eAPP"]) {
 				[ListOfSubMenu addObject:@"Quotation"];
-				[ListOfSubMenu addObject:@"  Export Quotation"];
-				//[ListOfSubMenu addObject:@"Proposal"];
-				[ListOfSubMenu addObject:@"Product Disclosure Sheet"];
-				[ListOfSubMenu addObject:@"  Export PDS"];
-				//[ListOfSubMenu addObject:@"   English"];
-				//[ListOfSubMenu addObject:@"   Malay"];
 				[ListOfSubMenu addObject:@"Save As"];
 			}
 			
@@ -2963,14 +2822,7 @@ double BasicMinSA, tempRevisedBasicPrem, tempSumPremBasic;
 	[ListOfSubMenu removeObject:@"Rider"];
 	[ListOfSubMenu removeObject:@"Health Loading"];
 	[ListOfSubMenu removeObject:@"Special Options"];
-	[ListOfSubMenu removeObject:@"Fund Maturity Options"];
     [ListOfSubMenu removeObject:@"Quotation"];
-	[ListOfSubMenu removeObject:@"  Export Quotation"];
-    //[ListOfSubMenu removeObject:@"Proposal"];
-    [ListOfSubMenu removeObject:@"Product Disclosure Sheet"];
-	[ListOfSubMenu removeObject:@"  Export PDS"];
-    //[ListOfSubMenu removeObject:@"   English"];
-    //[ListOfSubMenu removeObject:@"   Malay"];
 	[ListOfSubMenu removeObject:@"Save As"];
 
 }
@@ -3548,19 +3400,8 @@ double BasicMinSA, tempRevisedBasicPrem, tempSumPremBasic;
 				return YES;
 			}
 			break;
-		case EVERSIMENU_FUND_MATURITY_OPTIONS:
-			return YES;
-			break;
+
 		case EVERSIMENU_QUOTATION:
-            return YES;
-            break;
-        case EVERSIMENU_EXP_QUOTATION:
-            return YES;
-            break;
-        case EVERSIMENU_PRODUCT_DISCLOSURE_SHEET:
-            return YES;
-            break;
-        case EVERSIMENU_EXP_PDS:
             return YES;
             break;
         case EVERSIMENU_SAVE_AS:
@@ -5113,7 +4954,6 @@ double BasicMinSA, tempRevisedBasicPrem, tempSumPremBasic;
 	}
 	else if (alertView.tag == 11111){
         [self.myTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:EVERSIMENU_BASIC_PLAN inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
-        previousPath = [NSIndexPath indexPathForRow:EVERSIMENU_FUND_MATURITY_OPTIONS inSection:0]; //it is a trick to avoid saving the old basic premium value
         [self tableView:self.myTableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:EVERSIMENU_BASIC_PLAN inSection:0]];
         
         selectedPath = [NSIndexPath indexPathForRow:EVERSIMENU_BASIC_PLAN inSection:0];
@@ -5621,10 +5461,7 @@ double BasicMinSA, tempRevisedBasicPrem, tempSumPremBasic;
             
 			else if([aaCode isEqualToString:@"02"]){ // prompt user to fund maturity option if reinvestment is fully reinvest to Cash Fund
 				
-				[self.myTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:EVERSIMENU_FUND_MATURITY_OPTIONS inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
-				[self tableView:self.myTableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:EVERSIMENU_FUND_MATURITY_OPTIONS inSection:0]];
 				
-				selectedPath = [NSIndexPath indexPathForRow:EVERSIMENU_FUND_MATURITY_OPTIONS inSection:0];
 				previousPath = selectedPath;
 				
 			}

@@ -214,51 +214,12 @@
                 
                 
                 tempRidercode = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)];
-                if ([tempRidercode isEqualToString:@"DCA"] || [tempRidercode isEqualToString:@"DHI"] || [tempRidercode isEqualToString:@"MR"] || [tempRidercode isEqualToString:@"PA"] || [tempRidercode isEqualToString:@"WI"]  ) {
+
                     
                     [self.everRiderGroup1 addObject:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)]];
                     [self.everRiderDescGroup1 addObject:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 1)]];
                 
-                }else if ([tempRidercode isEqualToString:@"ACIR"] || [tempRidercode isEqualToString:@"CCR"] || [tempRidercode isEqualToString:@"CIRD"] || [tempRidercode isEqualToString:@"TCCR"] || [tempRidercode isEqualToString:@"MSR"]) {
-                    
-                    [self.everRiderGroup2 addObject:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)]];
-                    [self.everRiderDescGroup2 addObject:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 1)]];
-               
-                }else if ([tempRidercode isEqualToString:@"ECAR60"]) {
-                    
-                    [self.everRiderGroup3 addObject:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)]];
-                    [self.everRiderDescGroup3 addObject:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 1)]];
-                    
-                }else if ([tempRidercode isEqualToString:@"TPDMLA"] || [tempRidercode isEqualToString:@"TPDYLA"]) {
-                    
-                    [self.everRiderGroup4 addObject:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)]];
-                    [self.everRiderDescGroup4 addObject:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 1)]];
-                
-                }else if ([tempRidercode isEqualToString:@"ECAR"] || [tempRidercode isEqualToString:@"ECAR6"]) {
-                    
-                    [self.everRiderGroup5 addObject:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)]];
-                    [self.everRiderDescGroup5 addObject:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 1)]];
-                    
-                }else if ([tempRidercode isEqualToString:@"LSR"] || [tempRidercode isEqualToString:@"TSER"] || [tempRidercode isEqualToString:@"TSR"]) {
-                    
-                    [self.everRiderGroup6 addObject:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)]];
-                    [self.everRiderDescGroup6 addObject:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 1)]];
-                    
-                }else if ([tempRidercode isEqualToString:@"HCIR"] || [tempRidercode isEqualToString:@"MDSR1"] || [tempRidercode isEqualToString:@"MDSR2"]) {
-                    
-                    [self.everRiderGroup7 addObject:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)]];
-                    [self.everRiderDescGroup7 addObject:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 1)]];
-                }else if ([tempRidercode isEqualToString:@"CIWP"] || [tempRidercode isEqualToString:@"TPDWP"]) {
-                    
-                    [self.everRiderGroup8 addObject:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)]];
-                    [self.everRiderDescGroup8 addObject:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 1)]];
-                    
-                }else if ([tempRidercode isEqualToString:@"MCFR"] || [tempRidercode isEqualToString:@"RRTUO"]) {
-                    
-                    [self.everRiderGroup9 addObject:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)]];
-                    [self.everRiderDescGroup9 addObject:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 1)]];
-                }
-                
+
                 
                 isRiderListEmpty = false;
             }
@@ -446,7 +407,7 @@
         return 2;
     }
     else{
-        return 9;
+        return 1;
     }
     
 
@@ -491,36 +452,9 @@
         }
     }
     else{
-        if(section == 0){
-            return @"Accidental Coverage";
-        }
-        else if(section == 1){
-            return @"Critical Illness";
-        }
-        else if(section == 2){
-            return @"Deferred Annuity";
-            
-        }else if(section == 3){
-            return @"Disability Income";
-        }
-        else if(section == 4){
-            return @"Guaranteed Cash";
-        }
-        else if(section == 5){
-            return @"Life Protection";
-        }
-        else if(section == 6){
-            return @"Medical";
-        }
-        else if(section == 7){
-            return @"Premium Waiver";
-        }
-        else if(section == 8){
-            return @"Regular Top Up";
-        }
-        else{
+        
             return @"";
-        }
+        
     }
 }
 
@@ -561,36 +495,9 @@
         }
     }
     else{
-        if (section == 0) {
+
             return [self.everRiderGroup1 count];
-        }
-        else if (section == 1) {
-            return [self.everRiderGroup2 count];
-        }
-        else if (section == 2) {
-            return [self.everRiderGroup3 count];
-        }
-        else if (section == 3) {
-            return [self.everRiderGroup4 count];
-        }
-        else if (section == 4) {
-            return [self.everRiderGroup5 count];
-        }
-        else if (section == 5) {
-            return [self.everRiderGroup6 count];
-        }
-        else if (section == 6) {
-            return [self.everRiderGroup7 count];
-        }
-        else if (section == 7) {
-            return [self.everRiderGroup8 count];
-            
-        }else if (section == 8) {
-            return [self.everRiderGroup9 count];
-        }
-        else{
-            return 0;
-        }
+
     }
     //return [ridDesc count]/2;
 }
@@ -705,56 +612,21 @@
         }
         */
         
-        if (indexPath.section == 0) {
-            cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", [self.everRiderGroup1 objectAtIndex:indexPath.row], [self.everRiderDescGroup1 objectAtIndex:indexPath.row]];
+        
+            cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.everRiderDescGroup1 objectAtIndex:indexPath.row]];
             
-            
-        }
-        else if (indexPath.section == 1) {
-            cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", [self.everRiderGroup2 objectAtIndex:indexPath.row], [self.everRiderDescGroup2 objectAtIndex:indexPath.row]];
-            
-        }
-        else if (indexPath.section == 2) {
-            cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", [self.everRiderGroup3 objectAtIndex:indexPath.row], [self.everRiderDescGroup3 objectAtIndex:indexPath.row]];
-            
-        }
-        else if (indexPath.section == 3) {
-            cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", [self.everRiderGroup4 objectAtIndex:indexPath.row], [self.everRiderDescGroup4 objectAtIndex:indexPath.row]];
-            
-        }
-        else if (indexPath.section == 4) {
-            cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", [self.everRiderGroup5 objectAtIndex:indexPath.row], [self.everRiderDescGroup5 objectAtIndex:indexPath.row]];
-            
-        }
-        else if (indexPath.section == 5) {
-            cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", [self.everRiderGroup6 objectAtIndex:indexPath.row], [self.everRiderDescGroup6 objectAtIndex:indexPath.row]];
-            
-        }
-        else if (indexPath.section == 6) {
-            cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", [self.everRiderGroup7 objectAtIndex:indexPath.row], [self.everRiderDescGroup7 objectAtIndex:indexPath.row]];
-            
-        }
-        else if (indexPath.section == 7) {
-            cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", [self.everRiderGroup8 objectAtIndex:indexPath.row], [self.everRiderDescGroup8 objectAtIndex:indexPath.row]];
-            
-        }
-        else if (indexPath.section == 8) {
-            cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", [self.everRiderGroup9 objectAtIndex:indexPath.row], [self.everRiderDescGroup9 objectAtIndex:indexPath.row]];
-            
-        }
+        
+       
         cell.textLabel.font = [UIFont fontWithName:@"TreBuchet MS" size:16];
         
-        if (selectedIndexPath.section == indexPath.section) {
+        
             if (indexPath.row == selectedIndex) {
                 cell.accessoryType = UITableViewCellAccessoryCheckmark;
             }
             else {
                 cell.accessoryType = UITableViewCellAccessoryNone;
             }
-        }
-        else {
-            cell.accessoryType = UITableViewCellAccessoryNone;
-        }
+        
     }
     
 
@@ -763,13 +635,7 @@
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if ([tableView.dataSource tableView:tableView numberOfRowsInSection:section] == 0) {
-        return 0;
-    } else {
-        return 20;
-    }
-}
+
 
 #pragma mark - Table view delegate
 
@@ -825,33 +691,9 @@
         }
     }
     else{
-        if (selectedIndexPath.section == 0) {
+        
             return [self.everRiderGroup1 objectAtIndex:selectedIndex];
-        }
-        else if (selectedIndexPath.section == 1) {
-            return [self.everRiderGroup2 objectAtIndex:selectedIndex];
-        }
-        else if (selectedIndexPath.section == 2) {
-            return [self.everRiderGroup3 objectAtIndex:selectedIndex];
-        }
-        else if (selectedIndexPath.section == 3) {
-            return [self.everRiderGroup4 objectAtIndex:selectedIndex];
-        }
-        else if (selectedIndexPath.section == 4) {
-            return [self.everRiderGroup5 objectAtIndex:selectedIndex];
-        }
-        else if (selectedIndexPath.section == 5) {
-            return [self.everRiderGroup6 objectAtIndex:selectedIndex];
-        }
-        else if (selectedIndexPath.section == 6) {
-            return [self.everRiderGroup7 objectAtIndex:selectedIndex];
-        }
-        else if (selectedIndexPath.section == 7) {
-            return [self.everRiderGroup8 objectAtIndex:selectedIndex];
-            
-        }else if (selectedIndexPath.section == 8) {
-            return [self.everRiderGroup9 objectAtIndex:selectedIndex];
-        }
+        
     }
     
     //
@@ -893,33 +735,8 @@
 
     }
     else{
-        if (selectedIndexPath.section == 0) {
+
             return [self.everRiderDescGroup1 objectAtIndex:selectedIndex];
-        }
-        else if (selectedIndexPath.section == 1) {
-            return [self.everRiderDescGroup2 objectAtIndex:selectedIndex];
-        }
-        else if (selectedIndexPath.section == 2) {
-            return [self.everRiderDescGroup3 objectAtIndex:selectedIndex];
-        }
-        else if (selectedIndexPath.section == 3) {
-            return [self.everRiderDescGroup4 objectAtIndex:selectedIndex];
-        }
-        else if (selectedIndexPath.section == 4) {
-            return [self.everRiderDescGroup5 objectAtIndex:selectedIndex];
-        }
-        else if (selectedIndexPath.section == 5) {
-            return [self.everRiderDescGroup6 objectAtIndex:selectedIndex];
-        }
-        else if (selectedIndexPath.section == 6) {
-            return [self.everRiderDescGroup7 objectAtIndex:selectedIndex];
-        }
-        else if (selectedIndexPath.section == 7) {
-            return [self.everRiderDescGroup8 objectAtIndex:selectedIndex];
-            
-        }else if (selectedIndexPath.section == 8) {
-            return [self.everRiderDescGroup9 objectAtIndex:selectedIndex];
-        }
 
     }
     

@@ -77,7 +77,7 @@
 			querySQL = [NSString stringWithFormat:
 						@"SELECT a.PTypeCode,a.Seq,b.PTypeDesc,c.ALB,c.OccpCode, c.Sex "
 						"FROM UL_LAPayor a LEFT JOIN Adm_PersonType b ON a.PTypeCode=b.PTypeCode AND a.Seq=b.Seq "
-						"LEFT JOIN Clt_Profile c ON a.CustCode=c.CustCode WHERE a.SINo=\"%@\" ORDER BY a.Sequence ASC",SINoPlan];
+						"LEFT JOIN Clt_Profile c ON a.CustCode=c.CustCode WHERE a.SINo=\"%@\" ORDER BY a.Seq ASC",SINoPlan];
 		}
         
 //        NSLog(@"querySQL = %@", querySQL);

@@ -1625,7 +1625,7 @@ id AppsVersion;
                          "'%d','%d','%d','%d','%d','%d','%d','%d', "
                          "datetime('now', '+8 hour'), 'HLA', datetime('now', '+8 hour'), 'HLA', '%@', '0', '0', '%@', '%@', '%@', '%@','%@', '%@', '%@', '%@', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0') ",
                          SINo, getPlanCode, txtBasicPremium.text, txtBasicSA.text, @"IC", [txtPolicyTerm.text intValue], OccpCode, [self ReturnBumpMode], 0,0,
-                         0,0,0,51,49,1,0,0,
+                         0,0,0,0,0,0,0,0,
                          getPlanCommDate, txtGrayRTUP.text, @"INVALID", AppsVersion, quotationLang, @"0",@"0",@"0",@"0"];//.. policy term is 25
 
 

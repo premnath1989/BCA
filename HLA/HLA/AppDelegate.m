@@ -118,7 +118,7 @@ NSString * const NSURLIsExcludedFromBackupKey =@"NSURLIsExcludedFromBackupKey";
     spinner = nil; */
     
     
-    [SIUtilities makeDBCopy:databasePath];
+    //[SIUtilities makeDBCopy:databasePath];
     
 	[SIUtilities checkDBCountry:databasePath];
     [SIUtilities addColumnTable:@"Agent_Profile" column:@"AgentICNo" type:@"INTEGER" dbpath:databasePath];
@@ -162,7 +162,7 @@ NSString * const NSURLIsExcludedFromBackupKey =@"NSURLIsExcludedFromBackupKey";
 	[SIUtilities addColumnTable:@"UL_Rider_Details" column:@"RiderLoadingPremium" type:@"VARCHAR" dbpath:databasePath];
 	[SIUtilities addColumnTable:@"Trad_Rider_Details" column:@"RiderDesc" type:@"VARCHAR" dbpath:databasePath];
 	[SIUtilities updateTable:@"adm_occp_loading_penta" set:@"PA_CPA" value:@"1" where:@"Occpcode" equal:@"OCC02456" dbpath:databasePath];
-	[SIUtilities InstallUpdate:databasePath];
+	//[SIUtilities InstallUpdate:databasePath];
     //added by heng end
 	
     [SIUtilities addColumnTable:@"prospect_profile" column:@"ProspectGroup" type:@"VARCHAR" dbpath:databasePath];
@@ -245,11 +245,11 @@ NSString * const NSURLIsExcludedFromBackupKey =@"NSURLIsExcludedFromBackupKey";
 //    [SIUtilities updateTable:@"Trad_Sys_Rider_Mtn" set:@"GST" value:@"True" where:@"RiderCode" equal:@"HB" dbpath:databasePath];
         
     // update Trad_Sys_Profile table with new SIType column
-    [UpdateTableWithSIType addSITypeColumn:databasePath];
-    [UpdateACIRGST updateACIRMPPGST:databasePath];
+    //[UpdateTableWithSIType addSITypeColumn:databasePath];
+    //[UpdateACIRGST updateACIRMPPGST:databasePath];
     
-	ClearData *CleanData =[[ClearData alloc]init];
-	[CleanData ClientWipeOff];
+	//ClearData *CleanData =[[ClearData alloc]init];
+	//[CleanData ClientWipeOff];
 	
     return YES;
 }

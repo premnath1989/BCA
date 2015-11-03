@@ -34,11 +34,9 @@
         ListOfCode = [[NSMutableArray alloc] initWithObjects:@"BCALH", nil ];
 	}
 	else{
-		ListOfPlan = [[NSMutableArray alloc] initWithObjects:@"HLA EverLife Plus", nil ];
+		ListOfPlan = [[NSMutableArray alloc] initWithObjects:@"BLIFE", nil ];
 		ListOfCode = [[NSMutableArray alloc] initWithObjects:@"UV", nil ];
-		
-		[ListOfPlan addObject:@"HLA EverGain Plus"];
-		[ListOfCode addObject:@"UP" ];
+
 	}
 }
 

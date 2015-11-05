@@ -2410,6 +2410,32 @@ static sqlite3 *contactDB = nil;
 
 }
 
++(BOOL)createTableSalesActivity:(NSString *)path {
+	FMDatabase *database = [FMDatabase databaseWithPath:path];
+    [database open];
+	
+	NSString *query = @"CREATE TABLE IF NOT EXISTS SalesAct_contact (ID INTEGER PRIMARY KEY AUTOINCREMENT, NIP TEXT, KodeCabang TEXT, KCU TEXT, NamaReferral TEXT, NamaCabang TEXT, Kanwil TEXT, SumberReferal TEXT, TipeReferral TEXT, NamaLengkap TEXT, JenisKelamin TEXT, TanggalLahir DATE, TempatLahir TEXT, NoKTP_KITAS TEXT, Warganegara TEXT, NoHP TEXT, CreateAt DATETIME, UpdateAt DATETIME)";
+	[database executeUpdate:query];
+	
+//	query = @"CREATE TABLE IF NOT EXISTS SalesAct_Schedule (ID INTEGER PRIMARY KEY AUTOINCREMENT, SalesActivity_ID INT, Tanggal DATETIME, Waktu TIME, Catatan TEXT, CreateAt DATETIME, UpdateAt DATETIME)";
+//	[database executeUpdate:query];
+//	
+//	query = @"CREATE TABLE IF NOT EXISTS SalesAct_Lokasi (ID INTEGER PRIMARY KEY AUTOINCREMENT, SalesActivity_ID INT, anggal DATETIME, Waktu TIME, Catatan TEXT, Lokasi TEXT, CreateAt DATETIME, UpdateAt DATETIME)";
+//	[database executeUpdate:query];
+	
+	
+	query = @"CREATE TABLE IF NOT EXISTS SalesAct_LogActivity (ID INTEGER PRIMARY KEY AUTOINCREMENT, SalesActivity_ID INT, Lokasi TEXT, Type TEXT, Activity TEXT, Status TEXT, CreateAt DATETIME, UpdateAt DATETIME)";
+	[database executeUpdate:query];
+	
+	
+//	query = @"CREATE TABLE IF NOT EXISTS SalesAct_Log (ID INTEGER PRIMARY KEY AUTOINCREMENT, SalesActivity_ID INT, Nama TEXT, Age TEXT, Type TEXT, Activity TEXT, Status TEXT, CreateAt DATETIME, UpdateAt DATETIME)";
+//	[database executeUpdate:query];
+	
+	[database close];
+	return YES;
+	
+}
+
 +(BOOL)UPDATETrad_Sys_Medical_Comb:(NSString *)path
 {
     FMDatabase *database = [FMDatabase databaseWithPath:path];

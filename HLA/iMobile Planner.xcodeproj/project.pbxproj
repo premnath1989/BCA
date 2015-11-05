@@ -417,6 +417,10 @@
 		C319633918D98A0C00565B1C /* SupplementaryProposalForm1.m in Sources */ = {isa = PBXBuildFile; fileRef = C319633718D98A0C00565B1C /* SupplementaryProposalForm1.m */; };
 		C324E0A01BAFA3BE00229893 /* CalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C324E09E1BAFA3BE00229893 /* CalculatorViewController.m */; };
 		C324E0A11BAFA3BE00229893 /* CalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C324E09F1BAFA3BE00229893 /* CalculatorViewController.xib */; };
+		C325158E1BEB291200B5A9AB /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C32515891BEB291200B5A9AB /* ScheduleViewController.m */; };
+		C325158F1BEB291200B5A9AB /* ScheduleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C325158A1BEB291200B5A9AB /* ScheduleViewController.xib */; };
+		C32515901BEB291200B5A9AB /* ViewControllerActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = C325158C1BEB291200B5A9AB /* ViewControllerActivity.m */; };
+		C32515911BEB291200B5A9AB /* ViewControllerActivity.xib in Resources */ = {isa = PBXBuildFile; fileRef = C325158D1BEB291200B5A9AB /* ViewControllerActivity.xib */; };
 		C333A2B81831E98F00FA8200 /* AddPolicyLA2TableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C333A2A51831E98F00FA8200 /* AddPolicyLA2TableVC.m */; };
 		C333A2B91831E98F00FA8200 /* AddPolicyPOTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C333A2A71831E98F00FA8200 /* AddPolicyPOTableVC.m */; };
 		C333A2BB1831E98F00FA8200 /* ExistingPoliciesPersonType.m in Sources */ = {isa = PBXBuildFile; fileRef = C333A2AB1831E98F00FA8200 /* ExistingPoliciesPersonType.m */; };
@@ -1527,6 +1531,12 @@
 		C324E09D1BAFA3BE00229893 /* CalculatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorViewController.h; sourceTree = "<group>"; };
 		C324E09E1BAFA3BE00229893 /* CalculatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorViewController.m; sourceTree = "<group>"; };
 		C324E09F1BAFA3BE00229893 /* CalculatorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalculatorViewController.xib; sourceTree = "<group>"; };
+		C32515881BEB291200B5A9AB /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
+		C32515891BEB291200B5A9AB /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
+		C325158A1BEB291200B5A9AB /* ScheduleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleViewController.xib; sourceTree = "<group>"; };
+		C325158B1BEB291200B5A9AB /* ViewControllerActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerActivity.h; sourceTree = "<group>"; };
+		C325158C1BEB291200B5A9AB /* ViewControllerActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerActivity.m; sourceTree = "<group>"; };
+		C325158D1BEB291200B5A9AB /* ViewControllerActivity.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewControllerActivity.xib; sourceTree = "<group>"; };
 		C333A2A41831E98F00FA8200 /* AddPolicyLA2TableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPolicyLA2TableVC.h; sourceTree = "<group>"; };
 		C333A2A51831E98F00FA8200 /* AddPolicyLA2TableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPolicyLA2TableVC.m; sourceTree = "<group>"; };
 		C333A2A61831E98F00FA8200 /* AddPolicyPOTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPolicyPOTableVC.h; sourceTree = "<group>"; };
@@ -3166,6 +3176,22 @@
 			name = SupplementaryProposalForm1;
 			sourceTree = "<group>";
 		};
+		C32515871BEB28CC00B5A9AB /* SalesActivity */ = {
+			isa = PBXGroup;
+			children = (
+				C32515881BEB291200B5A9AB /* ScheduleViewController.h */,
+				C32515891BEB291200B5A9AB /* ScheduleViewController.m */,
+				C325158A1BEB291200B5A9AB /* ScheduleViewController.xib */,
+				C325158B1BEB291200B5A9AB /* ViewControllerActivity.h */,
+				C325158C1BEB291200B5A9AB /* ViewControllerActivity.m */,
+				C325158D1BEB291200B5A9AB /* ViewControllerActivity.xib */,
+				C39B6C311BE1C9AA00F54926 /* ContactViewController.h */,
+				C39B6C321BE1C9AA00F54926 /* ContactViewController.m */,
+				C39B6C331BE1C9AA00F54926 /* ContactViewController.xib */,
+			);
+			name = SalesActivity;
+			sourceTree = "<group>";
+		};
 		C35AE5171828A29E0003CC83 /* PersonalDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -3581,9 +3607,7 @@
 		C4E9D1851612C64900016053 = {
 			isa = PBXGroup;
 			children = (
-				C39B6C311BE1C9AA00F54926 /* ContactViewController.h */,
-				C39B6C321BE1C9AA00F54926 /* ContactViewController.m */,
-				C39B6C331BE1C9AA00F54926 /* ContactViewController.xib */,
+				C32515871BEB28CC00B5A9AB /* SalesActivity */,
 				C39B6C291BE1B1A600F54926 /* Report.png */,
 				C39B6C2A1BE1B1A600F54926 /* home_note.png */,
 				C39B6C2B1BE1B1A600F54926 /* list.png */,
@@ -4694,6 +4718,8 @@
 				C39B6C2F1BE1B1A600F54926 /* list.png in Resources */,
 				C39B6C301BE1B1A600F54926 /* addressbook.png in Resources */,
 				C39B6C351BE1C9AA00F54926 /* ContactViewController.xib in Resources */,
+				C325158F1BEB291200B5A9AB /* ScheduleViewController.xib in Resources */,
+				C32515911BEB291200B5A9AB /* ViewControllerActivity.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5132,6 +5158,8 @@
 				C324E0A01BAFA3BE00229893 /* CalculatorViewController.m in Sources */,
 				C39B6C271BE1AD8C00F54926 /* SalesActivityViewController.m in Sources */,
 				C39B6C341BE1C9AA00F54926 /* ContactViewController.m in Sources */,
+				C325158E1BEB291200B5A9AB /* ScheduleViewController.m in Sources */,
+				C32515901BEB291200B5A9AB /* ViewControllerActivity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

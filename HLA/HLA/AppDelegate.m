@@ -137,6 +137,8 @@ NSString * const NSURLIsExcludedFromBackupKey =@"NSURLIsExcludedFromBackupKey";
     [SIUtilities createTableCFF:databasePath];
 	
 	[SIUtilities createTableeApp:databasePath];
+	
+	[SIUtilities createTableSalesActivity:databasePath];
 
     //added by Andy for data patching on Prospect Profile : ProspectTitle and OtherIDType
 	// [SIUtilities patchTableProspectProfile:databasePath];

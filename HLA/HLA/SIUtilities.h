@@ -21,6 +21,7 @@
 +(BOOL)patcheProposal_Question:(NSString *)path;
 +(BOOL)createTableCFF:(NSString *)path;
 +(BOOL)createTableeApp:(NSString *)path;
++(BOOL)createTableSalesActivity:(NSString *)path;
 +(BOOL)UPDATETrad_Sys_Medical_Comb:(NSString *)path;
 +(BOOL)InstallUpdate:(NSString *)path;
 +(void)InstallLife100:(NSString *)path;

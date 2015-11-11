@@ -263,7 +263,7 @@ NSString *FirstLAOccuCode;
 		lblTable10.numberOfLines = 2;
 		
 		CGRect frame11=CGRectMake(frame10.origin.x + frame10.size.width, y, 53, lblTableHeight);
-		lblTable11.text = @"HLP\nTerm";
+		lblTable11.text = @"Monthly \ncharges";
 		lblTable11.frame = frame11;
 		lblTable11.textAlignment = UITextAlignmentCenter;
 		lblTable11.textColor = [CustomColor colorWithHexString:@"FFFFFF"];

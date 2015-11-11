@@ -552,7 +552,7 @@ id AppsVersion;
 	double tempValue;
 	
 	if ([getPlanCode isEqualToString:@"UV"]) {
-		tempValue = 180;
+		tempValue = 3000000;
 	}
 	else{
 		tempValue = 180;
@@ -1230,11 +1230,11 @@ id AppsVersion;
             NSString *defaultVentureBlueChip;
             NSString *defaultVentureManaged;
             if (ageClient < 55) {
-                defaultVentureBlueChip = @"49";
+                defaultVentureBlueChip = @"0";
                 defaultVentureManaged = @"0";
             }else{
                 defaultVentureBlueChip = @"0";
-                defaultVentureManaged = @"49";
+                defaultVentureManaged = @"0";
             }
             
 			if ([txtPolicyTerm.text intValue] == 25) {
@@ -1242,7 +1242,7 @@ id AppsVersion;
 					//reset fund allocation to default
                     //policy term is 25
 					NSString *querySQL = [NSString stringWithFormat:@"UPDATE UL_Details SET VU2025 = '0', VU2028 = '0', VU2030=\"0\", "
-										  "VU2035 = \"50\", VUDana = \"0\", VUCash='1', VURet = '0', VUSmart = '0', VUVenture = '0', VUVentureGrowth = '0', VUVentureBlueChip = \"%@\", VUVentureDana = '0', VUVentureManaged = \"%@\", VUVentureIncome = '0', VUVenture6666 = '0', VUVenture7777 = '0', VUVenture8888 = '0', VUVenture9999 = '0'  "
+										  "VU2035 = \"0\", VUDana = \"0\", VUCash='0', VURet = '0', VUSmart = '0', VUVenture = '0', VUVentureGrowth = '0', VUVentureBlueChip = \"%@\", VUVentureDana = '0', VUVentureManaged = \"%@\", VUVentureIncome = '0', VUVenture6666 = '0', VUVenture7777 = '0', VUVenture8888 = '0', VUVenture9999 = '0'  "
 										  " WHERE SINo=\"%@\"",defaultVentureBlueChip,defaultVentureManaged,SINo];//..
 					
 					if (sqlite3_prepare_v2(contactDB, [querySQL UTF8String], -1, &statement, NULL) == SQLITE_OK)
@@ -1259,8 +1259,8 @@ id AppsVersion;
                 if (getPolicyTerm == 25) {
 					//reset fund allocation to default
                     //policy term is 20
-					NSString *querySQL = [NSString stringWithFormat:@"UPDATE UL_Details SET VU2025 = '0', VU2028 = '0', VU2030=\"50\", "
-										  "VU2035 = \"0\", VUDana = \"0\", VUCash='1', VURet = '0', VUSmart = '0', VUVenture = '0'  , VUVentureGrowth = '0', VUVentureBlueChip = \"%@\", VUVentureDana = '0', VUVentureManaged = \"%@\", VUVentureIncome = '0', VUVenture6666 = '0', VUVenture7777 = '0', VUVenture8888 = '0', VUVenture9999 = '0'"
+					NSString *querySQL = [NSString stringWithFormat:@"UPDATE UL_Details SET VU2025 = '0', VU2028 = '0', VU2030=\"0\", "
+										  "VU2035 = \"0\", VUDana = \"0\", VUCash='0', VURet = '0', VUSmart = '0', VUVenture = '0'  , VUVentureGrowth = '0', VUVentureBlueChip = \"%@\", VUVentureDana = '0', VUVentureManaged = \"%@\", VUVentureIncome = '0', VUVenture6666 = '0', VUVenture7777 = '0', VUVenture8888 = '0', VUVenture9999 = '0'"
 										  " WHERE SINo=\"%@\"",defaultVentureBlueChip,defaultVentureManaged,SINo];//..
 					
 					if (sqlite3_prepare_v2(contactDB, [querySQL UTF8String], -1, &statement, NULL) == SQLITE_OK)
@@ -1566,11 +1566,11 @@ id AppsVersion;
         NSString *defaultVentureBlueChip;
         NSString *defaultVentureManaged;
         if (ageClient < 55) {
-            defaultVentureBlueChip = @"49";
+            defaultVentureBlueChip = @"0";
             defaultVentureManaged = @"0";
         }else{
             defaultVentureBlueChip = @"0";
-            defaultVentureManaged = @"49";
+            defaultVentureManaged = @"0";
         }
         
         if ([txtPolicyTerm.text intValue] +  [yearString intValue] < 2035 ) {
@@ -1596,7 +1596,7 @@ id AppsVersion;
                          "'%d','%d','%d','%d','%d','%d','%d','%d', "
                          "%@, '%@', %@, '%@', '%@', '%d', '%d', '%@', '%@', '%@', '%@','%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d','%d', '%d', '%d', '%d', '%d'",
                          SINo, getPlanCode, txtBasicPremium.text, txtBasicSA.text, @"IC", [txtPolicyTerm.text intValue], OccpCode,
-                         [self ReturnBumpMode],0,0,0,50,0,0,1,0,0,0,
+                         [self ReturnBumpMode],0,0,0,0,0,0,0,0,0,0,
                          @"datetime('now', '+8 hour')", @"HLA", @"datetime('now', '+8 hour')", @"HLA", getPlanCommDate, 0,0, txtGrayRTUP.text, @"INVALID", AppsVersion, quotationLang, 0, 0, 0,
                          0,0,0,0,0,0,0,0,0,0,0,0];//.. policy term is 20
 

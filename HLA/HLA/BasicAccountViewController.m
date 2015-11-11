@@ -621,8 +621,9 @@ id AppsVersion;
 	}
 	
 	//minSA = SAFac * [txtBasicPremium.text doubleValue ];
-	minSA = floor(MAX(minSA, 10000));
+	//minSA = floor(MAX(minSA, 10000));
 
+    minSA = 20000000.00;
     
     if (aaDisplaylabel == TRUE) {
         Label1.text = [ NSString stringWithFormat:@"Min: %.0f", minSA];

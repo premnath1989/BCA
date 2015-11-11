@@ -180,11 +180,11 @@ id AppsVersion;
 			[self getExistingBasic];
 			
 			if ([getPlanCode isEqualToString:@"UV"]) {
-                [self.outletBasic setTitle:@"HLA EverLife Plus" forState:UIControlStateNormal];
+                [self.outletBasic setTitle:@"BCA Unit Linked" forState:UIControlStateNormal];
                 temp = outletBasic.titleLabel.text;
             }
 			else{
-				[self.outletBasic setTitle:@"HLA EverGain Plus" forState:UIControlStateNormal];
+				[self.outletBasic setTitle:@"BCA Unit Linked" forState:UIControlStateNormal];
                 temp = outletBasic.titleLabel.text;
 			}
 			

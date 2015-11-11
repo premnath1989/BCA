@@ -526,96 +526,7 @@ NSString *BasicTerm, *planCode;
 -(void)toggle{
     //TBD
     //[txtExpireCashFund.text isEqualToString:@"0"] && [txtExpireSecureFund.text isEqualToString:@"0"]
-	if ([txtVentureFlexi.text isEqualToString:@"0"] && [self.txtVentureGrowth.text isEqualToString:@"0"] && [self.txtVentureBlueChip.text isEqualToString:@"0"]&& [self.txtVentureDana.text isEqualToString:@"0"] && [self.txtDanaFund.text isEqualToString:@"0"] && [self.txtVentureManaged.text isEqualToString:@"0"] && [self.txtSecureFund.text isEqualToString:@"0"] && [self.txtVentureIncome.text isEqualToString:@"0"] ) {
-		
-        
-        if ([txtExpireCashFund.text isEqualToString:@"0"] && [txtExpireSecureFund.text isEqualToString:@"0"] && [txtExpireDanaFund.text isEqualToString:@"0"] && [txtExpireVentureFlexi.text isEqualToString:@"0"]&& [self.txtExpireVentureGrowth.text isEqualToString:@"0"] && [self.txtExpireVentureBlueChip.text isEqualToString:@"0"]&& [self.txtExpireVentureManaged.text isEqualToString:@"0"]&& [self.txtExpireVentureDana.text isEqualToString:@"0"]&& [self.txtExpireVentureIncome.text isEqualToString:@"0"]) {
-            if ([getSustainAge intValue] < 56) {
-                self.txtExpireCashFund.text = @"1";
-                self.txtExpireVentureBlueChip.text = @"99";
-                self.txtExpireVentureManaged.text = @"0";
-            }else {
-                self.txtExpireCashFund.text = @"1";
-                self.txtExpireVentureBlueChip.text = @"0";
-                self.txtExpireVentureManaged.text = @"99";
-            }
-        }
-        
-        
-        txt2023.enabled = FALSE;
-		txt2025.enabled = FALSE;
-		txt2025.enabled = FALSE;
-		txt2030.enabled = FALSE;
-		txt2035.enabled = FALSE;
-		txtCashFund.enabled = FALSE;
-		txtSecureFund.enabled = FALSE;
-		txtDanaFund.enabled = FALSE;
-        txtVentureFlexi.enabled = FALSE;
-		txtExpireCashFund.enabled = TRUE;
-		txtExpireSecureFund.enabled = TRUE;
-		txtExpireDanaFund.enabled = TRUE;
-        txtExpireVentureFlexi.enabled = TRUE;
-		txt2023.backgroundColor = [UIColor lightGrayColor];
-		txt2025.backgroundColor = [UIColor lightGrayColor];
-		txt2028.backgroundColor = [UIColor lightGrayColor];
-		txt2030.backgroundColor = [UIColor lightGrayColor];
-		txt2035.backgroundColor = [UIColor lightGrayColor];
-		txtCashFund.backgroundColor = [UIColor lightGrayColor];
-		txtSecureFund.backgroundColor = [UIColor lightGrayColor];
-		txtDanaFund.backgroundColor = [UIColor lightGrayColor];
-        txtVentureFlexi.backgroundColor = [UIColor lightGrayColor];
-		txtExpireCashFund.backgroundColor = [UIColor whiteColor];
-		txtExpireSecureFund.backgroundColor = [UIColor whiteColor];
-		txtExpireDanaFund.backgroundColor = [UIColor whiteColor];
-        txtExpireVentureFlexi.backgroundColor = [UIColor whiteColor];
-        
-        ///
-        self.txtVentureGrowth.enabled = false;
-        self.txtVentureBlueChip.enabled = false;
-        self.txtVentureDana.enabled = false;
-        self.txtVentureManaged.enabled = false;
-        self.txtVentureIncome.enabled = false;
-        /*
-        self.txtVenture6666.enabled = false;
-        self.txtVenture7777.enabled = false;
-        self.txtVenture8888.enabled = false;
-        self.txtVenture9999.enabled = false;
-         */
-        self.txtExpireVentureGrowth.enabled = true;
-        self.txtExpireVentureBlueChip.enabled = true;
-        self.txtExpireVentureDana.enabled = true;
-        self.txtExpireVentureManaged.enabled = true;
-        self.txtExpireVentureIncome.enabled = true;
-        /*
-        self.txtExpireVenture6666.enabled = true;
-        self.txtExpireVenture7777.enabled = true;
-        self.txtExpireVenture8888.enabled = true;
-        self.txtExpireVenture9999.enabled = true;
-         */
-        self.txtVentureGrowth.backgroundColor = [UIColor lightGrayColor];
-        self.txtVentureBlueChip.backgroundColor = [UIColor lightGrayColor];
-        self.txtVentureDana.backgroundColor = [UIColor lightGrayColor];
-        self.txtVentureManaged.backgroundColor = [UIColor lightGrayColor];
-        self.txtVentureIncome.backgroundColor = [UIColor lightGrayColor];
-        /*
-        self.txtVenture6666.backgroundColor = [UIColor lightGrayColor];
-        self.txtVenture7777.backgroundColor = [UIColor lightGrayColor];
-        self.txtVenture8888.backgroundColor = [UIColor lightGrayColor];
-        self.txtVenture9999.backgroundColor = [UIColor lightGrayColor];
-         */
-        self.txtExpireVentureGrowth.backgroundColor = [UIColor whiteColor];
-        self.txtExpireVentureBlueChip.backgroundColor = [UIColor whiteColor];
-        self.txtExpireVentureDana.backgroundColor = [UIColor whiteColor];
-        self.txtExpireVentureManaged.backgroundColor = [UIColor whiteColor];
-        self.txtExpireVentureIncome.backgroundColor = [UIColor whiteColor];
-        /*
-        self.txtExpireVenture6666.backgroundColor = [UIColor whiteColor];
-        self.txtExpireVenture7777.backgroundColor = [UIColor whiteColor];
-        self.txtExpireVenture8888.backgroundColor = [UIColor whiteColor];
-        self.txtExpireVenture9999.backgroundColor = [UIColor whiteColor];
-        */
-	}
-	else{
+	
 		
         txt2023.enabled = true;
 		txt2025.enabled = TRUE;
@@ -689,7 +600,7 @@ NSString *BasicTerm, *planCode;
         self.txtExpireVenture8888.backgroundColor = [UIColor lightGrayColor];
         self.txtExpireVenture9999.backgroundColor = [UIColor lightGrayColor];
         */
-	}
+	
 	
     //NSLog(@" dasdadas %@", getSustainAge);
 
@@ -747,94 +658,13 @@ NSString *BasicTerm, *planCode;
 	
 	[self ValidateString];
     
-	int total = [txt2023.text intValue] + [txt2025.text intValue] + [txt2028.text intValue] + [txt2030.text intValue] +
-				[txt2035.text intValue] + [txtSecureFund.text intValue] + [txtCashFund.text intValue] + [txtDanaFund.text intValue] + [txtVentureFlexi.text intValue] + [self.txtVentureGrowth.text intValue] + [self.txtVentureBlueChip.text intValue] + [self.txtVentureDana.text intValue] + [self.txtVentureManaged.text intValue] + [self.txtVentureIncome.text intValue] + [self.txtVenture6666.text intValue] + [self.txtVenture7777.text intValue] + [self.txtVenture8888.text intValue] + [self.txtVenture9999.text intValue];
+	int total = [txt2025.text intValue] + [txt2030.text intValue] + [txtSecureFund.text intValue] + [txtDanaFund.text intValue] + [txtVentureFlexi.text intValue] + [self.txtVentureBlueChip.text intValue];
 	
-	if (total != 100){
-		UIAlertView *failAlert = [[UIAlertView alloc] initWithTitle:@" "
-															message:@"Fund Allocation is 100% allocated into HLA Cash Fund. You may want to consider allocating more premiums into other available funds for potential better return." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-		[failAlert show];
-		[txt2023 becomeFirstResponder ];
-		return FALSE;
-	}
-	else if ([txtCashFund.text isEqualToString:@"0"]) {
-		UIAlertView *failAlert = [[UIAlertView alloc] initWithTitle:@" "
-															message:@"Fund Allocation for HLA Cash Fund cannot be less than 1%." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-		[failAlert show];
-		[txtCashFund becomeFirstResponder ];
-		return FALSE;
-	}
-	else if (txtExpireCashFund.enabled == TRUE && [txtExpireCashFund.text intValue] + [txtExpireSecureFund.text intValue] + [txtExpireDanaFund.text intValue] + [txtExpireVentureFlexi.text intValue] + [self.txtExpireVentureGrowth.text intValue] + [self.txtExpireVentureBlueChip.text intValue] + [self.txtExpireVentureManaged.text intValue] + [self.txtExpireVentureDana.text intValue] + [self.txtExpireVentureIncome.text intValue] + [self.txtExpireVenture6666.text intValue] + [self.txtExpireVenture7777.text intValue] + [self.txtExpireVenture8888.text intValue] + [self.txtExpireVenture9999.text intValue]  != 100 ) {
+    if (total != 100 ) {
 		UIAlertView *failAlert = [[UIAlertView alloc] initWithTitle:@" "
 															message:@"Total Fund Percentage must be 100%." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
 		[failAlert show];
 		[txtCashFund becomeFirstResponder ];
-		return FALSE;
-	}
-	else if (outletSustain.selectedSegmentIndex == 0 && outletAge.selectedSegmentIndex == 3 && [txtAge.text intValue] > 100 && [planCode isEqualToString:@"UV"]) {
-		UIAlertView *failAlert = [[UIAlertView alloc] initWithTitle:@" "
-															message:@"Maximum Policy Sustainability (Age) is 100." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-		[failAlert show];
-		[txtAge becomeFirstResponder ];
-		return FALSE;
-	}
-    else if (outletSustain.selectedSegmentIndex == 0 && outletAge.selectedSegmentIndex == 3 && ([txtAge.text intValue] > [BasicTerm intValue] + getAge) && [planCode isEqualToString:@"UP"]) {
-		UIAlertView *failAlert = [[UIAlertView alloc] initWithTitle:@" "
-															message:[NSString stringWithFormat:@"Maximum Policy Sustainability (Age) is %d .", [BasicTerm intValue] + getAge] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-		[failAlert show];
-		[txtAge becomeFirstResponder ];
-		return FALSE;
-	}
-	else if(outletSustain.selectedSegmentIndex == 0 && outletAge.selectedSegmentIndex == 3 && [txtAge.text intValue ] < getAge + 10){
-		UIAlertView *failAlert = [[UIAlertView alloc] initWithTitle:@" "
-															message:[NSString stringWithFormat:@"Minimum Policy Sustainability (Age) is %d ", getAge + 10] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-		[failAlert show];
-		[txtAge becomeFirstResponder ];
-		return FALSE;
-	}
-	else if ([txtSecureFund.text isEqualToString:@"0"] && [txtDanaFund.text isEqualToString:@"0"] && [txtVentureFlexi.text isEqualToString:@"0"] &&
-			 [txtExpireCashFund.text isEqualToString:@"0"] && ![txtCashFund.text isEqualToString:@"100"] &&
-			 [txtExpireSecureFund.text isEqualToString:@"0"] && [txtExpireDanaFund.text isEqualToString:@"0"] &&
-             [txtExpireVentureFlexi.text isEqualToString:@"0"] && [self.txtVentureGrowth.text isEqualToString:@"0"] && [self.txtVentureBlueChip.text isEqualToString:@"0"] && [self.txtVentureDana.text isEqualToString:@"0"] && [self.txtVentureManaged.text isEqualToString:@"0"]&& [self.txtVentureIncome.text isEqualToString:@"0"]&& [self.txtVenture6666.text isEqualToString:@"0"]&& [self.txtVenture7777.text isEqualToString:@"0"]&& [self.txtVenture8888.text isEqualToString:@"0"]&& [self.txtVenture9999.text isEqualToString:@"0"] &&
-			 [self.txtExpireVentureGrowth.text isEqualToString:@"0"]&&
-			 [self.txtExpireVentureBlueChip.text isEqualToString:@"0"]&&
-			 [self.txtExpireVentureDana.text isEqualToString:@"0"]&&
-			 [self.txtExpireVentureManaged.text isEqualToString:@"0"]&&
-			 [self.txtExpireVentureIncome.text isEqualToString:@"0"]&&
-			 [self.txtExpireVenture6666.text isEqualToString:@"0"]&&
-			 [self.txtExpireVenture7777.text isEqualToString:@"0"]&&
-			 [self.txtExpireVenture8888.text isEqualToString:@"0"]&&
-			 [self.txtExpireVenture9999.text isEqualToString:@"0"]) {
-		NSString *msg;
-		if (![txt2035.text isEqualToString:@"0"]) {
-			msg = @"Please insert the fund allocation after 25/11/2035 which HLA EverGreen 2035 is closed for investment";
-		}
-		else if (![txt2030.text isEqualToString:@"0"]){
-			msg = @"Please insert the fund allocation after 25/11/2030 which HLA EverGreen 2030 is closed for investment";
-		}
-		else if (![txt2028.text isEqualToString:@"0"]){
-			msg = @"Please insert the fund allocation after 25/11/2028 which HLA EverGreen 2028 is closed for investment";
-		}
-		else if (![txt2025.text isEqualToString:@"0"]){
-			msg = @"Please insert the fund allocation after 25/11/2025 which HLA EverGreen 2025 is closed for investment";
-		}
-		/*
-		else if (![txt2023.text isEqualToString:@"0"]){
-			msg = @"Please insert the fund allocation after 25/11/2023 which HLA EverGreen 2023 is closed for investment";
-		}
-		*/
-		
-		UIAlertView *failAlert = [[UIAlertView alloc] initWithTitle:@" "
-															message:msg delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-		failAlert.tag = 1;
-		[failAlert show];
-		return FALSE;
-	}
-	else if (![txtExpireSecureFund.text isEqualToString:@""] && [txtExpireCashFund.text isEqualToString:@"0"] && txtExpireCashFund.enabled == TRUE){
-		UIAlertView *failAlert = [[UIAlertView alloc] initWithTitle:@" "
-															message:[NSString stringWithFormat:@"Fund Allocation for HLA Cash Fund cannot be less than 1%%"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-		[failAlert show];
-		[txtExpireCashFund becomeFirstResponder ];
 		return FALSE;
 	}
 	else{

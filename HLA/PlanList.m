@@ -34,7 +34,7 @@
         ListOfCode = [[NSMutableArray alloc] initWithObjects:@"BCALH", nil ];
 	}
 	else{
-		ListOfPlan = [[NSMutableArray alloc] initWithObjects:@"BLIFE", nil ];
+		ListOfPlan = [[NSMutableArray alloc] initWithObjects:@"BCA Unit Linked", nil ];
 		ListOfCode = [[NSMutableArray alloc] initWithObjects:@"UV", nil ];
 
 	}

@@ -604,67 +604,51 @@ NSString *FirstLAOccuCode;
                 
                 
             }
+            else if ([riderCode isEqualToString:@"BLIFECIAC"] || [riderCode isEqualToString:@"BLIFECIAD"] || [riderCode isEqualToString:@"BLIFEWVRT"] ||
+                     [riderCode isEqualToString:@"BPW"] || [riderCode isEqualToString:@""] || [riderCode isEqualToString:@"BLIFEPYRD"]){
+                NSString *msg = @"Term: ";
+                
+
+                    
+                    lblMin.text = [msg stringByAppendingString:[NSString stringWithFormat:@"55,65,75,85"]];
+                    lblMax.text = @"";
+
+                
+            }
+            else if ([riderCode isEqualToString:@"BLIFEPAA1"] || [riderCode isEqualToString:@"BLIFEPAAB"] ){
+                NSString *msg = @"Term: ";
+                
+
+                    
+                    lblMin.text = [msg stringByAppendingString:[NSString stringWithFormat:@"55,65,70,75"]];
+                    lblMax.text = @"";
+
+                
+            }
+            else if ([riderCode isEqualToString:@"BPW"] || [riderCode isEqualToString:@"BLIFEPAAB"] ){
+                NSString *msg = @"Term: ";
+                
+                
+                
+                lblMin.text = [msg stringByAppendingString:[NSString stringWithFormat:@"55,65,70,75"]];
+                lblMax.text = @"";
+                
+                
+            }
 			else{
-				lblMin.text = [NSString stringWithFormat:@"Min Term: %d",minTerm];
-				lblMax.text = [NSString stringWithFormat:@"Max Term: %.f",maxRiderTerm];
+
 			}
 			
 			break;
 		case 5: // sum assured or premium
-			lblMin.text = [NSString stringWithFormat:@"Min SA: %d",minSATerm];
 			
-			if ([riderCode isEqualToString:@"LSR"] || [riderCode isEqualToString:@"ECAR"] ||
-				[riderCode isEqualToString:@"ECAR6"] || [riderCode isEqualToString:@"ECAR60"]  || [riderCode isEqualToString:@"TSR"] || [riderCode isEqualToString:@"TSER"] ) {
-				lblMax.text = [NSString stringWithFormat:@"Max SA: Subject to underwriting"];
+			if ([riderCode isEqualToString:@"BLIFEHNS1"] ) {
+                lblMin.text = [NSString stringWithFormat:@"200000,350000,500000,750000"];
+				lblMax.text = [NSString stringWithFormat:@"1000000,1500000,2000000,2500000"];
 			}
-			else if ([riderCode isEqualToString:@"RRTUO"] ){
-				lblMax.text = @"";
-				lblMin.text = @"";
-			}
-            else if ([riderCode isEqualToString:@"MCFR"]){
-                
-				lblMax.text = @"";
-				lblMin.text = [NSString stringWithFormat:@"Max Premium: %.0f ", maxRiderSA];
-			}
-			else if ([riderCode isEqualToString:@"ACIR"] || [riderCode isEqualToString:@"JCCR"] || [riderCode isEqualToString:@"TCCR"] ){
-				lblMax.numberOfLines = 2;   
-				lblMax.text = [NSString stringWithFormat:@"Max SA: %.f(Subject to CI Benefit Limit Per Life across industry of RM4mil)",maxRiderSA];
-			}
-            else if ([riderCode isEqualToString:@"CCR"]  ){
-				lblMax.numberOfLines = 2;
-                if (fmod(maxRiderSA, 1) == 0 ) {
-                     lblMax.text = [NSString stringWithFormat:@"Max SA: %.f(Subject to CI Benefit Limit Per Life across industry of RM4mil)",maxRiderSA];
-                }
-                else{
-                    lblMax.text = [NSString stringWithFormat:@"Max SA: %.1f(Subj. to CI Benefit Limit Per Life across industry of RM4mil)",maxRiderSA];
-                }
-				
-			}
-            else if ([riderCode isEqualToString:@"MSR"] ){
-				if(getBasicSA < 20000){
-                    lblMin.text = [NSString stringWithFormat:@"Min RSA for MSR is RM 20,000.Thus, "];
-                    lblMax.text = @"please increase BSA to at least RM20,000.";
-                    
-                }
-                else{
-                    lblMax.numberOfLines = 2;
-                    lblMax.text = [NSString stringWithFormat:@"Max SA:%.f(Subject to CI Benefit Limit Per Life across industry of RM4mil)",maxRiderSA];
-                }
-			}
-            else if ([riderCode isEqualToString:@"TPDYLA"]){
-                
-                if(getBasicSA < 20000){
-                    lblMin.text = [NSString stringWithFormat:@"Min RSA for TPDYLA is RM5,000. Thus, "];
-                    lblMax.text = @"please increase BSA to at least RM20,000.";
-
-                }
-                else{
-                    lblMax.text = [NSString stringWithFormat:@"Max SA: %.f",maxRiderSA];
-                }
-                
-            }
 			else{
-				lblMax.text = [NSString stringWithFormat:@"Max SA: %.f",maxRiderSA];
+                lblMin.text = [NSString stringWithFormat:@"Min SA: %d",minSATerm];
+				lblMax.text = [NSString stringWithFormat:@"Max SA: 99999999999"];
 			}
         
 			break;
@@ -1226,18 +1210,9 @@ NSString *FirstLAOccuCode;
 			txtRiderTerm.enabled = NO;
 			txtRiderTerm.backgroundColor = [UIColor lightGrayColor];
             
-            if ([riderCode isEqualToString:@"LSR"] || [riderCode isEqualToString:@"LDYR"]) {
-                txtRiderTerm.text = [NSString stringWithFormat:@"%d", getTerm];
-            }
-            else if([riderCode isEqualToString:@"CIRD"]) {
-                txtRiderTerm.text = [NSString stringWithFormat:@"10"];
-            }
-            else if([riderCode isEqualToString:@"TSER"]) {
-                txtRiderTerm.text = [NSString stringWithFormat:@"%d", 80 - pTypeAge];
-            }
-            else if([riderCode isEqualToString:@"MSR"]) {
-                txtRiderTerm.text = [NSString stringWithFormat:@"%d", getTerm];
-            }
+
+            txtRiderTerm.text = [NSString stringWithFormat:@"75"];
+            
             
 		}
 		
@@ -2939,6 +2914,9 @@ NSString *FirstLAOccuCode;
         maxRiderTerm = 70 - requestAge;
         minTerm = 5;
 	}
+    else{
+        maxRiderTerm = maxTerm;
+	}
     
     if ([getPlanCode isEqualToString:@"UP"]) {
         maxRiderTerm = MIN(requestCoverTerm, maxRiderTerm);
@@ -3294,17 +3272,12 @@ NSString *FirstLAOccuCode;
         [alert show];
         [txtHLTerm becomeFirstResponder];
     }
-    else if ([riderCode isEqualToString:@"TSR"] && [txtRiderTerm.text intValue]% 5 != 0) {  
+    else if (([riderCode isEqualToString:@"BLIFECIAC"] || [riderCode isEqualToString:@"BLIFECIAD"] || [riderCode isEqualToString:@"BLIFEWVRT"] ||
+              [riderCode isEqualToString:@"BPW"] || [riderCode isEqualToString:@"BPWD"] || [riderCode isEqualToString:@"BLIFEPYRD"]) &&
+             [txtRiderTerm.text intValue]% 5 != 0) {
         NSString *msg = @"Rider term must be ";
-
-        for (int i = 5; i <= 35; i = i + 5) {
-            if (i + pTypeAge <= 80) {
-                msg = [msg stringByAppendingString:[NSString stringWithFormat:@"%d,", i]];  
-            }
-        }
         
-        msg = [msg substringToIndex:msg.length - 1];
-        msg = [msg stringByAppendingString:[NSString stringWithFormat:@" only. "]];
+        msg = [msg stringByAppendingString:[NSString stringWithFormat:@"55, 65, 75, 85 only. "]];
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:msg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];

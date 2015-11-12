@@ -82,7 +82,7 @@ NSString *FirstLAOccuCode;
     NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docsDir = [dirPaths objectAtIndex:0];
     databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"hladb.sqlite"]];
-    UL_RatesDatabasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"UL_Rates.sqlite"]];
+    UL_RatesDatabasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"BCAUL_Rates.sqlite"]];
 	
 	if ([SimpleOrDetail isEqualToString:@"Detail"]) {
 		appDel = (AppDelegate*)[[UIApplication sharedApplication] delegate ];
@@ -3085,7 +3085,10 @@ NSString *FirstLAOccuCode;
         
         
 	}
-
+    else{
+        maxRiderSA = 99999999999;
+    }
+    
 	/*
 	if (maxRiderSA > 1500000) {
 		maxRiderSA = 1500000;
@@ -3277,7 +3280,7 @@ NSString *FirstLAOccuCode;
              [txtRiderTerm.text intValue]% 5 != 0) {
         NSString *msg = @"Rider term must be ";
         
-        msg = [msg stringByAppendingString:[NSString stringWithFormat:@"55, 65, 75, 85 only. "]];
+        msg = [msg stringByAppendingString:[NSString stringWithFormat:@"55, 65, 70, 75, 85 only. "]];
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:msg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];

@@ -1669,7 +1669,7 @@ NSString *FirstLAOccuCode;
     ColorHexCode *CustomColor = [[ColorHexCode alloc]init ];
     int y = 0;
 	int height = 50;
-	int FontSize = 16;
+	int FontSize = 15;
 	
 	CGRect frame=CGRectMake(0,y, 90, height); //ridercode
     UILabel *label1=[[UILabel alloc]init];
@@ -5228,7 +5228,7 @@ NSString *FirstLAOccuCode;
         
     }
     else{
-        double RiderPremium = random();
+        double RiderPremium = random()/1000.00;
         double RiderHLPremium = 0.00;
         
         _ann = [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderPremium * annFac) ]] doubleValue];

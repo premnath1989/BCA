@@ -74,6 +74,7 @@
 							
                             AppDelegate *appDel;
                             BOOL Editable;
+                            NSString *pTypeSmoker;
 }
 
 @property (nonatomic, retain) UIPopoverController *RiderListPopover;

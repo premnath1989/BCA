@@ -510,108 +510,12 @@ NSString *FirstLAOccuCode;
 			break;
 
 		case 1: // term
-			if ([riderCode isEqualToString:@"ECAR"] || [riderCode isEqualToString:@"ECAR6"] ) {
-				lblMin.text = [NSString stringWithFormat:@"Term: %d, %.0f",  minTerm, maxRiderTerm];
-				lblMax.text = @"";
-			}
-            else if ([riderCode isEqualToString:@"TSR"]){
-                    NSString *msg = @"Term: ";
-                    int tempMax = getTerm > 35 ? 35 : (getTerm/5) * 5;
+            if ([riderCode isEqualToString:@"BLIFECIAC"] || [riderCode isEqualToString:@"BLIFECIAD"] || [riderCode isEqualToString:@"BLIFEWVRT"] ||
+                [riderCode isEqualToString:@"BPW"] || [riderCode isEqualToString:@""] || [riderCode isEqualToString:@"BLIFEPYRD"]){
                 
-                    for (int i = 5; i <= tempMax; i = i + 5) {
-                        if (i + pTypeAge <= 80) {
-                            msg = [msg stringByAppendingString:[NSString stringWithFormat:@"%d,", i]];
-                        }
-                    }
                     
-                    msg = [msg substringToIndex:msg.length - 1];
-                    lblMin.text = msg;
-                    lblMax.text = @"";
-                
-            }
-            else if ([riderCode isEqualToString:@"CCR"] || [riderCode isEqualToString:@"TCCR"]  ){
-                NSString *msg = @"Term: ";
-                
-                if ([getPlanCode isEqualToString:@"UV"]) {
-                    for (int i = 5; i <= 35; i = i + 5) {
-                        if (i + pTypeAge < 100) {
-                            msg = [msg stringByAppendingString:[NSString stringWithFormat:@"%d,", i]];
-                        }
-                    }
-                    
-                    lblMin.text = [msg stringByAppendingString:[NSString stringWithFormat:@"%.0f ", maxRiderTerm]];
-                    lblMax.text = @"";
-                }
-                else{
-                    for (int i = 5; i <= requestCoverTerm; i = i + 5) {
-                        
-                        msg = [msg stringByAppendingString:[NSString stringWithFormat:@"%d,", i]];
-                        
-                    }
-
-                    lblMin.text = msg = [msg substringToIndex:msg.length - 1];; 
-                    lblMax.text = @"";
-                }
-                
-                
-            }
-            else if ([riderCode isEqualToString:@"HCIR"]){
-                NSString *msg = @"Term: ";
-                
-                if ([getPlanCode isEqualToString:@"UV"]) {
-                    for (int i = 5; i <= 35; i = i + 5) {
-                        if (i + pTypeAge < 70) {
-                            msg = [msg stringByAppendingString:[NSString stringWithFormat:@"%d,", i]];
-                        }
-                    }
-                    
-                    lblMin.text = [msg stringByAppendingString:[NSString stringWithFormat:@"%.0f ", maxRiderTerm]];
-                    lblMax.text = @"";
-                }
-                else{
-                    for (int i = 5; i <= requestCoverTerm; i = i + 5) {
-                        
-                        msg = [msg stringByAppendingString:[NSString stringWithFormat:@"%d,", i]];
-                        
-                    }
-                    
-                    lblMin.text = msg = [msg substringToIndex:msg.length - 1];;
-                    lblMax.text = @"";
-                }
-                
-                
-            }
-            else if ([riderCode isEqualToString:@"JCCR"] ){
-                NSString *msg = @"Term: ";
-                
-                if ([getPlanCode isEqualToString:@"UV"]) {
-                    
-                    lblMin.text = [msg stringByAppendingString:[NSString stringWithFormat:@"20,25,%.0f ", maxRiderTerm]];
-                    lblMax.text = @"";
-                }
-                else{
-                    if (maxRiderTerm > 20) {
-                        lblMin.text = [msg stringByAppendingString:[NSString stringWithFormat:@"20,25" ]];
-                        lblMax.text = @"";
-                    }
-                    else{
-                        lblMin.text = [msg stringByAppendingString:[NSString stringWithFormat:@"20"]];
-                        lblMax.text = @"";
-                    }
-                    
-                    
-                }
-                
-                
-            }
-            else if ([riderCode isEqualToString:@"BLIFECIAC"] || [riderCode isEqualToString:@"BLIFECIAD"] || [riderCode isEqualToString:@"BLIFEWVRT"] ||
-                     [riderCode isEqualToString:@"BPW"] || [riderCode isEqualToString:@""] || [riderCode isEqualToString:@"BLIFEPYRD"]){
-                NSString *msg = @"Term: ";
-                
-
-                    
-                    lblMin.text = [msg stringByAppendingString:[NSString stringWithFormat:@"55,65,75,85"]];
-                    lblMax.text = @"";
+                lblMin.text = [NSString stringWithFormat:@"Min Term: %d", minTerm ];
+				lblMax.text = [NSString stringWithFormat:@"Max Term: %d", 85];
 
                 
             }
@@ -1616,8 +1520,27 @@ NSString *FirstLAOccuCode;
         {
             if (sqlite3_step(statement) == SQLITE_ROW)
             {
+                if (pTypeAge > 65 ) {
+                    minTerm = 80;
+                }
+                else if (pTypeAge > 60 ) {
+                    minTerm = 75;
+                }
+                else if (pTypeAge > 55 ) {
+                    minTerm = 70;
+                }
+                else if (pTypeAge > 50 ) {
+                    minTerm = 65;
+                }
+                else if (pTypeAge > 45 ) {
+                    minTerm = 60;
+                }
+                else {
+                    minTerm = 55;
+                }
+
                 expAge =  sqlite3_column_int(statement, 2);
-                minTerm =  sqlite3_column_int(statement, 3);
+                //minTerm =  sqlite3_column_int(statement, 3);
                 maxTerm =  sqlite3_column_int(statement, 4);
                 minSATerm = sqlite3_column_int(statement, 5);
                 maxSATerm = sqlite3_column_int(statement, 6);
@@ -2803,124 +2726,30 @@ NSString *FirstLAOccuCode;
     int period2 = 80 - self.pTypeAge;
     double age1 = fmin(period2,60);
 	
-	if ([riderCode isEqualToString:@"ACIR"]   ||
-        [riderCode isEqualToString:@"HMM"] || [riderCode isEqualToString:@"LSR"] || [riderCode isEqualToString:@"MG_IV"] ||
-        [riderCode isEqualToString:@"MSR"] || [riderCode isEqualToString:@"LDYR"] || [riderCode isEqualToString:@"MDSR1"] ||
-         [riderCode isEqualToString:@"MDSR2"]) {
-            maxRiderTerm = getTerm;
-	}
-
-	else if([riderCode isEqualToString:@"CIWP"] || [riderCode isEqualToString:@"ECAR60"] || [riderCode isEqualToString:@"TPDWP"]){
-		if ([getPlanCode isEqualToString:@"UV"]) {
-			maxRiderTerm = expAge - requestAge;
-		}
-		else{
-			maxRiderTerm = getTerm;
-
-		}
-		
-	}
-	else if ([riderCode isEqualToString:@"DCA"] || [riderCode isEqualToString:@"DHI"] || [riderCode isEqualToString:@"PA"] || [riderCode isEqualToString:@"MR"] || [riderCode isEqualToString:@"TPDMLA"]  ){
-        maxRiderTerm = 75 - requestAge;
-	}
-    else if( [riderCode isEqualToString:@"LCWP"] || [riderCode isEqualToString:@"PR"]){
-		if ([getPlanCode isEqualToString:@"UV"]) {
-			//maxRiderTerm = expAge - (request2ndAge == 0 ? requestPayorAge : request2ndAge);
-            if ([pTypeDesc isEqualToString:@"Payor"]) {
-                maxRiderTerm = expAge -  requestPayorAge;
-            }
-            else{
-                maxRiderTerm = expAge -  request2ndAge;
-            }
-                
-            
-		}
-		else{
-            if ([pTypeDesc isEqualToString:@"Payor"]) {
-                maxRiderTerm = expAge -  requestPayorAge;
-            }
-            else{
-                maxRiderTerm = expAge -  request2ndAge;
-            }
-            
-            maxRiderTerm = MIN(maxRiderTerm, getTerm);
-            
-		}
-		
-	}
-	else if([riderCode isEqualToString:@"ECAR"] || [riderCode isEqualToString:@"ECAR6"]){
-		if ([getPlanCode isEqualToString:@"UV"]) {  
-			minTerm = 20;
-			maxRiderTerm = 25;
-		}
-		else{
-			minTerm = getTerm;
-			maxRiderTerm = getTerm;
-		}
-		
-	}
-	else if([riderCode isEqualToString:@"RRTUO"] ){
-		minTerm = 1;
-		maxRiderTerm = expAge - self.requestAge - 1;
-	}
-    else if( [riderCode isEqualToString:@"MCFR"]){
-		minTerm = 0;
-		maxRiderTerm = expAge - self.requestAge - 1;
-	}
-    else if([riderCode isEqualToString:@"TPDYLA"]){
-		minTerm = 2;
-		maxRiderTerm = expAge - self.requestAge;
-	}
-	else if([riderCode isEqualToString:@"CIRD"]){
-		minTerm = 10;
-		maxRiderTerm = 10;
-	}
-    else if([riderCode isEqualToString:@"WI"] ){
-        minTerm = 5;
-        maxRiderTerm =  70 - requestAge;
-	}
-    
-    
-    else if([riderCode isEqualToString:@"TSR"]){
-        minTerm = 5;
-        int tempMax = getTerm > 35 ? 35 : (getTerm/5) * 5;
-        
-        for (int i = 5; i <= tempMax; i = i + 5) {
-            if (i + requestAge <= 80) {
-                maxRiderTerm = i;
-            }
-        }
-
-
-	}
-    else if([riderCode isEqualToString:@"TSER"]){
-        maxRiderTerm = 80 - requestAge;
-
-        
-        
-	}
-    else if([riderCode isEqualToString:@"CCR"]){
-        maxRiderTerm = 85 - requestAge;
-        minTerm = 5;
-    }
-    else if([riderCode isEqualToString:@"JCCR"]){
-        maxRiderTerm = 100 - requestAge;
-    }
-    else if([riderCode isEqualToString:@"TCCR"]){
-        maxRiderTerm = 75 - requestAge;
-        minTerm = 5;
-	}
-    else if([riderCode isEqualToString:@"HCIR"]){
-        maxRiderTerm = 70 - requestAge;
-        minTerm = 5;
-	}
-    else{
+	
         maxRiderTerm = maxTerm;
-	}
+        
+        if (pTypeAge > 65 ) {
+            minTerm = 80;
+        }
+        else if (pTypeAge > 60 ) {
+            minTerm = 75;
+        }
+        else if (pTypeAge > 55 ) {
+            minTerm = 70;
+        }
+        else if (pTypeAge > 50 ) {
+            minTerm = 65;
+        }
+        else if (pTypeAge > 45 ) {
+            minTerm = 60;
+        }
+        else {
+            minTerm = 55;
+        }
+	
     
-    if ([getPlanCode isEqualToString:@"UP"]) {
-        maxRiderTerm = MIN(requestCoverTerm, maxRiderTerm);
-    }
+
 /*
     if ([riderCode isEqualToString:@"CIWP"])
     {
@@ -5184,23 +5013,23 @@ NSString *FirstLAOccuCode;
 	}
     else if ([riderCode isEqualToString:@"BLIFEPAA1"])
 	{
-        [self getPrem:@"BLIFE_PA_Death" Query:[NSString stringWithFormat:@"Select MS, MNS, FS, FNS From BLIFE_PA_Death where term = '%d' and age = '%d' ",  ridTerm, age]];
+        [self getPrem:@"BLIFE_PA_Death" Query:[NSString stringWithFormat:@"Select premi From BLIFE_PA_Death where term = '%d' and class = '1' ",  ridTerm]];
 	}
     else if ([riderCode isEqualToString:@"BLIFEPAAB"])
 	{
-        [self getPrem:@"BLIFE_PA_Death_Disable" Query:[NSString stringWithFormat:@"Select MS, MNS, FS, FNS From BLIFE_PA_Death_Disable where term = '%d' and age = '%d' ",  ridTerm, age]];
+        [self getPrem:@"BLIFE_PA_Death_Disable" Query:[NSString stringWithFormat:@"Select premi From BLIFE_PA_Death_Disable where term = '%d' and class = '1' ",  ridTerm]];
 	}
     else if ([riderCode isEqualToString:@"BLIFEWVRT1"])
 	{
-        [self getPrem:@"BLIFE_Hospital_CashPlan" Query:[NSString stringWithFormat:@"Select MS, MNS, FS, FNS From BLIFE_Hospital_CashPlan where term = '%d' and age = '%d' ",  ridTerm, age]];
+        [self getPrem:@"BLIFE_Hospital_CashPlan" Query:[NSString stringWithFormat:@"Select Rupiah From BLIFE_Hospital_CashPlan where term = '%d' and age = '%d' ",  ridTerm, age]];
 	}
     else if ([riderCode isEqualToString:@"BLIFEHNS1"])
 	{
         if ([sex isEqualToString:@"MALE"]) {
-                [self getPrem:@"BLIFE_Hosp_Sur_Male" Query:[NSString stringWithFormat:@"Select MS, MNS, FS, FNS From BLIFE_Hosp_Sur_Male where term = '%d' and age = '%d' ",  ridTerm, age]];
+                [self getPrem:@"BLIFE_Hosp_Sur_Male" Query:[NSString stringWithFormat:@"Select * From BLIFE_Hosp_Sur_Male where term = '%d' and age = '%d' ",  ridTerm, age]];
         }
         else{
-                [self getPrem:@"BLIFE_Hosp_Sur_Female" Query:[NSString stringWithFormat:@"Select MS, MNS, FS, FNS From BLIFE_Hosp_Sur_Female where term = '%d' and age = '%d' ",  ridTerm, age]];
+                [self getPrem:@"BLIFE_Hosp_Sur_Female" Query:[NSString stringWithFormat:@"Select * From BLIFE_Hosp_Sur_Female where term = '%d' and age = '%d' ",  ridTerm, age]];
         }
 	}
     else{
@@ -5265,10 +5094,7 @@ NSString *FirstLAOccuCode;
 	double _half2 =0.00;
 	double _quar2 = 0.00;
 	double _month2 =0.00;
-	double _annWithHL2 = 0.00; // for fund management calculation
-	double _halfWithHL2 =0.00;
-	double _quarWithHL2 = 0.00;
-	double _monthWithHL2 =0.00;
+
 	double _RiderLoadingPremiumAnn2 = 0.00;
 	double _RiderLoadingPremiumHalf2 = 0.00;
 	double _RiderLoadingPremiumQuar2 = 0.00;
@@ -5278,16 +5104,15 @@ NSString *FirstLAOccuCode;
 	double _half3 =0.00;
 	double _quar3 = 0.00;
 	double _month3 =0.00;
-	double _annWithHL3 = 0.00; // for fund management calculation
-	double _halfWithHL3 =0.00;
-	double _quarWithHL3 = 0.00;
-	double _monthWithHL3 =0.00;
+
 	double _RiderLoadingPremiumAnn3 = 0.00;
 	double _RiderLoadingPremiumHalf3 = 0.00;
 	double _RiderLoadingPremiumQuar3 = 0.00;
 	double _RiderLoadingPremiumMonth3 = 0.00;
 	
-	if ([riderCode isEqualToString:@"ACIR"] || [riderCode isEqualToString:@"TPDYLA"]){
+	
+    if ([riderCode isEqualToString:@"BLIFECIAC"] || [riderCode isEqualToString:@"BLIFECIAD"] || [riderCode isEqualToString:@"BLIFEPAA1"] || [riderCode isEqualToString:@"BLIFEPAAB"])
+	{
         _ann = 0.00;
         _half =0.00;
         _quar = 0.00;
@@ -5297,11 +5122,10 @@ NSString *FirstLAOccuCode;
         
         if (riderHLoad == 0 && riderHLoadPct == 0 ) {
             RiderPremium = (riderRate * ridSA/1000.00) / annFac;
-  
         }
         else{
             RiderPremium = (riderRate * ridSA/1000.00) / annFac;
-  
+            
             
             /*
              _ann = (riderRate * ((1 + riderHLoad /100.00) + occLoadRider) * ridSA/1000.00 / annFac);
@@ -5325,142 +5149,10 @@ NSString *FirstLAOccuCode;
         [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderHLPremium * quarterFac) ]] doubleValue];
         _monthWithHL = [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderPremium * monthFac) ]] doubleValue] +
         [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderHLPremium * monthFac) ]] doubleValue];
-        
-        
-    }
-    else if ([riderCode isEqualToString:@"HCIR"]){
-        _ann = 0.00;
-        _half =0.00;
-        _quar = 0.00;
-        _month =0.00;
-        double RiderPremium = 0.00;
-        double RiderHLPremium = 0.00;
-        
-        if (riderHLoad == 0 && riderHLoadPct == 0 ) {
-            RiderPremium = (riderRate *  [txtPaymentTerm.text intValue]/2);
-        }
-        else{
-            RiderPremium = (riderRate * [txtPaymentTerm.text intValue]/2);
-            RiderHLPremium = (RiderPremium * (riderHLoadPct/100.00));
-            
-        }
-        
-        _ann = [self dblRoundToTwoDecimal:(RiderPremium * annFac)];
-        _half = [self dblRoundToTwoDecimal:(RiderPremium * halfFac)];
-        _quar = [self dblRoundToTwoDecimal:(RiderPremium * quarterFac)];
-        _month = [self dblRoundToTwoDecimal:(RiderPremium * monthFac)];
-        
-        _annWithHL = [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderPremium * annFac) ]] doubleValue] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderHLPremium * annFac) ]] doubleValue];
-        _halfWithHL = [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderPremium * halfFac) ]] doubleValue] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderHLPremium * halfFac) ]] doubleValue];
-        _quarWithHL = [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderPremium * quarterFac) ]] doubleValue] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderHLPremium * quarterFac) ]] doubleValue];
-        _monthWithHL = [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderPremium * monthFac) ]] doubleValue] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderHLPremium * monthFac) ]] doubleValue];
-        
-        
-    }
-    else if ([riderCode isEqualToString:@"CCR"] || [riderCode isEqualToString:@"TCCR"] || [riderCode isEqualToString:@"JCCR"] || [riderCode isEqualToString:@"MSR"] || [riderCode isEqualToString:@"LDYR"]){
-        _ann = 0.00;
-        _half =0.00;
-        _quar = 0.00;
-        _month =0.00;
-        double RiderPremium = 0.00;
-        double RiderHLPremium = 0.00;
-        double RiderPremium2 = 0.00;
-        double RiderHLPremium2 = 0.00;
-        double RiderPremium3 = 0.00;
-        double RiderHLPremium3 = 0.00;
-        
-        
-        if (riderHLoad == 0 && riderHLoadPct == 0 ) {
-            /*
-            RiderPremium = (riderRate * ridSA/1000.00) / annFac;
-            RiderPremium2 = RiderPremium + (riderRate2 * ridSA * 0.25/1000.00) ;
-            if ([riderCode isEqualToString:@"JCCR" ]) {
-                RiderPremium3 = RiderPremium2 + (riderRate3 * ridSA * 0.75/1000.00) ; //level 2 --> level 1 + original premium
-            }
-            else{
-                RiderPremium3 = RiderPremium2 + (riderRate3 * ridSA * 0.5 /1000.00) ; //level 2 --> level 1 + original premium
-            }
-             */
-            RiderPremium = (riderRate * ridSA/1000.00);
-            RiderPremium2 = (riderRate2 * ridSA * 0.25/1000.00);
-            if ([riderCode isEqualToString:@"JCCR" ]) {
-                RiderPremium3 = (riderRate3 * ridSA * 0.75/1000.00) ; //level 2 --> level 1 + original premium
-            }
-            else{
-                RiderPremium3 = (riderRate3 * ridSA * 0.5 /1000.00); //level 2 --> level 1 + original premium
-            }
-        }
-        else{
-             /*
-            RiderPremium = (riderRate * ridSA/1000.00) ;
-            RiderPremium2 = RiderPremium + (riderRate2 * ridSA * 0.25/1000.00) ;
-            RiderPremium3 = RiderPremium2 + (riderRate3 * ridSA * 0.5/1000.00) ;
-            */
 
-            RiderPremium = (riderRate * ridSA/1000.00) ;
-            RiderPremium2 = (riderRate2 * ridSA * 0.25/1000.00) ;
-            RiderPremium3 = (riderRate3 * ridSA * 0.5/1000.00) ;
-            
-            /*
-             _ann = (riderRate * ((1 + riderHLoad /100.00) + occLoadRider) * ridSA/1000.00 / annFac);
-             _half = (riderRate * ((1 + riderHLoad /100.00) + occLoadRider) *ridSA /1000.00 / halfFac);
-             _quar = (riderRate * ((1 + riderHLoad /100.00) + occLoadRider) *ridSA /1000.00 / quarterFac);
-             _month = (riderRate * ((1 + riderHLoad /100.00) + occLoadRider) *ridSA /1000.00 *monthFac);
-             */
-            RiderHLPremium = (RiderPremium * riderHLoadPct/100.00) + (occLoadRider + riderHLoad) * ridSA /1000.00;
-            RiderHLPremium2 = (RiderPremium2 * riderHLoadPct/100.00) + (occLoadRider + riderHLoad) * ridSA * 0.25 /1000.00;
-            RiderHLPremium3 = (RiderPremium3 * riderHLoadPct/100.00) + (occLoadRider + riderHLoad) * ridSA * 0.5 /1000.00;
-        }
-        
-        _ann = [self dblRoundToTwoDecimal:(RiderPremium * annFac)];
-        _half = [self dblRoundToTwoDecimal:(RiderPremium * halfFac)];
-        _quar = [self dblRoundToTwoDecimal:(RiderPremium * quarterFac)];
-        _month = [self dblRoundToTwoDecimal:(RiderPremium * monthFac)];
-        
-        _ann2 = [self dblRoundToTwoDecimal:RiderPremium * annFac ] + [self dblRoundToTwoDecimal:RiderPremium2 * annFac];
-        _half2 = [self dblRoundToTwoDecimal:RiderPremium * halfFac ] + [self dblRoundToTwoDecimal:RiderPremium2 * halfFac];
-        _quar2 = [self dblRoundToTwoDecimal:RiderPremium * quarterFac ] + [self dblRoundToTwoDecimal:RiderPremium2 * quarterFac];
-        _month2 = [self dblRoundToTwoDecimal:RiderPremium * monthFac ] + [self dblRoundToTwoDecimal:RiderPremium2 * monthFac];
-        
-        _ann3 = [self dblRoundToTwoDecimal:RiderPremium * annFac ] + [self dblRoundToTwoDecimal:RiderPremium2 * annFac] + [self dblRoundToTwoDecimal:RiderPremium3 * annFac];
-        _half3 = [self dblRoundToTwoDecimal:RiderPremium * halfFac ] + [self dblRoundToTwoDecimal:RiderPremium2 * halfFac] + [self dblRoundToTwoDecimal:RiderPremium3 * halfFac];
-        _quar3 = [self dblRoundToTwoDecimal:RiderPremium * quarterFac ] + [self dblRoundToTwoDecimal:RiderPremium2 * quarterFac] + [self dblRoundToTwoDecimal:RiderPremium3 * quarterFac];
-        _month3 = [self dblRoundToTwoDecimal:RiderPremium * monthFac ] + [self dblRoundToTwoDecimal:RiderPremium2 * monthFac] + [self dblRoundToTwoDecimal:RiderPremium3 * monthFac];
-        
-        _annWithHL = [self dblRoundToTwoDecimal:(RiderPremium * annFac)] + [self dblRoundToTwoDecimal:(RiderHLPremium * annFac)];
-        _halfWithHL = [self dblRoundToTwoDecimal:(RiderPremium * halfFac)] + [self dblRoundToTwoDecimal:(RiderHLPremium * halfFac)];
-        _quarWithHL = [self dblRoundToTwoDecimal:(RiderPremium * quarterFac)] + [self dblRoundToTwoDecimal:(RiderHLPremium * quarterFac)];
-        _monthWithHL = [self dblRoundToTwoDecimal:(RiderPremium * monthFac)] + [self dblRoundToTwoDecimal:(RiderHLPremium * monthFac)];
-        
-        _annWithHL2 = [self dblRoundToTwoDecimal:(RiderPremium * annFac)] + [self dblRoundToTwoDecimal:(RiderHLPremium * annFac)]+
-                      [self dblRoundToTwoDecimal:(RiderPremium2 * annFac)] + [self dblRoundToTwoDecimal:(RiderHLPremium2 * annFac)];
-        _halfWithHL2 = [self dblRoundToTwoDecimal:(RiderPremium * halfFac)] + [self dblRoundToTwoDecimal:(RiderHLPremium * halfFac)] +
-                       [self dblRoundToTwoDecimal:(RiderPremium2 * halfFac)] + [self dblRoundToTwoDecimal:(RiderHLPremium2 * halfFac)];
-        _quarWithHL2 = [self dblRoundToTwoDecimal:(RiderPremium * quarterFac)] + [self dblRoundToTwoDecimal:(RiderHLPremium * quarterFac)] +
-                       [self dblRoundToTwoDecimal:(RiderPremium2 * quarterFac)] + [self dblRoundToTwoDecimal:(RiderHLPremium2 * quarterFac)];
-        _monthWithHL2 = [self dblRoundToTwoDecimal:(RiderPremium * monthFac)] + [self dblRoundToTwoDecimal:(RiderHLPremium * monthFac)] +
-                        [self dblRoundToTwoDecimal:(RiderPremium2 * monthFac)] + [self dblRoundToTwoDecimal:(RiderHLPremium2 * monthFac)];
-        
-        _annWithHL3 = [self dblRoundToTwoDecimal:(RiderPremium * annFac)] + [self dblRoundToTwoDecimal:(RiderHLPremium * annFac)]+
-                      [self dblRoundToTwoDecimal:(RiderPremium2 * annFac)] + [self dblRoundToTwoDecimal:(RiderHLPremium2 * annFac)] +
-                      [self dblRoundToTwoDecimal:(RiderPremium3 * annFac)] + [self dblRoundToTwoDecimal:(RiderHLPremium3 * annFac)];
-        _halfWithHL3 = [self dblRoundToTwoDecimal:(RiderPremium * halfFac)] + [self dblRoundToTwoDecimal:(RiderHLPremium * halfFac)]+
-                        [self dblRoundToTwoDecimal:(RiderPremium2 * halfFac)] + [self dblRoundToTwoDecimal:(RiderHLPremium2 * halfFac)] +
-                        [self dblRoundToTwoDecimal:(RiderPremium3 * halfFac)] + [self dblRoundToTwoDecimal:(RiderHLPremium3 * halfFac)];
-        _quarWithHL3 = [self dblRoundToTwoDecimal:(RiderPremium * quarterFac)] + [self dblRoundToTwoDecimal:(RiderHLPremium * quarterFac)]+
-                        [self dblRoundToTwoDecimal:(RiderPremium2 * quarterFac)] + [self dblRoundToTwoDecimal:(RiderHLPremium2 * quarterFac)] +
-                        [self dblRoundToTwoDecimal:(RiderPremium3 * quarterFac)] + [self dblRoundToTwoDecimal:(RiderHLPremium3 * quarterFac)];
-        _monthWithHL3 = [self dblRoundToTwoDecimal:(RiderPremium * monthFac)] + [self dblRoundToTwoDecimal:(RiderHLPremium * monthFac)]+
-                        [self dblRoundToTwoDecimal:(RiderPremium2 * monthFac)] + [self dblRoundToTwoDecimal:(RiderHLPremium2 * monthFac)] +
-                        [self dblRoundToTwoDecimal:(RiderPremium3 * monthFac)] + [self dblRoundToTwoDecimal:(RiderHLPremium3 * monthFac)];
-        
-        
-    }
-    else if ([riderCode isEqualToString:@"LDYR-PCB"] || [riderCode isEqualToString:@"LDYR-BBB"]){
+	}
+    else if ([riderCode isEqualToString:@"BLIFEWVRT1"])
+	{
         _ann = 0.00;
         _half =0.00;
         _quar = 0.00;
@@ -5469,11 +5161,11 @@ NSString *FirstLAOccuCode;
         double RiderHLPremium = 0.00;
         
         if (riderHLoad == 0 && riderHLoadPct == 0 ) {
-            RiderPremium = (riderRate * ridSA/1000.00) / annFac;
-
+            RiderPremium = (riderRate * [txtReinvestment.text intValue]) / annFac;
         }
         else{
-            RiderPremium = (riderRate * ridSA/1000.00) / annFac;
+            RiderPremium = (riderRate * [txtReinvestment.text intValue]) / annFac;
+            
             RiderHLPremium = (RiderPremium * riderHLoadPct/100.00) + (occLoadRider + riderHLoad) * ridSA /1000.00;
         }
         
@@ -5490,728 +5182,9 @@ NSString *FirstLAOccuCode;
         [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderHLPremium * quarterFac) ]] doubleValue];
         _monthWithHL = [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderPremium * monthFac) ]] doubleValue] +
         [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderHLPremium * monthFac) ]] doubleValue];
-        
-        
-    }
-
-    else if ([riderCode isEqualToString:@"CIRD"]){
-        _ann = 0.00;
-        _half =0.00;
-        _quar = 0.00;
-        _month =0.00;
-        double LSDPremium = 0.00;
-        double RiderPremium = 0.00;
-        
-        if (riderHLoad == 0) {
-            RiderPremium = (riderRate * ridSA/100.00) ;
-            
-        }
-        else{
-            RiderPremium = (riderRate * ridSA/100.00) ;
-            
-            /*
-             _ann = (riderRate * ((1 + riderHLoad /100) + occLoadRider) * ridSA/1000 / annFac);
-             _half = (riderRate * ((1 + riderHLoad /100) + occLoadRider) *ridSA /1000 / halfFac);
-             _quar = (riderRate * ((1 + riderHLoad /100) + occLoadRider) *ridSA /1000 / quarterFac);
-             _month = (riderRate * ((1 + riderHLoad /100) + occLoadRider) *ridSA /1000 *monthFac);
-             */
-        }
-        
-        /*
-         if (ridSA >= 20000 && ridSA < 30000) {
-         _ann = _ann - (ridSA * (0/1000));
-         }
-         else if (ridSA >= 30000 && ridSA < 50000) {
-         _ann = _ann - (ridSA * (1.5/1000.00));
-         }
-         else if (ridSA >= 50000 && ridSA < 75000) {
-         _ann = _ann - (ridSA * (2.5/1000.00));
-         }
-         else if (ridSA >= 75000 && ridSA <= 100000) {
-         _ann = _ann - (ridSA * (3/1000.00));
-         }
-         */
-        if (ridSA >= 20000 && ridSA < 30000) {
-            LSDPremium = (ridSA * (0/1000));
-        }
-        else if (ridSA >= 30000 && ridSA < 50000) {
-            LSDPremium = (ridSA * (1.5/1000.00));
-        }
-        else if (ridSA >= 50000 && ridSA < 75000) {
-            LSDPremium = (ridSA * (2.5/1000.00));
-        }
-        else if (ridSA >= 75000 && ridSA <= 100000) {
-            LSDPremium = (ridSA * (3/1000.00));
-        }
-        
-        _ann = [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderPremium * annFac) ]] doubleValue] -
-        [[formatter stringFromNumber:[NSNumber numberWithDouble:(LSDPremium * annFac) ]] doubleValue];
-        _half = [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderPremium * halfFac) ]] doubleValue] -
-        [[formatter stringFromNumber:[NSNumber numberWithDouble:(LSDPremium * halfFac) ]] doubleValue];
-        _quar = [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderPremium * quarterFac) ]] doubleValue] -
-        [[formatter stringFromNumber:[NSNumber numberWithDouble:(LSDPremium * quarterFac) ]] doubleValue];
-        _month = [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderPremium * monthFac) ]] doubleValue] -
-        [[formatter stringFromNumber:[NSNumber numberWithDouble:(LSDPremium * monthFac) ]] doubleValue];
-        
-        
-		
-    }
-    else if ([riderCode isEqualToString:@"CIWP"] || [riderCode isEqualToString:@"LCWP"] || [riderCode isEqualToString:@"PR"] ){
-        _ann = 0.00;
-        _half =0.00;
-        _quar = 0.00;
-        _month =0.00;
-        double RiderPremium = 0.00;
-        double RiderHLoading = 0.00;
-        
-        sqlite3_stmt *statement;
-        if (sqlite3_open([databasePath UTF8String], &contactDB) == SQLITE_OK)
-        {
-            NSString *querySQL;
-            
-            if ([riderCode isEqualToString:@"CIWP"]) {
-                querySQL = [NSString stringWithFormat:
-                            @"SELECT sum(round(premium, 2)) from( SELECT premium FROM ul_rider_details "
-                            "where sino = '%@' and ridercode not in('CIWP', 'LCWP', 'PR', 'TPDWP', 'ACIR', 'RRTUO') "
-                            "union SELECT atprem FROM ul_details  where  sino = '%@') as zzz", getSINo, getSINo];
-            }
-            else if([riderCode isEqualToString:@"LCWP"]){
-                querySQL = [NSString stringWithFormat:
-                            @"SELECT sum(round(premium, 2)) from( SELECT premium FROM ul_rider_details "
-                            "where sino = '%@' and ridercode not in('CIWP', 'LCWP', 'PR', 'TPDWP', 'RRTUO') "
-                            "union SELECT atprem FROM ul_details  where  sino = '%@') as zzz", getSINo, getSINo];
-            }
-            else{
-                querySQL = [NSString stringWithFormat:
-                            @"SELECT sum(round(premium, 2)) from( SELECT premium FROM ul_rider_details "
-                            "where sino = '%@' and ridercode not in('CIWP', 'LCWP', 'PR', 'TPDWP', 'RRTUO') "
-                            "union SELECT atprem FROM ul_details  where  sino = '%@') as zzz", getSINo, getSINo];
-            }
-            
-            //NSLog(@"%@", querySQL);
-            if (sqlite3_prepare_v2(contactDB, [querySQL UTF8String], -1, &statement, NULL) == SQLITE_OK)
-            {
-                if (sqlite3_step(statement) == SQLITE_ROW)
-                {
-                    ridSA =  sqlite3_column_double(statement, 0);
-                }
-                sqlite3_finalize(statement);
-            }
-            sqlite3_close(contactDB);
-        }
-        
-        if ([getBUMPMode isEqualToString:@"S"]) {
-            txtSumAssured.text = [NSString stringWithFormat:@"%.2f", [self dblRoundToTwoDecimal:ridSA ]/halfFac];
-            ridSA =  [self dblRoundToTwoDecimal:ridSA / halfFac];
-        }
-        else if ([getBUMPMode isEqualToString:@"Q"]){
-            txtSumAssured.text = [NSString stringWithFormat:@"%.2f", ridSA / quarterFac];
-            ridSA =  [self dblRoundToTwoDecimal:ridSA / quarterFac];
-        }
-        else if ([getBUMPMode isEqualToString:@"M"]){
-            txtSumAssured.text = [NSString stringWithFormat:@"%.2f", ridSA / monthFac];
-            ridSA =  [self dblRoundToTwoDecimal:ridSA / monthFac];
-        }
-        else {
-            txtSumAssured.text = [NSString stringWithFormat:@"%.2f", ridSA];
-            ridSA =  [self dblRoundToTwoDecimal:ridSA];
-        }
-        
-        //ridSA = [txtSumAssured.text doubleValue];
-        
-        //NSLog(@"%f * %f/100.00, %f", riderRate, ridSA, monthFac);
-        if (riderHLoad == 0 && occLoadRider == 0   ) {
-            RiderPremium = (riderRate * ridSA/100.00);
-            RiderHLoading = 0.00;
-            
-        }
-        else{
-            //RiderHLoading = ridSA * (riderRate * 0.01 + ridTerm/1000.00 * occLoadRider + riderHLoad/1000.00);
-            RiderPremium = (riderRate * ridSA/100.00);
-            if ([riderCode isEqualToString:@"CIWP"]) {
-                RiderHLoading = RiderPremium * 0.00 + ridSA * (ridTerm * 0 + riderHLoad)/1000.00;
-            }
-            else{
-                RiderHLoading = RiderPremium * 0.00 + ridSA * (ridTerm * occLoadRider + riderHLoad)/1000.00;
-            }
-            
-        }
-        
-        _ann =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * annFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderHLoading * annFac)]] doubleValue];
-        _half =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * halfFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderHLoading * halfFac)]] doubleValue];
-        _quar =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * quarterFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderHLoading * quarterFac)]] doubleValue];
-        _month =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * monthFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderHLoading * monthFac)]] doubleValue];
-        
-        _RiderLoadingPremiumAnn = [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderHLoading * annFac)]] doubleValue];
-        _RiderLoadingPremiumHalf = [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderHLoading * halfFac)]] doubleValue];
-        _RiderLoadingPremiumQuar = [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderHLoading * quarterFac)]] doubleValue];
-        _RiderLoadingPremiumMonth =[[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderHLoading * monthFac)]] doubleValue];
-        
-    }
-    else if ([riderCode isEqualToString:@"DCA"]){
-        _ann = 0.00;
-        _half =0.00;
-        _quar = 0.00;
-        _month =0.00;
-        //NSLog(@"%f", riderRate);
-        double RiderPremium = 0.00;
-        double LSDPremium = 0.00;
-        double RiderHLPremium = 0.00;
-        
-        if (riderHLoad == 0) {
-            RiderPremium = (riderRate * ridSA/100.00) ;
-            
-        }
-        else{
-            RiderPremium = (riderRate * ridSA/100.00) ;
-            
-            /*
-             _ann = ridSA/100.00 * 1 * (riderRate * (1 + riderHLoad /100.00) + occLoadRider/10.00 + 0 );
-             _half = ridSA/100.00 * 1 * (riderRate * (1 + riderHLoad /100.00) + occLoadRider/10.00 + 0 );
-             _quar = ridSA/100.00 * 1 * (riderRate * (1 + riderHLoad /100.00) + occLoadRider/10.00 + 0 );
-             _month = ridSA/100.00 * 1 * (riderRate * (1 + riderHLoad /100.00) + occLoadRider/10.00 + 0 );
-             */
-            RiderHLPremium = RiderPremium * riderHLoadPct/100.00 + (occLoadRider + riderHLoad) * ridSA/1000.00;
-        }
-        
-        if (ridSA >= 10000 && ridSA < 20000) {
-            if (getOccpClass < 3) {
-                LSDPremium = (ridSA * 0/1000);
-            }
-            else if (getOccpClass == 3){
-                LSDPremium = (ridSA * 0/1000);
-            }
-            else{
-                LSDPremium = (ridSA * 0/1000);
-            }
-        }
-        else if(ridSA >= 20000 && ridSA < 30000){
-            if (getOccpClass < 3) {
-                LSDPremium =  (ridSA * 0.25/1000);
-            }
-            else if (getOccpClass == 3){
-                LSDPremium =  (ridSA * 0.36/1000);
-            }
-            else{
-                LSDPremium = (ridSA * 0.41/1000);
-            }
-        }
-        else if(ridSA >= 30000 && ridSA < 40000){
-            if (getOccpClass < 3) {
-                LSDPremium = (ridSA * 0.34/1000);
-            }
-            else if (getOccpClass == 3){
-                LSDPremium = (ridSA * 0.48/1000);
-            }
-            else{
-                LSDPremium = (ridSA * 0.55/1000);
-            }
-            
-        }
-        else if(ridSA >= 40000 && ridSA < 50000){
-            if (getOccpClass < 3) {
-                LSDPremium = (ridSA * 0.38/1000);
-            }
-            else if (getOccpClass == 3){
-                LSDPremium = (ridSA * 0.54/1000);
-            }
-            else{
-                LSDPremium = (ridSA * 0.62/1000);
-            }
-            
-        }
-        else if(ridSA >= 50000 && ridSA < 100000){
-            if (getOccpClass < 3) {
-                LSDPremium = (ridSA * 0.41/1000);
-            }
-            else if (getOccpClass == 3){
-                LSDPremium = (ridSA * 0.58/1000);
-            }
-            else{
-                LSDPremium = (ridSA * 0.66/1000);
-            }
-            
-        }
-        else if(ridSA >= 100000 && ridSA < 150000){
-            if (getOccpClass < 3) {
-                LSDPremium = (ridSA * 0.46/1000);
-            }
-            else if (getOccpClass == 3){
-                LSDPremium = (ridSA * 0.65/1000);
-            }
-            else{
-                LSDPremium = (ridSA * 0.74/1000);
-            }
-            
-        }
-        else if(ridSA >= 150000 && ridSA < 250000){
-            if (getOccpClass < 3) {
-                LSDPremium = (ridSA * 0.48/1000);
-            }
-            else if (getOccpClass == 3){
-                LSDPremium = (ridSA * 0.68/1000);
-            }
-            else{
-                LSDPremium = (ridSA * 0.77/1000);
-            }
-            
-        }
-        else if(ridSA >= 250000 && ridSA < 500000){
-            if (getOccpClass < 3) {
-                LSDPremium = (ridSA * 0.49/1000);
-            }
-            else if (getOccpClass == 3){
-                LSDPremium = (ridSA * 0.7/1000);
-            }
-            else{
-                LSDPremium = (ridSA * 0.79/1000);
-            }
-            
-        }
-        else if(ridSA >= 500000){
-            if (getOccpClass < 3) {
-                LSDPremium = (ridSA * 0.5/1000);
-            }
-            else if (getOccpClass == 3){
-                LSDPremium = (ridSA * 0.71/1000);
-            }
-            else{
-                LSDPremium = (ridSA * 0.81/1000);
-            }
-        }
-        
-        _ann =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * annFac)]] doubleValue ] -
-        [[formatter stringFromNumber:[NSNumber numberWithDouble:(LSDPremium * annFac)]] doubleValue];
-        _half =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * halfFac)]] doubleValue ] -
-        [[formatter stringFromNumber:[NSNumber numberWithDouble:(LSDPremium * halfFac)]] doubleValue];
-        _quar =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * quarterFac)]] doubleValue ] -
-        [[formatter stringFromNumber:[NSNumber numberWithDouble:(LSDPremium * quarterFac)]] doubleValue];
-        _month =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * monthFac)]] doubleValue ] -
-        [[formatter stringFromNumber:[NSNumber numberWithDouble:(LSDPremium * monthFac)]] doubleValue];
-        
-        _annWithHL =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * annFac)]] doubleValue ] -
-        [[formatter stringFromNumber:[NSNumber numberWithDouble:(LSDPremium * annFac)]] doubleValue] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderHLPremium * annFac)]] doubleValue];
-        _halfWithHL =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * halfFac)]] doubleValue ] -
-        [[formatter stringFromNumber:[NSNumber numberWithDouble:(LSDPremium * halfFac)]] doubleValue] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderHLPremium * halfFac)]] doubleValue];
-        _quarWithHL =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * quarterFac)]] doubleValue ] -
-        [[formatter stringFromNumber:[NSNumber numberWithDouble:(LSDPremium * quarterFac)]] doubleValue] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderHLPremium * quarterFac)]] doubleValue];
-        _monthWithHL =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * monthFac)]] doubleValue ] -
-        [[formatter stringFromNumber:[NSNumber numberWithDouble:(LSDPremium * monthFac)]] doubleValue] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderHLPremium * monthFac)]] doubleValue];
-        
-    }
-    else if ([riderCode isEqualToString:@"DHI"] || [riderCode isEqualToString:@"MR"] || [riderCode isEqualToString:@"PA"] ||
-             [riderCode isEqualToString:@"TPDMLA"] || [riderCode isEqualToString:@"WI"]){
-        _ann = 0.00;
-        _half =0.00;
-        _quar = 0.00;
-        _month =0.00;
-        double RiderPremium = 0.00;
-        double RiderHL = 0.00;
-        
-        if (riderHLoad == 0 && occLoadRider == 0) {
-            RiderPremium = (riderRate * ridSA/100.00) ;
-            
-        }
-        else{
-            RiderPremium = (riderRate * ridSA/100.00) ;
-            RiderHL = RiderPremium * 0.00 + ridSA * (ridTerm * occLoadRider + riderHLoad)/1000.00;
-            
-            /*
-             _ann =  (ridSA * (riderRate * ((1 + riderHLoad /100.00)/100.00 ) + occLoadRider/1000.00 + 0/1000.00)) / annFac;
-             _half = (ridSA * (riderRate * ((1 + riderHLoad /100.00)/100.00 ) + occLoadRider/1000.00 + 0/1000.00)) / halfFac;
-             _quar = (ridSA * (riderRate * ((1 + riderHLoad /100.00)/100.00 ) + occLoadRider/1000.00 + 0/1000.00)) / quarterFac;
-             _month = (ridSA * (riderRate * ((1 + riderHLoad /100.00)/100.00 ) + occLoadRider/1000.00 + 0/1000.00)) * monthFac;
-             */
-        }
-        
-        
-        _ann =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * annFac)]] doubleValue ];
-        _half =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * halfFac)]] doubleValue ];
-        _quar =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * quarterFac)]] doubleValue ];
-        _month =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * monthFac)]] doubleValue ];
-        
-        _annWithHL =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * annFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHL * annFac)]] doubleValue ];
-        _halfWithHL =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * halfFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHL * halfFac)]] doubleValue ];
-        _quarWithHL =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * quarterFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHL * quarterFac)]] doubleValue ];
-        _monthWithHL =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * monthFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHL * monthFac)]] doubleValue ];
-        
-        
-    }
-    else if ([riderCode isEqualToString:@"TPDWP"] ){
-        _ann = 0.00;
-        _half =0.00;
-        _quar = 0.00;
-        _month =0.00;
-        double RiderPremium = 0.00;
-        double RiderHL = 0.00;
-		
-        
-        sqlite3_stmt *statement;
-        if (sqlite3_open([databasePath UTF8String], &contactDB) == SQLITE_OK)
-        {
-            NSString *querySQL;
-            
-            
-            querySQL = [NSString stringWithFormat:
-                        @"SELECT sum(round(premium, 2)) from( SELECT premium FROM ul_rider_details "
-                        "where sino = '%@' and ridercode not in('CIWP', 'LCWP', 'PR', 'TPDWP', 'ECAR','ECAR6', 'ECAR60', 'LSR', 'TPDMLA', 'PA', 'TPDYLA', 'TSR', 'TSER', 'RRTUO') "
-                        "union SELECT atprem FROM ul_details  where  sino = '%@') as zzz", getSINo, getSINo];
-            
-            if (sqlite3_prepare_v2(contactDB, [querySQL UTF8String], -1, &statement, NULL) == SQLITE_OK)
-            {
-                if (sqlite3_step(statement) == SQLITE_ROW)
-                {
-                    ridSA =  sqlite3_column_double(statement, 0);
-                }
-                sqlite3_finalize(statement);
-            }
-            sqlite3_close(contactDB);
-        }
-        
-        if ([getBUMPMode isEqualToString:@"S"]) {
-            txtSumAssured.text = [NSString stringWithFormat:@"%.2f", ridSA * halfFac];
-            ridSA = ridSA * halfFac;
-        }
-        else if ([getBUMPMode isEqualToString:@"Q"]){
-            txtSumAssured.text = [NSString stringWithFormat:@"%.2f", ridSA * quarterFac];
-            ridSA = ridSA * quarterFac;
-        }
-        else if ([getBUMPMode isEqualToString:@"M"]){
-            txtSumAssured.text = [NSString stringWithFormat:@"%.2f", ridSA/monthFac];
-            ridSA = ridSA/monthFac;
-        }
-        else {
-            txtSumAssured.text = [NSString stringWithFormat:@"%.2f", ridSA];
-            ridSA = ridSA;
-        }
-        
-        //ridSA = [txtSumAssured.text doubleValue];
-        
-        //txtSumAssured.text = [NSString stringWithFormat:@"%.2f", ridSA ];
-        
-		
-        if (riderHLoad == 0 && occLoadRider == 0) {
-            RiderPremium = (riderRate * ridSA/100.00) ;
-			
-        }
-        else{
-            RiderPremium = (riderRate * ridSA/100.00) ;
-            RiderHL = RiderPremium * 0.00 + ridSA * (ridTerm * occLoadRider + riderHLoad)/1000.00;
-			
-			
-        }
-		
-        _ann =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * annFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHL * annFac)]] doubleValue ];
-        _half =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * halfFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHL * halfFac)]] doubleValue ];
-        _quar =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * quarterFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHL * quarterFac)]] doubleValue ];
-        _month =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * monthFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHL * monthFac)]] doubleValue ];
-        
-        _RiderLoadingPremiumAnn = [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHL * annFac)]] doubleValue ];
-        _RiderLoadingPremiumHalf = [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHL * halfFac)]] doubleValue ];
-        _RiderLoadingPremiumQuar = [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHL * quarterFac)]] doubleValue ];
-        _RiderLoadingPremiumMonth = [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHL * monthFac)]] doubleValue ];
-		
-    }
-    else if ([riderCode isEqualToString:@"ECAR"] || [riderCode isEqualToString:@"ECAR6"] ){
-        _ann = 0.00;
-        _half =0.00;
-        _quar = 0.00;
-        _month =0.00;
-        double RiderPremium = 0.00;
-        double LSDPremium = 0.00;
-        double RiderHLPrem = 0.00;
-        
-        if (riderHLoad == 0 && occLoadRider == 0 ) {
-            //_ann = (riderRate * ridSA/1000.00 );
-            RiderPremium = (riderRate * ridSA/1000.00 );
-            RiderHLPrem = 0;
-        }
-        else{
-            RiderPremium = (riderRate * ridSA/1000.00 );
-            RiderHLPrem = ((occLoadRider + riderHLoad) * ridSA/1000.00);
-            
-        }
-        
-        if (ridSA >= 450 && ridSA < 1200) {
-            LSDPremium = (ridSA * (-330.00/1000.00));
-        }
-        else if (ridSA >= 1200 && ridSA < 2000) {
-            LSDPremium = (ridSA * (0/1000.00));
-        }
-        else if (ridSA >= 2000 && ridSA < 3000) {
-            LSDPremium = (ridSA * (10/1000.00));
-        }
-        else if (ridSA >= 3000 && ridSA < 4000) {
-            LSDPremium = (ridSA * (30/1000.00));
-        }
-        else if (ridSA >= 4000 && ridSA < 5000) {
-            LSDPremium = (ridSA * (40/1000.00));
-        }
-        else if (ridSA >= 5000 && ridSA < 7500) {
-            LSDPremium = (ridSA * (50/1000.00));
-        }
-        else if (ridSA >= 7500 && ridSA < 10000) {
-            LSDPremium = (ridSA * (60/1000.00));
-        }
-        else if (ridSA >= 10000) {
-            LSDPremium = (ridSA * (70/1000.00));
-        }
-        
-        _ann =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * annFac)]] doubleValue ] -
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (LSDPremium * annFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * annFac)]] doubleValue ];
-        _half =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * halfFac)]] doubleValue ] -
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (LSDPremium * halfFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * halfFac)]] doubleValue ];
-        _quar =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * quarterFac)]] doubleValue ] -
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (LSDPremium * quarterFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * quarterFac)]] doubleValue ];
-        _month =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * monthFac)]] doubleValue ] -
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (LSDPremium * monthFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * monthFac)]] doubleValue ];
-        
-        _RiderLoadingPremiumAnn = [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * annFac)]] doubleValue ];
-        _RiderLoadingPremiumHalf = [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * halfFac)]] doubleValue ];
-        _RiderLoadingPremiumQuar = [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * quarterFac)]] doubleValue ];
-        _RiderLoadingPremiumMonth = [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * monthFac)]] doubleValue ];
-        
-    }
-    else if ([riderCode isEqualToString:@"ECAR60"]){
-        _ann = 0.00;
-        _half =0.00;
-        _quar = 0.00;
-        _month =0.00;
-        double RiderPremium =0.00;
-        double LSDPremium =0.00;
-        double RiderHLPrem = 0.00;
-        
-        if (riderHLoad == 0 && occLoadRider == 0) {
-            RiderPremium = (riderRate * ridSA/100.00 );
-        }
-        else{
-            double sss = ((riderRate + occLoadRider/10.00 + riderHLoad/10.00) * ridSA/100.00 * 1);
-            RiderPremium = (riderRate * ridSA/100.00 );
-            RiderHLPrem = sss - RiderPremium;
-        }
-        
-        if (ridSA >= 50 && ridSA < 100) {
-            LSDPremium = (ridSA * (-80.00/100.00));
-        }
-        else if (ridSA >= 100 && ridSA < 150) {
-            LSDPremium = (ridSA * (0/100.00));
-        }
-        else if (ridSA >= 150 && ridSA < 200) {
-            LSDPremium = (ridSA * (50/100.00));
-        }
-        else if (ridSA >= 200 && ridSA < 300) {
-            LSDPremium = (ridSA * (75/100.00));
-        }
-        else if (ridSA >= 300 && ridSA < 400) {
-            LSDPremium = (ridSA * (95/100.00));
-        }
-        else if (ridSA >= 400 && ridSA < 500) {
-            LSDPremium = (ridSA * (110/100.00));
-        }
-        else if (ridSA >= 500 && ridSA < 600) {
-            LSDPremium = (ridSA * (115/100.00));
-        }
-        else if (ridSA >= 600 && ridSA < 1000) {
-            LSDPremium = (ridSA * (120/100.00));
-        }
-        else if (ridSA >= 1000) {
-            LSDPremium = (ridSA * (130/100.00));
-        }
-        
-        _ann =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * annFac)]] doubleValue ] -
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (LSDPremium * annFac)]] doubleValue ]+
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * annFac)]] doubleValue ];
-        _half =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * halfFac)]] doubleValue ] -
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (LSDPremium * halfFac)]] doubleValue ]+
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * halfFac)]] doubleValue ];
-        _quar =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * quarterFac)]] doubleValue ] -
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (LSDPremium * quarterFac)]] doubleValue ]+
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * quarterFac)]] doubleValue ];
-        _month =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * monthFac)]] doubleValue ] -
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (LSDPremium * monthFac)]] doubleValue ]+
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * monthFac)]] doubleValue ];
-        
-        _RiderLoadingPremiumAnn = [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * annFac)]] doubleValue ];
-        _RiderLoadingPremiumHalf = [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * halfFac)]] doubleValue ];
-        _RiderLoadingPremiumQuar = [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * quarterFac)]] doubleValue ];
-        _RiderLoadingPremiumMonth = [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * monthFac)]] doubleValue ];
-        
-    }
-    else if ([riderCode isEqualToString:@"HMM"] || [riderCode isEqualToString:@"MG_IV"]  ){
-        _ann = 0.00;
-        _half =0.00;
-        _quar = 0.00;
-        _month =0.00;
-        double RiderPremium = 0.00;
-        double RiderHLPremium = 0.00;
-        
-        if (riderHLoad == 0) {
-            RiderPremium = riderRate;
-            
-        }
-        else{
-            RiderPremium = riderRate ;
-            
-            /*
-             _ann = (riderRate * (1 + riderHLoad/100.00)) / annFac;
-             _half = (riderRate * (1 + riderHLoad/100.00)) / halfFac;
-             _quar = (riderRate * (1 + riderHLoad/100.00)) / quarterFac;
-             _month = (riderRate * (1 + riderHLoad/100.00)) * monthFac;
-             */
-            RiderHLPremium = RiderPremium * (riderHLoadPct/100.00);
-        }
-        
-        _ann =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * annFac)]] doubleValue ];
-        _half =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * halfFac)]] doubleValue ];
-        _quar =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * quarterFac)]] doubleValue ];
-        _month =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * monthFac)]] doubleValue ];
-        
-        _annWithHL =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * annFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPremium * annFac)]] doubleValue ];
-        _halfWithHL =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * halfFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPremium * halfFac)]] doubleValue ];
-        _quarWithHL =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * quarterFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPremium * quarterFac)]] doubleValue ];
-        _monthWithHL =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * monthFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPremium * monthFac)]] doubleValue ];
-        
-        sqlite3_stmt *statement;
-        
-        if (sqlite3_open([databasePath UTF8String], &contactDB) == SQLITE_OK){
-            
-            NSString *querySQL = [NSString stringWithFormat: @"Delete From SI_Store_premium Where Sino = '%@' AND Type = '%@'", getSINo, riderCode];
-            
-            if (sqlite3_prepare_v2(contactDB, [querySQL UTF8String], -1, &statement, NULL) == SQLITE_OK)
-            {
-                if (sqlite3_step(statement) == SQLITE_DONE)
-                {
-                    
-                }
-                sqlite3_finalize(statement);
-            }
-            
-            
-            for (int a = 0; a<ReportHMMRates.count; a++) {
-                
-                double annualRates = [[ReportHMMRates objectAtIndex:a] doubleValue ] * annFac;
-                
-                querySQL = [NSString stringWithFormat: @"INSERT INTO SI_Store_premium (\"Type\",\"Annually\",\"FromAge\", \"ToAge\", 'SINO') "
-                            " VALUES(\"%@\", \"%.9f\", \"%@\", \"%@\", '%@')",
-                            riderCode, annualRates, [ReportFromAge objectAtIndex:a], [ReportToAge objectAtIndex:a], getSINo];
-                
-                if (sqlite3_prepare_v2(contactDB, [querySQL UTF8String], -1, &statement, NULL) == SQLITE_OK)
-                {
-                    if (sqlite3_step(statement) == SQLITE_DONE)
-                    {
-                        
-                    }
-                    sqlite3_finalize(statement);
-                }
-                
-            }
-            sqlite3_close(contactDB);
-        }
-        
-    }
-    else if ([riderCode isEqualToString:@"MDSR1"] || [riderCode isEqualToString:@"MDSR2"] ){
-        _ann = 0.00;
-        _half =0.00;
-        _quar = 0.00;
-        _month =0.00;
-        _ann2 = 0.00;
-        _half2 =0.00;
-        _quar2 = 0.00;
-        _month2 =0.00;
-        _ann3 = 0.00;
-        _half3 =0.00;
-        _quar3 = 0.00;
-        _month3 =0.00;
-        double RiderPremium = 0.00;
-        double RiderHLPremium = 0.00;
-        double RiderPremium2 = 0.00;
-        double RiderHLPremium2 = 0.00;
-        double RiderPremium3 = 0.00;
-        double RiderHLPremium3 = 0.00;
-        
-        if (riderHLoad == 0) {
-            RiderPremium = riderRate;
-            RiderPremium2 = riderRate2;
-            RiderPremium3 = riderRate3;
-            
-        }
-        else{
-            RiderPremium = riderRate ;
-            RiderHLPremium = RiderPremium * (riderHLoadPct/100.00);
-
-            RiderHLPremium2 = RiderHLPremium + riderRate2 * (riderHLoadPct/100.00);
-
-            RiderHLPremium3 = RiderHLPremium2 + riderRate3 * (riderHLoadPct/100.00);
-        }
-        
-        _ann =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * annFac)]] doubleValue ];
-        _half =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * halfFac)]] doubleValue ];
-        _quar =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * quarterFac)]] doubleValue ];
-        _month =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * monthFac)]] doubleValue ];
-        _ann2 =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium2 * annFac)]] doubleValue ];
-        _half2 =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium2 * halfFac)]] doubleValue ];
-        _quar2 =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium2 * quarterFac)]] doubleValue ];
-        _month2 =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium2 * monthFac)]] doubleValue ];
-        _ann3 =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium3 * annFac)]] doubleValue ];
-        _half3 =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium3 * halfFac)]] doubleValue ];
-        _quar3 =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium3 * quarterFac)]] doubleValue ];
-        _month3 =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium3 * monthFac)]] doubleValue ];
-        
-        _annWithHL =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * annFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPremium * annFac)]] doubleValue ];
-        _halfWithHL =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * halfFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPremium * halfFac)]] doubleValue ];
-        _quarWithHL =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * quarterFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPremium * quarterFac)]] doubleValue ];
-        _monthWithHL =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * monthFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPremium * monthFac)]] doubleValue ];
-        
-        _annWithHL2 =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium2 * annFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPremium2 * annFac)]] doubleValue ];
-        _halfWithHL2 =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium2 * halfFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPremium2 * halfFac)]] doubleValue ];
-        _quarWithHL2 =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium2 * quarterFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPremium2 * quarterFac)]] doubleValue ];
-        _monthWithHL2 =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium2 * monthFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPremium2 * monthFac)]] doubleValue ];
-        
-        _annWithHL3 =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium3 * annFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPremium3 * annFac)]] doubleValue ];
-        _halfWithHL3 =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium3 * halfFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPremium3 * halfFac)]] doubleValue ];
-        _quarWithHL3 =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium3 * quarterFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPremium3 * quarterFac)]] doubleValue ];
-        _monthWithHL3 =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium3 * monthFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPremium3 * monthFac)]] doubleValue ];
-        
-        
-    }
-
-    else if ([riderCode isEqualToString:@"MDSR1-ALW"] || [riderCode isEqualToString:@"MDSR1-OT"] || [riderCode isEqualToString:@"MDSR2-ALW"] || [riderCode isEqualToString:@"MDSR2-OT"] ){
+	}
+    else if ([riderCode isEqualToString:@"BLIFEHNS1"])
+	{
         _ann = 0.00;
         _half =0.00;
         _quar = 0.00;
@@ -6220,11 +5193,11 @@ NSString *FirstLAOccuCode;
         double RiderHLPremium = 0.00;
         
         if (riderHLoad == 0 && riderHLoadPct == 0 ) {
-            RiderPremium = riderRate ;
-            
+            RiderPremium = (riderRate * 1000.00) / annFac;
         }
         else{
-            RiderPremium = riderRate;
+            RiderPremium = (riderRate * 1000.00) / annFac;
+            
             RiderHLPremium = (RiderPremium * riderHLoadPct/100.00) + (occLoadRider + riderHLoad) * ridSA /1000.00;
         }
         
@@ -6241,142 +5214,8 @@ NSString *FirstLAOccuCode;
         [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderHLPremium * quarterFac) ]] doubleValue];
         _monthWithHL = [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderPremium * monthFac) ]] doubleValue] +
         [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderHLPremium * monthFac) ]] doubleValue];
-        
-        
-    }
-    else if ([riderCode isEqualToString:@"LSR"] ){
-        _ann = 0.00;
-        _half =0.00;
-        _quar = 0.00;
-        _month =0.00;
-        double RiderPremium = 0.00;
-        double RiderHLPrem = 0.00;
-        double LSDPremium = 0.00;
-        
-        if (riderHLoad == 0 && occLoadRider == 0) {
-            RiderPremium = (riderRate * ridSA/1000.00 );
-            
-        }
-        else{
-            RiderPremium = (riderRate * ridSA/1000.00 );
-            RiderHLPrem =  ( occLoadRider + riderHLoad) * (ridSA/1000.00) ;
-            
-        }
-        
-        if (ridSA >= 20000 && ridSA < 50000) {
-            LSDPremium = (ridSA * (0.00/1000.00));
-        }
-        else if (ridSA >= 50000 && ridSA < 100000) {
-            LSDPremium = (ridSA * (3.2/1000.00));
-        }
-        else if (ridSA >= 100000 && ridSA < 150000) {
-            LSDPremium = (ridSA * (4.00/1000.00));
-        }
-        else if (ridSA >= 150000 && ridSA < 200000) {
-            LSDPremium = (ridSA * (4.5/1000.00));
-        }
-        else if (ridSA >= 200000 && ridSA < 500000) {
-            LSDPremium = (ridSA * (5.00/1000.00));
-        }
-        else if (ridSA >= 500000 && ridSA < 750000) {
-            LSDPremium = (ridSA * (5.15/1000.00));
-        }
-        else if (ridSA >= 750000 && ridSA < 1500000) {
-            LSDPremium = (ridSA * (5.25/1000.00));
-        }
-        else if (ridSA >= 1500000) {
-            LSDPremium = (ridSA * (5.3/1000.00));
-        }
-        
-        _ann =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * annFac)]] doubleValue ] -
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (LSDPremium * annFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * annFac)]] doubleValue ];
-        _half =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * halfFac)]] doubleValue ] -
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (LSDPremium * halfFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * halfFac)]] doubleValue ];
-        _quar =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * quarterFac)]] doubleValue ] -
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (LSDPremium * quarterFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * quarterFac)]] doubleValue ];
-        _month =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * monthFac)]] doubleValue ] -
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (LSDPremium * monthFac)]] doubleValue ] +
-        [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * monthFac)]] doubleValue ];
-        
-        _RiderLoadingPremiumAnn = [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * annFac)]] doubleValue ];
-        _RiderLoadingPremiumHalf = [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * halfFac)]] doubleValue ];
-        _RiderLoadingPremiumQuar = [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * quarterFac)]] doubleValue ];
-        _RiderLoadingPremiumMonth = [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * monthFac)]] doubleValue ];
-        
-    }
-    else if ([riderCode isEqualToString:@"TSR"] ){
-        _ann = 0.00;
-        _half =0.00;
-        _quar = 0.00;
-        _month =0.00;
-        double RiderPremium = 0.00;
-        double RiderHLPrem = 0.00;
-        
-        if ([outletRiderPlan.titleLabel.text isEqualToString:@"Up to age 60"]) {
-            if (riderHLoad == 0 && occLoadRider == 0) {
-                RiderPremium = (riderRate * ridSA/1000.00 );
-                
-            }
-            else{
-                RiderPremium = (riderRate * ridSA/1000.00 );
-                RiderHLPrem =  ((OccScale * occLoadRider) + riderHLoad) * (ridSA/1000.00) ;
-                
-            }
-        }
-        else{
-            if (riderHLoad == 0 && occLoadRider == 0) {
-                RiderPremium = (riderRate * ridSA/1000.00 );
-                
-            }
-            else{
-                RiderPremium = (riderRate * ridSA/1000.00 );
-                RiderHLPrem =  ( occLoadRider + riderHLoad) * (ridSA/1000.00) ;
-                
-            }
-        }
-        
-        _ann =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * annFac)]] doubleValue ]+[[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * annFac)]] doubleValue ];
-        _half =[[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * halfFac)]] doubleValue ]+[[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * halfFac)]] doubleValue ];
-        _quar=[[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium *quarterFac)]] doubleValue]+[[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderHLPrem*quarterFac)]] doubleValue ];
-        _month=[[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium*monthFac)]] doubleValue ] +[[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem *monthFac)]] doubleValue ];
-        
-        _RiderLoadingPremiumAnn = [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * annFac)]] doubleValue ];
-        _RiderLoadingPremiumHalf = [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * halfFac)]] doubleValue ];
-        _RiderLoadingPremiumQuar = [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * quarterFac)]] doubleValue ];
-        _RiderLoadingPremiumMonth = [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * monthFac)]] doubleValue ];
-        
-    }
-    else if ([riderCode isEqualToString:@"TSER"] ){
-        _ann = 0.00;
-        _half =0.00;
-        _quar = 0.00;
-        _month =0.00;
-        double RiderPremium = 0.00;
-        double RiderHLPrem = 0.00;
-        
-        if (riderHLoad == 0 && occLoadRider == 0) {
-            RiderPremium = (riderRate * ridSA/1000.00 );
-        }
-        else{
-            RiderPremium = (riderRate * ridSA/1000.00 );
-            RiderHLPrem =  ((OccScale * occLoadRider) + riderHLoad) * (ridSA/1000.00) ;
-        }
-        
-        _ann =  [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * annFac)]] doubleValue ]+[[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * annFac)]] doubleValue ];
-        _half =[[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium * halfFac)]] doubleValue ]+[[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * halfFac)]] doubleValue ];
-        _quar=[[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium *quarterFac)]] doubleValue]+[[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderHLPrem*quarterFac)]] doubleValue ];
-        _month=[[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderPremium*monthFac)]] doubleValue ] +[[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem *monthFac)]] doubleValue ];
-        
-        _RiderLoadingPremiumAnn = [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * annFac)]] doubleValue ];
-        _RiderLoadingPremiumHalf = [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * halfFac)]] doubleValue ];
-        _RiderLoadingPremiumQuar = [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * quarterFac)]] doubleValue ];
-        _RiderLoadingPremiumMonth = [[formatter stringFromNumber:[NSNumber numberWithDouble: (RiderHLPrem * monthFac)]] doubleValue ];
-        
-    }
-    else if ([riderCode isEqualToString:@"RRTUO"] || [riderCode isEqualToString:@"MCFR"]  ){
+	}
+    else if ([riderCode isEqualToString:@"RRTUO"]   ){
         _ann = 0.00;
         _half =0.00;
         _quar = 0.00;
@@ -6387,6 +5226,24 @@ NSString *FirstLAOccuCode;
         _quar = _ann * quarterFac;
         _month = _ann * monthFac;
         
+    }
+    else{
+        double RiderPremium = random();
+        double RiderHLPremium = 0.00;
+        
+        _ann = [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderPremium * annFac) ]] doubleValue];
+        _half = [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderPremium * halfFac) ]] doubleValue];
+        _quar = [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderPremium * quarterFac) ]] doubleValue];
+        _month = [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderPremium * monthFac) ]] doubleValue];
+        
+        _annWithHL = [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderPremium * annFac) ]] doubleValue] +
+        [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderHLPremium * annFac) ]] doubleValue];
+        _halfWithHL = [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderPremium * halfFac) ]] doubleValue] +
+        [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderHLPremium * halfFac) ]] doubleValue];
+        _quarWithHL = [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderPremium * quarterFac) ]] doubleValue] +
+        [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderHLPremium * quarterFac) ]] doubleValue];
+        _monthWithHL = [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderPremium * monthFac) ]] doubleValue] +
+        [[formatter stringFromNumber:[NSNumber numberWithDouble:(RiderHLPremium * monthFac) ]] doubleValue];
     }
 	/*
      NSString *str_ann = [formatter stringFromNumber:[NSNumber numberWithDouble:_ann]];
@@ -6887,7 +5744,49 @@ NSString *FirstLAOccuCode;
                     riderRate =  sqlite3_column_double(statement, 0);
                 }
                  */
-                 riderRate =  sqlite3_column_double(statement, 0);
+                if ([riderCode isEqualToString:@"BLIFEHNS1"]) {
+                    if ([txtSumAssured.text isEqualToString:@"200000"]  ) {
+                        riderRate =  sqlite3_column_double(statement, 1);
+                    }
+                    else if ([txtSumAssured.text isEqualToString:@"350000"]) {
+                        riderRate =  sqlite3_column_double(statement, 2);
+                    }
+                    else if ([txtSumAssured.text isEqualToString:@"500000"]) {
+                        riderRate =  sqlite3_column_double(statement, 3);
+                    }
+                    else if ([txtSumAssured.text isEqualToString:@"750000"]) {
+                        riderRate =  sqlite3_column_double(statement, 4);
+                    }
+                    else if ([txtSumAssured.text isEqualToString:@"1000000"]) {
+                        riderRate =  sqlite3_column_double(statement, 5);
+                    }
+                    else if ([txtSumAssured.text isEqualToString:@"1500000"]) {
+                        riderRate =  sqlite3_column_double(statement, 6);
+                    }
+                    else if ([txtSumAssured.text isEqualToString:@"2000000"]) {
+                        riderRate =  sqlite3_column_double(statement, 7);
+                    }
+                    else  {
+                        riderRate =  sqlite3_column_double(statement, 8);
+                    }
+                }
+                else{
+                    if ([sex isEqualToString:@"M"] && [getSmoker isEqualToString:@"Y"] ) {
+                        riderRate =  sqlite3_column_double(statement, 0);
+                    }
+                    else if ([sex isEqualToString:@"M"] && [getSmoker isEqualToString:@"N"] ) {
+                        riderRate =  sqlite3_column_double(statement, 1);
+                    }
+                    else if ([sex isEqualToString:@"F"] && [getSmoker isEqualToString:@"Y"] ) {
+                        riderRate =  sqlite3_column_double(statement, 2);
+                    }
+                    else  {
+                        riderRate =  sqlite3_column_double(statement, 3);
+                    }
+                }
+                
+                
+                
                 
             } else {
                 NSLog(@"error access  ");

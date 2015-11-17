@@ -1639,11 +1639,11 @@
 		[[_paymentModeSC.subviews objectAtIndex:1] setAlpha:0.5];
 	}
 	
-	if ([MonthlyValue isEqualToString:@"0"]||[MonthlyValue isEqualToString:@"0.00"])
-	{
-		[_paymentModeSC setEnabled:NO forSegmentAtIndex:3];
-		[[_paymentModeSC.subviews objectAtIndex:0] setAlpha:0.5];
-	}
+//	if ([MonthlyValue isEqualToString:@"0"]||[MonthlyValue isEqualToString:@"0.00"])
+//	{
+//		[_paymentModeSC setEnabled:NO forSegmentAtIndex:3];
+//		[[_paymentModeSC.subviews objectAtIndex:0] setAlpha:0.5];
+//	}
 	
 	
 	

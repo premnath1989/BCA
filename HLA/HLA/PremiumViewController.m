@@ -458,49 +458,148 @@
 
             }
         
+        NSString *newHtml;
         
-        
-        if ([ModeOfPayment isEqualToString:@"L"]) {
+        if ([ModeOfPayment isEqualToString:@"L"])
+		{
             color1 = @"#D3D3D3";
+			
+			newHtml = [NSString stringWithFormat: @"<html>"
+								 "<body style=\"background-image:url(%@)\">"
+								 "<br><br><br>"
+								 "<table border='1' width='70%%' align='center' style='border-collapse:collapse; border-color:gray;'> "
+								 "<tr>"
+								 "<td width='25%%' align='center' style='height:45px; background-color:#4F81BD;'>&nbsp;</td>"
+								 "<td width='25%%' align='center' style='height:45px; background-color:#4F81BD;'><font face='TreBuchet MS' size='4'>%@</font></td>"
+	//							 "<td width='25%%' align='center' style='height:45px; background-color:#4F81BD;'><font face='TreBuchet MS' size='4'>%@</font></td>"
+	//							 "<td width='25%%' align='center' style='height:45px; background-color:#4F81BD;'><font face='TreBuchet MS' size='4'>%@</font></td>"
+								 "</tr>"
+								 "<tr>"
+								 "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Basic Plan</font></td>"
+								 "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+//								 "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+//								 "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+								 "</tr>"
+								 "<tr>"
+								 "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Health Loading</font></td>"
+								 "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+//								 "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+//								 "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+								 "</tr>"
+								 "<tr>"
+								 "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Sub-Total</font></td>"
+								 "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+//								 "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+//								 "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+					   
+								 "</tr>", url, tempMOP1,color1, tempPrem1,color1, tempHL1,
+								 color1, total1];
+
         }
-        else if ([ModeOfPayment isEqualToString:@"Y"]) {
+        else if ([ModeOfPayment isEqualToString:@"Y"])
+		{
             color2 = @"#D3D3D3";
+			
+			newHtml = [NSString stringWithFormat: @"<html>"
+					   "<body style=\"background-image:url(%@)\">"
+					   "<br><br><br>"
+					   "<table border='1' width='70%%' align='center' style='border-collapse:collapse; border-color:gray;'> "
+					   "<tr>"
+					   "<td width='25%%' align='center' style='height:45px; background-color:#4F81BD;'>&nbsp;</td>"
+					   "<td width='25%%' align='center' style='height:45px; background-color:#4F81BD;'><font face='TreBuchet MS' size='4'>%@</font></td>"
+					   //							 "<td width='25%%' align='center' style='height:45px; background-color:#4F81BD;'><font face='TreBuchet MS' size='4'>%@</font></td>"
+					   //							 "<td width='25%%' align='center' style='height:45px; background-color:#4F81BD;'><font face='TreBuchet MS' size='4'>%@</font></td>"
+					   "</tr>"
+					   "<tr>"
+					   "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Basic Plan</font></td>"
+					   "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+					   //								 "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+					   //								 "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+					   "</tr>"
+					   "<tr>"
+					   "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Health Loading</font></td>"
+					   "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+					   //								 "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+					   //								 "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+					   "</tr>"
+					   "<tr>"
+					   "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Sub-Total</font></td>"
+					   "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+					   //								 "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+					   //								 "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+					   
+					   "</tr>", url, tempMOP2,color2, tempPrem2,color2, tempHL2,
+					   color2, total2];
+			
+			
+			
         }
-        else if ([ModeOfPayment isEqualToString:@"M"]) {
+        else if ([ModeOfPayment isEqualToString:@"M"])
+		{
             color3 = @"#D3D3D3";
+			
+			newHtml = [NSString stringWithFormat: @"<html>"
+					   "<body style=\"background-image:url(%@)\">"
+					   "<br><br><br>"
+					   "<table border='1' width='70%%' align='center' style='border-collapse:collapse; border-color:gray;'> "
+					   "<tr>"
+					   "<td width='25%%' align='center' style='height:45px; background-color:#4F81BD;'>&nbsp;</td>"
+					   "<td width='25%%' align='center' style='height:45px; background-color:#4F81BD;'><font face='TreBuchet MS' size='4'>%@</font></td>"
+					   //							 "<td width='25%%' align='center' style='height:45px; background-color:#4F81BD;'><font face='TreBuchet MS' size='4'>%@</font></td>"
+					   //							 "<td width='25%%' align='center' style='height:45px; background-color:#4F81BD;'><font face='TreBuchet MS' size='4'>%@</font></td>"
+					   "</tr>"
+					   "<tr>"
+					   "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Basic Plan</font></td>"
+					   "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+					   //								 "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+					   //								 "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+					   "</tr>"
+					   "<tr>"
+					   "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Health Loading</font></td>"
+					   "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+					   //								 "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+					   //								 "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+					   "</tr>"
+					   "<tr>"
+					   "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Sub-Total</font></td>"
+					   "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+					   //								 "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+					   //								 "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+					   
+					   "</tr>", url, tempMOP3,color3, tempPrem3,color3, tempHL3,
+					   color3, total3];
         }
-        
-        
-        
-        NSString *newHtml = [NSString stringWithFormat: @"<html>"
-                             "<body style=\"background-image:url(%@)\">"
-                             "<br><br><br>"
-                             "<table border='1' width='70%%' align='center' style='border-collapse:collapse; border-color:gray;'> "
-                             "<tr>"
-                             "<td width='25%%' align='center' style='height:45px; background-color:#4F81BD;'>&nbsp;</td>"
-                             "<td width='25%%' align='center' style='height:45px; background-color:#4F81BD;'><font face='TreBuchet MS' size='4'>%@</font></td>"
-                             "<td width='25%%' align='center' style='height:45px; background-color:#4F81BD;'><font face='TreBuchet MS' size='4'>%@</font></td>"
-                             "<td width='25%%' align='center' style='height:45px; background-color:#4F81BD;'><font face='TreBuchet MS' size='4'>%@</font></td>"
-                             "</tr>"
-                             "<tr>"
-                             "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Basic Plan</font></td>"
-                             "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
-                             "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
-                             "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
-                             "</tr>"
-                             "<tr>"
-                             "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Health Loading</font></td>"
-                             "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
-                             "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
-                             "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
-                             "</tr>"
-                             "<tr>"
-                             "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Sub-Total</font></td>"
-                             "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
-                             "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
-                             "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
-                             "</tr>", url, tempMOP1, tempMOP2, tempMOP3, color1, tempPrem1, color2, tempPrem2, color3, tempPrem3, color1, tempHL1, color2, tempHL2, color3, tempHL3,
-                             color1, total1, color2, total2, color3, total3];
+		
+//		newHtml = [NSString stringWithFormat: @"<html>"
+//				   "<body style=\"background-image:url(%@)\">"
+//				   "<br><br><br>"
+//				   "<table border='1' width='70%%' align='center' style='border-collapse:collapse; border-color:gray;'> "
+//				   "<tr>"
+//				   "<td width='25%%' align='center' style='height:45px; background-color:#4F81BD;'>&nbsp;</td>"
+//				   "<td width='25%%' align='center' style='height:45px; background-color:#4F81BD;'><font face='TreBuchet MS' size='4'>%@</font></td>"
+//				   "<td width='25%%' align='center' style='height:45px; background-color:#4F81BD;'><font face='TreBuchet MS' size='4'>%@</font></td>"
+//				   "<td width='25%%' align='center' style='height:45px; background-color:#4F81BD;'><font face='TreBuchet MS' size='4'>%@</font></td>"
+//				   "</tr>"
+//				   "<tr>"
+//				   "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Basic Plan</font></td>"
+//				   "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+//				   "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+//				   "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+//				   "</tr>"
+//				   "<tr>"
+//				   "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Health Loading</font></td>"
+//				   "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+//				   "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+//				   "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+//				   "</tr>"
+//				   "<tr>"
+//				   "<td style='height:35px;padding: 5px 5px 5px 5px;'><font face='TreBuchet MS' size='3'>Sub-Total</font></td>"
+//				   "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+//				   "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+//				   "<td align='right' style='background-color:%@;'><font face='TreBuchet MS' size='3'>%@</font></td>"
+//				   "</tr>", url, tempMOP1, tempMOP2, tempMOP3, color1, tempPrem1, color2, tempPrem2, color3, tempPrem3, color1, tempHL1, color2, tempHL2, color3, tempHL3,
+//				   color1, total1, color2, total2, color3, total3];
+
         
 		self.WebView.backgroundColor = [UIColor clearColor];
 		self.WebView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg10.jpg"]];

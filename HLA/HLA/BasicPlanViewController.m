@@ -198,6 +198,36 @@ bool WPTPD30RisDeleted = FALSE;
     if([EAPPorSI isEqualToString:@"eAPP"]){
         [self disableFieldsForEapp];
     }
+	
+	if(MOPSegment.selectedSegmentIndex ==0)
+	{
+		[advanceIncomeSegment setEnabled:YES forSegmentAtIndex:0];
+		[[advanceIncomeSegment.subviews objectAtIndex:0]setAlpha:1.0];
+		
+		[advanceIncomeSegment setEnabled:NO forSegmentAtIndex:1];
+		[[advanceIncomeSegment.subviews objectAtIndex:1] setAlpha:0.5];
+		
+		[advanceIncomeSegment setEnabled:NO forSegmentAtIndex:2];
+		[[advanceIncomeSegment.subviews objectAtIndex:2] setAlpha:0.5];
+		
+		
+		
+	}
+	
+	if (MOPSegment.selectedSegmentIndex ==1)
+	{
+		[advanceIncomeSegment setEnabled:NO forSegmentAtIndex:0];
+		[[advanceIncomeSegment.subviews objectAtIndex:0] setAlpha:0.5];
+		
+		[advanceIncomeSegment setEnabled:YES forSegmentAtIndex:1];
+		[[advanceIncomeSegment.subviews objectAtIndex:1]setAlpha:1.0];
+		
+		[advanceIncomeSegment setEnabled:YES forSegmentAtIndex:2];
+		[[advanceIncomeSegment.subviews objectAtIndex:2] setAlpha:1.0];
+		
+		
+	}
+
 }
 
 -(void) disableFieldsForEapp
@@ -506,8 +536,36 @@ bool WPTPD30RisDeleted = FALSE;
     int val = [self scanForNumbersFromString:[MOPSegment titleForSegmentAtIndex:MOPSegment.selectedSegmentIndex]];
     MOPHLAIB = val;
     appDelegate.isNeedPromptSaveMsg = YES;
-    
-    MOP = val;
+	
+	NSLog(@"%i",MOPSegment.selectedSegmentIndex);
+	
+	if(MOPSegment.selectedSegmentIndex ==0)
+	{
+		[advanceIncomeSegment setEnabled:YES forSegmentAtIndex:0];
+		[[advanceIncomeSegment.subviews objectAtIndex:0]setAlpha:1.0];
+		
+		[advanceIncomeSegment setEnabled:NO forSegmentAtIndex:1];
+		[[advanceIncomeSegment.subviews objectAtIndex:1] setAlpha:0.5];
+		
+		[advanceIncomeSegment setEnabled:NO forSegmentAtIndex:2];
+		[[advanceIncomeSegment.subviews objectAtIndex:2] setAlpha:0.5];
+		
+	}
+	
+	if(MOPSegment.selectedSegmentIndex ==1)
+	{
+		[advanceIncomeSegment setEnabled:NO forSegmentAtIndex:0];
+		[[advanceIncomeSegment.subviews objectAtIndex:0]setAlpha:0.5];
+		
+		[advanceIncomeSegment setEnabled:YES forSegmentAtIndex:1];
+		[[advanceIncomeSegment.subviews objectAtIndex:1]setAlpha:1.0];
+		
+		[advanceIncomeSegment setEnabled:YES forSegmentAtIndex:2];
+		[[advanceIncomeSegment.subviews objectAtIndex:2]setAlpha:1.0];
+		
+	}
+	
+       MOP = val;
 }
 
 - (IBAction)incomeSegmentPressed:(id)sender

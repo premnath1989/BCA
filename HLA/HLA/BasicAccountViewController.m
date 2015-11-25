@@ -700,19 +700,10 @@ id AppsVersion;
 		SAFac = 15;
 	}
 	
-	if (segPremium.selectedSegmentIndex == 1) {
-		minSA = SAFac * [txtBasicPremium.text doubleValue ] / Semi;
-	}
-	else if (segPremium.selectedSegmentIndex == 2){
-		minSA = SAFac * [txtBasicPremium.text doubleValue ] / quarterly;
-	}
-	else if (segPremium.selectedSegmentIndex == 3){
-		minSA = SAFac * [txtBasicPremium.text doubleValue ] / Monthly;
-	}
-	else{
-		minSA =  SAFac * [txtBasicPremium.text doubleValue ];
-	}
+
 	
+    minSA = 20000000.00;
+    
 	return YES;
 }
 
@@ -6981,7 +6972,7 @@ id AppsVersion;
 			[alert show];
 			*/
 			[self checkingSave];
-			[_delegate BasicGlobalSave];
+			//[_delegate BasicGlobalSave];
 		}
 		
 	}

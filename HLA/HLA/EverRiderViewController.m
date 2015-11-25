@@ -639,14 +639,11 @@ NSString *FirstLAOccuCode;
 -(void)textFieldDidEndEditing:(UITextField *)textField{
 	
 	if (textField.tag == 1) {
-		if ([riderCode isEqualToString:@"CIWP"] || [riderCode isEqualToString:@"ACIR"] || [riderCode isEqualToString:@"DCA"] || [riderCode isEqualToString:@"MDSR1"] ||
-			[riderCode isEqualToString:@"DHI"] ||  [riderCode isEqualToString:@"LCWP"]  || [riderCode isEqualToString:@"MR"] || [riderCode isEqualToString:@"MDSR2"] ||
-			[riderCode isEqualToString:@"PA"] || [riderCode isEqualToString:@"PR"] || [riderCode isEqualToString:@"TPDWP"] ||
-			[riderCode isEqualToString:@"WI"] || [riderCode isEqualToString:@"TPDMLA"] || [riderCode isEqualToString:@"TPDYLA"]  ) {
+		
 			if (![txtRiderTerm.text isEqualToString:@"" ]) {
 				txtPaymentTerm.text = txtRiderTerm.text;
 			}
-		}
+		
         
 	}
 	
@@ -6237,68 +6234,8 @@ NSString *FirstLAOccuCode;
     
 
 	
-    [self CheckWaiverRiderPrem];
-    [self validateRules];
-	[self CalcTotalRiderPrem];
-    
-    
-    //update auto attached
-    if (age < 60 && ![riderCode isEqualToString:@"MCFR"]) {
-        
-        //riderCode = @"MCFR";
-        //planOption = @"";
-        //FullRiderDesc = @"MediCare Funding Rider";
-        //RRTUOFromYear = 0
-        double forYears = 60 - age;//RRTUOYear
-        double fullPremium = 0.0;//premium
-        BOOL isMCFRExist = NO;
-        for (int i = 0; i < LTypePremium.count; i++) {
-            if ([[LRiderCode objectAtIndex:i] isEqualToString:@"MCFR"]) {
-                isMCFRExist = YES;
-            }else{
-                fullPremium += [[LTypePremium objectAtIndex:i] doubleValue];
-                
-            }
-            
-        }
-        double percentagePremium = fullPremium * 0.20;
-        
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" "
-                                                        message:[NSString stringWithFormat:@"MediCare Funding Rider has been attached with additional annual premium of RM%.2f from 0 policy anniversary/1st year for %.0f years.",percentagePremium,forYears] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-        
-        updatetSQL = [NSString stringWithFormat: //changes in inputHLPercentageTerm by heng
-                      @"UPDATE UL_Rider_Details SET RRTUOFromYear=\"%@\", RRTUOYear=\"%.2f\", PlanOption=\"%@\", "
-                      "Deductible=\"%@\", HLoading=\"%@\", HLoadingTerm=\"%d\", "
-                      "HLoadingPct=\"%@\", HLoadingPctTerm=\"%d\", ReinvestGYI = '%@', premium ='%.2f', RiderDesc = '%@', PaymentChoice = '' WHERE SINo=\"%@\" AND RiderCode=\"%@\" AND "
-                      "PTypeCode=\"%@\" AND Seq=\"%d\"", @"0", forYears, @"",
-                      deductible, inputHL1KSA, inputHL1KSATerm,inputHLPercentage,
-                      inputHLPercentageTerm, [self ReturnReinvest], percentagePremium, @"MediCare Funding Rider", getSINo,
-                      @"MCFR",pTypeCode, PTypeSeq];
-        
-        
-        
-        
-        if (sqlite3_open([databasePath UTF8String], &contactDB) == SQLITE_OK){
-            if(sqlite3_prepare_v2(contactDB, [updatetSQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
-                if (sqlite3_step(statement) == SQLITE_DONE)
-                {
-                    
-                }
-                
-                sqlite3_finalize(statement);
-                
-            }
-            sqlite3_close(contactDB);
-        }
-        
-        
-        
-        
-        
-    }
-    
+    //[self CheckWaiverRiderPrem];
+    //[self validateRules];
     
     [self getListingRiderByType];
     [self getListingRider];

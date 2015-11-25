@@ -658,7 +658,8 @@ NSString *BasicTerm, *planCode;
 	
 	[self ValidateString];
     
-	int total = [txt2025.text intValue] + [txt2030.text intValue] + [txtSecureFund.text intValue] + [txtDanaFund.text intValue] + [txtVentureFlexi.text intValue] + [self.txtVentureBlueChip.text intValue];
+	int total = [txt2025.text intValue] + [txt2030.text intValue] + [txtSecureFund.text intValue] + [txtDanaFund.text intValue] +
+                [txtVentureFlexi.text intValue] + [self.txtVentureBlueChip.text intValue];
 	
     if (total != 100 ) {
 		UIAlertView *failAlert = [[UIAlertView alloc] initWithTitle:@" "
@@ -809,7 +810,6 @@ NSString *BasicTerm, *planCode;
 	[self setMyScrollView:nil];
 	[self setTxtDanaFund:nil];
 	[self setTxtExpireDanaFund:nil];
-	[self setTxtDanaFund:nil];
 	[self setTxtExpireDanaFund:nil];
     [self setOutletDone:nil];
     [self setOutletEAPP:nil];

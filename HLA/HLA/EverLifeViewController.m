@@ -963,7 +963,7 @@ ReinvestAmount2028toVenture9999_L,ReinvestAmount2030toVenture9999_L,ReinvestAmou
 	NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docsDir = [dirPaths objectAtIndex:0];
     databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"hladb.sqlite"]];
-    UL_RatesDatabasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"UL_Rates.sqlite"]];
+    UL_RatesDatabasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"BCAUL_Rates.sqlite"]];
     
 	if ([SimpleOrDetail isEqualToString:@"Detail"]) {
 		
@@ -8073,26 +8073,8 @@ ReinvestAmount2028toVenture9999_L,ReinvestAmount2030toVenture9999_L,ReinvestAmou
 }
 
 -(double)CalculateBUMP{
-	double FirstBasicMort = [self ReturnBasicMort:Age]/1000.00;
-	double FirstSA = BasicSA;
-	double SecondBasicMort = [self ReturnBasicMort:Age + 1]/1000.00;
-	double SecondSA = 0;
-	double ThirdBasicMort = [self ReturnBasicMort:Age + 2]/1000.00;
-	double BUMP1;
-	double BUMP2;
 
-    
-	//NSLog(@"%f, %f, %f", FirstBasicMort, SecondBasicMort, ThirdBasicMort);
-	
-	//[self getExistingBasic]; //disable as it will change getbumpmode
-	[self CalcInst:@""];
-	[self GetRegWithdrawal];
-	[self ReturnFundFactor]; // get factor for each fund
-	[self CalcYearDiff]; //get the yearDiff 
-	//[self SurrenderValue:2 andMonth:0 andLevel:0];
-	//SecondSA = BasicSA - HSurrenderValue;
-    SecondSA = BasicSA; //remove 20150129
-	//NSLog(@"dasdas %f", HSurrenderValue);
+	double BUMP1;
 	if ([getHL isEqualToString:@""] || [getHL isEqualToString:@"(null)"]) {
 		getHL = @"0";
 	}
@@ -8105,104 +8087,87 @@ ReinvestAmount2028toVenture9999_L,ReinvestAmount2030toVenture9999_L,ReinvestAmou
 		getOccLoading = @"0";
 	}
 	
-	double MortDate = [self GetMortDate ];
-	
-	double ModeRate = [self ReturnModeRate:strBumpMode];
-	double divideMode = [self ReturnDivideMode];
-	//double PremAllocation = Age > 65 ? [self ReturnPremAllocation:1] : [self ReturnPremAllocation_V:1];
-    double PremAllocation = [self ReturnPremAllocation:1];
-	double ExcessPrem =  [self ReturnExcessPrem:1];
-	
-    //NSLog(@" %f,%f,%f,%f, %f", MortDate, ModeRate, divideMode, PremAllocation, ExcessPrem);
 
+	double divideMode = [self ReturnDivideMode];
+    double subStandard = [self returnSubStandard];
     
-    /*
-	double FirstBasicSA =  (FirstSA * ((FirstBasicMort * MortDate + SecondBasicMort * (12 - MortDate))/12.00 * (1 + [getHLPct intValue]/100.00 ) +
-									   ([getHL doubleValue] /1000.00) + ([getOccLoading doubleValue ]/1000.00)));
-	*/
-    double FirstBasicSA =  (FirstSA * ((FirstBasicMort * (IsEDD ? 0.00 : MortDate) + SecondBasicMort * (12 - MortDate))/12.00 * (1 + [getHLPct intValue]/100.00 ) +
-									   ([getHL doubleValue] /1000.00) + ([getOccLoading doubleValue ]/1000.00)));
-    
-	double SecondBasicSA =  (SecondSA * ((SecondBasicMort * MortDate + ThirdBasicMort * (12 - MortDate))/12.00 * (1 + [getHLPct intValue]/100.00 ) +
-										 ([getHL doubleValue] /1000.00) + ([getOccLoading doubleValue ]/1000.00)));
+	BUMP1 = ([strBasicPremium_Bump doubleValue ]) - BasicSA/subStandard - [self CalcTotalRiderPrem] ;
 	
-	//NSLog(@"%f %f ", FirstBasicSA, SecondBasicSA);
-	
-	BUMP1 = (ModeRate * (PremAllocation * ([strBasicPremium_Bump doubleValue ] * divideMode) +
-						 (0.95 * (ExcessPrem + [strGrayRTUPAmount doubleValue ] * divideMode))) -
-			 (((PolicyFee * 12) + FirstBasicSA + 0) * 12.5/12.00))/divideMode;
-	
-	BUMP2 = (ModeRate * ([self ReturnPremAllocation:2] * ([strBasicPremium_Bump doubleValue ] * divideMode) +
-						 (0.95 * ([self ReturnExcessPrem:2] + [strGrayRTUPAmount doubleValue ] * divideMode))) -
-			 (((PolicyFee * 12) + SecondBasicSA + 0) * 12.5/12.00))/divideMode;
-	
-	/*
-     if (BUMP1 < 0.00) {
-     
-     PremReq = ((((0.01 * divideMode) + (((PolicyFee * 12) + FirstBasicSA + 0) * 12.5/12.00))/ModeRate -
-     (0.95 * (ExcessPrem + [strRTUPAmount doubleValue ])))/PremAllocation)/divideMode;
-     
-     
-     }
-     */
-	NSLog(@"bump1 = %f, bump2 = %f", BUMP1, BUMP2);
 	NSNumberFormatter *format = [[NSNumberFormatter alloc]init];
-	//[format setNumberStyle:NSNumberFormatterDecimalStyle];
+
 	[format setRoundingMode:NSNumberFormatterRoundHalfUp];
-	//[format setMaximumFractionDigits:2];
+
 	[self ResetData];
 	
-	/*
-     for (int i =1; i <= 30 ; i++) {
-     
-     VUCashValueNegative = false;
-     if (i == YearDiff2023 || i == YearDiff2025 || i == YearDiff2028 || i == YearDiff2030 || i == YearDiff2035) {
-     for (int m = 1; m <= 12; m++) {
-     
-     MonthFundValueOfTheYearValueTotalHigh = [self ReturnMonthFundValueOfTheYearValueTotalHigh:i andMonth:m];
-     //NSLog(@"%d %f %f %f", m, MonthVURetValueHigh, MonthVU2035ValueHigh, MonthFundValueOfTheYearValueTotalHigh );
-     [self SurrenderValue:i andMonth:m andLevel:1];
-     
-     
-     MonthFundValueOfTheYearValueTotalMedian = [self ReturnMonthFundValueOfTheYearValueTotalMedian:i andMonth:m];
-     [self SurrenderValue:i andMonth:m andLevel:2];
-     
-     
-     MonthFundValueOfTheYearValueTotalLow = [self ReturnMonthFundValueOfTheYearValueTotalLow:i andMonth:m];
-     //NSLog(@"%d %f %f %f", m, MonthVURetValueLow, MonthVU2035ValueLow, MonthFundValueOfTheYearValueTotalLow );
-     [self SurrenderValue:i andMonth:m andLevel:3];
-     
-     }
-     
-     }
-     else{
-     VUCashValueNegative = false;
-     FundValueOfTheYearValueTotalHigh = [self ReturnFundValueOfTheYearValueTotalHigh:i];
-     FundValueOfTheYearValueTotalMedian = [self ReturnFundValueOfTheYearValueTotalMedian:i];
-     FundValueOfTheYearValueTotalLow = [self ReturnFundValueOfTheYearValueTotalLow:i];
-     [self SurrenderValue:i andMonth:0 andLevel:0];
-     }
-     
-     
-     
-     NSLog(@"%d) %f, %f, %f",i, HSurrenderValue, MSurrenderValue, LSurrenderValue );
-     NSLog(@"%d) %f,%f,%f,%f,%f,%f,%f", i, VUCashValueHigh,VURetValueHigh,VU2023ValueHigh, VU2025ValueHigh,VU2028ValueHigh, VU2030ValueHigh, VU2035ValueHigh);
-     //NSLog(@"%d) %f,%f,%f,%f,%f,%f,%f", i, VUCashValueLow,VURetValueLow,VU2023ValueLow, VU2025ValueLow,VU2028ValueLow, VU2030ValueLow, VU2035ValueLow);
-     
-     }
-     */
-	/*
-     if (BUMP1 > BUMP2) {
-     return [[NSString stringWithFormat:@"%@", [format stringFromNumber:[NSNumber numberWithFloat:BUMP2]]] doubleValue ];
-     }
-     else{
-     //return [[NSString stringWithFormat:@"%.2f", BUMP1] doubleValue ];
-     return [[NSString stringWithFormat:@"%@", [format stringFromNumber:[NSNumber numberWithFloat:BUMP1]]] doubleValue ];
-     }
-     */
-	//return [[NSString stringWithFormat:@"%@", [format stringFromNumber:[NSNumber numberWithFloat:BUMP1]]] doubleValue ];
+	
 	return BUMP1;
 	
+}
+
+-(double)CalcTotalRiderPrem{
+	
+	sqlite3_stmt *statement;
+	NSString *querySQL;
+    double returnValue = 0.00;
+
+	NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [formatter setCurrencySymbol:@""];
+    
+	if (sqlite3_open([databasePath UTF8String], &contactDB) == SQLITE_OK)
+    {
+        querySQL = [NSString stringWithFormat:
+                    @"SELECT sum(round(premium, 2)) from ul_rider_details where sino = '%@' ",  SINo];
+        
+        if (sqlite3_prepare_v2(contactDB, [querySQL UTF8String], -1, &statement, NULL) == SQLITE_OK)
+        {
+            if (sqlite3_step(statement) == SQLITE_ROW)
+            {
+                returnValue = sqlite3_column_double(statement, 0);
+                
+            }
+            sqlite3_finalize(statement);
+        }
+        
+        sqlite3_close(contactDB);
+    }
+ 
+    return returnValue;
+}
+
+
+-(double) returnSubStandard{
+    sqlite3_stmt *statement;
+	NSString *querySQL;
+    double returnValue = 0.00;
+	
+	querySQL = [NSString stringWithFormat:@"Select MS, MNS, FS, FNS From Basic_SubStandard WHERE term = '%@' AND age = '%d' ", strCovPeriod, Age ];
+	
+	//NSLog(@"%@", querySQL);
+	if (sqlite3_open([UL_RatesDatabasePath UTF8String], &contactDB) == SQLITE_OK){
+		if(sqlite3_prepare_v2(contactDB, [querySQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
+			if (sqlite3_step(statement) == SQLITE_ROW){
+                if ([getSmokerLA isEqualToString:@"Y"] && [getSexLA isEqualToString:@"M"]) {
+                    returnValue = sqlite3_column_double(statement, 0);
+                }
+                else if ([getSmokerLA isEqualToString:@"Y"] && [getSexLA isEqualToString:@"F"]) {
+                    returnValue = sqlite3_column_double(statement, 1);
+                }
+                else if ([getSmokerLA isEqualToString:@"N"] && [getSexLA isEqualToString:@"M"]) {
+                    returnValue = sqlite3_column_double(statement, 2);
+                }
+                else{
+                    returnValue = sqlite3_column_double(statement, 3);
+                }
+
+			}
+
+			sqlite3_finalize(statement);
+		}
+		sqlite3_close(contactDB);
+	}
+    
+    return returnValue;
 }
 
 -(void)ResetData{
@@ -54455,7 +54420,7 @@ ReinvestAmount2028toVenture9999_L,ReinvestAmount2030toVenture9999_L,ReinvestAmou
 	NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docsDir = [dirPaths objectAtIndex:0];
     databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"hladb.sqlite"]];
-    UL_RatesDatabasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"UL_Rates.sqlite"]];
+    UL_RatesDatabasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"BCAUL_Rates.sqlite"]];
 	
 	strBasicPremium = aaATPrem;
 	strBasicPremium_Bump = strBasicPremium;

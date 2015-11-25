@@ -8088,7 +8088,7 @@ ReinvestAmount2028toVenture9999_L,ReinvestAmount2030toVenture9999_L,ReinvestAmou
 	}
 	
 
-	double divideMode = [self ReturnDivideMode];
+	//double divideMode = [self ReturnDivideMode];
     double subStandard = [self returnSubStandard];
     
 	BUMP1 = ([strBasicPremium_Bump doubleValue ]) - BasicSA/subStandard - [self CalcTotalRiderPrem] ;
@@ -8098,7 +8098,6 @@ ReinvestAmount2028toVenture9999_L,ReinvestAmount2030toVenture9999_L,ReinvestAmou
 	[format setRoundingMode:NSNumberFormatterRoundHalfUp];
 
 	[self ResetData];
-	
 	
 	return BUMP1;
 	
@@ -8141,7 +8140,26 @@ ReinvestAmount2028toVenture9999_L,ReinvestAmount2030toVenture9999_L,ReinvestAmou
 	NSString *querySQL;
     double returnValue = 0.00;
 	
-	querySQL = [NSString stringWithFormat:@"Select MS, MNS, FS, FNS From Basic_SubStandard WHERE term = '%@' AND age = '%d' ", strCovPeriod, Age ];
+    if ([strGrayRTUPAmount intValue] <= 55 ) {
+        strGrayRTUPAmount = @"55";
+    }
+    else if ([strGrayRTUPAmount intValue] <= 65 ) {
+        strGrayRTUPAmount = @"65";
+    }
+    else if ([strGrayRTUPAmount intValue] <= 70 ) {
+        strGrayRTUPAmount = @"70";
+    }
+    else if ([strGrayRTUPAmount intValue] <= 75 ) {
+        strGrayRTUPAmount = @"75";
+    }
+    else if ([strGrayRTUPAmount intValue] <= 80 ) {
+        strGrayRTUPAmount = @"80";
+    }
+    else  {
+        strGrayRTUPAmount = @"85";
+    }
+    
+	querySQL = [NSString stringWithFormat:@"Select MS, MNS, FS, FNS From Basic_SubStandard WHERE term = '%d' AND age = '%d' ", [strGrayRTUPAmount intValue], Age ];
 	
 	//NSLog(@"%@", querySQL);
 	if (sqlite3_open([UL_RatesDatabasePath UTF8String], &contactDB) == SQLITE_OK){

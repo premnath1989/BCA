@@ -382,7 +382,7 @@ id AppsVersion;
 																  andRTUPFrom:txtCommFrom.text andRTUPFor:txtFor.text andRTUPAmount:txtRTUP.text
 																  andSmokerLA:getSmokerLA andOccLoading:getOccLoading
 															  andPlanCommDate:getPlanCommDate andDOB:getDOB andSexLA:getSexLA andSino:getSINo
-																	 andLAAge:ageClient andGrayRTUO:[txtGrayRTUP.text doubleValue ] andPlanCode:getPlanCode ]];
+																	 andLAAge:ageClient andGrayRTUO:[txtPolicyTerm.text doubleValue] andPlanCode:getPlanCode ]];
 			txtBUMP.text = [formatter stringFromNumber:[NSNumber numberWithDouble:[txtBUMP.text doubleValue]]];
 			//PremiumRequired = [rrr PremRequired];
 			rrr = Nil;

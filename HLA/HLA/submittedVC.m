@@ -799,256 +799,288 @@
     [self.submitTableView reloadData];
 }
 
-
 - (IBAction)refreshButtonClicked:(UIButton *)sender {
-    
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    xmlType = XML_TYPE_FETCH_PRAPOSAL_STATUS2;
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyMMdd"];
-    NSString *date = [dateFormatter stringFromDate:[NSDate date]];
-    
-    ///////AD ID//////
-    
-    NSString *AdID = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
-    
-    NSLog(@"devideId %@",[[[UIDevice currentDevice] identifierForVendor] UUIDString]);
-    
-   // NSString *fileName = [NSString stringWithFormat:@"%@_%@.xml",date,[self GetUUID]];
-    // NSString *fileName = [NSString stringWithFormat:@"Example11111.xml"];
-    
-    NSString *fileName = [NSString stringWithFormat:@"%@_%@.xml",date,AdID];
-    
-    NSString *docFolder = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *filePath = [docFolder stringByAppendingPathComponent:[NSString stringWithFormat:@"Forms/%@",fileName]];
-    
-    NSMutableString *xml = [NSMutableString stringWithFormat:@"<NewDataSet>"];
-    for (int rowIndex=0; rowIndex<[self.Status count]; rowIndex++)
-    {
-        if([[self.Status objectAtIndex:rowIndex] isEqualToString:@"Submitted"])
-        {
-            NSString *strProposalNo = [self.ProposalNo objectAtIndex:rowIndex];
-            
-            [xml appendString:[NSString stringWithFormat:@"<Table><eProposalNo>%@</eProposalNo></Table>",strProposalNo]];
-        }
-    }
-    
-    [xml appendString:[NSString stringWithFormat:@"</NewDataSet>"]];
-    
-    NSError *error;
-    
-    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath])
-    {
-        [xml writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:&error];
-    }
-    else
-    {
-        [[NSFileManager defaultManager] createFileAtPath:filePath
-                                                contents:[xml dataUsingEncoding:NSUTF8StringEncoding]
-                                              attributes:nil];
-    }
-    
-    // [self performSelectorOnMainThread:@selector(dofetchProposalStatus) withObject:nil waitUntilDone:YES];
-    // NSDictionary *dictSubmisionval=[ws getSubmissionValue:@"UAT1234567890" Source:@"IAPP"];
-    
-    //[MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
-    //dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-    
-    /*
-     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-     NSString *documentsDirectory = [paths objectAtIndex:0]; // Get documents folder
-     NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:@"/FetchProposal"];
-     
-     if (![[NSFileManager defaultManager] fileExistsAtPath:dataPath])
-     [[NSFileManager defaultManager] createDirectoryAtPath:dataPath withIntermediateDirectories:NO attributes:nil error:nil];
-     
-     }
-     */
-    
-    
-    //convert to byte
-    NSData *data = [[NSData alloc] initWithContentsOfFile:filePath];
-    // using base64StringFromData method, we are able to convert data to string
-    NSString *stXmlrFile = [NSString base64StringFromData:data length:[data length]];
-    // log the base64 encoded string
-    NSLog(@"Base64 Encoded string is %@",stXmlrFile);
-    
-    NSString *docname = fileName;
-    
-    //webservices
-    
-    NSString *strURL = [NSString stringWithFormat:@"%@esubmissionws/esubmissionxmlservice.asmx?wsdl",[SIUtilities WSLogin]];
-    NSLog(@"%@", strURL);
-    NSString *strXML = [NSString stringWithFormat:@"<?xml version='1.0' encoding='utf-8'?><soap:Envelope xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'><soap:Body><FetchProposalStatus xmlns='http://tempuri.org/'><docbinaryarray>%@</docbinaryarray><docname>%@</docname></FetchProposalStatus></soap:Body></soap:Envelope>",stXmlrFile,docname];
-    
-    
-    NSLog(@"%@", strXML);
-    
-    NSURL *url = [NSURL URLWithString:strURL];
-    // NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    NSMutableURLRequest *request1 = [NSMutableURLRequest requestWithURL:url];
-    [request1 addValue:@"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-    [request1 addValue:@"http://tempuri.org/FetchProposalStatus" forHTTPHeaderField:@"SOAPAction"];
-    NSString *msgLenght=[NSString stringWithFormat:@"%d",[strXML length]];
-    [request1 addValue:msgLenght forHTTPHeaderField:@"Content-Length"];
-    [request1 setHTTPMethod:@"POST"];
-    [request1 setHTTPBody:[strXML dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    // Operation
-    AFXMLRequestOperation *operation = [AFXMLRequestOperation XMLParserRequestOperationWithRequest:request1 success:^(NSURLRequest *request1, NSHTTPURLResponse *response, NSXMLParser *XMLParser) {
-        NSLog(@"FetchproposalStatus");
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Status has been refreshed successfully." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];                                                                                               alert.tag = 10;
-        [alert show];
-        alert = Nil;
-		
-		self.refreshButton.enabled = YES;
-		self.refreshButton.alpha = 1.0;
-        // NSDate *today=[NSDate date];
-        
-        NSString *LoginChannel =[NSString stringWithFormat:@"%@",[SIUtilities WSLogin]];
-        NSString *strUrl1=[NSString stringWithFormat:@"%@eSubmissionWS/Download/XMLRequest/",LoginChannel];
-       // NSString *strUrl1=@"http://www.hla.com.my:2880/eSubmissionWS/Download/XMLRequest/";
-        NSString *nameOfFile=fileName;
-        NSString *URL=[NSString stringWithFormat:@"%@%@",strUrl1,nameOfFile];
-        // NSString *strURL = [NSString stringWithFormat:@"%@eSubmissionWS/eSubmissionXMLService.asmx?wsdl",[SIUtilities WSLogin]];
-        NSURL *URL1 = [NSURL URLWithString:URL];
-        NSURLRequest *request22 = [NSURLRequest requestWithURL:URL1];
-        NSData *data22=[NSData dataWithContentsOfURL:URL1];
-        resultArray = [[NSMutableArray alloc]initWithObjects:nil, nil];
-        refArray = [[NSMutableArray alloc]initWithObjects:nil, nil];
-        isErrorArray =[[NSMutableArray alloc]initWithObjects:nil, nil];;
-        errorRefArray = [[NSMutableArray alloc]initWithObjects:nil, nil];
-        errorCodeArray = [[NSMutableArray alloc]initWithObjects:nil, nil];
-        errorDescArray = [[NSMutableArray alloc]initWithObjects:nil, nil];
-        errorCreatedArray = [[NSMutableArray alloc]initWithObjects:nil, nil];
-        
-        // NSData *data = [NSData dataWithContentsOfFile:receivedDataString];
-        NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:data22];
-        [xmlParser setDelegate:self];
-        [xmlParser parse];
-        
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        //fmdb start
-        NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *docsDir = [dirPaths objectAtIndex:0];
-        NSString *status;
-        int i=0;
-        NSString *error_query;
-        NSMutableDictionary *recordDic = [[NSMutableDictionary alloc] init];
-        databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"hladb.sqlite"]];
-        sqlite3_stmt *statement;
-        
-        FMDatabase *database = [FMDatabase databaseWithPath:databasePath];
-        [database open];
-        FMResultSet *results;
-        NSString *policyno_Query;
-        //update record status to Received or failure.
-        if (sqlite3_open([databasePath UTF8String], &updateDB) == SQLITE_OK)
-        {
-            
-            // if([status isEqualToString:@"6"]){
-            NSString *updatetSQL1 = [NSString stringWithFormat:@"update eApp_Listing SET Status='6' WHERE ProposalNo='RN140601032457862'",[selectedItems objectAtIndex:0] ] ;
-            //NSString *updatetSQL1 = [NSString stringWithFormat:@"update eApp_Listing SET Status='6' WHERE ProposalNo='%@'",[recordDic objectForKey:@"ProposalNo"]] ;
-            
-            if(sqlite3_prepare_v2(updateDB, [updatetSQL1 UTF8String], -1, &statement, NULL) == SQLITE_OK) {
-                if (sqlite3_step(statement) == SQLITE_DONE) {
-                    NSLog(@"Update eapplisting status success for received");
-                }
-                else {
-                    NSLog(@"Update eapplisting status fail for received");
-                }
-                sqlite3_finalize(statement);
-            }
-            // }
-            // else if ([status isEqualToString:@"7"]){
-            // NSString *updatetSQL2 = [NSString stringWithFormat:@"update eApp_Listing SET Status='7' WHERE ProposalNo='RN140421101939051'",[selectedItems objectAtIndex:0] ] ;
-            //
-            //
-            // if(sqlite3_prepare_v2(updateDB, [updatetSQL2 UTF8String], -1, &statement, NULL) == SQLITE_OK) {
-            // if (sqlite3_step(statement) == SQLITE_DONE) {
-            // NSLog(@"Update eapplisting status success for received");
-            //  }
-            // else {
-            // NSLog(@"Update eapplisting status fail for received");
-            //                                                        }
-            //                                                    sqlite3_finalize(statement);
-            //                                                    }
-            //  }
-            sqlite3_close(updateDB);
-        }
-        
-        // Getting policy No added by basvi
-        
-        if (refArray == nil || [refArray count] == 0)
-        {
-            return;
-        }
-        NSString *policyNO=[NSString stringWithFormat:@"%@",[resultArray objectAtIndex:i]];
-        //  NSString *refNO=[NSString stringWithFormat:@"%@",[errorRefArray objectAtIndex:i]];
-        // NSString *isError=[NSString stringWithFormat:@"%@",[isErrorArray objectAtIndex:i]];
-        
-        if  ((NSNull *) policyNO == [NSNull null])
-            policyNO = @"";
-        //       if ([isError isEqualToString:@"Y"])
-        //     {
-        NSLog(@"the policy is number is nill");
-        // insert  error details to DB
-        for(i=0;i<errorRefArray.count;i++){
-            NSString *policyNO=[NSString stringWithFormat:@"%@",[resultArray objectAtIndex:i]];
-            NSString *refNO=[NSString stringWithFormat:@"%@",[errorRefArray objectAtIndex:i]];
-            error_query = [NSString stringWithFormat:@"INSERT INTO eProposal_Error_Listing('RefNo','ErrorCode', 'ErrorDesc','CreateDate') VALUES ('%@','%@','%@','%@')",[errorRefArray objectAtIndex:i],[errorCodeArray objectAtIndex:i] ,[errorDescArray objectAtIndex:i] ,[errorCreatedArray objectAtIndex:i] ,nil];
-            [database executeUpdate:error_query];
-            NSString *updatetSQL1 = [NSString stringWithFormat:@"UPDATE eApp_Listing SET Status='6' WHERE ProposalNo='%@'",refNO,nil] ;
-            [database executeUpdate:updatetSQL1];
+	
+	NSString *ipSet = @"192.168.0.140";
+	NSString *PONO = @""; 
+	NSString *AgentNo = @"emi";
+	
+	NSUserDefaults *Temp = [NSUserDefaults standardUserDefaults];
+	PONO = [Temp objectForKey:@"ProNo"];
+	
+	if (PONO == nil) {
+		PONO = @"RN151106082136572"; 
+	}
+	
+	
+	NSString *strXML3 = [NSString stringWithFormat:@"<?xml version='1.0' encoding='utf-8'?><soap:Envelope xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'><soap:Body><RetrievePolicyNumber xmlns='http://tempuri.org/'><agentCode>%@</agentCode><strPolNo>%@</strPolNo></RetrievePolicyNumber></soap:Body></soap:Envelope>", AgentNo, PONO];
+	
+	NSString *strURL = [NSString stringWithFormat:@"http://%@/AgentWebService/AgentMgmt.asmx?wsdl", ipSet];
+	
+	NSURL *url = [NSURL URLWithString:strURL];
+	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+	[request addValue:@"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+	[request addValue:@"http://tempuri.org/RetrievePolicyNumber" forHTTPHeaderField:@"SOAPAction"];
+	NSString *msgLenght = [NSString stringWithFormat:@"%d", [strXML3 length]];
+	[request addValue:msgLenght forHTTPHeaderField:@"Content-Length"];
+	[request setHTTPMethod:@"POST"];
+	[request setHTTPBody:[strXML3 dataUsingEncoding:NSUTF8StringEncoding]];
+	
+	NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+	NSData *urlData;
+	NSURLResponse *response;
+	
+	NSError *error;
+	urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+	if(conn) {
+		NSLog(@"Connection Successful");
+	} else {
+		NSLog(@"Connection could not be made");
+	}
+	
+	
+	NSString *replyString = [[NSString alloc] initWithBytes:[urlData bytes] length:[urlData length] encoding: NSASCIIStringEncoding];
+	
+	NSLog(@"reply: %@", replyString);
 
-            [self ReloadTableData];
-        }
-        
-        //         }
-        //    else     {
-        NSLog(@"the policy is number is not nill");
-        //update policy number no eproposal
-        NSString *policyno_Query1=@"";
-        for(i=0;i<refArray.count;i++)
-        {
-            NSString *policyNO=[NSString stringWithFormat:@"%@",[resultArray objectAtIndex:i]];
-            NSString *refNO=[NSString stringWithFormat:@"%@",[refArray objectAtIndex:i]];
-            policyno_Query1=[NSString stringWithFormat:@"UPDATE eProposal SET PolicyNo = '%@' WHERE eProposalNo = '%@' ",policyNO,refNO,nil];
-            [database executeUpdate:policyno_Query1];
-            if ([policyNO isEqualToString:@"-"]) {
-                NSString *updatetSQL2 = [NSString stringWithFormat:@"UPDATE eApp_Listing SET Status='6' WHERE ProposalNo='%@'",refNO,nil] ;
-                [database executeUpdate:updatetSQL2];
-            }
-            else{
-                NSString *updatetSQL1 = [NSString stringWithFormat:@"UPDATE eApp_Listing SET Status='7' WHERE ProposalNo='%@'",refNO,nil] ;
-                [database executeUpdate:updatetSQL1];
-				
-				//Clean Data when successfully submit
-				
-				ClearData *CleanData =[[ClearData alloc]init];
-				[CleanData SubmitedWipeOff:refNO];
-				
-            }
-            [self ReloadTableData];
-            //      }
-        }
-        [database close];
-    }
-                                                                                           failure:^(NSURLRequest *request1, NSHTTPURLResponse *response, NSError *error, NSXMLParser *XMLParser) {
-                                                                                               NSLog(@"Error:%@",[error localizedDescription]);
-                                                                                               NSLog(@"error in calling web service - FetchproposalStatus");
-                                                                                               UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Error in connecting to Web service. You will now be logged in as offline mode." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                                                                                               alert.tag = 10;
-                                                                                               [alert show];
-                                                                                               alert = Nil;
-                                                                                               [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                                                                           }];
-    [operation start];
-    
-    
+
+	NSRange rangeValue1 = [replyString rangeOfString:@"RetrievePolicyNumberResult" options:NSCaseInsensitiveSearch];
+	
 }
+
+
+
+//- (IBAction)refreshButtonClicked:(UIButton *)sender {
+//    
+//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    xmlType = XML_TYPE_FETCH_PRAPOSAL_STATUS2;
+//    
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//    [dateFormatter setDateFormat:@"yyMMdd"];
+//    NSString *date = [dateFormatter stringFromDate:[NSDate date]];
+//    
+//    ///////AD ID//////
+//    
+//    NSString *AdID = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+//    
+//    NSLog(@"devideId %@",[[[UIDevice currentDevice] identifierForVendor] UUIDString]);
+//    
+//   // NSString *fileName = [NSString stringWithFormat:@"%@_%@.xml",date,[self GetUUID]];
+//    // NSString *fileName = [NSString stringWithFormat:@"Example11111.xml"];
+//    
+//    NSString *fileName = [NSString stringWithFormat:@"%@_%@.xml",date,AdID];
+//    
+//    NSString *docFolder = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+//    NSString *filePath = [docFolder stringByAppendingPathComponent:[NSString stringWithFormat:@"Forms/%@",fileName]];
+//    
+//    NSMutableString *xml = [NSMutableString stringWithFormat:@"<NewDataSet>"];
+//    for (int rowIndex=0; rowIndex<[self.Status count]; rowIndex++)
+//    {
+//        if([[self.Status objectAtIndex:rowIndex] isEqualToString:@"Submitted"])
+//        {
+//            NSString *strProposalNo = [self.ProposalNo objectAtIndex:rowIndex];
+//            
+//            [xml appendString:[NSString stringWithFormat:@"<Table><eProposalNo>%@</eProposalNo></Table>",strProposalNo]];
+//        }
+//    }
+//    
+//    [xml appendString:[NSString stringWithFormat:@"</NewDataSet>"]];
+//    
+//    NSError *error;
+//    
+//    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath])
+//    {
+//        [xml writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:&error];
+//    }
+//    else
+//    {
+//        [[NSFileManager defaultManager] createFileAtPath:filePath
+//                                                contents:[xml dataUsingEncoding:NSUTF8StringEncoding]
+//                                              attributes:nil];
+//    }
+//    
+//    
+//    //convert to byte
+//    NSData *data = [[NSData alloc] initWithContentsOfFile:filePath];
+//    // using base64StringFromData method, we are able to convert data to string
+//    NSString *stXmlrFile = [NSString base64StringFromData:data length:[data length]];
+//    // log the base64 encoded string
+//    NSLog(@"Base64 Encoded string is %@",stXmlrFile);
+//    
+//    NSString *docname = fileName;
+//    
+//    //webservices
+//    
+//    NSString *strURL = [NSString stringWithFormat:@"%@esubmissionws/esubmissionxmlservice.asmx?wsdl",[SIUtilities WSLogin]];
+//    NSLog(@"%@", strURL);
+//    NSString *strXML = [NSString stringWithFormat:@"<?xml version='1.0' encoding='utf-8'?><soap:Envelope xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'><soap:Body><FetchProposalStatus xmlns='http://tempuri.org/'><docbinaryarray>%@</docbinaryarray><docname>%@</docname></FetchProposalStatus></soap:Body></soap:Envelope>",stXmlrFile,docname];
+//    
+//    
+//    NSLog(@"%@", strXML);
+//    
+//    NSURL *url = [NSURL URLWithString:strURL];
+//    // NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+//    NSMutableURLRequest *request1 = [NSMutableURLRequest requestWithURL:url];
+//    [request1 addValue:@"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+//    [request1 addValue:@"http://tempuri.org/FetchProposalStatus" forHTTPHeaderField:@"SOAPAction"];
+//    NSString *msgLenght=[NSString stringWithFormat:@"%d",[strXML length]];
+//    [request1 addValue:msgLenght forHTTPHeaderField:@"Content-Length"];
+//    [request1 setHTTPMethod:@"POST"];
+//    [request1 setHTTPBody:[strXML dataUsingEncoding:NSUTF8StringEncoding]];
+//    
+//    // Operation
+//    AFXMLRequestOperation *operation = [AFXMLRequestOperation XMLParserRequestOperationWithRequest:request1 success:^(NSURLRequest *request1, NSHTTPURLResponse *response, NSXMLParser *XMLParser) {
+//        NSLog(@"FetchproposalStatus");
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Status has been refreshed successfully." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];                                                                                               alert.tag = 10;
+//        [alert show];
+//        alert = Nil;
+//		
+//		self.refreshButton.enabled = YES;
+//		self.refreshButton.alpha = 1.0;
+//        // NSDate *today=[NSDate date];
+//        
+//        NSString *LoginChannel =[NSString stringWithFormat:@"%@",[SIUtilities WSLogin]];
+//        NSString *strUrl1=[NSString stringWithFormat:@"%@eSubmissionWS/Download/XMLRequest/",LoginChannel];
+//       // NSString *strUrl1=@"http://www.hla.com.my:2880/eSubmissionWS/Download/XMLRequest/";
+//        NSString *nameOfFile=fileName;
+//        NSString *URL=[NSString stringWithFormat:@"%@%@",strUrl1,nameOfFile];
+//        // NSString *strURL = [NSString stringWithFormat:@"%@eSubmissionWS/eSubmissionXMLService.asmx?wsdl",[SIUtilities WSLogin]];
+//        NSURL *URL1 = [NSURL URLWithString:URL];
+//        NSURLRequest *request22 = [NSURLRequest requestWithURL:URL1];
+//        NSData *data22=[NSData dataWithContentsOfURL:URL1];
+//        resultArray = [[NSMutableArray alloc]initWithObjects:nil, nil];
+//        refArray = [[NSMutableArray alloc]initWithObjects:nil, nil];
+//        isErrorArray =[[NSMutableArray alloc]initWithObjects:nil, nil];;
+//        errorRefArray = [[NSMutableArray alloc]initWithObjects:nil, nil];
+//        errorCodeArray = [[NSMutableArray alloc]initWithObjects:nil, nil];
+//        errorDescArray = [[NSMutableArray alloc]initWithObjects:nil, nil];
+//        errorCreatedArray = [[NSMutableArray alloc]initWithObjects:nil, nil];
+//        
+//        // NSData *data = [NSData dataWithContentsOfFile:receivedDataString];
+//        NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:data22];
+//        [xmlParser setDelegate:self];
+//        [xmlParser parse];
+//        
+//        [MBProgressHUD hideHUDForView:self.view animated:YES];
+//        //fmdb start
+//        NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//        NSString *docsDir = [dirPaths objectAtIndex:0];
+//        NSString *status;
+//        int i=0;
+//        NSString *error_query;
+//        NSMutableDictionary *recordDic = [[NSMutableDictionary alloc] init];
+//        databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"hladb.sqlite"]];
+//        sqlite3_stmt *statement;
+//        
+//        FMDatabase *database = [FMDatabase databaseWithPath:databasePath];
+//        [database open];
+//        FMResultSet *results;
+//        NSString *policyno_Query;
+//        //update record status to Received or failure.
+//        if (sqlite3_open([databasePath UTF8String], &updateDB) == SQLITE_OK)
+//        {
+//            
+//            // if([status isEqualToString:@"6"]){
+//            NSString *updatetSQL1 = [NSString stringWithFormat:@"update eApp_Listing SET Status='6' WHERE ProposalNo='RN140601032457862'",[selectedItems objectAtIndex:0] ] ;
+//            //NSString *updatetSQL1 = [NSString stringWithFormat:@"update eApp_Listing SET Status='6' WHERE ProposalNo='%@'",[recordDic objectForKey:@"ProposalNo"]] ;
+//            
+//            if(sqlite3_prepare_v2(updateDB, [updatetSQL1 UTF8String], -1, &statement, NULL) == SQLITE_OK) {
+//                if (sqlite3_step(statement) == SQLITE_DONE) {
+//                    NSLog(@"Update eapplisting status success for received");
+//                }
+//                else {
+//                    NSLog(@"Update eapplisting status fail for received");
+//                }
+//                sqlite3_finalize(statement);
+//            }
+//            // }
+//            // else if ([status isEqualToString:@"7"]){
+//            // NSString *updatetSQL2 = [NSString stringWithFormat:@"update eApp_Listing SET Status='7' WHERE ProposalNo='RN140421101939051'",[selectedItems objectAtIndex:0] ] ;
+//            //
+//            //
+//            // if(sqlite3_prepare_v2(updateDB, [updatetSQL2 UTF8String], -1, &statement, NULL) == SQLITE_OK) {
+//            // if (sqlite3_step(statement) == SQLITE_DONE) {
+//            // NSLog(@"Update eapplisting status success for received");
+//            //  }
+//            // else {
+//            // NSLog(@"Update eapplisting status fail for received");
+//            //                                                        }
+//            //                                                    sqlite3_finalize(statement);
+//            //                                                    }
+//            //  }
+//            sqlite3_close(updateDB);
+//        }
+//        
+//        // Getting policy No added by basvi
+//        
+//        if (refArray == nil || [refArray count] == 0)
+//        {
+//            return;
+//        }
+//        NSString *policyNO=[NSString stringWithFormat:@"%@",[resultArray objectAtIndex:i]];
+//        //  NSString *refNO=[NSString stringWithFormat:@"%@",[errorRefArray objectAtIndex:i]];
+//        // NSString *isError=[NSString stringWithFormat:@"%@",[isErrorArray objectAtIndex:i]];
+//        
+//        if  ((NSNull *) policyNO == [NSNull null])
+//            policyNO = @"";
+//        //       if ([isError isEqualToString:@"Y"])
+//        //     {
+//        NSLog(@"the policy is number is nill");
+//        // insert  error details to DB
+//        for(i=0;i<errorRefArray.count;i++){
+//            NSString *policyNO=[NSString stringWithFormat:@"%@",[resultArray objectAtIndex:i]];
+//            NSString *refNO=[NSString stringWithFormat:@"%@",[errorRefArray objectAtIndex:i]];
+//            error_query = [NSString stringWithFormat:@"INSERT INTO eProposal_Error_Listing('RefNo','ErrorCode', 'ErrorDesc','CreateDate') VALUES ('%@','%@','%@','%@')",[errorRefArray objectAtIndex:i],[errorCodeArray objectAtIndex:i] ,[errorDescArray objectAtIndex:i] ,[errorCreatedArray objectAtIndex:i] ,nil];
+//            [database executeUpdate:error_query];
+//            NSString *updatetSQL1 = [NSString stringWithFormat:@"UPDATE eApp_Listing SET Status='6' WHERE ProposalNo='%@'",refNO,nil] ;
+//            [database executeUpdate:updatetSQL1];
+//
+//            [self ReloadTableData];
+//        }
+//        
+//        //         }
+//        //    else     {
+//        NSLog(@"the policy is number is not nill");
+//        //update policy number no eproposal
+//        NSString *policyno_Query1=@"";
+//        for(i=0;i<refArray.count;i++)
+//        {
+//            NSString *policyNO=[NSString stringWithFormat:@"%@",[resultArray objectAtIndex:i]];
+//            NSString *refNO=[NSString stringWithFormat:@"%@",[refArray objectAtIndex:i]];
+//            policyno_Query1=[NSString stringWithFormat:@"UPDATE eProposal SET PolicyNo = '%@' WHERE eProposalNo = '%@' ",policyNO,refNO,nil];
+//            [database executeUpdate:policyno_Query1];
+//            if ([policyNO isEqualToString:@"-"]) {
+//                NSString *updatetSQL2 = [NSString stringWithFormat:@"UPDATE eApp_Listing SET Status='6' WHERE ProposalNo='%@'",refNO,nil] ;
+//                [database executeUpdate:updatetSQL2];
+//            }
+//            else{
+//                NSString *updatetSQL1 = [NSString stringWithFormat:@"UPDATE eApp_Listing SET Status='7' WHERE ProposalNo='%@'",refNO,nil] ;
+//                [database executeUpdate:updatetSQL1];
+//				
+//				//Clean Data when successfully submit
+//				
+//				ClearData *CleanData =[[ClearData alloc]init];
+//				[CleanData SubmitedWipeOff:refNO];
+//				
+//            }
+//            [self ReloadTableData];
+//            //      }
+//        }
+//        [database close];
+//    }
+//                                                                                           failure:^(NSURLRequest *request1, NSHTTPURLResponse *response, NSError *error, NSXMLParser *XMLParser) {
+//                                                                                               NSLog(@"Error:%@",[error localizedDescription]);
+//                                                                                               NSLog(@"error in calling web service - FetchproposalStatus");
+//                                                                                               UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@" " message:@"Error in connecting to Web service. You will now be logged in as offline mode." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//                                                                                               alert.tag = 10;
+//                                                                                               [alert show];
+//                                                                                               alert = Nil;
+//                                                                                               [MBProgressHUD hideHUDForView:self.view animated:YES];
+//                                                                                           }];
+//    [operation start];
+//    
+//    
+//}
 
 - (IBAction)refreshCancelButtonClicked:(UIButton *)sender {
     UIButton *localButton = (UIButton *) sender;

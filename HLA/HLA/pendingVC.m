@@ -225,54 +225,54 @@
 
     NSLog(@"array %@", array);
 
-    NSString *ServerEappVersiontrim = [NSString stringWithFormat:@"%@", [array objectAtIndex:2]];
-
-    NSString *ServerEappVersion = [[[ServerEappVersiontrim stringByTrimmingCharactersInSet:
-                                   [NSCharacterSet whitespaceCharacterSet]] componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"><"]] objectAtIndex:2];
-
-    NSString *ServerObsVersion  = [[[NSString stringWithFormat:@"%@", [array objectAtIndex:4]]componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"><"]] objectAtIndex:2];
-
-    NSString *ServerObsDateVersion  = [NSString stringWithFormat:@"%@", [array objectAtIndex:5]];
-    NSArray *ServerObservationDateArrayCollection = [ServerObsDateVersion componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"[]"]];
-    NSString *Serverdate = [NSString stringWithFormat:@"%@", [[ServerObsDateVersion componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"><"]] objectAtIndex:2]];
+//    NSString *ServerEappVersiontrim = [NSString stringWithFormat:@"%@", [array objectAtIndex:2]];
+//
+//    NSString *ServerEappVersion = [[[ServerEappVersiontrim stringByTrimmingCharactersInSet:
+//                                   [NSCharacterSet whitespaceCharacterSet]] componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"><"]] objectAtIndex:2];
+//
+//    NSString *ServerObsVersion  = [[[NSString stringWithFormat:@"%@", [array objectAtIndex:4]]componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"><"]] objectAtIndex:2];
+//
+//    NSString *ServerObsDateVersion  = [NSString stringWithFormat:@"%@", [array objectAtIndex:5]];
+//    NSArray *ServerObservationDateArrayCollection = [ServerObsDateVersion componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"[]"]];
+//    NSString *Serverdate = [NSString stringWithFormat:@"%@", [[ServerObsDateVersion componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"><"]] objectAtIndex:2]];
 
     NSDate *today = [NSDate date];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyy-MM-dd"];
     NSString *CurrentdateString = [dateFormat stringFromDate:today];
     NSLog(@"date: %@", CurrentdateString);
-    NSString *Serverdate1 = Serverdate;
+//    NSString *Serverdate1 = Serverdate;
 
 
     NSComparisonResult result;
     //has three possible values: NSOrderedSame,NSOrderedDescending, NSOrderedAscending
 
-    result = [CurrentdateString
-              compare:Serverdate1]; // comparing two dates
-
-    if ([ServerEappVersion isEqualToString:@"(null)"] || [ServerEappVersion isEqualToString:@""] || ((NSNull *)ServerEappVersion == [NSNull null]) || ServerEappVersion == nil || [_LocalEappVersion isEqualToString:@"(null)"] || [_LocalEappVersion isEqualToString:@""] || ((NSNull *)_LocalEappVersion == [NSNull null]) || _LocalEappVersion == nil) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Error in connecting to Web services.Please try again later." delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-    } else if (([ServerEappVersion isEqualToString:_LocalEappVersion]) == YES) {
-        NSLog(@"here");
-        self.loginOuterView.hidden = NO;
-    } else if ([ServerObsVersion isEqualToString:_LocalEappVersion] == YES) {
-        if (result != NSOrderedDescending) {
-            NSLog(@"today is less");
-            self.loginOuterView.hidden = NO;
-        } else {
-            NSLog(@"newDate is less");
-            NSString *StringWithVersion = [NSString stringWithFormat:@"The selected eApp case is created based on older eApp Version. The version is now treated as obsolete, please recreate the case using new version.\nS: %@\nI: %@", ServerEappVersion, _LocalEappVersion];
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:StringWithVersion delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-        }
-    } else {
-        NSString *StringWithVersion = [NSString stringWithFormat:@"The selected eApp case is created based on older eApp Version. The version is now treated as obsolete, please recreate the case using new version.\nS: %@\nI: %@", ServerEappVersion, _LocalEappVersion];
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:StringWithVersion delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-    }
+//    result = [CurrentdateString
+//              compare:Serverdate1]; // comparing two dates
+//
+//    if ([ServerEappVersion isEqualToString:@"(null)"] || [ServerEappVersion isEqualToString:@""] || ((NSNull *)ServerEappVersion == [NSNull null]) || ServerEappVersion == nil || [_LocalEappVersion isEqualToString:@"(null)"] || [_LocalEappVersion isEqualToString:@""] || ((NSNull *)_LocalEappVersion == [NSNull null]) || _LocalEappVersion == nil) {
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Error in connecting to Web services.Please try again later." delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        [alert show];
+//    } else if (([ServerEappVersion isEqualToString:_LocalEappVersion]) == YES) {
+//        NSLog(@"here");
+//        self.loginOuterView.hidden = NO;
+//    } else if ([ServerObsVersion isEqualToString:_LocalEappVersion] == YES) {
+//        if (result != NSOrderedDescending) {
+//            NSLog(@"today is less");
+//            self.loginOuterView.hidden = NO;
+//        } else {
+//            NSLog(@"newDate is less");
+//            NSString *StringWithVersion = [NSString stringWithFormat:@"The selected eApp case is created based on older eApp Version. The version is now treated as obsolete, please recreate the case using new version.\nS: %@\nI: %@", ServerEappVersion, _LocalEappVersion];
+//            
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:StringWithVersion delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//            [alert show];
+//        }
+//    } else {
+//        NSString *StringWithVersion = [NSString stringWithFormat:@"The selected eApp case is created based on older eApp Version. The version is now treated as obsolete, please recreate the case using new version.\nS: %@\nI: %@", ServerEappVersion, _LocalEappVersion];
+//        
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:StringWithVersion delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        [alert show];
+//    }
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
@@ -1296,11 +1296,11 @@
 
 - (void)submitAfterSuccessFulllogin2
 {
-	 HUD = [[MBProgressHUD alloc] initWithView:self.view];
-    [self.view addSubview:HUD];
-    HUD.labelText = @"Please wait while we processing your request.";
-    HUD.detailsLabelText = @"( If it takes more than 5 minutes, please exit the application and try again. )";
-    [HUD show:YES];
+//	 HUD = [[MBProgressHUD alloc] initWithView:self.view];
+//    [self.view addSubview:HUD];
+//    HUD.labelText = @"Please wait while we processing your request.";
+//    HUD.detailsLabelText = @"( If it takes more than 5 minutes, please exit the application and try again. )";
+//    [HUD show:YES];
 	
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -1348,18 +1348,22 @@
 		
 		if ([[NSFileManager defaultManager] fileExistsAtPath:pr]) {
 			[selectedItems addObject:pr];
+			ID_count = ID_count + 1;
+			
 		}
 		
 		NSString *sp =  [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Forms/%@_SP_1.pdf", [recordDic objectForKey:@"ProposalNo"]]];
 		
 		if ([[NSFileManager defaultManager] fileExistsAtPath:sp]) {
 			[selectedItems addObject:sp];
+			ID_count = ID_count + 1;
 		}
 		
 		NSString *si =  [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Forms/%@_SI.pdf", [recordDic objectForKey:@"ProposalNo"]]];
 		
 		if ([[NSFileManager defaultManager] fileExistsAtPath:si]) {
 			[selectedItems addObject:si];
+			ID_count = ID_count + 1;
 		}
 		
 		NSString *id1 =  [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Forms/%@_ID_LA1.pdf", [recordDic objectForKey:@"ProposalNo"]]];
@@ -1429,30 +1433,36 @@
 		
 		if ([[NSFileManager defaultManager] fileExistsAtPath:ff]) {
 			[selectedItems addObject:ff];
+			//add
+			ID_count = ID_count + 1;
 		}
 		
 		NSString *ca =  [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Forms/%@_CA.pdf", [recordDic objectForKey:@"ProposalNo"]]];
 		
 		if ([[NSFileManager defaultManager] fileExistsAtPath:ca]) {
 			[selectedItems addObject:ca];
+			ID_count = ID_count + 1;
 		}
 		
 		NSString *au =  [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Forms/%@_AU.pdf", [recordDic objectForKey:@"ProposalNo"]]];
 		
 		if ([[NSFileManager defaultManager] fileExistsAtPath:au]) {
 			[selectedItems addObject:au];
+			ID_count = ID_count + 1;
 		}
 		
 		NSString *sixml =  [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"SIXML/%@_SI.xml", [recordDic objectForKey:@"ProposalNo"]]];
 		
 		if ([[NSFileManager defaultManager] fileExistsAtPath:sixml]) {
 			[selectedItems addObject:sixml];
+			ID_count = ID_count + 1;
 		}
 		
 		NSString *prxml =  [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"ProposalXML/%@_PR.xml", [recordDic objectForKey:@"ProposalNo"]]];
 		
 		if ([[NSFileManager defaultManager] fileExistsAtPath:prxml]) {
 			[selectedItems addObject:prxml];
+			ID_count = ID_count + 1;
 		}
 		 // generating COMPLETE.XML
 		NSString *agentCode1 = [self.AgentCode objectAtIndex:path.row];
@@ -1482,7 +1492,10 @@
 			cffindicator = 1;
 		}
 		
+		
+		// ## Create Complete FILE 
 		NSString *completeString = [NSString stringWithFormat:@"%@;%d;%d;%d;%d;", agentCode1, 0, cffindicator, 0, ID_count]; //A0030269;0;1;0;
+		NSLog(@"%@, %d", completeString, ID_count);
 		
 		[completeString writeToFile:[documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Forms/%@_Complete.xml",eProposalNo]] atomically:YES encoding:NSUTF8StringEncoding error:nil];
 		
@@ -1493,15 +1506,23 @@
 		if ([[NSFileManager defaultManager] fileExistsAtPath:cmpxml]) {
 			[selectedItems addObject:cmpxml];
 		}
+		// ## End
 		
+	
+//		[self EncFile:selectedItems];
 		
 		
 		//		int count = 0;
 		
 		for (int i = 0; i < [selectedItems count]; i++) {
-			//			count = count + 1;
-			//convert to byte
+			
+			
+			//convert to byte (all file)
 			NSData *data = [[NSData alloc] initWithContentsOfFile:[selectedItems objectAtIndex:i]];
+			
+			//Enc File only
+//            NSData *data = [[NSData alloc] initWithContentsOfFile:[[selectedItems objectAtIndex:i] stringByAppendingString:@".enc"]];
+			
 			// using base64StringFromData method, we are able to convert data to string
 			NSString *strBinary = [NSString base64StringFromData:data length:[data length]];
 			// log the base64 encoded string
@@ -1513,22 +1534,41 @@
 			
 			
 			//Remove this code if want completeXML with proposal NO
-			NSArray *SplitB = [docname componentsSeparatedByString:@"_"];
-			NSString *docCheck = [SplitB objectAtIndex:[SplitB count] - 1];
-			if ([docCheck isEqualToString:@"Complete.xml"]) {
-				docname = @"Complete.xml";
-			}
+//			NSArray *SplitB = [docname componentsSeparatedByString:@"_"];
+//			NSString *docCheck = [SplitB objectAtIndex:[SplitB count] - 1];
+//			if ([docCheck isEqualToString:@"Complete.xml"]) {
+//				docname = @"Complete.xml";
+//			}
 			
 			strDoc = docname;
-			NSLog(@"doc name %@", strDoc);
+			NSLog(@"doc name %@", strDoc);	
 			
 			//webservices
 			
-			NSString *strXML3 = [NSString stringWithFormat:@"<?xml version='1.0' encoding='utf-8'?><soap:Envelope xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'><soap:Body><SaveDocument xmlns='http://tempuri.org/'><strBinary>%@</strBinary><strDocName>%@</strDocName><strFolder>%@</strFolder><strSource>%@</strSource></SaveDocument></soap:Body></soap:Envelope>", strBinary, strDoc, strFolder, strSource];
-			NSURL *url = [NSURL URLWithString:@"http://192.168.0.140/AgentWebService/AgentMgmt.asmx?wsdl"];
+			NSString *ipSet = @"192.168.0.140";
+//			NSString *ipSet = @"192.168.2.119";
+			
+			NSString *CountFile = [NSString stringWithFormat:@"%d", ID_count];
+			NSLog(@"agentNo: %@", agentCode1);
+			
+			NSString *strAgentCode = [agentCode1 stringByTrimmingCharactersInSet:
+									  [NSCharacterSet whitespaceCharacterSet]];
+			
+			//#### Send encryption file
+			
+//			NSString *strXML3 = [NSString stringWithFormat:@"<?xml version='1.0' encoding='utf-8'?><soap:Envelope xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'><soap:Body><SaveDocument xmlns='http://tempuri.org/'><strBinary>%@</strBinary><strDocName>%@</strDocName><strFolder>%@</strFolder><strSource>%@</strSource><agentID>%@</agentID><totalFile>%@</totalFile></SaveDocument></soap:Body></soap:Envelope>", strBinary, strDoc, strFolder, strSource, strAgentCode, CountFile];
+			
+			//#### Send original file
+			
+			NSString *strXML3 = [NSString stringWithFormat:@"<?xml version='1.0' encoding='utf-8'?><soap:Envelope xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'><soap:Body><EncryptAll xmlns='http://tempuri.org/'><strBinary>%@</strBinary><strDocName>%@</strDocName><strFolder>%@</strFolder><strSource>%@</strSource><agentID>%@</agentID><totalFile>%@</totalFile></EncryptAll></soap:Body></soap:Envelope>", strBinary, strDoc, strFolder, strSource, strAgentCode, CountFile];
+			
+			NSString *strURL = [NSString stringWithFormat:@"http://%@/AgentWebService/AgentMgmt.asmx?wsdl", ipSet];
+			
+			NSURL *url = [NSURL URLWithString:strURL];
 			NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
 			[request addValue:@"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-			[request addValue:@"http://tempuri.org/SaveDocument" forHTTPHeaderField:@"SOAPAction"];
+//			[request addValue:@"http://tempuri.org/SaveDocument" forHTTPHeaderField:@"SOAPAction"];
+			[request addValue:@"http://tempuri.org/EncryptAll" forHTTPHeaderField:@"SOAPAction"];
 			NSString *msgLenght = [NSString stringWithFormat:@"%d", [strXML3 length]];
 			[request addValue:msgLenght forHTTPHeaderField:@"Content-Length"];
 			[request setHTTPMethod:@"POST"];
@@ -1549,49 +1589,62 @@
 			
 			NSString *replyString = [[NSString alloc] initWithBytes:[urlData bytes] length:[urlData length] encoding: NSASCIIStringEncoding];
 			
-			NSLog(replyString);
+			NSLog(@"reply: %@", replyString);
 			
 			//end Web service send file
-			NSLog(@"count: %d, %d", i, [selectedItems count]);
+//			NSLog(@"Item: %@", selectedItems);
+			NSLog(@"count: %d, %d", i, [selectedItems count]-1);
 			
 			if (i == [selectedItems count]-1) {
 				
-				NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-				NSString *docsDir = [dirPaths objectAtIndex:0];
-				databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"hladb.sqlite"]];
-				sqlite3_stmt *statement;
+				//temp
 				
-				NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-				NSDate *currDate = [NSDate date];
-				[dateFormatter setDateFormat:@"dd/MM/yyyy HH:mm:ss"];
-				NSString *dateString = [dateFormatter stringFromDate:currDate];
 				
-				if (sqlite3_open([databasePath UTF8String], &updateDB) == SQLITE_OK) {
-					NSString *updatetSQL = [NSString stringWithFormat:@"update eApp_Listing SET Status='4', SubmitDate = '%@' WHERE ProposalNo='%@'", dateString, [recordDic objectForKey:@"ProposalNo"]];
-					
-					if (sqlite3_prepare_v2(updateDB, [updatetSQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
-						if (sqlite3_step(statement) == SQLITE_DONE) {
-							NSLog(@"Update eapplisting status success!");
-							
-							self.loginOuterView.hidden = YES;
-							
-							UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Proposal(s) has been submitted successfully." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-							alert.tag = 10;
-							[alert show];
-							alert = Nil;
-							
-							[self deleteencFiles];
-							[self reloadAfterSubmission];
-						} else {
-							NSLog(@"Update eapplisting status fail!");
-						}
-						
-						sqlite3_finalize(statement);
-					}
-					
-					sqlite3_close(updateDB);
-					[self ReloadTableData];
-				}
+				NSUserDefaults *Temp = [NSUserDefaults standardUserDefaults];
+				[Temp setObject:[recordDic objectForKey:@"ProposalNo"] forKey:@"ProNo"];
+				
+				UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Proposal(s) has been submitted successfully." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//				alert.tag = 10;
+				[alert show];
+				alert = Nil;
+				
+//
+//				NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//				NSString *docsDir = [dirPaths objectAtIndex:0];
+//				databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"hladb.sqlite"]];
+//				sqlite3_stmt *statement;
+//				
+//				NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//				NSDate *currDate = [NSDate date];
+//				[dateFormatter setDateFormat:@"dd/MM/yyyy HH:mm:ss"];
+//				NSString *dateString = [dateFormatter stringFromDate:currDate];
+//				
+//				if (sqlite3_open([databasePath UTF8String], &updateDB) == SQLITE_OK) {
+//					NSString *updatetSQL = [NSString stringWithFormat:@"update eApp_Listing SET Status='4', SubmitDate = '%@' WHERE ProposalNo='%@'", dateString, [recordDic objectForKey:@"ProposalNo"]];
+//					
+//					if (sqlite3_prepare_v2(updateDB, [updatetSQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
+//						if (sqlite3_step(statement) == SQLITE_DONE) {
+//							NSLog(@"Update eapplisting status success!");
+//							
+//							self.loginOuterView.hidden = YES;
+//							
+//							UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Proposal(s) has been submitted successfully." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//							alert.tag = 10;
+//							[alert show];
+//							alert = Nil;
+//							
+//							[self deleteencFiles];
+//							[self reloadAfterSubmission];
+//						} else {
+//							NSLog(@"Update eapplisting status fail!");
+//						}
+//						
+//						sqlite3_finalize(statement);
+//					}
+//					
+//					sqlite3_close(updateDB);
+//					[self ReloadTableData];
+//				}
 				
 			}
 			
@@ -1599,8 +1652,127 @@
 		}
 	}
 	
-	[MBProgressHUD hideHUDForView:self.view animated:YES];
-	[HUD hide:YES afterDelay:1];
+//	[MBProgressHUD hideHUDForView:self.view animated:YES];
+//	[HUD hide:YES afterDelay:1];
+}
+
+-(void)EncFile :(NSMutableArray *) selectedItems{
+	
+	NSString *passcode = @"UAT1234567890";
+    NSString *source = @"IAPP(S)";
+	
+	BOOL success;
+	CkoCrypt2 *crypt;
+	CkoCrypt2 *crypt2;
+	
+	// Do any additional setup after loading the view, typically from a nib.
+	crypt = [[CkoCrypt2 alloc] init];
+	
+	
+	success = [crypt UnlockComponent:@"KUANKHCrypt_vD3vem6YMZjk"];
+	
+	if (success != YES) {
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ChilkatSample" message:@"Crypt library unlock failed" delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+		[alert show];
+	}
+	
+	//Decrypt string parameters
+	NSString *key;
+	key = @"Pas5pr@se";
+	
+	NSString *iv;
+	iv = @"@1B2c3D4e5F6g7H8";
+	
+	NSString *salt;
+	salt = @"s@1tValue";
+	
+	crypt.CryptAlgorithm = @"SHA1";
+	crypt.CipherMode = @"cbc";
+	crypt.KeyLength = [NSNumber numberWithInt:256];
+	crypt.PaddingScheme = [NSNumber numberWithInt:0];
+	
+	[crypt SetEncodedKey:key encoding:@"ascii"];
+	[crypt SetEncodedIV:iv encoding:@"ascii"];
+	[crypt SetEncodedSalt:salt encoding:@"ascii"];
+	
+	EncryptedPassPhrase = [_svdata valueForKey:@"EncryptedPassPhrase"];
+	EncryptedSaltValue = [_svdata valueForKey:@"EncryptedSaltValue"];
+	EncryptedHashAlgorithm = [_svdata valueForKey:@"EncryptedHashAlgorithm"];
+	EncryptedPasswordIteration = [_svdata valueForKey:@"EncryptedPasswordIteration"];
+	EncryptedInitialationVector = [_svdata valueForKey:@"EncryptedInitialationVector"];
+	EncryptedKeySize = [_svdata valueForKey:@"EncryptedKeySize"];
+	
+	DecryptedPassPhrase = [crypt DecryptStringENC:[_svdata valueForKey:@"EncryptedPassPhrase"]];
+	DecryptedSaltValue = [crypt DecryptStringENC:[_svdata valueForKey:@"EncryptedSaltValue"]];
+	DecryptedHashAlgorithm = [crypt DecryptStringENC:[_svdata valueForKey:@"EncryptedHashAlgorithm"]];
+	DecryptedPasswordIteration = [crypt DecryptStringENC:[_svdata valueForKey:@"EncryptedPasswordIteration"]];
+	DecryptedInitialationVector = [crypt DecryptStringENC:[_svdata valueForKey:@"EncryptedInitialationVector"]];
+	DecryptedKeySize = [crypt DecryptStringENC:[_svdata valueForKey:@"EncryptedKeySize"]];
+	NSLog(@"Encryption Done!");
+
+	
+	///// fetching document directory path
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *documentsDirectory = [paths objectAtIndex:0];
+	
+	NSString *FormsPath =  [documentsDirectory stringByAppendingPathComponent:@"Forms"];
+	
+	
+	crypt2 = [[CkoCrypt2 alloc] init];
+	
+	
+	success = [crypt2 UnlockComponent:@"KUANKHCrypt_vD3vem6YMZjk"];
+	
+	if (success != YES) {
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ChilkatSample" message:@"Crypt library unlock failed" delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+		[alert show];
+	}
+	
+	//do not change start
+	//Decrypt files parameters
+	NSString *key2;
+	key2 = DecryptedPassPhrase;
+	
+	NSString *salt2;
+	salt2 = DecryptedSaltValue;
+	
+	NSString *test3 = DecryptedHashAlgorithm;
+	
+	NSString *test1 = DecryptedPasswordIteration;
+	
+	NSString *test2 = DecryptedKeySize;
+	
+	NSString *iv2;
+	iv2 = DecryptedInitialationVector;
+	
+	
+	crypt2.CryptAlgorithm = @"SHA1";
+	crypt2.CipherMode = @"cbc";
+	crypt2.KeyLength = [NSNumber numberWithInt:256];
+	crypt2.PaddingScheme = [NSNumber numberWithInt:0];
+	
+	[crypt2 SetEncodedKey:key2 encoding:@"ascii"];
+	[crypt2 SetEncodedIV:iv2 encoding:@"ascii"];
+	[crypt2 SetEncodedSalt:salt2 encoding:@"ascii"];
+	
+	
+	for (int i = 0; i < [selectedItems count]; i++) {
+		
+		//encrypt file
+		if (![[NSFileManager defaultManager] fileExistsAtPath:[[selectedItems objectAtIndex:i] stringByAppendingString:@".enc"]]) {
+			[[NSFileManager defaultManager] createFileAtPath:[[selectedItems objectAtIndex:i] stringByAppendingString:@".enc"] contents:[NSData data] attributes:nil];
+		}
+		
+		BOOL issuccess = [crypt2 CkEncryptFile:[selectedItems objectAtIndex:i] destFile:[[selectedItems objectAtIndex:i] stringByAppendingString:@".enc"]];
+		
+		if (issuccess) {
+			NSLog(@"fileName: %@ success", [selectedItems objectAtIndex:i]);
+		} else {
+			NSLog(@"fileName: %@ failed", [selectedItems objectAtIndex:i]);
+		}
+	}
+	
+	
 }
 
 
@@ -1711,7 +1883,7 @@
     } else {
 		
 		[self submitAfterSuccessFulllogin2];
-       // [self loaadAppVersion];
+     
     }
 }
 

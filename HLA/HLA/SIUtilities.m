@@ -2417,14 +2417,17 @@ static sqlite3 *contactDB = nil;
 	NSString *query = @"CREATE TABLE IF NOT EXISTS SalesAct_contact (ID INTEGER PRIMARY KEY AUTOINCREMENT, NIP TEXT, KodeCabang TEXT, KCU TEXT, NamaReferral TEXT, NamaCabang TEXT, Kanwil TEXT, SumberReferal TEXT, TipeReferral TEXT, NamaLengkap TEXT, JenisKelamin TEXT, TanggalLahir DATE, TempatLahir TEXT, NoKTP_KITAS TEXT, Warganegara TEXT, NoHP TEXT, CreateAt DATETIME, UpdateAt DATETIME)";
 	[database executeUpdate:query];
 	
-//	query = @"CREATE TABLE IF NOT EXISTS SalesAct_Schedule (ID INTEGER PRIMARY KEY AUTOINCREMENT, SalesActivity_ID INT, Tanggal DATETIME, Waktu TIME, Catatan TEXT, CreateAt DATETIME, UpdateAt DATETIME)";
-//	[database executeUpdate:query];
-//	
-//	query = @"CREATE TABLE IF NOT EXISTS SalesAct_Lokasi (ID INTEGER PRIMARY KEY AUTOINCREMENT, SalesActivity_ID INT, anggal DATETIME, Waktu TIME, Catatan TEXT, Lokasi TEXT, CreateAt DATETIME, UpdateAt DATETIME)";
-//	[database executeUpdate:query];
+//	query = @"SELECT isDeleted from eApp_Listing";
+//    FMResultSet *results = [database executeQuery:query];
+//    if (!results){
+//        query = @"alter table eApp_Listing add column isDeleted VARCHAR";
+//        [database executeUpdate:query];
+//    }
 	
+	query = @"CREATE TABLE IF NOT EXISTS SalesAct_LogActivity (ID INTEGER PRIMARY KEY AUTOINCREMENT, SalesActivity_ID INT, Lokasi TEXT, Tanggal DATETIME, Waktu TIME, Catatan TEXT, Type TEXT, Activity TEXT, Status TEXT, CreateAt DATETIME, UpdateAt DATETIME)";
+	[database executeUpdate:query];
 	
-	query = @"CREATE TABLE IF NOT EXISTS SalesAct_LogActivity (ID INTEGER PRIMARY KEY AUTOINCREMENT, SalesActivity_ID INT, Lokasi TEXT, Type TEXT, Activity TEXT, Status TEXT, CreateAt DATETIME, UpdateAt DATETIME)";
+	query = @"CREATE TABLE IF NOT EXISTS SalesAct_ActLogList (ID INTEGER PRIMARY KEY AUTOINCREMENT, SalesActivity_ID INT, StateAct TEXT, Status TEXT, CreateAt DATETIME, UpdateAt DATETIME)";
 	[database executeUpdate:query];
 	
 	

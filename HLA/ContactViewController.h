@@ -7,11 +7,31 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SIDate.h"
 
-@interface ContactViewController : UIViewController <UIAlertViewDelegate>
+@interface ContactViewController : UIViewController <UIAlertViewDelegate, UITextFieldDelegate, UITextInputDelegate, UITextViewDelegate, SIDateDelegate> {
+	
+	UITextField *activeField;
+	SIDate *_SIDate;
+	UIPopoverController *_SIDatePopover;
+	
+}
 @property(nonatomic) CGRect frame;
 
-@property (weak, nonatomic) IBOutlet UIScrollView *ScrollView;
+@property (weak, nonatomic) IBOutlet UIScrollView *myScrollView;
+
+@property (nonatomic, retain) SIDate *SIDate;
+@property (nonatomic, retain) UIPopoverController *SIDatePopover;
+
+@property (weak, nonatomic) IBOutlet UIButton *btnDOB;
+- (IBAction)DOBUpdate:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UILabel *lblDate;
+@property (weak, nonatomic) IBOutlet UILabel *lblTime;
+@property (weak, nonatomic) IBOutlet UILabel *lblDay;
+
+
+
 @property (weak, nonatomic) IBOutlet UITextField *txtNIP;
 @property (weak, nonatomic) IBOutlet UITextField *txtKodeCabang;
 @property (weak, nonatomic) IBOutlet UITextField *txtKCU;

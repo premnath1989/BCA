@@ -31,6 +31,7 @@
 #import "CalculatorViewController.h"
 #import "SalesActivityViewController.h"
 #import "ContactViewController.h"
+#import "SaleActivityListVC.h"
 
 const int numberOfModule = 7;
 
@@ -263,9 +264,14 @@ const int numberOfModule = 7;
 //	//controller.modalPresentationStyle = UIModalPresentationPageSheet;
 //	[self presentViewController:controller animated:YES completion:Nil];
 	
-	ContactViewController *controller = [[ContactViewController alloc]
-											initWithNibName:@"ContactViewController"
-											bundle:nil];
+//	ContactViewController *controller = [[ContactViewController alloc]
+//											initWithNibName:@"ContactViewController"
+//											bundle:nil];
+	SaleActivityListVC *controller = [[SaleActivityListVC alloc]
+										 initWithNibName:@"SaleActivityListVC"
+										 bundle:nil];
+	
+	
 	//controller.delegate = self;
 	//controller.modalPresentationStyle = UIModalPresentationPageSheet;
 	[self presentViewController:controller animated:YES completion:Nil];

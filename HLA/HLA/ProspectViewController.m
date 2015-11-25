@@ -6507,15 +6507,15 @@ bool RegDatehandling;
 			[ClientProfile setObject:@"NO" forKey:@"TabBar"];
             return false;
         }
-        else if (txtIDType.text.length != 0 && ![nation isEqualToString:@"MALAYSIAN"]) {
-            
-            rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"Nationality didn’t match with New IC No." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            rrr.tag = 1005;
-            [rrr show];
-            
-			[ClientProfile setObject:@"NO" forKey:@"TabBar"];
-            return false;
-        }
+//        else if (txtIDType.text.length != 0 && ![nation isEqualToString:@"MALAYSIAN"]) {
+//            
+//            rrr = [[UIAlertView alloc] initWithTitle:@" " message:@"Nationality didn’t match with New IC No." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//            rrr.tag = 1005;
+//            [rrr show];
+//            
+//			[ClientProfile setObject:@"NO" forKey:@"TabBar"];
+//            return false;
+//        }
         //check for singaporean
         else if ([otherIDTypeTrim isEqualToString:@"SINGAPORE IDENTIFICATION NUMBER"] && ![nation isEqualToString:@"SINGAPOREAN"]) {
             
@@ -9090,7 +9090,7 @@ bool RegDatehandling;
     isDOBDate = NO;
 	isGSTDate = NO;
     
-    
+		
     df = Nil, d = Nil, d2 = Nil;
 }
 

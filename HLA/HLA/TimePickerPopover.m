@@ -1,23 +1,24 @@
 //
-//  SIDate.m
-//  HLA Ipad
+//  TimePickerPopover.m
+//  iMobile Planner
 //
-//  Created by Md. Nazmus Saadat on 10/4/12.
-//  Copyright (c) 2012 InfoConnect Sdn Bhd. All rights reserved.
+//  Created by Emi on 9/11/15.
+//  Copyright (c) 2015 InfoConnect Sdn Bhd. All rights reserved.
 //
 
-#import "SIDate.h"
+#import "TimePickerPopover.h"
 
-@interface SIDate ()
+@interface TimePickerPopover ()
 
 @end
 
-@implementation SIDate
+@implementation TimePickerPopover
 @synthesize outletDate = _outletDate;
 @synthesize delegate = _delegate;
-@synthesize ProspectDOB;
+@synthesize Time2;
 
 id msg, DBDate;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -30,35 +31,32 @@ id msg, DBDate;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    msg = @"";
+	// Do any additional setup after loading the view.
+	
+	msg = @"";
     DBDate = @"";
     
     NSDateFormatter *formatter;
     NSString        *dateString;
     
     formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"dd/MM/yyyy"];
+    [formatter setDateFormat:@"h:mm:ss a"];
     
     dateString = [formatter stringFromDate:[NSDate date]];
     msg = dateString;
-
+	
+    _outletDate.datePickerMode = UIDatePickerModeTime;
     
-    
-  
-    
-    if (ProspectDOB != NULL ) {
+    if (Time2 != NULL ) {
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"dd/MM/yyyy"];
-        NSDate *zzz = [dateFormatter dateFromString:ProspectDOB];
-		
+        [formatter setDateFormat:@"h:mm:ss a"];
+        NSDate *zzz = [dateFormatter dateFromString:Time2];
         [_outletDate setDate:zzz animated:YES ];
-         
+		
     }
-    
-}
 
+}
 - (void)viewDidUnload
 {
     [self setOutletDate:nil];
@@ -73,19 +71,19 @@ id msg, DBDate;
 
 - (IBAction)ActionDate:(id)sender {
     
-      
+	
     if (_delegate != Nil) {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"dd/MM/yyyy"];
+        [dateFormatter setDateFormat:@"h:mm:ss a"];
         
         NSString *pickerDate = [dateFormatter stringFromDate:[_outletDate date]];
         
         msg = [NSString stringWithFormat:@"%@",pickerDate];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+        [dateFormatter setDateFormat:@"h:mm:ss a"];
         DBDate = [dateFormatter stringFromDate:[_outletDate date]];
         //[_delegate DateSelected:msg :DBDate];
         
-          
+		
     }
     
     
@@ -95,7 +93,7 @@ id msg, DBDate;
 }
 
 - (IBAction)btnDone:(id)sender {
-   
+	
     if (msg == NULL) {
         
         // if msg = null means user din rotate the date...and choose the default date value
@@ -103,22 +101,20 @@ id msg, DBDate;
         NSString        *dateString;
         
         formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"dd/MM/yyyy"];
+        [formatter setDateFormat:@"h:mm:ss a"];
         
         dateString = [formatter stringFromDate:[NSDate date]];
         msg = dateString;
         
-          [_delegate DateSelected:msg :DBDate];
+		[_delegate DateSelected:msg :DBDate];
     }
     else{
         
-         
-         [_delegate DateSelected:msg :DBDate];
+		
+		[_delegate DateSelected:msg :DBDate];
     }
-    
-    
-    
     
     [_delegate CloseWindow];
 }
+
 @end

@@ -43,6 +43,7 @@
 	
 	NSUserDefaults *Cdefaults = [NSUserDefaults standardUserDefaults];
 	NSInteger SalesActivity_ID = [Cdefaults integerForKey:@"SalesActivity_ID"];
+	int state = [[Cdefaults stringForKey:@"StateAct"] integerValue];
 	
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *docsPath = [paths objectAtIndex:0];
@@ -52,29 +53,22 @@
 	
 	[db open];
 	
-	NSString *type = @"Contact";
-	NSString *SelectStr = [NSString stringWithFormat:@"select * from SalesAct_LogActivity where SalesActivity_ID = %d and Type = \"%@\"'", SalesActivity_ID, type];
-	
-	FMResultSet *result = [db executeQuery:SelectStr];
-	int ID = 0;
-	while ([result next]) {
-		ID = [result intForColumn:@"SalesActivity_ID"];
-	}
-	
-	
 	NSString *sqlQuery = @"";
-	if (ID == 0) {
-		sqlQuery = [NSString stringWithFormat:@"INSERT INTO SalesAct_LogActivity (Lokasi, SalesActivity_ID, CreateAt) VALUES (\"%@\", %d,  %@)", _txtLokasi.text, SalesActivity_ID, @"datetime(\"now\", \"+8 hour\")"];
-	}
-	else {
-		sqlQuery = [NSString stringWithFormat:@"UPDATE SalesAct_LogActivity SET Lokasi = '%@', UpdateAt = %@ where SalesActivity_ID = %d", _txtLokasi.text, @"datetime(\"now\", \"+8 hour\")", SalesActivity_ID ];
-	}
+
+	sqlQuery = [NSString stringWithFormat:@"UPDATE SalesAct_ActLogList SET StateAct = %d, Status = '%@', UpdateAt = %@ where SalesActivity_ID = %d", state, @"Activity", @"datetime(\"now\", \"+8 hour\")", SalesActivity_ID ];
+	
 	
 	BOOL success = [db executeUpdate: sqlQuery];
 	
 	if (success) {
 		NSLog(@"Success Update");
-		[self dismissModalViewControllerAnimated:YES];
+		
+		state = state + 1;
+		
+		[Cdefaults setObject:[NSString stringWithFormat:@"%d",state] forKey:@"StateAct"];
+		[Cdefaults synchronize];
+		
+		[self dismissViewControllerAnimated:YES completion:nil];
 
 	}
 	
@@ -83,7 +77,7 @@
 }
 
 - (IBAction)ActionBack:(id)sender {
-	[self dismissModalViewControllerAnimated:YES];
+	[self dismissViewControllerAnimated:YES completion:nil];
 	
 }
 @end

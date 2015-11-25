@@ -938,8 +938,8 @@ static NSString *labelVers;
 	
 	
    
-//	NSString *post = [NSString stringWithFormat:@"strAgentID=%@&strPassword=%@&strDeviceID=%@",txtUsername.text,txtPassword.text, @"1AE92BBE-1B69-413E-982A-557CBA969D4B"];
-	NSString *post = [NSString stringWithFormat:@"strAgentID=%@&strPassword=%@&strDeviceID=%@",txtUsername.text,txtPassword.text, [[[UIDevice currentDevice] identifierForVendor] UUIDString]];
+	NSString *post = [NSString stringWithFormat:@"strAgentID=%@&strPassword=%@&strDeviceID=%@",txtUsername.text,txtPassword.text, @"1AE92BBE-1B69-413E-982A-557CBA969D4B"];
+//	NSString *post = [NSString stringWithFormat:@"strAgentID=%@&strPassword=%@&strDeviceID=%@",txtUsername.text,txtPassword.text, [[[UIDevice currentDevice] identifierForVendor] UUIDString]];
 	
 //	NSString *post = [NSString stringWithFormat:@"strAgentID=%@&strDeviceID=%@",@"cd",@"ds"];
 	
@@ -948,6 +948,7 @@ static NSString *labelVers;
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
 	
 	NSString *url = [NSString stringWithFormat:@"http://192.168.0.140/AgentWebService/AgentMgmt.asmx/ValidateLogin"];
+
     [request setURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
@@ -959,6 +960,9 @@ static NSString *labelVers;
 	//D33D26AB-2319-4088-A7AD-E8A69F675F19
     NSError *error;
     urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+	
+	
+	
 	
 	BOOL hasConn;
     if(conn) {
@@ -1153,6 +1157,8 @@ static NSString *labelVers;
 //		
 //    }
 }
+
+
 
 -(void)parseURL:(NSString *) urlStr
 {

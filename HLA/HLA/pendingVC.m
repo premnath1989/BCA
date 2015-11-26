@@ -1608,43 +1608,43 @@
 				[alert show];
 				alert = Nil;
 				
-//
-//				NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//				NSString *docsDir = [dirPaths objectAtIndex:0];
-//				databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"hladb.sqlite"]];
-//				sqlite3_stmt *statement;
-//				
-//				NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//				NSDate *currDate = [NSDate date];
-//				[dateFormatter setDateFormat:@"dd/MM/yyyy HH:mm:ss"];
-//				NSString *dateString = [dateFormatter stringFromDate:currDate];
-//				
-//				if (sqlite3_open([databasePath UTF8String], &updateDB) == SQLITE_OK) {
-//					NSString *updatetSQL = [NSString stringWithFormat:@"update eApp_Listing SET Status='4', SubmitDate = '%@' WHERE ProposalNo='%@'", dateString, [recordDic objectForKey:@"ProposalNo"]];
-//					
-//					if (sqlite3_prepare_v2(updateDB, [updatetSQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
-//						if (sqlite3_step(statement) == SQLITE_DONE) {
-//							NSLog(@"Update eapplisting status success!");
-//							
-//							self.loginOuterView.hidden = YES;
-//							
-//							UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Proposal(s) has been submitted successfully." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//							alert.tag = 10;
-//							[alert show];
-//							alert = Nil;
-//							
-//							[self deleteencFiles];
-//							[self reloadAfterSubmission];
-//						} else {
-//							NSLog(@"Update eapplisting status fail!");
-//						}
-//						
-//						sqlite3_finalize(statement);
-//					}
-//					
-//					sqlite3_close(updateDB);
-//					[self ReloadTableData];
-//				}
+
+				NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+				NSString *docsDir = [dirPaths objectAtIndex:0];
+				databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"hladb.sqlite"]];
+				sqlite3_stmt *statement;
+				
+				NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+				NSDate *currDate = [NSDate date];
+				[dateFormatter setDateFormat:@"dd/MM/yyyy HH:mm:ss"];
+				NSString *dateString = [dateFormatter stringFromDate:currDate];
+				
+				if (sqlite3_open([databasePath UTF8String], &updateDB) == SQLITE_OK) {
+					NSString *updatetSQL = [NSString stringWithFormat:@"update eApp_Listing SET Status='4', SubmitDate = '%@' WHERE ProposalNo='%@'", dateString, [recordDic objectForKey:@"ProposalNo"]];
+					
+					if (sqlite3_prepare_v2(updateDB, [updatetSQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
+						if (sqlite3_step(statement) == SQLITE_DONE) {
+							NSLog(@"Update eapplisting status success!");
+							
+							self.loginOuterView.hidden = YES;
+							
+							UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Proposal(s) has been submitted successfully." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+							alert.tag = 10;
+							[alert show];
+							alert = Nil;
+							
+							[self deleteencFiles];
+							[self reloadAfterSubmission];
+						} else {
+							NSLog(@"Update eapplisting status fail!");
+						}
+						
+						sqlite3_finalize(statement);
+					}
+					
+					sqlite3_close(updateDB);
+					[self ReloadTableData];
+				}
 				
 			}
 			

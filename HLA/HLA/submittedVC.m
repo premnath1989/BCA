@@ -801,54 +801,123 @@
 
 - (IBAction)refreshButtonClicked:(UIButton *)sender {
 	
-	NSString *ipSet = @"192.168.0.140";
-	NSString *PONO = @""; 
-	NSString *AgentNo = @"emi";
+	int i;
 	
-	NSUserDefaults *Temp = [NSUserDefaults standardUserDefaults];
-	PONO = [Temp objectForKey:@"ProNo"];
-	
-	if (PONO == nil) {
-		PONO = @"RN151106082136572"; 
+//	cell.policyNo.text = [self.PolicyNo objectAtIndex:indexPath.row];
+
+	for(i=0;i<self.ProposalNo.count;i++)
+	{
+		NSString *PONO = [self.ProposalNo objectAtIndex:i];
+		NSString *status = [self.Status objectAtIndex:i];
+		
+		NSString *ipSet = @"192.168.0.140";
+		NSString *AgentNo = @"emi";
+		
+		if ([status isEqualToString:@"Submitted"]) {
+			
+			NSString *strXML3 = [NSString stringWithFormat:@"<?xml version='1.0' encoding='utf-8'?><soap:Envelope xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'><soap:Body><RetrievePolicyNumber xmlns='http://tempuri.org/'><agentCode>%@</agentCode><strPolNo>%@</strPolNo></RetrievePolicyNumber></soap:Body></soap:Envelope>", AgentNo, PONO];
+			
+			NSString *strURL = [NSString stringWithFormat:@"http://%@/AgentWebService/AgentMgmt.asmx?wsdl", ipSet];
+			
+			NSURL *url = [NSURL URLWithString:strURL];
+			NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+			[request addValue:@"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+			[request addValue:@"http://tempuri.org/RetrievePolicyNumber" forHTTPHeaderField:@"SOAPAction"];
+			NSString *msgLenght = [NSString stringWithFormat:@"%d", [strXML3 length]];
+			[request addValue:msgLenght forHTTPHeaderField:@"Content-Length"];
+			[request setHTTPMethod:@"POST"];
+			[request setHTTPBody:[strXML3 dataUsingEncoding:NSUTF8StringEncoding]];
+			
+			NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+			NSData *urlData;
+			NSURLResponse *response;
+			
+			NSError *error;
+			urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+			if(conn) {
+				NSLog(@"Connection Successful");
+			} else {
+				NSLog(@"Connection could not be made");
+			}
+			
+			
+			NSString *replyString = [[NSString alloc] initWithBytes:[urlData bytes] length:[urlData length] encoding: NSASCIIStringEncoding];
+			
+			//	NSLog(@"reply: %@", replyString);
+			
+			
+			
+			NSRange rangeValue1 = [replyString rangeOfString:@"Received" options:NSCaseInsensitiveSearch];
+			
+			
+			if (rangeValue1.length > 0)
+			{
+				NSArray *urlArr = [replyString componentsSeparatedByString:@"|"];
+				
+				if (urlArr.count < 1) {
+					return;//should not reach here
+				}
+				
+				NSString* PolicyNo =  [urlArr objectAtIndex:1];
+				
+				NSLog(@"Return policy No: %@", PolicyNo);
+				
+				
+				
+				NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+				NSString *docsDir = [dirPaths objectAtIndex:0];
+				databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"hladb.sqlite"]];
+			
+				NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+				NSString *docsPath = [paths objectAtIndex:0];
+				NSString *path = [docsPath stringByAppendingPathComponent:@"hladb.sqlite"];
+				
+				FMDatabase *db = [FMDatabase databaseWithPath:path];
+				
+				[db open];
+				
+				NSString *policyno_Query1=[NSString stringWithFormat:@"UPDATE eProposal SET PolicyNo = '%@' WHERE eProposalNo = '%@' ",PolicyNo,PONO,nil];
+					[db executeUpdate:policyno_Query1];
+					
+					
+				NSString *updatetSQL2 = [NSString stringWithFormat:@"UPDATE eApp_Listing SET Status='7' WHERE ProposalNo='%@'",PONO,nil] ;
+					[db executeUpdate:updatetSQL2];
+
+			}
+
+		}
+		
+		[self ReloadTableData];
+		
+		
+		
+		
+		
+		
+//		NSString *policyNO=[NSString stringWithFormat:@"%@",[resultArray objectAtIndex:i]];
+//		NSString *refNO=[NSString stringWithFormat:@"%@",[refArray objectAtIndex:i]];
+//		policyno_Query1=[NSString stringWithFormat:@"UPDATE eProposal SET PolicyNo = '%@' WHERE eProposalNo = '%@' ",policyNO,refNO,nil];
+//		[database executeUpdate:policyno_Query1];
+//		if ([policyNO isEqualToString:@"-"]) {
+//			NSString *updatetSQL2 = [NSString stringWithFormat:@"UPDATE eApp_Listing SET Status='6' WHERE ProposalNo='%@'",refNO,nil] ;
+//			[database executeUpdate:updatetSQL2];
+//		}
+//		else{
+//			NSString *updatetSQL1 = [NSString stringWithFormat:@"UPDATE eApp_Listing SET Status='7' WHERE ProposalNo='%@'",refNO,nil] ;
+//			[database executeUpdate:updatetSQL1];
+//			
+//			//Clean Data when successfully submit
+//			
+//			ClearData *CleanData =[[ClearData alloc]init];
+//			[CleanData SubmitedWipeOff:refNO];
+//			
+//		}
+//		
+//		//      }
 	}
 	
-	
-	NSString *strXML3 = [NSString stringWithFormat:@"<?xml version='1.0' encoding='utf-8'?><soap:Envelope xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'><soap:Body><RetrievePolicyNumber xmlns='http://tempuri.org/'><agentCode>%@</agentCode><strPolNo>%@</strPolNo></RetrievePolicyNumber></soap:Body></soap:Envelope>", AgentNo, PONO];
-	
-	NSString *strURL = [NSString stringWithFormat:@"http://%@/AgentWebService/AgentMgmt.asmx?wsdl", ipSet];
-	
-	NSURL *url = [NSURL URLWithString:strURL];
-	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-	[request addValue:@"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-	[request addValue:@"http://tempuri.org/RetrievePolicyNumber" forHTTPHeaderField:@"SOAPAction"];
-	NSString *msgLenght = [NSString stringWithFormat:@"%d", [strXML3 length]];
-	[request addValue:msgLenght forHTTPHeaderField:@"Content-Length"];
-	[request setHTTPMethod:@"POST"];
-	[request setHTTPBody:[strXML3 dataUsingEncoding:NSUTF8StringEncoding]];
-	
-	NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-	NSData *urlData;
-	NSURLResponse *response;
-	
-	NSError *error;
-	urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-	if(conn) {
-		NSLog(@"Connection Successful");
-	} else {
-		NSLog(@"Connection could not be made");
-	}
-	
-	
-	NSString *replyString = [[NSString alloc] initWithBytes:[urlData bytes] length:[urlData length] encoding: NSASCIIStringEncoding];
-	
-	NSLog(@"reply: %@", replyString);
-
-
-	NSRange rangeValue1 = [replyString rangeOfString:@"RetrievePolicyNumberResult" options:NSCaseInsensitiveSearch];
 	
 }
-
-
 
 //- (IBAction)refreshButtonClicked:(UIButton *)sender {
 //    
@@ -971,7 +1040,7 @@
 //        NSMutableDictionary *recordDic = [[NSMutableDictionary alloc] init];
 //        databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"hladb.sqlite"]];
 //        sqlite3_stmt *statement;
-//        
+//
 //        FMDatabase *database = [FMDatabase databaseWithPath:databasePath];
 //        [database open];
 //        FMResultSet *results;
@@ -1061,7 +1130,7 @@
 //				
 //				ClearData *CleanData =[[ClearData alloc]init];
 //				[CleanData SubmitedWipeOff:refNO];
-//				
+//
 //            }
 //            [self ReloadTableData];
 //            //      }

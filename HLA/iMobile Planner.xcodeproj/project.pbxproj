@@ -450,6 +450,7 @@
 		C39B6C301BE1B1A600F54926 /* addressbook.png in Resources */ = {isa = PBXBuildFile; fileRef = C39B6C2C1BE1B1A600F54926 /* addressbook.png */; };
 		C39B6C341BE1C9AA00F54926 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C39B6C321BE1C9AA00F54926 /* ContactViewController.m */; };
 		C39B6C351BE1C9AA00F54926 /* ContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C39B6C331BE1C9AA00F54926 /* ContactViewController.xib */; };
+		C3A187E71C06B3E40052006D /* arrow (1).png in Resources */ = {isa = PBXBuildFile; fileRef = C3A187E61C06B3E40052006D /* arrow (1).png */; };
 		C3A1A54C1BFAC89E009D9841 /* TimePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A1A54A1BFAC89E009D9841 /* TimePicker.m */; };
 		C3A1A54D1BFAC89E009D9841 /* TimePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3A1A54B1BFAC89E009D9841 /* TimePicker.xib */; };
 		C3A1A5511BFB0157009D9841 /* Act1VC.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A1A54F1BFB0157009D9841 /* Act1VC.m */; };
@@ -1594,6 +1595,7 @@
 		C39B6C311BE1C9AA00F54926 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
 		C39B6C321BE1C9AA00F54926 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
 		C39B6C331BE1C9AA00F54926 /* ContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactViewController.xib; sourceTree = "<group>"; };
+		C3A187E61C06B3E40052006D /* arrow (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow (1).png"; sourceTree = "<group>"; };
 		C3A1A5491BFAC89E009D9841 /* TimePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimePicker.h; sourceTree = "<group>"; };
 		C3A1A54A1BFAC89E009D9841 /* TimePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimePicker.m; sourceTree = "<group>"; };
 		C3A1A54B1BFAC89E009D9841 /* TimePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimePicker.xib; sourceTree = "<group>"; };
@@ -3217,6 +3219,7 @@
 		C32515871BEB28CC00B5A9AB /* SalesActivity */ = {
 			isa = PBXGroup;
 			children = (
+				C3A187E61C06B3E40052006D /* arrow (1).png */,
 				C3C4BA051BF588DC0000C0DD /* SaleActivityListVC.h */,
 				C3C4BA061BF588DC0000C0DD /* SaleActivityListVC.m */,
 				C3C4BA071BF588DC0000C0DD /* SaleActivityListVC.xib */,
@@ -4777,6 +4780,7 @@
 				C3A1A54D1BFAC89E009D9841 /* TimePicker.xib in Resources */,
 				C3A1A5521BFB0157009D9841 /* Act1VC.xib in Resources */,
 				C3A1A55C1BFDCEF5009D9841 /* ActivityLogVC.xib in Resources */,
+				C3A187E71C06B3E40052006D /* arrow (1).png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

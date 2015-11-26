@@ -10,6 +10,7 @@
 #import "ColorHexCode.h"
 #import "FMDatabase.h"
 #import "SaleActivityListVC.h"
+#import "Act1VC.h"
 
 @interface ActivityLogVC ()
 
@@ -37,6 +38,7 @@
     NSString *docsDir = [dirPaths objectAtIndex:0];
     databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"hladb.sqlite"]];
 	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(LoadData) name:@"reloadActLog" object:nil];
 	[self LoadData];
     // Do any additional setup after loading the view from its nib.
 }
@@ -60,7 +62,7 @@
 	
     FMDatabase *db = [FMDatabase databaseWithPath:databasePath];
     [db open];
-    FMResultSet *result = [db executeQuery:@"select * from SalesAct_LogActivity as A, SalesAct_contact as B where A.SalesActivity_ID = B.ID"];
+    FMResultSet *result = [db executeQuery:@"select A.CreateAt as ActCreateAt, B.CreateAt as ConCreateAt, C.CreateAt as LogCreateAt, NamaLengkap, TipeReferral, Activity, Tanggal, TanggalLahir, B.id, C.Status, StateAct from SalesAct_LogActivity as A, SalesAct_contact as B, SalesAct_ActLogList as C where A.SalesActivity_ID = B.ID and C.SalesActivity_ID = B.ID"];
 	
     
 	
@@ -73,9 +75,10 @@
 		
         NSDictionary *data = [[NSDictionary alloc] initWithObjectsAndKeys:
 							  [result objectForColumnName:@"NamaLengkap"], @"NamaLengkap",
-							  [result objectForColumnName:@"CreateAt"], @"LogCreateAt",
-//							  [result objectForColumnName:@"CreateAt"], @"ConCreateAt",
+							  [result objectForColumnName:@"ActCreateAt"], @"LogCreateAt",
+							  [result objectForColumnName:@"ConCreateAt"], @"ConCreateAt",
 							  [result objectForColumnName:@"TipeReferral"], @"TipeReferral",
+							  [result objectForColumnName:@"StateAct"], @"StateAct",
 							  [result objectForColumnName:@"Activity"], @"Activity",
 							  [result objectForColumnName:@"Status"], @"Status",
 							  [result objectForColumnName:@"Tanggal"], @"Tanggal",
@@ -208,15 +211,17 @@
     UILabel *label7=[[UILabel alloc]init];
     label7.frame=frame7;
 	dt = [[itemInArray objectAtIndex:indexPath.row] objectForKey:@"Tanggal"];
-	dateFormatter = [[NSDateFormatter alloc] init] ;
-	[dateFormatter setDateFormat:@"dd/MM/yyyy"];
-	date = [dateFormatter dateFromString:dt];
-	dateFormatter = [[NSDateFormatter alloc] init];
-	[dateFormatter setDateFormat:@"dd MMM yyyy"];;
-	dt = [dateFormatter stringFromDate:date];
 	
-	label7.text = dt;
-	//    label2.textAlignment = UITextAlignmentCenter;
+	if  ((NSNull *) dt != [NSNull null]) {
+		dateFormatter = [[NSDateFormatter alloc] init] ;
+		[dateFormatter setDateFormat:@"dd/MM/yyyy"];
+		date = [dateFormatter dateFromString:dt];
+		dateFormatter = [[NSDateFormatter alloc] init];
+		[dateFormatter setDateFormat:@"dd MMM yyyy"];;
+		dt = [dateFormatter stringFromDate:date];
+		label7.text = dt;
+	}
+		//    label2.textAlignment = UITextAlignmentCenter;
     label7.tag = 2007;
     [cell.contentView addSubview:label7];
 	
@@ -252,6 +257,27 @@
     
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	
+	NSUserDefaults *Cdefaults = [NSUserDefaults standardUserDefaults];
+	
+	int SAID = [[[itemInArray objectAtIndex:indexPath.row] objectForKey:@"id"] integerValue];
+	NSString *sta = [[itemInArray objectAtIndex:indexPath.row] objectForKey:@"StateAct"];
+	
+	[Cdefaults setObject:[NSNumber numberWithInt:SAID] forKey:@"SalesActivity_ID"];
+//	[Cdefaults setObject:[NSString stringWithFormat:@"Update Contact"] forKey:@"TitleSetting"];
+	[Cdefaults setObject:[[itemInArray objectAtIndex:indexPath.row] objectForKey:@"StateAct"] forKey:@"StateAct"];
+	[Cdefaults synchronize];
+	
+	Act1VC *controller = [[Act1VC alloc]
+										 initWithNibName:@"Act1VC"
+										 bundle:nil];
+	[self presentViewController:controller animated:YES completion:Nil];
+	
+	
 }
 
 

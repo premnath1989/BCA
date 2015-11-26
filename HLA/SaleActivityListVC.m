@@ -94,8 +94,8 @@
 	
     while ([result next]) {
 		
-		
-		FMResultSet *result2 = [db executeQuery:@"select * from SalesAct_ActLogList where SalesActivity_ID = ?", [result objectForColumnName:@"id"], Nil];
+		NSString *sql2 = [ NSString stringWithFormat:@"select * from SalesAct_ActLogList where SalesActivity_ID = %@", [result objectForColumnName:@"id"]];
+		FMResultSet *result2 = [db executeQuery:sql2];
 		
 		NSString *stateAct = @"";
 		while ([result2 next]) {
@@ -118,8 +118,6 @@
 							  [result objectForColumnName:@"id"], @"id",
 							  nil];
 		
-		
-		
         [itemInArray addObject:[data copy]];
     } 
 
@@ -139,11 +137,6 @@
     
 }
 
-- (IBAction)ActionReffer:(id)sender {
-	
-	
-	
-}
 
 - (IBAction)ActionActLog:(id)sender {
 	
@@ -221,13 +214,32 @@
 //    }
     
 	//Ref Quality
-    CGRect frame=CGRectMake(0,0,117, 50);
+	
+	CGRect frame1=CGRectMake(0,0,117, 50);
     UILabel *label1=[[UILabel alloc]init];
-    label1.frame=frame;
-    label1.text= @"      ";
-//    label1.textAlignment = UITextAlignmentLeft;
-    label1.tag = 2001;
+    label1.frame=frame1;
+    label1.text= @"            ";
+	//    label2.textAlignment = UITextAlignmentCenter;
     [cell.contentView addSubview:label1];
+	
+	UIImageView *imv = [[UIImageView alloc]initWithFrame:CGRectMake(30,15,25,25)];
+	
+	int stateAt = [[[itemInArray objectAtIndex:indexPath.row] objectForKey:@"StateAct"]integerValue];
+	
+	if (stateAt == 5 || stateAt == 99) {
+		imv.image=[UIImage imageNamed:@"x5.png"];
+	}
+	else if (stateAt >= 4 && stateAt < 5) {
+		imv.image=[UIImage imageNamed:@"greenBtn.png"];
+	}
+	else if (stateAt >= 2 && stateAt < 4) {
+		imv.image=[UIImage imageNamed:@"merahBtn.png"];
+	}
+	else if (stateAt < 2) {
+		imv.image=[UIImage imageNamed:@"button.png"];
+	}
+		
+    [cell.contentView addSubview:imv];
     
 	//Nama
     CGRect frame2=CGRectMake(117,0, 200, 50);
@@ -315,7 +327,8 @@
 	
 	
     if (indexPath.row % 2 == 0) {
-        label1.backgroundColor = [CustomColor colorWithHexString:@"D0D8E8"];
+        imv.backgroundColor = [CustomColor colorWithHexString:@"D0D8E8"];
+		 label1.backgroundColor = [CustomColor colorWithHexString:@"D0D8E8"];
         label2.backgroundColor = [CustomColor colorWithHexString:@"D0D8E8"];
 		label3.backgroundColor = [CustomColor colorWithHexString:@"D0D8E8"];
         label4.backgroundColor = [CustomColor colorWithHexString:@"D0D8E8"];
@@ -324,11 +337,12 @@
 		label7.backgroundColor = [CustomColor colorWithHexString:@"D0D8E8"];
         label8.backgroundColor = [CustomColor colorWithHexString:@"D0D8E8"];
 		
-        label1.font = [UIFont fontWithName:@"TreBuchet MS" size:16];
+//        label1.font = [UIFont fontWithName:@"TreBuchet MS" size:16];
         label2.font = [UIFont fontWithName:@"TreBuchet MS" size:16];
     }
     else {
-        label1.backgroundColor = [CustomColor colorWithHexString:@"E9EDF4"];
+        imv.backgroundColor = [CustomColor colorWithHexString:@"E9EDF4"];
+		label1.backgroundColor = [CustomColor colorWithHexString:@"E9EDF4"];
         label2.backgroundColor = [CustomColor colorWithHexString:@"E9EDF4"];
 		label3.backgroundColor = [CustomColor colorWithHexString:@"E9EDF4"];
         label4.backgroundColor = [CustomColor colorWithHexString:@"E9EDF4"];
@@ -337,7 +351,7 @@
 		label7.backgroundColor = [CustomColor colorWithHexString:@"E9EDF4"];
         label8.backgroundColor = [CustomColor colorWithHexString:@"E9EDF4"];
         
-        label1.font = [UIFont fontWithName:@"TreBuchet MS" size:16];
+//        label1.font = [UIFont fontWithName:@"TreBuchet MS" size:16];
         label2.font = [UIFont fontWithName:@"TreBuchet MS" size:16];
     }
     
@@ -351,6 +365,7 @@
 	NSUserDefaults *Cdefaults = [NSUserDefaults standardUserDefaults];
 	
 	int SAID = [[[itemInArray objectAtIndex:indexPath.row] objectForKey:@"id"] integerValue];
+	NSString *sta = [[itemInArray objectAtIndex:indexPath.row] objectForKey:@"StateAct"];
 	
 	[Cdefaults setObject:[NSNumber numberWithInt:SAID] forKey:@"SalesActivity_ID"];
 	[Cdefaults setObject:[NSString stringWithFormat:@"Update Contact"] forKey:@"TitleSetting"];

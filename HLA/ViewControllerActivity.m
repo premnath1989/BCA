@@ -43,7 +43,9 @@
 	
 	NSUserDefaults *Cdefaults = [NSUserDefaults standardUserDefaults];
 	NSInteger SalesActivity_ID = [Cdefaults integerForKey:@"SalesActivity_ID"];
-	int state = [[Cdefaults stringForKey:@"StateAct"] integerValue];
+	NSString *state = [Cdefaults stringForKey:@"StateAct"];
+	
+	int state2 = [state integerValue] + 1;
 	
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *docsPath = [paths objectAtIndex:0];
@@ -54,8 +56,13 @@
 	[db open];
 	
 	NSString *sqlQuery = @"";
-
-	sqlQuery = [NSString stringWithFormat:@"UPDATE SalesAct_ActLogList SET StateAct = %d, Status = '%@', UpdateAt = %@ where SalesActivity_ID = %d", state, @"Activity", @"datetime(\"now\", \"+8 hour\")", SalesActivity_ID ];
+	if (state2 == 5){
+		sqlQuery = [NSString stringWithFormat:@"UPDATE SalesAct_ActLogList SET StateAct = %d, Status = '%@', UpdateAt = %@ where SalesActivity_ID = %d", state2, @"Completed", @"datetime(\"now\", \"+8 hour\")", SalesActivity_ID ];
+	}
+	else {
+		sqlQuery = [NSString stringWithFormat:@"UPDATE SalesAct_ActLogList SET StateAct = %d, Status = '%@', UpdateAt = %@ where SalesActivity_ID = %d", state2, @"Activity", @"datetime(\"now\", \"+8 hour\")", SalesActivity_ID ];
+	}
+	
 	
 	
 	BOOL success = [db executeUpdate: sqlQuery];
@@ -63,11 +70,13 @@
 	if (success) {
 		NSLog(@"Success Update");
 		
-		state = state + 1;
 		
-		[Cdefaults setObject:[NSString stringWithFormat:@"%d",state] forKey:@"StateAct"];
+//		state = state + 1;
+		
+		[Cdefaults setObject:[NSString stringWithFormat:@"%d",state2] forKey:@"StateAct"];
 		[Cdefaults synchronize];
 		
+		[[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeState" object:self];
 		[self dismissViewControllerAnimated:YES completion:nil];
 
 	}
@@ -77,6 +86,7 @@
 }
 
 - (IBAction)ActionBack:(id)sender {
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeState" object:self];
 	[self dismissViewControllerAnimated:YES completion:nil];
 	
 }

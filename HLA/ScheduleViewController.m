@@ -36,9 +36,36 @@ bool isTime;
 	isTime = NO;
 	isDate = NO;
 	
-	_txtStatus.text = @"NEW";
+//	_txtStatus.text = @"NEW";
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(TimeSelect) name:@"TimeSelect" object:nil];
+	
+	NSUserDefaults *Cdefaults = [NSUserDefaults standardUserDefaults];
+	NSInteger SalesActivity_ID = [Cdefaults integerForKey:@"SalesActivity_ID"];
+	NSString *type = [Cdefaults stringForKey:@"ScheduleFor"];
+	
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *docsPath = [paths objectAtIndex:0];
+	NSString *path = [docsPath stringByAppendingPathComponent:@"hladb.sqlite"];
+	
+	FMDatabase *db = [FMDatabase databaseWithPath:path];
+	
+	[db open];
+	
+	
+	NSString *strSQL = [NSString stringWithFormat:@"select * from SalesAct_LogActivity where SalesActivity_ID = %d and Activity = \"%@\"", SalesActivity_ID, type];
+	
+	FMResultSet *result = [db executeQuery:strSQL];
+	int Count = 0;
+    while ([result next]) {
+		Count = Count + 1;
+	}
+	
+	if (Count !=0) {
+		[self RetrieveDate];
+	}
+	
+	[db close];
 }
 
 - (void)didReceiveMemoryWarning
@@ -165,7 +192,25 @@ bool isTime;
 	
 	[db open];
 	
-	NSString *sqlQuery = [NSString stringWithFormat:@"INSERT INTO SalesAct_LogActivity (SalesActivity_ID, Lokasi, Tanggal, Waktu, Catatan, Activity, Status, CreateAt) VALUES (%d, \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", %@)", SalesActivity_ID, _txtLokasi.text, _txtTanggal.text, _txtWaktu.text, _txtCatatan.text, type, _txtStatus.text ,@"datetime(\"now\", \"+8 hour\")"];
+	
+	NSString *strSQL = [NSString stringWithFormat:@"select * from SalesAct_LogActivity where SalesActivity_ID = %d and Activity = \"%@\"", SalesActivity_ID, type];
+	
+	FMResultSet *result = [db executeQuery:strSQL];
+	int Count = 0;
+    while ([result next]) {
+		Count = Count + 1;
+	}	
+	
+	NSString *sqlQuery;
+	if (Count == 0) {
+		sqlQuery = [NSString stringWithFormat:@"INSERT INTO SalesAct_LogActivity (SalesActivity_ID, Lokasi, Tanggal, Waktu, Catatan, Activity, Status, CreateAt) VALUES (%d, \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", %@)", SalesActivity_ID, _txtLokasi.text, _txtTanggal.text, _txtWaktu.text, _txtCatatan.text, type, _txtStatus.text ,@"datetime(\"now\", \"+8 hour\")"];
+	}
+	else {
+		sqlQuery = [NSString stringWithFormat:@"Update SalesAct_LogActivity SET Lokasi = \"%@\", Tanggal = \"%@\", Waktu = \"%@\", Catatan = \"%@\", Status = \"%@\", UpdateAt = %@ where SalesActivity_ID = %d and Activity = \"%@\"",  _txtLokasi.text, _txtTanggal.text, _txtWaktu.text, _txtCatatan.text, _txtStatus.text ,@"datetime(\"now\", \"+8 hour\")", SalesActivity_ID, type];
+	}
+	
+	
+	
 	
 	BOOL success = [db executeUpdate: sqlQuery];
 	
@@ -181,7 +226,38 @@ bool isTime;
 	
 }
 
+-(void)RetrieveDate {
+	
+	NSUserDefaults *Cdefaults = [NSUserDefaults standardUserDefaults];
+	NSInteger SalesActivity_ID = [Cdefaults integerForKey:@"SalesActivity_ID"];
+	NSString *type = [Cdefaults stringForKey:@"ScheduleFor"];
+	
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *docsPath = [paths objectAtIndex:0];
+	NSString *path = [docsPath stringByAppendingPathComponent:@"hladb.sqlite"];
+	
+	FMDatabase *db = [FMDatabase databaseWithPath:path];
+	
+	[db open];
+	
+	
+	NSString *strSQL = [NSString stringWithFormat:@"select * from SalesAct_LogActivity where SalesActivity_ID = %d and Activity = \"%@\"", SalesActivity_ID, type];
+	
+	FMResultSet *result = [db executeQuery:strSQL];
 
+    while ([result next]) {
+		_txtLokasi.text = [result stringForColumn:@"Lokasi"];
+		_txtTanggal.text = [result stringForColumn:@"Tanggal"];
+		_txtWaktu.text = [result stringForColumn:@"Waktu"];
+		_txtCatatan.text = [result stringForColumn:@"Catatan"];
+		_txtStatus.text = [result stringForColumn:@"Status"];
+	
+	}
+
+	[db close];
+
+	
+}
 
 - (IBAction)actionStatus:(id)sender {
 }
